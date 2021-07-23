@@ -1,0 +1,47 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/reconfig_fc_switch_layout.html
+keywords: reconfigure, fc, switch, layout, RCF, metrocluster
+summary: Decommission the old system
+---
+
+= Reconfigure the FC switch layout for ONTAP 9.1 or later
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+If your existing FC switch layout was configured prior to ONTAP 9.1, you must reconfigure the port layout and apply the latest Reference Configuration Files (RCFs). This procedure applies only to MetroCluster FC configurations.
+
+.Before you begin
+
+You must identify the FC switches present in the fabric domain.
+
+You need the admin password and access to an FTP or SCP server.
+
+.About this task
+
+You must perform this task if your existing FC switch layout was configured prior to ONTAP 9.1 and you are upgrading to a platform model supported in ONTAP 9.1 or later. It is _not_ required if you are upgrading from an existing switch layout that was configured for ONTAP 9.1 or later.
+
+This procedure is nondisruptive and takes approximately four hours to complete (excluding rack and stack) when disks are zeroed.
+
+.Steps
+
+. link:send_custom_asup_message_prior_reconfig_switches.html[Send a custom AutoSupport message prior to reconfiguring switches]
+
+. link:verify_health_mcc_config.html[Verify the health of the MetroCluster configuration]
+
+. link:check_mcc_config_errors.html[Check for MetroCluster configuration errors]
+
+. link:persist_disable_switches.html[Persistently disable the switches]
+
+. link:determine_new_cabling_layout.html[Determine the new cabling layout]
+
+. link:apply_RCF_files_recable_switches.html[Apply RCF files and recable the switches]
+
+. link:persist_enable_switches.html[Persistently enable the switches]
+
+. link:verify_swtichover_healing_switchback.html[Verify switchover, healing, and switchback]
+// 26 FEB 2021:  Formatted from CMS

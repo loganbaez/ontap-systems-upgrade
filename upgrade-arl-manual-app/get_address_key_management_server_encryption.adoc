@@ -1,0 +1,15 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/get_address_key_management_server_encryption.html
+keywords: storage, encryption, authentication, key, manager, external
+summary: Configure Storage Encryption and establish a client authentication key.
+---
+
+= Get an IP address of an external key management server for Storage Encryption
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+include::../_include/ru_man_get_ip_address_external_km_server.adoc[]

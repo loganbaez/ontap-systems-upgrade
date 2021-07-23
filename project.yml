@@ -1,5 +1,11 @@
 sidebar:
-
+  entries:
+    - title: ONTAP 9.8 System Documentation
+      url: /upgrade/index.html
+    - section: upgrade-arl-auto-app
+    - section: upgrade-arl-manual-app
+    - section: upgrade-arl-auto
+    - section: upgrade-arl-manual
 
 homepage:
   tiles:

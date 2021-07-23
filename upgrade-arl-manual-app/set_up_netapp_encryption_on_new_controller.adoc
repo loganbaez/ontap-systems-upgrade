@@ -1,0 +1,65 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/set_up_netapp_encryption_on_new_controller.html
+keywords: set up, netapp volume encryption, encryption, controller, module
+summary: If the replaced controller or the HA partner of the new controller uses NetApp Volume Encryption, you must configure the new controller module for NetApp Volume Encryption.
+---
+
+= Set up NetApp Volume Encryption on the new controller module
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+If the replaced controller or the HA partner of the new controller uses NetApp Volume Encryption (NVE), you must configure the new controller module for NVE.
+
+.About this task
+
+This procedure includes steps that are performed on the new controller module. You must enter the command on the correct node.
+
+.Steps
+
+. Verify that the key management servers are still available, their status, and their authentication key information:
++
+`security key-manager key query -node node`
+
+. Add the key management servers listed in the previous step to the key management server list in the new controller:
+.. Add the key management server by using the following command:
++
+`security key-manager -add <key_management_server_ip_address>`
+
+.. Repeat the previous step for each listed key management server. You can link up to four key management servers.
+.. Verify the that the key management servers were added successfully by using the following command:
++
+`security key-manager show`
+
+. On the new controller module, run the key management setup wizard to set up and install the key management servers.
++
+You must install the same key management servers that are installed on the existing controller module.
+
+.. Launch the key management server setup wizard on the new node by using the following command:
++
+`security key-manager setup -node <new_controller_name>`
+
+.. Complete the steps in the wizard to configure key management servers.
+. Restore authentication keys from all linked key management servers to the new node:
++
+[cols=2*,options="header",cols="35,65"]
+|===
+|For... |Use this command...
+|External Key Manager (EKM)
+|`security key-manager external restore`
+
+This command needs the OKM passphrase
+|Onboard Key Manager (OKM)
+|`security key-manager onboard sync`
+|===
+
+.After you finish
+
+Check if any volumes were taken offline because authentication keys were not available or external key management servers could not be reached. Bring those volumes back online by using the following command:
+
+`volume online`
+// 26 FEB 2021:  Formatted from CMS

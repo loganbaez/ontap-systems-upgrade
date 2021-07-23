@@ -1,0 +1,55 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/verify_node3_installation.html
+keywords: verify, node3, install, installation
+summary: After you install and boot node3, you need to verify that it is installed correctly, that it is part of the cluster, and that it can communicate with node2.
+---
+
+= Verify the node3 installation
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+After you install and boot node3, you need to verify that it is installed correctly, that it is part of the cluster, and that it can communicate with node2.
+
+.Steps
+
+. [[step1]]At the system prompt, log in to node3. Then, verify that node3 is both part of the same cluster as node2 and healthy:
++
+`cluster show`
+
+. [[step2]]Verify that node3 can communicate with node2 and that all LIFs are up:
++
+`network interface show -curr-node <node3>`
+
+. [[step3]]Take one of the following actions:
++
+[cols="35,65"]
+|===
+|If the cluster is... |Then...
+
+|In a SAN environment
+|Complete <<step4,Step 4>> and then go to the section link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs.html[Moving NAS data LIFs owned by node1 from node2 to node3 and verifying SAN LIFs on node3].
+|Not in a SAN environment
+|Skip Step 4 and go to link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs.html[Moving NAS data LIFs owned by node1 from node2 to node3 and verifying SAN LIFs on node3].
+|===
+
+. [[step4]] Verify that node2 and node3 are in quorum by entering the following command on one of the nodes and examining its output:
++
+`event log show -messagename scsiblade.*`
++
+The following example shows the output when the nodes in the cluster are in quorum:
++
+----
+cluster::> event log show -messagename scsiblade.*
+Time                Node   Severity      Event
+------------------- ------ ------------- --------------------------
+8/13/2012 14:03:51  node1  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:51  node2  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:48  node3  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:43  node4  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+----
+// 24 FEB 2021:  formatted from CMS

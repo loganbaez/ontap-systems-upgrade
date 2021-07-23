@@ -1,0 +1,22 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/lif_migration_failure.html
+keywords: lif, migration, failure, mtu
+summary: After you migrate LIFs, they might not come online after migration in Stage 2, Stage 3, or Stage 5.
+---
+
+= LIF migration failure
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:55.922036
+//
+
+[.lead]
+include::../_include/ru_auto_lif_migration_failure.adoc[]

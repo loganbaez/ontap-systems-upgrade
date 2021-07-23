@@ -1,0 +1,51 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/prepare_nodes_for_upgrade.html
+keywords: preparing, nodes, upgrade
+summary: Begin the controller replacement process by entering the following command in the ONTAP command line.
+---
+
+= Prepare the nodes for upgrade
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:53.847218
+//
+
+[.lead]
+include::../_include/ru_auto_prepare_nodes_upgrade_top_step_3.adoc[]
+
+[start=4]
+. [[step4]]Run the below set of commands as directed by the controller replacement procedure on the system console.
++
+You must run and save the output of the following commands individually:
++
+* vserver services name-service dns show
+* network interface show -curr-node <nodename> -role <cluster,intercluster,node-mgmt,cluster-mgmt,data>
+* network port show -node <node_name> -type physical
+* service-processor show -node * -instance
+* network fcp adapter show -node <node_name>
+* network port ifgrp show
+* system node show -instance -node <node_name>
+* run -node <node_name> sysconfig
+* storage aggregate show -node <node_name>
+* volume show -node <node_name>
+* storage array config show -switch <switch_name>
+* system license show -owner <node_name>
+* storage encryption disk show
+* security key-manager backup show
+* security key-manager external show
+* security key-manager external show-status
+* reachability show -detail
+
+NOTE: If NetApp Volume Encryption using Onboard Key Manager (OKM) is in use, keep the key- manager passphrase ready to complete the key manager resync later in the procedure.
+
+include::../_include/ru_auto_correct_aggregate_ownership.adoc[]
+
+include::../_include/ru_auto_license.adoc[]

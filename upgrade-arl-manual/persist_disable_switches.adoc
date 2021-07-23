@@ -1,0 +1,40 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/persist_disable_switches.html
+keywords: disable, switches, fabric, persistent, modify, configuration, configure
+summary:  Disable the switches in the fabric persistently so that you can modify its configuration.
+---
+
+= Persistenly disable the switches
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You must disable the switches in the fabric persistently so that you can modify its configuration.
+
+.About this task
+
+You disable the switches by running the commands on the switch command line; the commands used for this are not ONTAP commands.
+
+.Step
+
+Persistently disable the switch:
+
+* For Brocade switches, use the `switchCfgPersistentDisable` command.
+
+* For Cisco switches, use the `suspend` command.
+
+The following command disables a Brocade switch persistently:
+
+----
+FC_switch_A_1:admin> switchCfgPersistentDisable
+----
+
+The following command disables a Cisco switch:
+
+----
+vsan [vsna #] suspend
+----

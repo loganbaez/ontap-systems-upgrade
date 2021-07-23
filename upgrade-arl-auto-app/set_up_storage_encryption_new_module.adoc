@@ -1,0 +1,23 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/set_up_storage_encryption_new_module.html
+keywords: set up storage, encryption, controller, module, node
+summary: If the replaced controller or the HA partner of the new controller uses Storage Encryption.
+---
+
+= Set up Storage Encryption on the new controller module
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:55.771144
+//
+
+[.lead]
+include::../_include/ru_auto_set_up_storage_encryption_new_module.adoc[]
+// 11 DEC 2020, thomi, checked

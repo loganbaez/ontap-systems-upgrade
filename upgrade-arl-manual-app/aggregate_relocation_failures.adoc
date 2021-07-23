@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/aggregate_relocation_failures.html
+keywords: aggregate, relocation, failure, error, problem
+summary:  Aggregate relocation failures
+---
+
+= Aggregate relocation failures
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_aggr_relocation_failures.adoc[]
+// 02 MAR 2021: formatted from CMS

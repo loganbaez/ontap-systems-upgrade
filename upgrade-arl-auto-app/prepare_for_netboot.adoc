@@ -1,0 +1,24 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/prepare_for_netboot.html
+keywords: preparing, netboot, ndac, ontap
+summary: After you physically rack node3 and node4 later in the procedure, you might need to netboot them.
+---
+
+= Prepare for netboot
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:54.096389
+//
+
+[.lead]
+include::../_include/ru_auto_prepare_for_netboot_intro.adoc[]
+
+include::../_include/ru_auto_prepare_for_netboot_steps_1_3.adoc[]

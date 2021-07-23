@@ -1,0 +1,70 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/relocate_non_root_aggr_nas_data_lifs_node1_node2.html
+keywords: relocate, non-root, nonroot, aggregates, NAS, data, lif s, node1, node2
+summary: Move the non-root aggregates and NAS data LIFs from node1 to node2
+---
+
+= Relocate non-root aggregates and NAS data LIFs owned by node1 to node2
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Before you can replace node1 with node3, you must move the non-root aggregates and NAS data LIFs from node1 to node2 before eventually moving node1's resources to node3.
+
+.Before you begin
+
+The operation should already be paused when you begin the task; you must manually resume the operation.
+
+.About this task
+
+Remote LIFs handle traffic to SAN LUNs during the upgrade procedure. Moving SAN LIFs is not necessary for cluster or service health during the upgrade. You must verify that the LIFs are healthy and located on appropriate ports after you bring node3 online.
+
+include::../_include/ru_auto_relocate_non_root_aggr_nas_lifs_from_node1_to_node2_steps_1_4.adoc[]
+
+[start=5]
+. [[step5]]If the ports currently hosting data LIFs will not exist on the new hardware, remove them from the broadcast domain:
++
+`network port broadcast-domain remove-ports`
+
+. If any LIFs are down, set the administrative status of the LIFs to "up" by entering the following command, once for each LIF:
++
+`network interface modify -vserver _Vserver_name -lif _LIF_name_`
+                          `-home-node _nodename_ -status-admin up`
+
+. If you have interface groups or VLANs configured, complete the following substeps:
+
+.. If you have not already saved them, record VLAN and ifgrp information so you can recreate the VLANs and ifgrps on node3 after node3 is booted up.
+
+.. Remove the VLANs from the interface groups by entering the following command:
++
+`network port vlan delete -node _nodename_ -port _ifgrp_ -vlan-id _VLAN_ID_`
++
+NOTE: Follow the corrective action to resolve any errors that are suggested by the vlan delete command.
+
+.. Enter the following command and examine its output to see if there are any interface groups configured on the node:
++
+`network port ifgrp show -node _nodename_ -ifgrp _ifgrp_name_ -instance`
++
+The system displays interface group information for the node as shown in the following example:
++
+----
+cluster::> network port ifgrp show -node node1 -ifgrp a0a -instance
+                 Node: node1
+ Interface Group Name: a0a
+Distribution Function: ip
+        Create Policy: multimode_lacp
+          MAC Address: 02:a0:98:17:dc:d4
+   Port Participation: partial
+        Network Ports: e2c, e2d
+             Up Ports: e2c
+           Down Ports: e2d
+----
+
+.. If any interface groups are configured on the node, record the names of those groups and the ports assigned to them, and then delete the ports by entering the following command, once for each port:
++
+`network port ifgrp remove-port -node _nodename_ -ifgrp _ifgrp_name_ -port _netport_`
+// p. 22-23 of PDF (not the small section at bottom of p. 23)

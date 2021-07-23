@@ -1,0 +1,32 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/persist_enable_switches.html
+keywords: enable, switches, fabric, persistent
+summary: Enable the switches in the fabric persistently, Brocade, Cisco
+---
+
+= Persistently enable the switches
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You must enable the switches in the fabric persistently.
+
+.Step
+
+Persistently enable the switch:
+
+* For Brocade switches, use the `switchCfgPersistentenable` command.
++
+----
+FC_switch_A_1:admin> switchCfgPersistentenable
+----
+
+* For Cisco switches, use the `no suspend` command.
++
+----
+vsan [vsna #]no suspend
+----

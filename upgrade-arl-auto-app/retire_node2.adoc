@@ -1,0 +1,23 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/retire_node2.html
+keywords: retire, node2
+summary: To retire node2, you need to shut node2 down properly and remove it from the rack or chassis.
+---
+
+= Retire node2
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:54.956628
+//
+
+[.lead]
+include::../_include/ru_auto_retire_node2.adoc[]
+// 10 DEC 2020, thomi, checked

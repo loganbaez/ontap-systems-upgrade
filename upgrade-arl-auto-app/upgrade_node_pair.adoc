@@ -1,0 +1,22 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/upgrade_node_pair.html
+keywords: upgrading, node pair, prepare, original, decommission
+summary: To upgrade the node pair.
+---
+
+= Upgrade the node pair
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:53.819890
+//
+
+[.lead]
+include::../_include/ru_auto_upgrade_node_pair.adoc[]

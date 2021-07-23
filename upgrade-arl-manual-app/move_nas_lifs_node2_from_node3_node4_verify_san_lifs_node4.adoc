@@ -1,0 +1,18 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html
+keywords: move, aggregates, nas, lif, node2, node3, node4
+summary: Before you relocate node2 aggregates from node3 to node4, move the NAS data LIFs owned by node2 currently on node3 from node3 to node4 and verify the SAN LIFs on node4.
+---
+
+= Move NAS data LIFs owned by node2 from node3 to node4 and verify SAN LIFs on node4
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+After mapping ports from node2 to node4 and before you relocate node2 aggregates from node3 to node4, you need to move the NAS data LIFs owned by node2 currently on node3 from node3 to node4. You also need to verify the SAN LIFs on node4.
+
+include::../_include/ru_man_move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.adoc[]

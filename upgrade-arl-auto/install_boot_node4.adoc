@@ -1,0 +1,60 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/install_boot_node4.html
+keywords: install, boot, node4, install ONTAP
+summary: You must install node4 in the rack, transfer node2's connections to node4, boot node4, and install ONTAP.
+---
+
+= Install and boot node4
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You must install node4 in the rack, transfer node2's connections to node4, boot node4, and install ONTAP. You must then reassign any of node2’s spare disks, any disks belonging to the root volume, and any non-root aggregates that were not relocated to node3 earlier in the process, as outlined in this section.
+
+.About this task
+
+The relocation operation is paused at the beginning of this stage. This process is mostly automated; the operation pauses to allow you to check its status. You must manually resume the operation. In addition, you must verify the NAS data LIFs have successfully moved to node4.
+
+include::../_include/ru_auto_install_and_boot_node4_intro_step_5.adoc[]
+
+
+[start=6]
+.  [[step6]]Configure the netboot connection by choosing one of the following actions.
++
+NOTE: You should use the management port and IP as the netboot connection. Do not use a data LIF IP or a data outage might occur while the upgrade is being performed.
+
++
+[cols=2*,options="header"cols="30,70"]
+|===
+|If Dynamic Host Configuration Protocol (DHCP) is... |Then...
+
+|Running
+|Configure the connection automatically by entering the following command at the boot environment prompt:
+`ifconfig e0M -auto`
+|Not running
+|Manually configure the connection by entering the following command at the boot environment prompt:
+`ifconfig e0M -addr=<filer_addr> -mask=<netmask> -gw=<gateway> dns=<dns_addr> domain=<dns_domain>`
+`<filer_addr>` is the IP address of the storage system.
+`<netmask>` is the network mask of the storage system.
+`<gateway>` is the gateway for the storage system.
+`<dns_addr>` is the IP address of a name server on your network.
+`<dns_domain>` is the Domain Name Service (DNS) domain name. If you use this optional parameter, you do not need a fully qualified domain name in the netboot server URL; you need only the server's host name.
+
+*Note:* Other parameters might be necessary for your interface. Enter `help ifconfig` at the firmware prompt for details.
+|===
+
+include::../_include/ru_auto_install_and_boot_node4_step_7_22.adoc[]
+
+[start=23]
+.  [[auto_install4_step23]]Add the FC initiator ports of the new node to the switch zones.
++
+If required, modify the onboard ports to initiator by referring to the link:set_fc_or_uta_uta2_config_node4.html#configure-fc-ports-on-node4[Configure FC ports on node4]. See your storage array and zoning documentation for further instructions on zoning.
+
+include::../_include/ru_auto_install_and_boot_node4_step_24_28.adoc[]
+
+[start=29]
+. [[step29]] For MetroCluster configuration, V-Series systems and systems with FlexArray Virtualization software connected to storage arrays, go to link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15[Check and configure UTA/UTA2 ports on node4, Step 15].

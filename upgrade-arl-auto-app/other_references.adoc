@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/other_references.html
+keywords: other references, documentation, hardware universe, guides, documentation center, information
+summary: You can link to other reference guides and websites in this topic.
+---
+
+= References
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_all_other_references.adoc[]

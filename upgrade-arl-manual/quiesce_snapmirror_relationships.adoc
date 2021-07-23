@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/quiesce_snapmirror_relationships.html
+keywords: quiesce, snapmirror, relationship, netboot, destination cluster
+summary: Quiesce all SnapMirror relationships before you netboot the system.
+---
+
+= Quiesce the SnapMirror relationships
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_quiesce_snapmirror_relationships.adoc[]
+// 26 feb 2021: formatted from CMS

@@ -1,0 +1,46 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/prepare_nodes_for_upgrade.html
+keywords: prepare, nodes, upgrade, controller, replacement, license
+summary: You must prepare the nodes for upgrade.
+---
+
+= Prepare the nodes for upgrade
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_auto_prepare_nodes_upgrade_top_step_3.adoc[]
+
+[start=4]
+. [[step4]]Run the below set of commands as directed by the controller replacement procedure on the system console.
++
+You must run and save the output of the following commands individually:
++
+* vserver services name-service dns show
+* network interface show -curr-node <nodename> -role cluster,intercluster,node-mgmt,clustermgmt, data
+* network port show -node <nodename> -type physical
+* service-processor show -node * -instance
+* network fcp adapter show -node <node_name>
+* network port ifgrp show
+* network port vlan show
+* system node show -instance -node <nodename>
+* run -node <node_name> sysconfig
+* storage aggregate show -node <nodename>
+* volume show -node <node_name>
+* network interface failover-groups show
+* storage array config show -switch <switch_name>
+* system license show -owner <node_name>
+* storage encryption disk show
+
+NOTE: If NetApp Volume Encryption using Onboard Key Manager is in use, keep the keymanager passphrase ready to complete the key manager resync later in the procedure.
+
+
+include::../_include/ru_auto_correct_aggregate_ownership.adoc[]
+
+include::../_include/ru_auto_license.adoc[]
+
+// page 16-19 of pdf

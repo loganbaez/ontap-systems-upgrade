@@ -1,0 +1,27 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/ensure_new_controllers_are_set_up_correctly.html
+keywords: ensure, controllers, set up, ha, node3, node4, node2, lif, cluster, high, availability
+summary: To ensure correct setup, you must enable the HA pair.
+---
+
+= Ensure that the new controllers are set up correctly
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+// 2nd half of page 68, 69, and top half of 70 in PDF
+include::../_include/ru_auto_ensure_new_controllers_are_set_up_correctly_intro-step_12.adoc[]
+
+[start=13]
+. [[step13]]Configure the SPs by using the following command on both nodes:
++
+`system service-processor network modify -node <node_name>`
++
+Refer to link:other_references.html[References] to link to the _System Administration Reference_ for information about the SPs and the _ONTAP 9 Commands: Manual Page Reference_ for detailed information about the system `service-processor network modify` command.
+
+include::../_include/ru_auto_ensure_new_controllers_are_set_up_correctly_step_14_end.adoc[]

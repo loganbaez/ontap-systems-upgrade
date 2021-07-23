@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/record_node1_information.html
+keywords: record, information, node1, NVRAM
+summary: Before you can shut down and retire node1, you need to record information about its cluster network, management, and FC ports as well as its NVRAM System ID.
+---
+
+=  Record node1 information
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_record_node1.adoc[]

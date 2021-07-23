@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/determine_aggregates_on_internal_drives.html
+keywords: determine, aggregate, disk, drive, controller
+summary: Determine whether the controller has aggregates on internal disk drives
+---
+
+= Determine whether the controller has aggregates on internal disk drives
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_determine_aggregates.adoc[]

@@ -1,0 +1,22 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/stage_1_prepare_for_upgrade_overview.html
+keywords: upgrade, preparing, preparation, prepare, overview
+summary: During Stage 1, you must prepare the nodes for the upgrade and run a series of prechecks.
+---
+
+= Stage 1. Prepare for upgrade
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:53.835501
+//
+
+[.lead]
+include::../_include/ru_auto_stage_1_overview.adoc[]

@@ -1,0 +1,113 @@
+section: upgrade-arl-auto
+title: Use "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.5 to 9.7
+url: /upgrade-arl-auto/index.html
+entries:
+- title: Automate the controller upgrade process
+  url: /upgrade-arl-auto/automate_the_controller_upgrade_process.html
+- title: Decide whether to use the aggregate relocation guide
+  url: /upgrade-arl-auto/decide_to_use_the_aggregate_relocation_guide.html
+- title: Required tools and documentation
+  url: /upgrade-arl-auto/required_tools_and_documentation.html
+- title: Guidelines for upgrading controllers with ARL
+  url: /upgrade-arl-auto/guidelines_for_upgrading_controllers_with_arl.html
+- title: Verify the health of the MetroCluster configuration
+  url: /upgrade-arl-auto/verify_health_of_metrocluster_config.html
+- title: Check for MetroCluster configuration errors
+  url: /upgrade-arl-auto/check_metrocluster_config_errors.html
+- title: Verify switchover, healing, and switchback
+  url: /upgrade-arl-auto/verify_switchover_healing_switchback.html
+- title: Overview of the ARL upgrade
+  url: /upgrade-arl-auto/overview_of_the_arl_upgrade.html
+- title: Upgrade the node pair
+  url: /upgrade-arl-auto/upgrade_node_pair.html
+- title: Stage 1 Prepare for upgrade
+  url: /upgrade-arl-auto/stage_1_prepare_for_upgrade_overview.html
+  entries:
+    - title: Prepare the nodes for upgrade
+      url: /upgrade-arl-auto/prepare_nodes_for_upgrade.html
+    - title: Get an IP address of an external key management server for storage encryption
+      url: /upgrade-arl-auto/get_ip_address_of_external_kms_for_storage_encryption.html
+- title: Stage 2 Relocate and retire node1
+  url: /upgrade-arl-auto/stage_2_relocate_retire_node1_overview.html
+  entries:
+    - title: Relocate non-root aggregates and NAS data LIFs owned by node1 to node2
+      url: /upgrade-arl-auto/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html
+    - title: Relocate failed or vetoed aggregates
+      url: /upgrade-arl-auto/relocate_failed_or_vetoed_aggr.html
+    - title: "Retire node1"
+      url: /upgrade-arl-auto/retire_node1.html
+    - title: Prepare for netboot
+      url: /upgrade-arl-auto/prepare_for_netboot.html
+- title: Stage 3 Install and boot node3
+  url: /upgrade-arl-auto/stage_3_install_boot_node3_overview.html
+  entries:
+    - title: Install and boot node3
+      url: /upgrade-arl-auto/install_boot_node3.html
+    - title: Set the FC or UTA/UTA2 configuration on node3
+      url: /upgrade-arl-auto/set_fc_or_uta_uta2_config_on_node3.html
+    - title: Map ports from node1 to node3
+      url: /upgrade-arl-auto/map_ports_node1_node3.html
+    - title: Join the quorum when a node has a different set of network ports
+      url: /upgrade-arl-auto/join_quorum_node_has_different_ports_stage3.html
+    - title: Verify the node3 installation
+      url: /upgrade-arl-auto/verify_node3_installation.html
+      entries:
+        - title: Re-create VLANs, ifgrps, and broadcast domains on node3
+          url: /upgrade-arl-auto/recreate_vlans_ifgrps_broadcast_domains_node3.html
+        - title: Restore key-manager configuration on node3
+          url: /upgrade-arl-auto/restore_key_manager_config_node3.html
+    - title: Move non-root aggregates and NAS data LIFs owned by node1 from node2 to node3
+      url: /upgrade-arl-auto/move_non_root_aggr_nas_lifs_node1_from_node2_to_node3.html
+- title: Stage 4 Relocate and retire node2
+  url: /upgrade-arl-auto/stage_4_relocate_retire_node2.html
+  entries:
+    - title: Relocate non-root aggregates and NAS data LIFs from node2 to node3
+      url: /upgrade-arl-auto/relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html
+    - title: Retire node2
+      url: /upgrade-arl-auto/retire_node2.html
+- title: Stage 5 Install and boot node4
+  url: /upgrade-arl-auto/stage_5_install_and_boot_node4.html
+  entries:
+   - title: Install and boot node4
+     url: /upgrade-arl-auto/install_boot_node4.html
+   - title: Set the FC or UTA/UTA2 configuration on node4
+     url: /upgrade-arl-auto/set_fc_or_uta_uta2_config_node4.html
+   - title: Map ports from node2 to node4
+     url: /upgrade-arl-auto/map_ports_node2_node4.html
+   - title: Join the quorum when a node has a different set of network ports
+     url: /upgrade-arl-auto/join_quorum_node_has_different_ports_stage5.html
+   - title: Verify the node4 installation
+     url: /upgrade-arl-auto/verify_node4_installation.html
+     entries:
+     - title: Re-create VLANs,ifgrps, and broadcast domains on node4
+       url: /upgrade-arl-auto/recreate_vlans_ifgrps_broadcast_domains_node4.html
+     - title: Restore key-manager configuration on node4
+       url: /upgrade-arl-auto/restore_key-manager_config_node4.html
+   - title: Move non-root aggregates and NAS data LIFs owned by node2 from node3 to node4
+     url: /upgrade-arl-auto/move_non_root_aggr_and_nas_data_lifs_node2_from_node3_to_node4.html
+- title: Stage 6 Complete the upgrade
+  url: /upgrade-arl-auto/stage_6_complete_the_upgrade.html
+  entries:
+  - title: Ensure that the new controllers are set up correctly
+    url: /upgrade-arl-auto/ensure_new_controllers_are_set_up_correctly.html
+  - title: Set up Storage Encryption on the new controller module
+    url: /upgrade-arl-auto/set_up_storage_encryption_new_module.html
+  - title: Set up NetApp Volume Encryption on the new controller module
+    url: /upgrade-arl-auto/set_up_netapp_volume_encryption_new_module.html
+  - title: Decommission the old system
+    url: /upgrade-arl-auto/decommission_old_system.html
+  - title: Resume SnapMirror operations
+    url: /upgrade-arl-auto/resume_snapmirror_operations.html
+- title: Troubleshoot
+  url: /upgrade-arl-auto/troubleshoot.html
+  entries:
+  - title: Aggregate relocation failures
+    url: /upgrade-arl-auto/aggregate_relocation_failures.html
+  - title: Reboots, panics, or power cycles
+    url: /upgrade-arl-auto/reboots_panics_or_power_cycles.html
+  - title: Issues that can arise in multiple stages of the procedure
+    url: /upgrade-arl-auto/issues_in_multiple_stages_of_procedure.html
+  - title: LIF migration failure
+    url: /upgrade-arl-auto/lif_migration_failure.html
+- title: References
+  url: /upgrade-arl-auto/other_references.html

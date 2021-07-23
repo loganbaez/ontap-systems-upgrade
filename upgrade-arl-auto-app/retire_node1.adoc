@@ -1,0 +1,22 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/retire_node1.html
+keywords: retiring, node
+summary: To retire node1, you resume the automated operation to disable the HA pair with node2 and shut Lonode1 down properly.
+---
+
+= Retire node1
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:54.079045
+//
+
+[.lead]
+include::../_include/ru_auto_retire_node1.adoc[]

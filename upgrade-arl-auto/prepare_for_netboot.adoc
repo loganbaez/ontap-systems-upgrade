@@ -1,0 +1,21 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/prepare_for_netboot.html
+keywords: prepare, netboot, node3, node4, boot, ONTAP image, media device
+summary: After you physically rack nodes, you might need to netboot them.
+---
+
+= Prepare for netboot
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_auto_prepare_for_netboot_intro.adoc[]
+
+However, you do not need to netboot the controllers if the same version of ONTAP 9 is installed on them that is installed on the original controllers. If so, you can skip this section and proceed to link:stage_3_install_boot_node3_overview.html[Stage 3 Installing and booting node3]
+
+include::../_include/ru_auto_prepare_for_netboot_steps_1_3.adoc[]
+// bottom pg 24.  and pg 25 of pdf

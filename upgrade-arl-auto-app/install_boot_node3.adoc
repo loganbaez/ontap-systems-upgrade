@@ -1,0 +1,55 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/install_boot_node3.html
+keywords: installing, booting, node3, ontap
+summary: You must install node3 in the rack, transfer node1's connections to node3, boot node3, and install ONTAP.
+---
+
+= Install and boot node3
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:54.146306
+//
+
+[.lead]
+include::../_include/ru_auto_install_boot_node3_intro_step_5.adoc[]
+
+[start=6]
+. [[step6]]Configure the netboot connection by choosing one of the following actions.
++
+NOTE: You should use the management port and IP as the netboot connection. Do not use a data LIF IP or a data outage might occur while the upgrade is being performed.
+
++
+[cols=2*,options="header"cols="30,70"]
+|===
+|If Dynamic Host Configuration Protocol (DHCP) is... |Then...
+
+|Running
+|Configure the connection automatically by using the following command at the boot environment prompt:
+`ifconfig e0M -auto`
+|Not running
+|Manually configure the connection by using the following command at the boot environment prompt:
+
+`ifconfig e0M -addr=<filer_addr> -mask=<netmask> -gw=<gateway> - dns=<dns_addr> domain=<dns_domain>`
+
+`<filer_addr>` is the IP address of the storage system.
+`<netmask>` is the network mask of the storage system.
+`<gateway>` is the gateway for the storage system.
+`<dns_addr>` is the IP address of a name server on your network. This parameter is optional.
+`<dns_domain>` is the Domain Name Service (DNS) domain name. This parameter is optional.
+
+*Note*: Other parameters might be necessary for your interface. Enter `help ifconfig` at the firmware prompt for details.
+|===
+
+include::../_include/ru_auto_install_boot_node3_step_7_28.adoc[]
+
+[start=29]
+. [[step29]]For a MetroCluster configuration, V-Series systems and systems with FlexArray Virtualization software connected to storage arrays,  you must set and configure the FC or UTA/UTA2 ports on node3 to detect the disks attached to the node.
+To complete this task, go to section link:set_fc_or_uta_uta2_config_on_node3.html[Set the FC or UTA/UTA2 configuration on node3].

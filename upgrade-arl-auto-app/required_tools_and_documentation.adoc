@@ -1,0 +1,22 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/required_tools_and_documentation.html
+keywords: required, tools, documentation, install, worksheet, ontap
+summary: You must have specific tools to install the new hardware, and you need to reference other documents during the upgrade process.
+---
+
+= Required tools and documentation
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:53.697152
+//
+
+[.lead]
+include::../_include/ru_auto_required_tools_documentation.adoc[]
