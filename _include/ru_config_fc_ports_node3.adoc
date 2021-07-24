@@ -1,0 +1,47 @@
+. [[step1]]Compare the FC settings on node3 with the settings that you captured earlier from node1.
+. [[step2]]Take one of the following actions:
++
+|===
+|If the system that you are upgrading... |Then…
+
+|Has storage disks
+a|In maintenance mode (option 5 at boot menu), modify the FC ports on node3 as needed by using one of the following commands:
+
+* To program target ports:
+`ucadmin modify -m fc -t target <adapter>`
+
+* To program initiator ports:
+`ucadmin modify -m fc -t initiator <adapter>`
+`-t` is the FC4 type: target or initiator.
+|Is a V-Series system or has FlexArray Virtualization Software and is connected to storage arrays
+
+|In maintenance mode (option 5 at boot menu), modify the FC ports on node3 as needed by using the following command:
+`ucadmin modify -m fc -t initiator -f <adapter_port_name>`
+`-t` is the FC4 type, target or initiator.
+*Note*: The FC ports must be programmed as initiators.
+|===
+
+. [[step3]]Take one of the following actions:
++
+|===
+|If the system that you are upgrading... |Then…
+
+|Has storage disks
+|Verify the new settings by using the following command and examining the output:
+`ucadmin show`
+|Is a V-Series system or has FlexArray Virtualization Software and is connected to storage arrays
+|Verify the new settings by using the following command and examining the output:
+`ucadmin show`
+|===
+
+. [[step4]]Exit Maintenance mode by using the following command:
++
+`halt`
+
+. [[step5]]Boot the system from loader prompt by using the following command:
++
+`boot_ontap menu`
+
+. [[step6]]After you enter the command, wait until the system stops at the boot environment prompt.
+
+. [[step7]]Select option `5` from the boot menu for maintenance mode.

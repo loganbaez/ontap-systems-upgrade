@@ -1,0 +1,152 @@
+== Check and configure UTA/UTA2 ports on node4
+
+If node4 has onboard UTA/UTA2 ports or a UTA/UTA2A card, you must check the configuration of the ports and configure them, depending on how you want to use the upgraded system.
+
+.Before you begin
+
+You must have the correct SFP+ modules for the UTA/UTA2 ports.
+
+.About this task
+
+UTA/UTA2 ports can be configured into native FC mode or UTA/UTA2A mode. FC mode supports FC initiator and FC target; UTA/UTA2 mode allows concurrent NIC and FCoE traffic to share the same 10 GbE SFP+ interface and supports FC target.
+
+NOTE: NetApp marketing materials might use the term UTA2 to refer to CNA adapters and ports. However, the CLI uses the term CNA.
+
+UTA/UTA2 ports might be on an adapter or on the controller with the following configurations:
+
+* UTA/UTA2 cards ordered at the same time as the controller are configured before shipment to have the personality you requested.
+* UTA/UTA2 cards ordered separately from the controller are shipped with the default FC target personality.
+* Onboard UTA/UTA2 ports on new controllers are configured (before shipment) to have the personality you requested.
+
+However, you should check the configuration of the UTA/UTA2 ports on node4 and change it, if necessary.
+
+*Attention*: If your system has storage disks, you enter the commands in this section at the cluster prompt unless directed to enter Maintenance mode. If you have a MetroCluster FC system, V-Series system or a system with FlexArray Virtualization software that is connected to storage arrays,  you must be in Maintenance mode to configure UTA/UTA2 ports.
+
+.Steps
+
+. Check how the ports are currently configured by using one of the following commands on node4:
++
+[cols=2*,options="header"cols="30,70"]
+|===
+|If the system... |Then…
+
+|Has storage disks
+|`system node hardware unified-connect show`
+|Is a V-Series system or has FlexArray Virtualization Software and is connected to storage arrays
+|`ucadmin show`
+|===
++
+The system displays output similar to the following example:
++
+....
+*> ucadmin show
+                Current  Current    Pending   Pending   Admin
+Node   Adapter  Mode     Type       Mode      Type      Status
+----   -------  ---      ---------  -------   --------  -------
+f-a    0e       fc       initiator  -          -        online
+f-a    0f       fc       initiator  -          -        online
+f-a    0g       cna      target     -          -        online
+f-a    0h       cna      target     -          -        online
+f-a    0e       fc       initiator  -          -        online
+f-a    0f       fc       initiator  -          -        online
+f-a    0g       cna      target     -          -        online
+f-a    0h       cna      target     -          -        online
+*>
+....
+
+. If the current SFP+ module does not match the desired use, replace it with the correct SFP+ module.
++
+Contact your NetApp representative to obtain the correct SFP+ module.
+
+. Examine the output of the `ucadmin show` command and determine whether the UTA/UTA2 ports have the personality you want.
+
+. Take one of the following actions:
++
+[cols=2*,options="header"cols="30,70"]
+|===
+|If the CNA ports... |Then…
+
+|Do not have the personality that you want
+|Go to <<step5,Step 5>>.
+
+|Have the personality that you want
+
+|Skip Step 5 through Step 12 and go to <<step13,Step 13>>.
+
+|===
+
+. [[Step5]]Take one of the following actions:
++
+[cols=2*,options="header"cols="30,70"]
+|===
+|If you are configuring... |Then…
+
+|Ports on a UTA/UTA2 card
+|Go to <<step7,Step 7>>
+|Onboard UTA/UTA2 ports
+|Skip Step 7 and go to <<step8, Step 8>>.
+|===
+
+. If the adapter is in initiator mode, and if the UTA/UTA2 port is online, take the UTA/UTA2 port offline:
++
+`storage disable adapter <adapter_name>`
++
+Adapters in target mode are automatically offline in Maintenance mode.
+
+. [[Step7]]If the current configuration does not match the desired use, change the configuration as needed:
++
+`ucadmin modify -m fc|cna -t initiator|target <adapter_name>`
+
+** `-m` is the personality mode, FC or 10 GbE UTA.
+** `-t` is the FC4 type, `target` or `initiator`.
++
+NOTE: You must use FC initiator for tape drives, FlexArray Virtualization systems, and MetroCluster configurations. You must use the FC target for SAN clients.
+
+. [[Step8]]Verify the settings by using the following command and examining its output:
++
+`ucadmin show`
+
+. Verify the settings:
++
+[cols=2*,options="header"cols="40,60"]
+|===
+|If the system... |Then…
+
+|Has storage disks
+|`ucadmin show`
+|Is a V-Series system or has FlexArray Virtualization Software and is connected to storage arrays
+|`ucadmin show`
+
+|===
++
+The output in the following examples shows that the FC4 type of adapter "1b" is changing to `initiator` and that the mode of adapters "2a" and "2b" is changing to `cna`:
++
+....
+*> ucadmin show
+Node  Adapter  Current Mode  Current Type  Pending Mode  Pending Type  Admin Status
+----  -------  ------------  ------------  ------------  ------------  ------------
+f-a   1a       fc             initiator    -             -             online
+f-a   1b       fc             target       -             initiator     online
+f-a   2a       fc             target       cna           -             online
+f-a   2b       fc             target       cna           -             online
+4 entries were displayed.
+*>
+....
+
+. Place any target ports online by entering one of the following commands, once for each port:
++
+[cols=2*,options="header"cols="30,70"]
+|===
+|If the system... |Then…
+
+|Has storage disks
+|`network fcp adapter modify -node <node_name> -adapter <adapter_name> -state up`
+|Is a V-Series system or has FlexArray Virtualization Software and is connected to storage arrays
+|`fcp config <adapter_name> up`
+|===
+
+. Cable the port.
+
+// This reuse file is used in the following adoc files:
+// upgrade-arl-auto\set_fc_or_uta_uta2_config_node4.adoc
+// upgrade-arl-auto-app\set_fc_or_uta_uta2_config_node4.adoc

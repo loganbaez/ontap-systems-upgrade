@@ -1,0 +1,15 @@
+During the procedure, you upgrade the original controller hardware with the replacement controller hardware, relocating the ownership of non-root aggregates. You migrate aggregates multiple times from node to node to ensure that at least one node is serving data from the aggregates throughout the upgrade procedure. You also migrate data logical interfaces (LIFs) and assign the network ports on the new controller to the interface groups as you proceed.
+
+NOTE: In this document, the original nodes are called _node1_ and _node2_, and the new nodes are called _node3_ and _node4_. During the described procedure, node1 is replaced by node3, and node2 is replaced by node4.
+The terms _node1_, _node2_, _node3_, and _node4_ are used only to distinguish between the original and new nodes. When following the procedure, you must substitute the real names of your original and new nodes. However, in reality, the names of the nodes do not change: node3 has the name node1, and node4 has the name node2 after the controller hardware is upgraded.
+This document uses the term _systems with FlexArray Virtualization Software_ to refer to systems that belong to these new platforms. It uses the term V-Series system to refer to the separate hardware systems that can attach to storage arrays
+
+==== Important:
+
+* This procedure is complex and assumes that you have advanced ONTAP administration skills. You also should read and understand the link:guidelines_for_upgrading_controllers_with_arl.html[Guidelines for upgrading controllers with ARL] and the  link:overview_of_the_arl_upgrade.html[Overview of the ARL upgrade] sections before beginning the upgrade.
+* This procedure assumes that the replacement controller hardware is new and has not been used. The steps required to prepare used controllers with the `wipeconfig` command are not included in this procedure. You must contact technical support if the replacement controller hardware was previously used, especially if the controllers were running Data ONTAP in 7- Mode.
+* You can use this procedure to upgrade the controller hardware in clusters with more than two nodes; however, you need to perform the procedure separately for each high-availability (HA) pair in the cluster.
+* This procedure applies to FAS systems, V-Series systems, AFF systems, and systems with FlexArray Virtualization Software. FAS systems released after ONTAP 9.5 can attach to storage arrays if the required license is installed. The existing V-Series systems are supported in ONTAP 9.5. See the V-Series Support Matrix at link:https://hwu.netapp.com[Hardware Universe] for information about the storage array and V-Series models.
+// This reuse adoc file is used in both ARL 9.8 and later guides in following files:
+// -- upgrade-arl-manual-app/overview.adoc
+// -- upgrade-arl-aut0-app/using_aggregate_relocation_to_upgrade_controller_hardware_overview.adoc

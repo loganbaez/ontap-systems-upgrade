@@ -1,0 +1,42 @@
+== Aggregates originally on node1 are owned by node4 after completion of the upgrade
+
+At the end of the upgrade procedure, node3 should be the new home node of aggregates that originally had node1 as the home node. You can relocate them after the upgrade.
+
+.About this task
+
+Aggregates might fail to relocate properly, having node1 as their home node instead of node3 under the following circumstances:
+
+* During Stage 3, when aggregates are relocated from node2 to node3.
+Some of the aggregates being relocated have node1 as their home node. For example, such an aggregate could be called aggr_node_1. If relocation of aggr_node_1 fails during Stage 3, and relocation cannot be forced, then the aggregate will be left behind on node2.
+* After Stage 4, when node2 is replaced with node4.
+When node2 is replaced, aggr_node_1 will come online with node4 as its home node instead of node3.
+
+You can fix the incorrect ownership problem after Stage 6 once storage failover has been enabled by completing the following steps:
+
+.Steps
+
+. Enter the following command to get a list of aggregates:
++
+`storage aggregate show -nodes <node4> -is-home true`
++
+To identify aggregates that were not correctly relocated, refer to the list of aggregates with the home owner of node1 that you obtained in the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade] and compare it with output of the above command.
+
+. Compare the output of Step 1 with the output you captured for node1 in the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade] and note any aggregates that were not correctly relocated.
+
+. [[Step3]]Relocate the aggregates left behind on node4 by entering the following command:
++
+`storage aggregate relocation start -node <node4> -aggr <aggr_node_1> -destination <node3>`
++
+Do not use the `-ndo-controller-upgrade` parameter during this relocation.
+
+. Enter the following command to verify that node3 is now the home owner of the aggregates:
++
+`storage aggregate show -aggregate aggr1,aggr2,aggr3... -fields home-name`
++
+`aggr1,aggr2,aggr3...` is the list of aggregates that had node1 as the original home owner.
++
+Aggregates that do not have node3 as home owner can be relocated to node3 using the same relocation command in <<Step3,Step 3>>.
+
+// This reuse file is used in the following adoc files:
+// upgrade-arl-auto\aggregate_relocation_failures.adoc
+// upgrade-arl-auto-app\aggregates_originally_on_node1_are_owned_by_node4_after_completion_of_the_upgrade.adoc

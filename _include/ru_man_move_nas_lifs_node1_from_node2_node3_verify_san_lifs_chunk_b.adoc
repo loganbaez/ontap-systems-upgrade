@@ -1,0 +1,71 @@
+. [[man_lif_verify_3_step6]]Migrate each NAS data LIF to node3 by entering the following command, once for each LIF:
++
+`network interface migrate -vserver <vserver_name> -lif <LIF_name> -destination-node <node3> -destination-port <netport|ifgrp>`
+
+. [[man_lif_verify_3_step7]]Make sure that the data migration is persistent:
++
+`network interface modify -vserver <vserver_name> -lif <LIF_name>-home-port <netport|ifgrp> -home-node <node3>`
+
+. [[man_lif_verify_3_step8]]Ensure that the SAN LIFs are on the correct ports on node3:
+
+.. Enter the following command and examine its output:
++
+`network interface show -data-protocol iscsi|fcp -home-node <node3>`
++
+The system returns output similar to the following example:
++
+----
+cluster::> net int show -data-protocol iscsi|fcp -home-node node3
+              Logical     Status      Network             Current        Current  Is
+ Vserver      Interface   Admin/Oper  Address/Mask        Node           Port     Home
+ -----------  ----------  ----------  ------------------  -------------  -------  ----
+ vs0
+              a0a         up/down     10.63.0.53/24       node3          a0a      true
+              data1       up/up       10.63.0.50/18       node3          e0c      true
+              rads1       up/up       10.63.0.51/18       node3          e1a      true
+              rads2       up/down     10.63.0.52/24       node3          e1b      true
+ vs1
+              lif1        up/up       172.17.176.120/24   node3          e0c      true
+              lif2        up/up       172.17.176.121/24   node3          e1a      true
+----
+
+.. If node3 has any SAN LIFs or groups of SAN LIFs that are on a port that did not exist on node1 or that need to be mapped to a different port, move them to an appropriate port on node3 by completing the following substeps:
+
+... Set the LIF status to "down":
++
+`network interface modify -vserver <vserver_name> -lif <LIF_name> -status-admin down`
+
+
+... Remove the LIF from the port set:
++
+`portset remove -vserver <vserver_name> -portset <portset_name> -port-name <port_name>`
+
+... Enter one of the following commands:
++
+* Move a single LIF:
++
+`network interface modify -vserver <vserver_name> -lif <LIF_name> -home-port <new_home_port>`
+* Move all the LIFs on a single nonexistent or incorrect port to a new port:
++
+`network interface modify {-home-port <port_on_node1> -home-node <node1> -role data} -home-port <new_home_port_on_node3>`
+* Add the LIFs back to the port set:
++
+`portset add -vserver <vserver_name> -portset <portset_name> -port-name <port_name>`
++
+NOTE: You need to ensure that you move SAN LIFs to a port that has the same link speed as the original port.
+
+. Modify the status of all LIFs to "up" so the LIFs can accept and send traffic on the node:
++
+`network interface modify -home-port <port_name> -home-node <node3> -lif data -status-admin up`
+
+. Enter the following command on either node and examine its output to verify that LIFs have been moved to the correct ports and that the LIFs have the status of "up" by entering the following command on either node and examining the output:
++
+`network interface show -home-node <node3> -role data`
+
+. [[man_lif_verify_3_step11]] If any LIFs are down, set the administrative status of the LIFs to "up" by entering the following command, once for each LIF:
++
+`network interface modify -vserver <vserver_name> -lif <LIF_name> -status-admin up`
+
+. Send a post-upgrade AutoSupport message to NetApp for node1:
++
+`system node autosupport invoke -node <node3> -type all -message "node1 successfully upgraded from <platform_old> to <platform_new>"`

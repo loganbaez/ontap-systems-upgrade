@@ -1,0 +1,135 @@
+If you are upgrading controllers with internal disk drives, you need to complete several commands and examine their output to ensure that none of the internal disk drives contains root aggregates or data aggregates.
+
+.About this task
+
+If you are not upgrading controllers with aggregates on internal disk drives, skip this section and go to the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade].
+
+.Steps
+
+. Enter the nodeshell, once for each of the original nodes.
++
+`system node run -node <node_name>`
+
+. Display the internal drives:
++
+`sysconfig -av`
++
+The system displays detailed information about the node's configuration, including storage, as seen in the partial output shown in the following example:
++
+....
+
+node> sysconfig -av
+slot 0: SAS Host Adapter 0a (PMC-Sierra PM8001 rev. C, SAS, UP)
+                Firmware rev: 01.11.06.00
+                 Base WWN: 5:00a098:0008a3b:b0
+                 Phy State: [0] Enabled, 6.0 Gb/s
+                            [1] Enabled, 6.0 Gb/s
+                            [2] Enabled, 6.0 Gb/s
+                            [3] Enabled, 6.0 Gb/s
+                ID Vendor Model FW Size
+                00.0 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.1 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.2 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.3 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.4 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.5 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.6 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.7 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.8 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.9 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.10: NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.11: NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+...
+....
+
+. Examine the storage output of the `sysconfig -av` command to identify the internal disk drives, and then record the information.
++
+Internal drives have "00." at the beginning of their ID. The "00." indicates an internal disk shelf, and the number after the decimal point indicates the individual disk drive.
+
+. [[man_aggr_step4]]Enter the following command on both controllers:
++
+`aggr status -r`
++
+The system displays the aggregate status of the node, as shown in the partial output in the following example:
++
+----
+node> aggr status -r
+Aggregate aggr2 (online, raid_dp, parity uninit'd!) (block checksums)
+Plex /aggr2/plex0 (online, normal, active)
+RAID group /aggr2/plex0/rg0 (normal, block checksums)
+
+RAID Disk Device    HA SHELF BAY CHAN Pool Type RPM  Used (MB/blks)     Phys (MB/blks)
+--------- --------- -- ----- --- ---- ---- ---- ---- ------------------ ------------------
+dparity   0a.00.1   0a   0    1  SA:B  0   BSAS 7200 1695466/3472315904 1695759/3472914816
+parity    0a.00.3   0a   0    3  SA:B  0   BSAS 7200 1695466/3472315904 1695759/3472914816
+data      0a.00.9   0a   0    9  SA:B  0   BSAS 7200 1695466/3472315904 1695759/3472914816
+...
+----
++
+NOTE: The device used to create the aggregate might not be a physical disk but might be a partition.
+
+
+. Examine the output of the `aggr status -r` command to identify the aggregates using internal disk drives, and then record the information.
++
+In the example in the previous step, "aggr2" uses internal drives, as indicated by the shelf ID of "0".
+
+. Enter the following command on both controllers:
++
+`aggr status -y`
++
+The system displays information about the volumes on the aggregate, as shown in the partial output in the following example:
++
+....
+node> aggr status -v
+...
+ aggr2   online   raid_dp, aggr    nosnap=off, raidtype=raid_dp, raidsize=14,
+                  64-bit           raid_lost_write=on, ignore_inconsistent=off,
+                  rlw_on           snapmirrored=off, resyncsnaptime=60,
+                                   fs_size_fixed=off, lost_write_protect=on,
+                                   ha_policy=cfo, hybrid_enabled=off, percent_snapshot_space=0%,
+                                   free_space_realloc=off, raid_cv=on, thorough_scrub=off
+         Volumes: vol6, vol5, vol14
+...
+ aggr0   online   raid_dp, aggr    root, diskroot, nosnap=off, raidtype=raid_dp,
+                  64-bit           raidsize=14, raid_lost_write=on, ignore_inconsistent=off,
+                  rlw_on           snapmirrored=off,  resyncsnaptime=60, fs_size_fixed=off,
+                                   lost_write_protect=on, ha_policy=cfo, hybrid_enabled=off,
+                                   percent_snapshot_space=0%, free_space_realloc=off, raid_cv=on
+         Volumes: vol0
+....
++
+Based on the output in <<man_aggr_step4,Step 4>> and Step 6, aggr2 uses three internal drives—"0a.00.1", "0a.00.3", and "0a.00.9"—and the volumes on "aggr2" are "vol6", "vol5", and "vol14". Also, in the output of Step 6, the readout for "aggr0" contains the word "root" at the beginning of the information for the aggregate. That indicates that it contains a root volume.
+
+. Examine the output of the `aggr status -v` command to identify the volumes belonging to any aggregates that are on an internal drive and whether any of those volumes contain a root volume.
+
+. Exit the nodeshell by entering the following command on each controller:
++
+`exit`
+
+. Take one of the following actions:
++
+[cols="35,65"]
+|===
+|If the controllers.... |Then...
+
+|Do not contain any aggregates on internal disk drives
+|Continue with this procedure.
+|Contain aggregates but no volumes on the internal disk drives
+|Continue with this procedure.
+
+*Note*: Before you continue, you must place the aggregates offline, and then destroy the aggregates on the internal disk drives. Refer to link:other_references.html[References] to link to the _Disk and Aggregates Power Guide_ for information about managing aggregates.
+
+|Contain non-root volumes on the internal drives
+|Continue with this procedure.
+
+*Note*: Before you continue, you must move the volumes to an external disk shelf, place the aggregates offline, and then destroy the aggregates on the internal disk drives. Refer to link:other_references.html[References] to link to the _Disk and Aggregates Power Guide_ for information about moving volumes.
+
+|Contain root volumes on the internal drives
+|Do not continue with this procedure.
+
+You can upgrade the controllers by referring to link:other_references.html[References] to link to the _NetApp Support Site_ and using the procedure _Upgrading the controller hardware on a pair of nodes running clustered Data ONTAP by moving volumes_.
+|Contain non-root volumes on the internal drives and you cannot move the volumes to external storage
+|Do not continue with this procedure.
+
+You can upgrade the controllers by using the procedure _Upgrading the controller hardware on a pair of nodes running clustered Data ONTAP by moving volumes_. Refer to link:other_references.html[References] to link to the _NetApp Support Site_ where you can access this procedure.
+|===

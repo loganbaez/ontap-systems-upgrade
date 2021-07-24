@@ -1,0 +1,6 @@
+During Stage 1, you must prepare the nodes for the upgrade and run a series of prechecks. You might need to rekey disks for Storage Encryption. You must also prepare to netboot the new controllers.
+
+.Steps
+
+. link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade]
+. link:get_ip_address_of_external_kms_for_storage_encryption.html[Get an IP address of an external key management server for storage encryption]

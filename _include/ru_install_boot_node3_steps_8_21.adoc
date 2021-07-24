@@ -1,0 +1,89 @@
+[start=8]
+. [[step8]]From the boot menu, select option `(7) Install new software first`.
++
+This menu option downloads and installs the new ONTAP image to the boot device.
++
+NOTE: Disregard the following message: `This procedure is not supported for Non-Disruptive Upgrade on an HA pair`. The note applies to nondisruptive upgrades of ONTAP, and not upgrades of controllers.
+Always use netboot to update the new node to the desired image. If you use another method to install the image on the new controller, the wrong image might install. This issue applies to all ONTAP releases.
+
+. [[step9]]If you are prompted to continue the procedure, enter `y`, and when prompted for the package, enter the URL:
++
+`\http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz`
+
+. [[step10]]Complete the following substeps to reboot the controller module:
+.. Enter `n` to skip the backup recovery when you see the following prompt:
++
+`Do you want to restore the backup configuration now? {y|n}`
+
+.. Enter `y` to reboot when you see the following prompt:
++
+`The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}`
++
+The controller module reboots but stops at the boot menu because the boot device was reformatted, and the configuration data needs to be restored.
+
+. [[step11]]Select maintenance mode `5` from the boot menu and enter `y` when you are prompted to continue with the boot.
+. [[step12]]Verify that the controller and chassis are configured as "ha" by using the following command:
++
+`ha-config show`
++
+The following example shows the output of the `ha-config show` command:
++
+....
+Chassis HA configuration: ha
+Controller HA configuration: ha
+....
++
+NOTE: The system records in a PROM whether it is in an HA pair or stand-alone configuration. The state must be the same on all components within the stand-alone system or HA pair.
+
+. [[step13]]If the controller and chassis are not configured as "ha", use the following commands to correct the configuration:
++
+`ha-config modify controller`
++
+`ha ha-config modify chassis ha`
++
+If you have a MetroCluster configuration, use the following commands to modify the controller and chassis:
++
+`ha-config modify controller mcc`
++
+`ha-config modify chassis mcc`
+
+. [[step14]]Exit maintenance mode:
++
+`halt`
++
+Interrupt the autoboot by pressing Ctrl-C at the boot environment prompt.
+
+. [[step15]]On node2, check the system date, time, and time zone:
++
+`date`
+
+. [[step16]]On node3, check the date by using the following command at the boot environment prompt:
++
+`show date`
+
+. [[step17]]If necessary, set the date on node3:
++
+`set date <mm/dd/yyyy>`
+
+. [[step18]]On node3, check the time by using the following command at the boot environment prompt:
++
+`show time`
+
+. [[step19]]If necessary, set the time on node3:
++
+`set time <hh:mm:ss>`
+
+. [[step20]]If necessary, set the partner system ID on node3:
++
+`setenv partner-sysid <node2_sysid>`
+
+.. Save the settings:
++
+`saveenv`
+
+. [[step21]]On the new node, in boot loader, the `partner-sysid` parameter needs to be set. For node3, `partner-sysid` needs to be that of node2. Verify the `partner-sysid` for node3:
++
+`printenv partner-sysid`
+// This reuse file is used in the following adoc files:
+// -- upgrade-arl-auto-app/installing_and_booting_node3.adoc
+// -- upgrade-arl-auto/install_boot_node3.adoc

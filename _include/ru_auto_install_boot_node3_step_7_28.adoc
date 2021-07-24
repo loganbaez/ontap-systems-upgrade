@@ -1,0 +1,142 @@
+
+. [[step7]]Perform netboot on node3:
++
+[cols=2*,options="header"cols="30,70"]
+|===
+|For... |Then...
+
+|FAS/AFF8000 series systems
+|`netboot \http://<web_server_ip/path_to_web-accessible_directory>/netboot/kernel`
+|All other systems
+|`netboot \http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz`
+|===
++
+The `<path_to_the_web-accessible_directory>` should lead to where you downloaded the `<ontap_version>_image.tgz` in the section link:prepare_for_netboot.html[Prepare for netboot].
++
+NOTE: Do not interrupt the boot.
+
+. [[step8]]From the boot menu, select option `(7) Install new software first`.
++
+This menu option downloads and installs the new ONTAP image to the boot device.
++
+NOTE: Disregard the following message: `This procedure is not supported for Non-Disruptive Upgrade on an HA pair`. The note applies to nondisruptive upgrades of ONTAP, and not upgrades of controllers.
+Always use netboot to update the new node to the desired image. If you use another method to install the image on the new controller, the wrong image might install. This issue applies to all ONTAP releases.
+
+. [[step9]]If you are prompted to continue the procedure, enter `y`, and when prompted for the package, enter the URL:
++
+`\http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz`
+
+. [[step10]]Complete the following substeps to reboot the controller module:
+.. Enter `n` to skip the backup recovery when you see the following prompt:
++
+`Do you want to restore the backup configuration now? {y|n}`
+
+.. Enter `y` to reboot when you see the following prompt:
++
+`The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}`
++
+The controller module reboots but stops at the boot menu because the boot device was reformatted, and the configuration data needs to be restored.
+
+. [[step11]]Select maintenance mode `5` from the boot menu and enter `y` when you are prompted to continue with the boot.
+. [[step12]]Verify that the controller and chassis are configured as ha:
++
+`ha-config show`
++
+The following example shows the output of the `ha-config show` command:
++
+....
+Chassis HA configuration: ha
+Controller HA configuration: ha
+....
++
+NOTE: System records in a PROM whether they are in an HA pair or stand-alone configuration. The state must be the same on all components within the stand-alone system or HA pair.
+
+. [[step13]]If the controller and chassis are not configured as ha, use the following commands to correct the configuration:
++
+`ha-config modify controller ha`
++
+`ha-config modify chassis ha`
++
+If you have a MetroCluster configuration, use the following commands to modify the controller and chassis:
++
+`ha-config modify controller mcc`
++
+`ha-config modify chassis mcc`
+
+. [[step14]]Exit maintenance mode:
++
+`halt`
++
+Interrupt the autoboot by pressing `Ctrl-C` at the boot environment prompt.
+
+. [[step15]]On node2, check the system date, time, and time zone:
++
+`date`
+
+. [[step16]]On node3, check the date by using the following command at the boot environment prompt:
++
+`show date`
+
+. [[step17]]If necessary, set the date on node3:
++
+`set date <mm/dd/yyyy>`
+
+. [[step18]]On node3, check the time by using the following command at the boot environment prompt:
++
+`show time`
+
+. [[step19]]If necessary, set the time on node3:
++
+`set time <hh:mm:ss>`
+
+. [[step20]]If necessary, set the partner system ID on node3:
++
+`setenv partner-sysid <node2_sysid>`
+
+.. Save the settings:
++
+`saveenv`
+
+. [[auto_install3_step21]]On the new node, in boot loader, the `partner-sysid` parameter needs to be set. For node3, `partner-sysid` needs to be that of node2. Verify the `partner-sysid` for node3:
++
+`printenv partner-sysid`
+
+. [[step22]]Take one of the following actions:
++
+[cols=2*,options="header"cols="30,70"]
+|===
+|If your system... |Description
+
+|Has disks and no back-end storage
+|Go to <<auto_install3_step23,Step 23>>
+|Is a V-Series system or a system with FlexArray Virtualization software connected to storage arrays
+a|.. Go to section link:set_fc_or_uta_uta2_config_on_node3.html[Setting the FC or UTA/UTA2 configuration on node3] and complete the subsections in this section.
+.. Return to this section and complete the remaining steps, beginning with <<auto_install3_step23,Step 23>>.
+
+*Important*: You must reconfigure FC onboard ports, CNA onboard ports, and CNA cards before you boot ONTAP on the V-Series or system with FlexArray Virtualization software.
+|===
+
+. [[auto_install3_step23]]Add the FC initiator ports of the new node to the switch zones.
++
+If your system has a tape SAN, then you need zoning for the initiators. If required, modify the onboard ports to initiator by referring to the link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3[Configuring FC ports on node3]. See your storage array and zoning documentation for further instructions on zoning.
+
+. [[step24]]Add the FC initiator ports to the storage array as new hosts, mapping the array LUNs to the new hosts.
++
+See your storage array and zoning documentation for instructions.
+
+. [[step25]]Modify the worldwide port name (WWPN) values in the host or volume groups associated with array LUNs on the storage array.
++
+Installing a new controller module changes the WWPN values associated with each onboard FC port.
+
+. [[step26]]If your configuration uses switch-based zoning, adjust the zoning to reflect the new WWPN values.
+. [[step27]]If NetApp Storage Encryption (NSE) is in use on this configuration, the `setenv bootarg.storageencryption.support` command must be set to `true`, and the `kmip.init.maxwait` variable needs to be set to `off` to avoid a boot loop after the node1 configuration is loaded:
++
+`setenv bootarg.storageencryption.support true`
++
+`setenv kmip.init.maxwait off`
+
+. [[step28]]Boot node into boot menu:
++
+`boot_ontap menu`
++
+If you do not have FC or UTA/UTA2 configuration, execute link:set_fc_or_uta_uta2_config_on_node3.html#auto9597_check_node3_step15[Check and configure UTA/UTA2 ports on node 3, Step 15] so that node3 can recognize node1’s disks.

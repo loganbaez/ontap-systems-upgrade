@@ -1,0 +1,17 @@
+== Check for aggregate relocation failure
+
+During the procedure, ARL might fail in Stage 2, Stage 3, or Stage 5.
+
+.Steps
+
+. Enter the following command and examine the output:
++
+`storage aggregate relocation show`
++
+The `storage aggregate relocation show` command shows you which aggregates were successfully relocated and which ones were not, along with the causes of failure.
+
+. Check the console for any EMS messages.
+. Take one of the following actions:
++
+* Take the appropriate corrective action, depending on the output of the `storage aggregate relocation show` command and the output of the EMS message.
+* Force relocation of the aggregate or aggregates by using the `override-vetoes` option or the `override-destination-checks` option of the `storage aggregate relocation start` command.

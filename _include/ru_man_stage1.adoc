@@ -1,0 +1,11 @@
+During Stage 1, you must prepare the nodes for the upgrade and run a series of prechecks. You might need to rekey disks for Storage Encryption. You must also prepare to netboot the new controllers.
+
+.Steps
+
+. link:determine_aggregates_on_internal_drives.html[Determine whether the controller has aggregates on internal disk drives]
+. link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade]
+. link:get_address_key_management_server_encryption.html[Get an IP address of an external key management server for storage encryption]
+. link:manage_authentication_kmip.html[Manage authentication using KMIP servers]
+. link:manage_authentication_okm.html[Manage authentication using an onboard key manager]
+. link:quiesce_snapmirror_relationships.html[Quiesce the SnapMirror relationships]
+. link:prepare_for_netboot.html[Prepare for netboot]

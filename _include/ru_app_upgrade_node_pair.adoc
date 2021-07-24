@@ -1,0 +1,4 @@
+To upgrade the node pair, you need to prepare the original nodes and then perform a series of steps on both the original and new nodes. You can then decommission the original nodes.
+// This reuse file is used in the following adoc files:
+// upgrade-arl-auto-app/upgrading_the_node_pair.adoc
+// upgrade-arl-manual-app/upgrade_node_pair.adoc

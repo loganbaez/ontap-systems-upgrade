@@ -1,0 +1,171 @@
+Before you can shut down and retire node1, you need to record information about its cluster network, management, and FC ports as well as its NVRAM System ID. You need that information later in the procedure when you map node1 to node3 and reassign disks.
+
+.Steps
+
+.	[[step1]]Enter the following command and capture its output:
++
+`network route show`
++
+The system displays output similar to the following example:
++
+----
+ cluster::> network route show
+
+ Vserver        Destination    Gateway      Metric
+  -------------- -------------- ----------- -------
+  iscsi vserver  0.0.0.0/0      10.10.50.1  20
+  node1          0.0.0.0/0      10.10.20.1  10
+  ....
+  node2          0.0.0.0/0      192.169.1.1 20
+----
+
+.	Enter the following command and capture its output:
++
+`vserver services name-service dns show`
++
+The system displays output similar to the following example:
++
+----
+ cluster::> vserver services name-service dns show
+                                                               Name
+ Vserver        State     Domains                              Servers
+ -------------- --------- ------------------------------------ ---------------
+ node 1 2       enabled   alpha.beta.gamma.netapp.com          10.10.60.10,
+                                                               10.10.60.20
+ vs_base1       enabled   alpha.beta.gamma.netapp.com,         10.10.60.10,
+                          beta.gamma.netapp.com,               10.10.60.20
+ ...
+ ...
+ vs peer1        enabled  alpha.beta.gamma.netapp.com,         10.10.60.10,
+                          gamma.netapp.com                     10.10.60.20
+----
+
+.	[[man_record_node1_step3]]Find the cluster network and node-management ports on node1 by entering the following command on either controller:
++
+`network interface show -curr-node <node1> -role cluster,intercluster,node-mgmt,cluster-mgmt`
++
+The system displays the cluster, intercluster, node-management, and cluster-management LIFs for the node in the cluster, as shown in the following example:
++
+----
+ cluster::> network interface show -curr-node <node1>
+            -role cluster,intercluster,node-mgmt,cluster-mgmt
+
+              Logical       Status     Network            Current  Current Is
+  Vserver     Interface     Admin/Oper Address/Mask       Node     Port    Home
+  ----------- ------------- ---------- ------------------ -------- ------- ----
+  vserver1
+              cluster mgmt   up/up     192.168.x.xxx/24   node1    e0c     true
+  node1
+              intercluster   up/up     192.168.x.xxx/24   node1    e0e     true
+              clus1          up/up     169.254.xx.xx/24   node1    e0a     true
+              clus2          up/up     169.254.xx.xx/24   node1    e0b     true
+              mgmt1          up/up     192.168.x.xxx/24   node1    e0c     true
+ 5 entries were displayed.
+----
++
+NOTE: Your system might not have intercluster LIFs.
+
+.	Capture the information in the output of the command in <<man_record_node1_step3,Step 3>> to use in the section link:map_ports_node1_node3.html[Map ports from node1 to node3].
++
+The output information is required to map the new controller ports to the old controller ports.
+
+.	Enter the following command on node1:
++
+`network port show -node <node1> -type physical`
++
+The system displays the physical ports on the node as shown in the following example:
++
+----
+ sti8080mcc-htp-008::> network port show -node sti8080mcc-htp-008 -type physical
+
+ Node: sti8080mcc-htp-008
+
+                                                                  Ignore
+                                            Speed(Mbps)  Health   Health
+ Port  IPspace  Broadcast Domain Link MTU   Admin/Oper   Status   Status
+ ----  -------  ---------------- ---- ----  -----------  -------  -------
+ e0M   Default  Mgmt             up   1500  auto/1000    healthy  false
+ e0a   Default  Default          up   9000  auto/10000   healthy  false
+ e0b   Default  -                up   9000  auto/10000   healthy  false
+ e0c   Default  -                down 9000  auto/-       -        false
+ e0d   Default  -                down 9000  auto/-       -        false
+ e0e   Cluster  Cluster          up   9000  auto/10000   healthy  false
+ e0f   Default  -                up   9000  auto/10000   healthy  false
+ e0g   Cluster  Cluster          up   9000  auto/10000   healthy  false
+ e0h   Default  Default          up   9000  auto/10000   healthy  false
+ 9 entries were displayed.
+----
+
+.	Record the ports and their broadcast domains.
++
+The broadcast domains will need to be mapped to the new ports on the new controller later in the procedure.
+
+.	Enter the following command on node1:
++
+`network fcp adapter show -node <node1>`
++
+The system displays the FC ports on the node, as shown in the following example:
++
+----
+ cluster::> fcp adapter show -node <node1>
+                      Connection  Host
+ Node         Adapter Established Port Address
+ ------------ ------- ----------- ------------
+ node1
+               0a     ptp         11400
+ node1
+               0c     ptp         11700
+ node1
+               6a     loop        0
+ node1
+               6b     loop        0
+ 4 entries were displayed.
+----
+
+.	Record the ports.
++
+The output information is required to map the new FC ports on the new controller later in the procedure.
+
+.	If you did not do so earlier, check whether there are interface groups or VLANs configured on node1 by entering the following commands:
++
+`network port ifgrp show`
++
+`network port vlan show`
++
+You will use the information in the section link:map_ports_node1_node3.html[Map ports from node1 to node3].
+
+.	Take one of the following actions:
++
+[cols="60,40"]
+|===
+|If you...	|Then...
+
+|Recorded the NVRAM System ID number in the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for the upgrade].
+|Go on to the next section, link:retire_node1.html[Retire node1].
+|Did not record the NVRAM System ID number in the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for the upgrade]
+|Complete <<man_record_node1_step11,Step 11>> and <<man_record_node1_step12,Step 12>> and then continue to link:retire_node1.html[Retire node1].
+|===
+
+.	[[man_record_node1_step11]]Enter the following command on either controller:
++
+`system node show -instance -node <node1>`
++
+The system displays information about node1 as shown in the following example:
++
+----
+ cluster::> system node show -instance -node <node1>
+                              Node: node1
+                             Owner:
+                          Location: GDl
+                             Model: FAS6240
+                     Serial Number: 700000484678
+                         Asset Tag: -
+                            Uptime: 20 days 00:07
+                   NVRAM System ID: 1873757983
+                         System ID: 1873757983
+                            Vendor: NetApp
+                            Health: true
+                       Eligibility: true
+----
+
+.	[[man_record_node1_step12]]Record the NVRAM System ID number to use in the section link:install_boot_node3.html[Install and boot node3].

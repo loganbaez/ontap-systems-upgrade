@@ -1,0 +1,9 @@
+=== Licensing
+
+When you set up a cluster, the setup wizard prompts you to enter the cluster-base license key. However, some features require additional licenses, which are issued as packages that include one or more features. Each node in the cluster must have its own key for each feature to be used in the cluster.
+
+If you do not have new license keys, currently licensed features in the cluster are available to the new controller. However, using unlicensed features on the controller might put you out of compliance with your license agreement, so you should install the new license key or keys for the new controller after the upgrade is complete.
+
+You can obtain new 2-character license keys for ONTAP 9.x on the link:https://mysupport.netapp.com[NetApp Support Site]. The keys are available in the _My Support_ section under _Software licenses_. If the site does not have the license keys you need, you can contact your NetApp sales representative.
+
+For detailed information about licensing, see the link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html[System Administration Reference] in the link:https://docs.netapp.com/ontap-9/index.jsp[ONTAP 9 Documentation Center].

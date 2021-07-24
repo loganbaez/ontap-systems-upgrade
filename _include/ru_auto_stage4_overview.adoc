@@ -1,0 +1,6 @@
+During Stage 4, all non-root aggregates are relocated from node2 to node3; the non-SAN data LIFs owned by node2 are moved to node3. You must record the necessary node2 information and then retire node2.
+
+.Steps
+
+. link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html[Relocate non-root aggregates and NAS data LIFs from node2 to node3]
+. link:retire_node2.html[Retire node2]

@@ -1,0 +1,20 @@
+Before you proceed with the procedure, you must confirm that all the SnapMirror relationships are quiesced. When a SnapMirror relationship is quiesced, it remains quiesced across reboots and failovers.
+
+.Steps
+
+. Verify the SnapMirror relationship status on the destination cluster by using the following command:
++
+`snapmirror show`
++
+NOTE: If the status is "Transferring", you must abort those transfers by using the following command: `snapmirror abort -destination-vserver <vserver name>`
++
+
+The abort fails if the SnapMirror relationship is not in the "Transferring" state.
+
+. Quiesce all relationships between the cluster by using the following command:
++
+`snapmirror quiesce -destination-vserver <Vserver name>`
+// This reuse file is used in the following adoc files:
+// -- upgrade-arl-auto-app/getting_an_ip_address_of_an_external_key_management_server_for_storage_encryption.adoc (fourth section)
+// -- upgrade-arl-manual-app/quiesce_snapmirror_relationships.adoc
+// -- upgrade-arl-auto/quiesce_snapmirror_relationships.adoc

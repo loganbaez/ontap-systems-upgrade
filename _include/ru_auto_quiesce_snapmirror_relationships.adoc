@@ -1,0 +1,18 @@
+== Quiesce the SnapMrror relationships (optional)
+
+Before you proceed with the procedure, you must confirm that all the SnapMirror relationships are quiesced. When a SnapMirror relationship is quiesced, it remains quiesced across reboots and failovers.
+
+.Steps
+
+. Verify the SnapMirror relationship status on the destination cluster:
++
+`snapmirror show`
++
+NOTE: If the status is "Transferring", you must abort those transfers by using the following command: `snapmirror abort -destination-vserver <vserver name>`
++
+
+The abort fails if the SnapMirror relationship is not in the "Transferring" state.
+
+. Quiesce all relationships between the cluster:
++
+`snapmirror quiesce -destination-vserver <Vserver name>`

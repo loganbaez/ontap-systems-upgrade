@@ -1,0 +1,122 @@
+. Perform netboot on node4:
++
+[cols=2*,options="header"cols="30,70"]
+|===
+|For...     |Then...
+
+|FAS/AFF8000 series systems
+|`netboot \http://<web_server_ip/path_to_web-accessible_directory>/netboot/kernel`
+|All other systems
+|`netboot \http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz`
+|===
++
+The `<path_to_the_web-accessible_directory>` should lead to where you downloaded the `<ontap_version>_image.tgz` in Step 1 in the section link:prepare_for_netboot.html[Prepare for netboot].
++
+NOTE: Do not interrupt the boot.
+
+. From the boot menu, select option `(7) Install new software first`.
++
+This menu option downloads and installs the new ONTAP image to the boot device.
++
+NOTE: Disregard the following message: `This procedure is not supported for Non-Disruptive Upgrade on an HA pair`
+The note applies to nondisruptive upgrades of ONTAP, and not upgrades of controllers.
+Always use netboot to update the new node to the desired image. If you use another method to install the image on the new controller, the wrong image might install. This issue applies to all ONTAP releases.
+
+. If you are prompted to continue the procedure, enter `y`, and when prompted for the package, enter the URL:
++
+`\http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz`
+
+. Complete the following substeps to reboot the controller module:
+.. Enter `n` to skip the backup recovery when you see the following prompt:
++
+....
+Do you want to restore the backup configuration now? {y|n}
+....
+
+.. Reboot by entering `y` when you see the following prompt:
++
+....
+The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}
+....
++
+The controller module reboots but stops at the boot menu because the boot device was reformatted, and the configuration data needs to be restored.
+
+. Select maintenance mode `5` from the boot menu and enter `y` when you are prompted to continue with the boot.
+
+. Verify that the controller and chassis are configured as HA:
++
+`ha-config show`
++
+The following example shows the output of the `ha-config show` command:
++
+....
+Chassis HA configuration: ha
+Controller HA configuration: ha
+....
++
+NOTE: System records in a PROM whether they are in an HA pair or stand-alone configuration. The state must be the same on all components within the stand-alone system or HA pair.
+
+. If the controller and chassis are not configured as HA, use the following commands to correct the configuration:
++
+`ha-config modify controller ha`
++
+`ha-config modify chassis ha`
++
+If you have a MetroCluster configuration, use the following commands to modify the controller and chassis:
++
+`ha-config modify controller mcc`
++
+`ha-config modify chassis mcc`
+
+. Exit maintenance mode:
++
+`halt`
++
+Interrupt the autoboot by pressing Ctrl-C at the boot environment prompt.
+
+. [[auto_install4_step15]]On node3, check the system date, time, and time zone:
++
+`date`
+
+. On node4, check the date by using the following command at the boot environment prompt:
++
+`show date`
+
+. If necessary, set the date on node4:
++
+`set date <mm/dd/yyyy>`
+
+. On node4, check the time by using the following command at the boot environment prompt:
++
+`show time`
+
+. If necessary, set the time on node4:
++
+`set time <hh:mm:ss>`
+
+. If necessary, set the partner system ID on node4:
++
+`setenv partner- sysid <node2_sysid>`
+
+.. Save the settings:
++
+`saveenv`
+
+. [[auto_install4_step21]]On the new node, in boot loader, the `partner- sysid` parameter must be set. For node4, `partner- sysid` must be that of node3. Verify the `partner- sysid` for node3:
++
+`printenv partner- sysid`
+
+. [[step22]]Take one of the following actions:
++
+[cols=2*,options="header"cols="30,70"]
+|===
+|If your system... |Then...
+
+|Has disks and no back-end storage
+|Go to <<auto_install4_step23,Step 23>>.
+|Is a V-Series system or a system with FlexArray Virtualization software connected to storage arrays
+a|.. Go to section link:set_fc_or_uta_uta2_config_node4.html[Set the FC or UTA/UTA2 configuration on node4] and complete the subsections in this section.
+.. Return to this section and complete the remaining steps, beginning with <<auto_install4_step23,Step 23>>.
+
+*Important*: You must reconfigure FC onboard ports, CNA onboard ports, and CNA cards before you boot ONTAP on the V-Series or system with FlexArray Virtualization software.
+|===
