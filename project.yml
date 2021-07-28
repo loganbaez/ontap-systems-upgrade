@@ -1,7 +1,7 @@
 sidebar:
   entries:
-    - title: ONTAP 9.8 System Documentation
-      url: /upgrade/index.html
+    - title: AFF and FAS System Upgrade Documentation
+      url: /index.html
     - section: upgrade-arl-auto-app
     - section: upgrade-arl-manual-app
     - section: upgrade-arl-auto
@@ -9,3 +9,24 @@ sidebar:
 
 homepage:
   tiles:
+    - title: Upgrade by moving storage or volumes (most systems)
+      links:
+        - title: Upgrade controller hardware
+          summary: Quickly upgrade controller hardware in a cluster by moving storage or volumes or convert a supported model to a disk shelf.
+          url: http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/home.html
+    - title: Upgrade by moving storage or volumes (most systems)
+      links:
+        - title: Upgrade by moving aggregates on systems running ONTAP 9.8 and later
+          summary: Upgrade the controller hardware without disruption.
+          url: https://docs.netapp.com/us-en/ontap-systems/upgrade-arl-auto-app/
+        - title: Use manual commands
+          summary: Manually upgrade by moving aggregates on systems running ONTAP 9.8 and later
+          url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2659356
+    - title: Upgrade by moving aggregates on systems running ONTAP 9.7 and earlier
+      links:
+        - title: Use “system controller replace” commands (ONTAP 9.5 to 9.7)
+          summary: Upgrade controller hardware running ONTAP 9.5 to 9.7
+          url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2848956
+        - title: Use manual commands
+          summary: Manually upgrade controller hardware running ONTAP 9.7 or earlier
+          url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2875250  
