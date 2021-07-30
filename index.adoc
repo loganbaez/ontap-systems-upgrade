@@ -6,7 +6,7 @@ keywords:  aggregate, relocation, moving, manual, upgrade, relocate
 summary: Use aggregate relocation to upgrade controller hardware
 ---
 
-= ONTAP 9.8 System Documentation
+= AFF and FAS System Upgrade Documentation
 :hardbreaks:
 :nofooter:
 :icons: font
