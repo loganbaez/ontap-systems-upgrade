@@ -12,21 +12,20 @@ homepage:
     - title: Upgrade by moving storage or volumes (most systems)
       links:
         - title: Upgrade controller hardware
-          summary: Quickly upgrade controller hardware in a cluster by moving storage or volumes or convert a supported model to a disk shelf.
           url: http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/home.html
-    - title: Upgrade by moving storage or volumes (most systems)
+    - title: Upgrade by moving aggregates on systems running ONTAP 9.8 and later
       links:
-        - title: Upgrade by moving aggregates on systems running ONTAP 9.8 and later
-          summary: Upgrade the controller hardware without disruption.
+        - title: Use "system controller replace" commands (most systems)
           url: https://docs.netapp.com/us-en/ontap-systems/upgrade-arl-auto-app/
         - title: Use manual commands
-          summary: Manually upgrade by moving aggregates on systems running ONTAP 9.8 and later
           url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2659356
     - title: Upgrade by moving aggregates on systems running ONTAP 9.7 and earlier
       links:
-        - title: Use “system controller replace” commands (ONTAP 9.5 to 9.7)
-          summary: Upgrade controller hardware running ONTAP 9.5 to 9.7
+        - title: Use “system controller replace” commands
           url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2848956
         - title: Use manual commands
-          summary: Manually upgrade controller hardware running ONTAP 9.7 or earlier
-          url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2875250  
+          url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2875250
+    - title: Upgrade systems in a MetroCluster configuration
+      links:
+        - title: Select the upgrade procedure for your MetroCluster configuration
+          url: https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html
