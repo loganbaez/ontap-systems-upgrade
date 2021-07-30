@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/relocate_non_root_aggr_node1_node2.html
+keywords: node1, node2, aggregate, relocation, storage
+summary: Move the non-root aggregates from node1 to node2 before moving node1's resources to node3.
+---
+
+= Relocate non-root aggregates from node1 to node2
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_relocate_non_root_aggr_node1_node2.adoc[]

@@ -1,0 +1,125 @@
+After you relocate the aggregates from node2 to node3, you need to move the NAS data LIFs owned by node2 to node3.
+
+.About this task
+
+Remote LIFs handle traffic to SAN LUNs during the upgrade procedure. Moving SAN LIFs is not necessary for cluster or service health during the upgrade. SAN LIFs are not moved unless they need to be mapped to new ports. You must verify that the LIFs are healthy and located on the appropriate ports after you move the LIFs from node3 to node4 and bring node4 online.
+
+.Steps
+
+. [[step1]]List all the NAS data LIFs owned by node2 by entering the following command on either node and capturing the output:
++
+`network interface show -data-protocol nfs|cifs -home-node <node2>`
++
+The following example shows the command output for node2:
++
+----
+cluster::> network interface show -data-protocol nfs|cifs -home-node node2
+              Logical     Status      Network             Current  Current  Is
+ Vserver      Interface   Admin/Oper  Address/Mask        Node     Port     Home
+ -----------  ----------  ----------  ------------------  -------  -------  ----
+ vs0
+              a0a         up/down     10.63.0.53/24       node2    a0a      true
+              data1       up/up       10.63.0.50/18       node2    e0c      true
+              rads1       up/up       10.63.0.51/18       node2    e1a      true
+              rads2       up/down     10.63.0.52/24       node2    e1b      true
+ vs1
+              lif1        up/up       172.17.176.120/24   node2    e0c      true
+              lif2        up/up       172.17.176.121/24   node2    e1a      true
+----
+
+. [[step2]]Take one of the following actions:
++
+[cols="35,65"]
+|===
+|If node2... |Then...
+
+|Has interface groups or VLANs configured
+|Go to <<man_move_lif_2_3_step3,Step 3>>.
+|Does not have interface groups or VLANs configured
+|Skip Step 3 and go to <<man_move_lif_2_3_step4,Step 4>>.
+|===
+
+. [[man_move_lif_2_3_step3]]Take the following steps to migrate NAS data LIFs hosted on interface groups and VLANs on node2:
+
+.. [[man_move_lif_2_3_substepa]]Migrate any data LIFs hosted on an interface group on node2 to a port on node3 that is capable of hosting LIFs on the same network by entering the following command, once for each LIF:
++
+`network interface migrate -vserver <Vserver_name> -lif <LIF_name> -destination-node <node3> –destination-port <netport|ifgrp>`
+
+.. Modify the home port and home node of the LIFs in <<man_move_lif_2_3_substepa,Substep a>> to the port and node currently hosting the LIFs by entering the following command, once for each node:
++
+`network interface modify -vserver <Vserver_name> -lif <LIF_name> -home-node <node3> -homeport <netport|ifgrp>`
+
+.. [[man_move_lif_2_3_substepc]]Migrate any LIFs hosted on VLANs on node2 to a port on node3 that is capable of hosting LIFs on the same network as that of the VLANs by entering the following command, once for each LIF:
++
+`network interface migrate -vserver <Vserver_name> -lif <LIF_name> -destination-node <node3> –destination-port <netport|ifgrp>`
+
+.. Modify the home port and home node of the LIFs in <<man_move_lif_2_3_substepc,Substep c>> to the port and node currently hosting the LIFs by entering the following command, once for each LIF:
++
+`network interface modify -vserver <Vserver_name> -lif <LIF_name> -home-node <node3> -homeport <netport|ifgrp>`
+
+. [[man_move_lif_2_3_step4]]Take one of the following actions:
++
+[cols="35,65"]
+|===
+|If the cluster is configured for... |Then...
+
+|NAS
+|Complete <<man_move_lif_2_3_step5,Step 5>> through <<man_move_lif_2_3_step8, Step 8>>.
+|SAN
+|Skip Step 5 through Step 8 and then complete <<man_move_lif_2_3_step9,Step 9>>.
+|Both NAS and SAN
+|Complete <<man_move_lif_2_3_step5,Step 5>> through <<man_move_lif_2_3_step9, Step 9>>.
+|===
+
+. [[man_move_lif_2_3_step5]]If you have data ports that are not the same on your platforms, add the ports to the broadcast domain:
++
+`network port broadcast-domain add-ports -ipspace <IPspace_name> -broadcast-domain mgmt -ports <node:port>`
++
+The following example adds port "e0a" on node "6280-1" and port "e0i" on node "8060-1" to broadcast domain "mgmt" in the IPspace "Default":
++
+----
+cluster::> network port broadcast-domain add-ports -ipspace Default
+           -broadcast-domain mgmt -ports 6280-1:e0a, 8060-1:e0i
+----
+
+. [[step6]]Migrate each NAS data LIF to node3 by entering the following command, once for each LIF:
++
+`network interface migrate -vserver <Vserver_name> -lif <LIF_name> -destination-node <node3> -destination-port <netport|ifgrp>`
+
+. [[step7]]Verify that NAS LIFs have been moved to the correct ports and that the LIFs have the status of up by entering the following command on either node and examining the output:
++
+`network interface show -curr-node <node3> -data-protocol cifs|nfs`
+
+. [[man_move_lif_2_3_step8]]If any LIFs are down, set the administrative status of the LIFs to "up" by entering the following command, once for each LIF:
++
+`network interface modify -vserver <Vserver_name> -lif <LIF_name> -status-admin up`
+
+. [[man_move_lif_2_3_step9]]If you have interface groups or VLANs configured, complete the following substeps:
+
+.. Remove the VLANs from the interface groups:
++
+`network port vlan delete -node <node_name> -port <ifgrp> -vlan-id <VLAN_ID>`
+
+.. Enter the following command and examine its output to determine if there are any interface groups configured on the node:
++
+`network port ifgrp show -node <node_name> -ifgrp <ifgrp_name> -instance`
++
+The system displays interface group information for the node, as shown in the following example:
++
+----
+cluster::> network port ifgrp show -node node2 -ifgrp a0a -instance
+                 Node: node2
+ Interface Group Name: a0a
+Distribution Function: ip
+        Create Policy: multimode_lacp
+          MAC Address: MAC_address
+    ort Participation: partial
+        Network Ports: e2c, e2d
+             Up Ports: e2c
+           Down Ports: e2d
+----
+
+.. If any interface groups are configured on the node, record the names of the interface groups and the ports assigned to them and then delete the ports by entering the following command, once for each port:
++
+`network port ifgrp remove-port -node <node_name> -ifgrp <ifgrp_name> -port <port_name>`
+// 24 FEB 2021:  formatted from CMS

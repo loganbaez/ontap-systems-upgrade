@@ -1,0 +1,183 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/map_ports_node1_node3.html
+keywords: map, port, node1, node3, settings, restore, cluster
+summary: Verify that the physical ports on node1 map correctly to the physical ports on node3
+---
+
+= Map ports from node1 to node3
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You must verify that the physical ports on node1 map correctly to the physical ports on node3, which will allow node3 to communicate with other nodes in the cluster and with the network after the upgrade.
+
+.About this task
+
+Refer to link:other_references.html[References] to link to the _Hardware Universe_ to capture information about the ports on the new nodes. You will use the information later in this section.
+
+Port settings might vary, depending on the model of the nodes. You must make the port and LIF configuration on the original node compatible with the planned use and configuration of the new node. This is because the new node replays the same configuration when it boots, which means that when you boot node3, ONTAP will try to host LIFs on the same ports that were used on node1.
+
+Therefore, if the physical ports on node1 do not map directly to the physical ports on node3, then software configuration changes will be required to restore cluster, management, and network connectivity after the boot. In addition, if the cluster ports on node1 do not directly map to the cluster ports on node3, node3 might not automatically rejoin quorum when it is rebooted until you change the software configuration to host the cluster LIFs on the correct physical ports.
+
+.Steps
+
+. Record all the node1 cabling information for node1, the ports, broadcast domains, and IPspaces, in the table:
++
+|===
+|LIF |Node1 ports |Node1 IPspaces |Node1 broadcast domains |Node3 ports |Node3  IPspaces|Node3 broadcast domains
+
+|Cluster 1 | | | | | |
+|Cluster 2 | | | | | |
+|Cluster 3 | | | | | |
+|Cluster 4 | | | | | |
+|Node management | | | | | |
+|Cluster management | | | | | |
+|Data 1 | | | | | |
+|Data 2 | | | | | |
+|Data 3 | | | | | |
+|Data 4 | | | | | |
+|SAN | | | | | |
+|Intercluster port | | | | | |
+|===
+
+. Record all the cabling information for node3, the ports, broadcast domains, and IPspaces in the table.
+
+. Follow these steps to verify if the setup is a two-node switchless cluster:
+
+.. Set the privilege level to advanced:
++
+`cluster::> set -privilege advanced`
+
+.. Verify if the setup is a two-node switchless cluster:
++
+`cluster::> network options switchless-cluster show`
++
+----
+cluster::*> network options switchless-cluster show
+
+Enable Switchless Cluster: false/true
+----
++
+The value of this command output must match the physical state of the system.
+
+.. Return to the administration privilege level:
++
+----
+cluster::*> set -privilege admin
+
+cluster::>
+----
+
+. Follow these steps to place node3 into quorum:
+
+.. Boot node3. See link:install_boot_node3.html[Install and boot node3] to boot the node if you have not already done so.
+
+.. Verify that the new cluster ports are in the Cluster broadcast domain:
++
+`network port show -node <node> -port <port> -fields broadcast-domain`
++
+The following example shows that port "e0a" is in the Cluster domain on node3:
++
+----
+ cluster::> network port show -node <node3> -port e0a -fields broadcast-domain
+
+ node       port broadcast-domain
+ ---------- ---- ----------------
+ node3      e0a  Cluster
+----
+.. If the cluster ports are not in the Cluster broadcast-domain, add them with the following command:
++
+`broadcast-domain add-ports -ipspace Cluster -broadcast-domain Cluster -ports <node:port>`
++
+This example adds Cluster port "e1b" on node3:
++
+----
+network port modify -node node3 -port e1b -ipspace Cluster -mtu 9000
+----
+
+.. Add the correct ports to the Cluster broadcast domain:
++
+`network port modify -node -port -ipspace Cluster -mtu 9000`
++
+This example adds Cluster port "e1b" on node4:
++
+----
+network port modify -node node4 -port e1b -ipspace Cluster -mtu 9000
+----
+
+.. Migrate the cluster LIFs to the new ports, once for each LIF:
++
+`network interface migrate -vserver Cluster -lif <lif_name> -source-node <node3> -destination-node <node3> -destination-port <port_name>`
+
+.. Modify the home port of the cluster LIFs:
++
+`network interface modify -vserver Cluster -lif <lif_name> –home-port <port_name>`
+
+.. Remove the old ports from the Cluster broadcast domain:
++
+`network port broadcast-domain remove-ports`
++
+The following command removes port "e0d" on node3:
++
+`network port broadcast-domain remove-ports -ipspace Cluster -broadcast-domain Cluster ‑ports node3:e0d`
+
+.. Verify that node3 has rejoined quorum:
++
+`cluster show -node node3 -fields health`
+
+. [[auto_map_3_step5]]Adjust the broadcast domains hosting your cluster LIFs and node-management/clustermanagement LIFs. Ensure that each broadcast domain contains the correct ports. A port cannot be moved between broadcast domains if it is hosting or is home to a LIF, so you might need to migrate and modify the LIFs as follows:
+
+.. Display the home port of a LIF:
++
+`network interface show -fields home-node,home-port`
+
+.. Display the broadcast domain containing this port:
++
+`network port broadcast-domain show -ports <node_name:port_name>`
+
+.. Add or remove ports from broadcast domains:
++
+`network port broadcast-domain add-ports`
++
+`network port broadcast-domain remove-ports`
+
+.. Modify a LIF’s home port:
++
+`network interface modify -vserver vserver -lif <lif_name> –home-port <port_name>`
+
+. Adjust the broadcast domain membership of network ports used for intercluster LIFs using the same commands shown in <<auto_map_3_step5,Step 5>>.
+
+. Adjust any other broadcast domains and migrate the data LIFs, if necessary, using the same commands shown in <<auto_map_3_step5,Step 5>>.
+
+. If there were any ports on node1 that no longer exist on node3, follow these steps to delete them:
+
+.. Access the advanced privilege level on either node:
++
+`set -privilege advanced`
+
+.. To delete the ports:
++
+`network port delete -node <node_name> -port <port_name>`
+
+.. Return to the admin level:
++
+`set -privilege admin`
+
+. Adjust all the LIF failover groups:
++
+`network interface modify -failover-group <failover_group> -failover-policy <failover_policy>`
++
+The following command sets the failover policy to `broadcast-domain-wide` and uses the ports in failover group "fg1" as failover targets for LIF "data1" on node3:
++
+`network interface modify -vserver node3 -lif data1 failover-policy broadcast-domainwide -failover-group fg1`
++
+Refer to link:other_references.html[References] to link to the _ONTAP 9 Network Management Guide_ or _ONTAP 9 Commands: Manual Page Reference_ for more information.
+
+. Verify the changes on node3:
++
+`network port show -node node3`
+// bottom of pg. 38, 39, 40, and top of 41 in PDF

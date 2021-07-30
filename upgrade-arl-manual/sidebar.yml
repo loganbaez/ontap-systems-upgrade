@@ -1,0 +1,130 @@
+section: upgrade-arl-manual
+title: "Using Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.7 and Earlier"
+url: /upgrade-arl-manual/index.html
+entries:
+  - title: "Decide whether to use the aggregate relocation guide"
+    url: /upgrade-arl-manual/decide_to_use_arl_guide.html
+  - title: "ARL upgrade workflow"
+    url: /upgrade-arl-manual/arl_upgrade_workflow.html
+  - title: "Guidelines for upgrading controllers with ARL"
+    url: /upgrade-arl-manual/guidelines_upgrade_with_arl.html
+  - title: "Required tools and documentation"
+    url: /upgrade-arl-manual/required_tools_documentation.html
+  - title: " Worksheet:  Information to collect before and during the controller upgrade"
+    url: /upgrade-arl-manual/worksheet_information_before_during_upgrade.html
+  - title: "Reconfigure the FC switch layout for ONTAP 9.1 or later"
+    url: /upgrade-arl-manual/reconfig_fc_switch_layout.html
+    entries:
+      - title: "Send a custom AutoSupport message prior to reconfiguring switches"
+        url: /upgrade-arl-manual/send_custom_asup_message_prior_reconfig_switches.html
+      - title: "Verify the health of the MetroCluster configuration"
+        url: /upgrade-arl-manual/verify_health_mcc_config.html
+      - title: "Check for MetroCluster configuration errors"
+        url: /upgrade-arl-manual/check_mcc_config_errors.html
+      - title: "Persistently disable the switches"
+        url: /upgrade-arl-manual/persist_disable_switches.html
+      - title: "Determine the new cabling layout"
+        url: /upgrade-arl-manual/determine_new_cabling_layout.html
+      - title: "Apply RCF files and recable the switches"
+        url: /upgrade-arl-manual/apply_RCF_files_recable_switches.html
+      - title: "Persistently enable the switches"
+        url: /upgrade-arl-manual/persist_enable_switches.html
+      - title: "Verify switchover, healing, and switchback"
+        url: /upgrade-arl-manual/verify_swtichover_healing_switchback.html
+  - title: "Upgrade the node pair"
+    url: /upgrade-arl-manual/upgrade_node_pair.html
+  - title: "Stage 1: Prepare for upgrade"
+    url: /upgrade-arl-manual/stage1_prepare_for_upgrade.html
+    entries:
+      - title: "Determine whether the controller has aggregates on internal disk drives"
+        url: /upgrade-arl-manual/determine_aggregates_on_internal_drives.html
+      - title: "Prepare the nodes for upgrade"
+        url: /upgrade-arl-manual/prepare_nodes_for_upgrade.html
+      - title: "Get an IP address of an external key management server for storage encryption"
+        url: /upgrade-arl-manual/get_address_key_management_server_encryption.html
+      - title: "Manage authentication using KMIP servers"
+        url: /upgrade-arl-manual/manage_authentication_kmip.html
+      - title: "Manage authentication using an onboard key manager"
+        url: /upgrade-arl-manual/manage_authentication_okm.html
+      - title: "Quiesce the SnapMirror relationships"
+        url: /upgrade-arl-manual/quiesce_snapmirror_relationships.html
+      - title: "Prepare for netboot"
+        url: /upgrade-arl-manual/prepare_for_netboot.html
+  - title: "Stage 2: Relocate and retire node1"
+    url:  /upgrade-arl-manual/stage2_relocate_retire_node1.html
+    entries:
+      - title: "Relocate non-root aggregates from node1 to node2"
+        url: /upgrade-arl-manual/relocate_non_root_aggr_node1_node2.html
+      - title: "Move NAS data LIFs owned by node1 to node2"
+        url: /upgrade-arl-manual/move_nas_lifs_node1_node2.html
+      - title: "Record node1 information"
+        url: /upgrade-arl-manual/record_node1_information.html
+      - title: "Retire node1"
+        url: /upgrade-arl-manual/retire_node1.html
+  - title: "Stage 3: Install and boot node3"
+    url: /upgrade-arl-manual/stage_3_install_boot_node3.html
+    entries:
+      - title: "Install and boot node3"
+        url: /upgrade-arl-manual/install_boot_node3.html
+      - title: "Set the FC or UTA/UTA2 configuration on node3"
+        url: /upgrade-arl-manual/set_fc_uta_uta2_config_node3.html
+      - title: "Map ports from node1 to node3"
+        url: /upgrade-arl-manual/map_ports_node1_node3.html
+      - title: "Verify the node3 installation"
+        url: /upgrade-arl-manual/verify_node3_installation.html
+      - title: "Move NAS data LIFs owned by node1 from node2 to node3 and verify SAN LIFs on node3"
+        url: /upgrade-arl-manual/move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html
+      - title: "Relocate non-root aggregates from node2 to node3"
+        url: /upgrade-arl-manual/relocate_non_root_aggr_node2_node3.html
+      - title: "Move NAS data LIFs owned by node2 to node3"
+        url: /upgrade-arl-manual/move_nas_lifs_node2_node3.html
+  - title: "Stage 4:  Record information and retire node2"
+    url: /upgrade-arl-manual/stage4_record_info_retire_node2.html
+    entries:
+      - title: "Record node2 information"
+        url: /upgrade-arl-manual/record_node2_information.html
+      - title: "Retire node2"
+        url: /upgrade-arl-manual/retire_node2.html
+  - title: "Stage 5: Install and boot node4"
+    url: /upgrade-arl-manual/stage5_install_boot_node4.html
+    entries:
+      - title: "Install and boot node4"
+        url: /upgrade-arl-manual/install_boot_node4.html
+      - title: "Set the FC or UTA/UTA2 configuarion on node4"
+        url: /upgrade-arl-manual/set_fc_uta_uta2_config_node4.html
+      - title: "Map ports from node2 to node4"
+        url: /upgrade-arl-manual/map_ports_node2_node4.html
+      - title: "Verify the node4 installation"
+        url: /upgrade-arl-manual/verify_node4_installation.html
+      - title: "Move NAS data LIFs owned by node2 from node3 to node4 and verify SAN LIFs on node4"
+        url: /upgrade-arl-manual/move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html
+      - title: "Relocate node2's non-root aggregates from node3 to node4"
+        url: /upgrade-arl-manual/relocate_node2_non_root_aggr_node3_node4.html
+  - title: "Stage 6: Complete the upgrade"
+    url: /upgrade-arl-manual/stage6_complete_upgrade.html
+    entries:
+      - title: "Ensure that the new controllers are set up correctly"
+        url: /upgrade-arl-manual/ensure_controllers_set_up_correctly.html
+      - title: "Set up Storage Encryption on the new controller module"
+        url: /upgrade-arl-manual/set_up_storage_encryption_new_controller.html
+      - title: "Set up NetApp Volume Encryption on the new controller module"
+        url: /upgrade-arl-manual/set_up_netapp_encryption_on_new_controller.html
+      - title: "Decommission the old system"
+        url: /upgrade-arl-manual/decommission_old_system.html
+      - title: "Resume SnapMirror operations"
+        url: /upgrade-arl-manual/resume_snapmirror_ops.html
+  - title: "Troubleshoot"
+    url: /upgrade-arl-manual/troubleshoot.html
+    entries:
+      - title: "Aggregate relocation failures"
+        url: /upgrade-arl-manual/aggregate_relocation_failures.html
+      - title: "Reboots, panics, or power cycles"
+        url: /upgrade-arl-manual/reboots_panics_power_cycles.html
+      - title: "Issues that can arise in multiple stages of the procedure"
+        url: /upgrade-arl-manual/issues_multiple_stages_of_procedure.html
+      - title: "LIF migration failure"
+        url: /upgrade-arl-manual/lif_migration_failure.html
+      - title: "LIFs are on invalid ports after upgrade"
+        url: /upgrade-arl-manual/lifs_invalid_ports_after_upgrade.html
+  - title: "References"
+    url: /upgrade-arl-manual/other_references.html

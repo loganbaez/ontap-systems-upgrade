@@ -1,0 +1,50 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/apply_RCF_files_recable_switches.html
+keywords:  rcf files, reference configuration, switches, nodes, recable, fc
+summary:  Apply the appropriate RCF files to reconfigure switches to accommodate the new nodes.
+---
+
+= Apply RCF files and recable the switches
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You must apply the appropriate reference configuration (RCF) files to reconfigure your switches to accommodate the new nodes. After you apply the RCF files, you can recable the switches.
+
+.Before you begin
+
+The FC switch port usage must match the usage described in the _Fabric-attached MetroCluster Installation and Configuration Guide_ so that the RCFs can be used. Go to link:other_references.html[References] to link to the _Fabric-attached MetroCluster Installation and Configuration Guide_.
+
+.Steps
+
+. Locate the RCF files for your configuration.
++
+You must use the RCF files that match your switch model.
++
+link:http://mysupport.netapp.com/NOW/download/software/metrocluster_brocade/sanswitch/index.shtml[NetApp Downloads: MetroCluster Configuration Files for Brocade Switches]
++
+link:http://mysupport.netapp.com/NOW/download/software/metrocluster_cisco/sanswitch/index.shtml[NetApp Downloads: MetroCluster Configuration Files for Cisco Switches]
+
+. Apply the RCF files, following the directions on the *Download* page and adjusting the ISL settings as needed.
+
+. Verify that the switch configuration is saved.
+
+. Cable both of the FC-to-SAS bridges to the FC switches, using the cabling layout you created in link:determine_new_cabling_layout.html[Determine the new cabling layout].
+
+. Verify that the ports are online:
++
+* For Brocade switches, use the `switchshow` command.
+* For Cisco switches, use the show `interface brief` command.
+
+. Cable the FC-VI ports from the controllers to the switches.
+
+. From the existing nodes, verify that the FC-VI ports are online:
++
+`metrocluster interconnect adapter show`
++
+`metrocluster interconnect mirror show`
+//26 FEB 2021:  formatted from CMS

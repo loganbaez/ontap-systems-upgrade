@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/set_up_storage_encryption_new_controller.html
+keywords: set up, setup, storage encryption, new, controller, module
+summary: If the replaced controller or the HA partner of the new controller uses NetApp Volume Encryption, you must configure the new controller module for NetApp Volume Encryption.
+---
+
+= Set up Storage Encryption on the new controller module
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_set_up_storage_encryption_new_module.adoc[]
+// 02 MAR 2021: Formatted from CMS

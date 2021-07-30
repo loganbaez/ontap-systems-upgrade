@@ -1,0 +1,23 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/verify_switchover_healing_switchback.html
+keywords: verifying, switchover, healing, switchback, metrocluster, management, disaster, recovery, mcc
+summary: You should verify the switchover, healing, and switchback operations of the MetroCluster configuration.
+---
+
+= Verify switchover, healing, and switchback
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:53.795213
+//
+
+[.lead]
+
+include::../_include/ru_auto_verify_switchover_healing_switchback.adoc[]

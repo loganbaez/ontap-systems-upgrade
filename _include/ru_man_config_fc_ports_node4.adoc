@@ -1,0 +1,136 @@
+== Configure FC ports on node4
+
+If node4 has FC ports, either onboard or on an FC adapter, you must set port configurations on the node before you bring it into service because the ports are not preconfigured. If the ports are not configured, you might experience a disruption in service.
+
+.Before you begin
+
+You must have the values of the FC port settings from node2 that you saved in the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade].
+
+.About this task
+
+You can skip this section if your system does not have FC configurations. If your system has onboard UTA/UTA2 ports or a UTA/UTA2 adapter, you configure them in <<Check and configure UTA/UTA2 ports on node4>>.
+
+*Important*: If your system has storage disks, you must enter the commands in this section at the cluster prompt. If you have a V-Series system or a system with FlexArray Virtualization Software connected to storage arrays, you enter commands in this section in Maintenance mode.
+
+.Steps
+
+. Take one of the following actions:
++
+[cols=2*,options="header",cols="35,65"]
+|===
+|If the system that you are upgrading... |Then…
+|Has storage disks
+|Go to <<man_config_4_Step5,Step 5>>.
+|Is a V-Series system or has FlexArray Virtualization Software and is connected to storage arrays
+|Go to <<man_config_4_Step2,Step 2>>.
+|===
+. [[man_config_4_Step2]]Access Maintenance mode:
++
+`boot_ontap maint`
+. Take one of the following actions:
++
+[cols=2*,options="header",cols="35,65"]
+|===
+|If the system that you are upgrading... |Then…
+|Has storage disks
+|`system node hardware unified-connect show`
+
+|Is a V-Series system or has FlexArray Virtualization Software and is connected to storage arrays
+|`ucadmin show`
+|===
++
+The system displays information about all FC and converged network adapters on the system.
+
+. Compare the FC settings on the new nodes with the settings that you captured earlier from the original node.
+
+. [[man_config_4_Step5]]Take one of the following actions:
++
+[cols=2*,options="header",cols="35,65"]
+|===
+|If the system that you are upgrading... |Then…
+|Has storage disks
+a|Modify the FC ports on node4 as needed:
+
+* To program target ports:
+
+`system node hardware unified-connect modify -type \| -t target -adapter <port_name>`
+
+* To program initiator ports:
+
+`system node unified-connect modify type \| -t initiator -adapter <port_name>`
+
+`-type` is the FC4 type, target or initiator.
+
+|Is a V-Series system or has FlexArray Virtualization Software and is connected to storage arrays
+|Modify the FC ports on node4 as needed:
+
+`ucadmin modify -m fc -t initiator -f <adapter_port_name>`
+
+`-t` is the FC4 type, target or initiator.
+
+*Note*: The FC ports need to be programmed as initiators.
+|===
+
+. Take one of the following actions:
++
+[cols=2*,options="header",cols="35,65"]
+|===
+|If the system that you are upgrading... |Then…
+|Has storage disks
+|Verify the new settings by entering the following command and examining the output:
+
+`system node unified-connect show`
+|Is a V-Series system or has FlexArray Virtualization Software and is connected to storage arrays
+|Verify the new settings by entering the following command and examining the output:
+
+`ucadmin show`
+|===
+
+. Take one of the following actions:
++
+[cols=2*,options="header",cols="35,65"]
+|===
+|If the default FC settings on the new nodes are... |Then…
+|The same as the ones you that captured on the original nodes
+|Go to <<man_config_4_Step11,Step 11>>.
+|Different from the ones that you captured on the original nodes
+|Go to <<man_config_4_Step8,Step8>>.
+|===
+
+. [[man_config_4_Step8]]Exit Maintenance mode:
++
+`halt`
+
+. After you enter the command, wait until the system stops at the boot environment prompt.
+
+. Take one of the following actions:
++
+[cols=2*,options="header",cols="35,65"]
+|===
+|If the system that you are upgrading... |Then…
+
+|Is a V-Series system or has FlexArray Virtualization software running Data ONTAP 8.3.0 or later
+|Access Maintenance mode by entering the following command at the boot environment prompt:
+
+`boot_ontap maint`
+
+|Is not a V-Series system and does not have FlexArray Virtualization software
+|Boot node4 by entering the following command at the boot environment prompt:
+
+`boot_ontap`
+|===
+
+. [[man_config_4_Step11]]Take one of the following actions:
++
+[cols=2*,options="header",cols="35,65"]
+|===
+|If the system that you are upgrading... |Then…
+
+|Has storage disks
+a| * Go to <<Check and configure UTA/UTA2 ports on node4>> if node4 has a UTA/UTA2A card or UTA/UTA2 onboard ports.
+* Skip the section and go to link:map_ports_node2_node4.html[Map ports from node2 to node4] if node4 does not have a UTA/UTA2 card or UTA/UTA2 onboard ports.
+
+|Is a V-Series system or has FlexArray Virtualization Software and is connected to storage arrays
+a|* Go to <<Check and configure UTA/UTA2 ports on node4>> if node4 has a UTA/ UTA2 card or UTA/UTA2 onboard ports.
+* Skip the section _Check and configure UTA/UTA2 ports on node4_ if node4 does not have a UTA/UTA2 card or UTA/UTA2 onboard ports, return to the section _Install and boot node4_, and resume the section at link:install_boot_node4.html#Step9[Step 9].
+|===

@@ -1,0 +1,28 @@
+After upgrading, you must immediately configure Storage Encryption and establish a cluster-wide authentication key to replace the previous node-level authentication keys.
+
+.Steps
+
+. Install the necessary client and server secure sockets layer (SSL) certificates required to communicate with key management servers:
++
+`security certificate install`
+
+. Configure Storage Encryption on all nodes by using the following command on each node:
++
+`security key-manager setup`
+
+. Add the IP address for each key management server:
++
+`security key-manager add`
+
+. Verify that the same key management servers are configured and available on all nodes in the cluster:
++
+`security key-manager show -status`
+
+. Create a new cluster-wide authentication key:
++
+`security key-manager create-key`
+
+. Make a note of the new authentication key ID.
+. Rekey all self-encrypting drives with the new authentication key:
++
+`storage encryption disk modify -disk * -data-key-id <authentication_key_id>`

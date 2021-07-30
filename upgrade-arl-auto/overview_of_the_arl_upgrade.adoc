@@ -1,0 +1,105 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/overview_of_the_arl_upgrade.html
+keywords: aggregate relocation, upgrade, process, overview, stages
+summary: Before you upgrade the nodes using ARL, you should understand how the procedure works is broken down into several stages.
+
+---
+
+= Overview of the ARL upgrade
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_auto_overview_arl_workflow_top.adoc[]
+
+[cols="25,75"]
+|===
+| Stage | Steps
+
+|Stage 1. Prepare for the upgrade
+a|. Run prechecks to verify that the operation can be performed.
+
+. Prepare for netbooting (optional).
+
+Aggregate ownership at the end of Stage 1:
+
+* Node1 is the home owner and current owner of the node1 aggregates.
+
+* Node2 is the home owner and current owner of the node2 aggregates.
+
+|Stage 2. Relocate and retire node1
+a|. Move non-root aggregates from node1 to node2.
+
+. Move non-SAN data LIFs owned by node1 to node2.
+
+. Retire node1.
+
+Aggregate ownership at the end of Stage 2:
+
+* Node2 is the current owner of node1 aggregates.
+
+* Node2 is the home owner and current owner of node2 aggregates.
+
+|Stage 3. Install and boot node3
+a|. Install and boot node3.
+
+. Set the FC or CNA configuration.
+
+. Map ports from node1 to node3.
+
+. Verify node3 is successfully installed.
+
+. Move non-SAN data LIFs owned by node1 from node2 to node3.
+
+. Relocate non-root aggregates owned by node1 from node2 to node3.
+
+Aggregate ownership at the end of Stage 3:
+
+* Node3 is the home owner and current owner of node1 aggregates.
+
+* Node2 is the home owner and current owner of node2 aggregates.
+
+|Stage 4. Relocate and retire node2
+a|. Relocate non-root aggregates from node2 to node3.
+
+. Move non-SAN data LIFs owned by node2 to node 3.
+
+. Retire node2.
+
+Aggregate ownership at the end of Stage 4:
+
+* Node3 is the home owner and current owner of aggregates that originally belonged to node1.
+
+* Node2 is the home owner of node2 aggregates.
+
+* Node3 is the current owner of node2 aggregates.
+
+|Stage 5. Install and boot node4
+a|. Install and boot node4.
+
+. Set the FC or CNA configuration on node4.
+
+. Map ports from node2 to node4.
+
+. Verify the node4 installation.
+
+. Relocate non-SAN data LIFs owned by node2 from node3 to node4 and verify the SAN LIFs on node4.
+
+Aggregate ownership at the end of Stage 5:
+
+* Node3 is the home owner and current owner of the aggregates that originally belonged to node1.
+
+* Node4 is the home owner and current owner of aggregates that originally belonged to node2.
+
+|Stage 6. Complete the upgrade
+a|. Verify the system is set up correctly.
+
+. Set up Storage Encryption on the new controller module.
+
+. Resume SnapMirror operations if needed.
+|===
+// p. 13-14 of PDF

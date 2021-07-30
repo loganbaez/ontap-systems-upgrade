@@ -1,0 +1,36 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/verify_health_of_metrocluster_config.html
+keywords: verifying, health, metrocluster, configuration, fabric, mcc
+summary: Before starting upgrade on a Fabric MetroCluster configuration.
+---
+
+= Verify the health of the MetroCluster configuration
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:53.748515
+//
+
+[.lead]
+Before starting an upgrade on a Fabric MetroCluster configuration, you must check the health of the MetroCluster configuration to verify proper operation.
+
+.Steps
+
+. Verify that the MetroCluster components are healthy:
++
+`metrocluster check run`
++
+....
+metrocluster_siteA::*> metrocluster check run
+....
++
+The operation runs in the background.
+
+include::../_include/ru_auto_verify_health_metrocluster_configuration.adoc[]

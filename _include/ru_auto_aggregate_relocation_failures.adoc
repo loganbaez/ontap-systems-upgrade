@@ -1,0 +1,1 @@
+Aggregate relocation (ARL) might fail at different points during the upgrade.

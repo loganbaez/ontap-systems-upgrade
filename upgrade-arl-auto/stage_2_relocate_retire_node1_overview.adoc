@@ -1,0 +1,23 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/stage_2_relocate_retire_node1_overview.html
+keywords: Prepare nodes for upgrade, storage encryption, KMS, key management server,
+summary: During Stage 1, you must prepare the nodes for the upgrade and run a series of prechecks.
+---
+
+= Stage 2. Relocate and retire node1
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+During Stage 2, you relocate the node1 aggregates and LIFs to node2, record node1 information, and then retire node1. This process is largely automated; the operation pauses to allow you to check its status. You must manually resume the operation.
+
+.Steps
+
+. link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html[Relocate non-root aggregates and NAS data LIFs owned by node1 to node2]
+. link:relocate_failed_or_vetoed_aggr.html[Relocate failed or vetoed aggregates]
+. link:retire_node1.html[Retire node1]
+. link:prepare_for_netboot.html[Prepare for netboot]

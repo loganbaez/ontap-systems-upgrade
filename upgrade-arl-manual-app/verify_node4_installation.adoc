@@ -1,0 +1,68 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/verify_node4_installation.html
+keywords: verify, install, node4, cluster, communicate
+summary: After you install and boot node4, you need to verify that it is installed correctly.
+---
+
+= Verify the node4 installation
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+After you install and boot node4, you need to verify that it is installed correctly, that it is part of the cluster, and that it can communicate with node3.
+
+.Steps
+
+. At the system prompt, log in to node4.
+
+. Verify that node4 is both part of the same cluster as node3 and healthy by entering the following command:
++
+`cluster show`
+
+. Verify that node4 can communicate with node3 and that all LIFs are up by entering the following command:
++
+`network interface show -curr-node <node4>`
+
+. Take one of the following actions:
++
+|===
+|If node4 is... |Then...
+
+|In a chassis separate from node3
+a| Connect the HA interconnect between the nodes by completing the following steps:
+
+.. Connect the top interconnect port of node3 to the top interconnect port of node4.
+.. Connect the bottom interconnect port of node3 to the bottom interconnect port of node4.
+.. Go to <<step5,Step 5>>.
+|In the same chassis as node3 |Go to <<step5,Step 5>>.
+You do not need to manually connect the HA interconnect between the nodes; in same-chassis configurations, the HA interconnect is connected automatically through the backplane.
+|===
+
+. [[Step5]]Take one of the following actions:
++
+|===
+|If the cluster is... |Then...
+
+|In a SAN environment |Complete Step 6 and go to the section link:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html[Move NAS data LIFs owned by node2 from node3 to node4 and verify SAN LIFs on node4].
+|Not in a SAN environment |Skip Step 6 go to the sectionlink:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html[Move NAS data LIFs owned by node2 from node3 to node4 and verify SAN LIFs on node4].
+|===
+
+. Verify that both node3 and node4 are in quorum by entering the following command on one of the nodes:
++
+`event log show -messagename scsiblade.*`
++
+The following example shows the output when the nodes in the cluster are in quorum:
++
+----
+cluster::> event log show -messagename scsiblade.*
+Time                Node   Severity      Event
+------------------- ------ ------------- --------------------------
+8/13/2012 14:03:51  node1  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:51  node2  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:48  node3  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:43  node4  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+----

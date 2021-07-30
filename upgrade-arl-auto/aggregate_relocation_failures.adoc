@@ -1,0 +1,25 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/aggregate_relocation_failures.html
+keywords: aggregate, relocation, failures, arl
+summary: Aggregate relocation might fail at different points during the upgrade.
+---
+
+= Aggregate relocation failures
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+// page 73 and top of 74 of PDF, include subheads
+include::../_include/ru_auto_aggregate_relocation_failures.adoc[]
+
+include::../_include/ru_auto_check_aggregate_relocation_failure.adoc[]
+
++
+For detailed information about the `storage aggregate relocation start`, `override- vetoes`, and `override-destination-checks` options, refer to link:other_references.html[References] to link to the _ONTAP 9 Commands: Manual Page Reference_.
+
+include::../_include/ru_auto_aggregates_originally_node1_owned_node4_completion_upgrade.adoc[]

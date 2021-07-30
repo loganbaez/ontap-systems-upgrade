@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/prepare_for_netboot.html
+keywords: prepare, netboot, rack, node3, node4
+summary: You might need to netboot node3 and node4 after you physically rack them.
+---
+
+= Prepare for netboot
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_prepare_for_netboot.adoc[]

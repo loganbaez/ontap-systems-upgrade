@@ -1,0 +1,97 @@
+To ensure correct setup, you must enable the HA pair. You must also verify that node3 and node4 can access each other's storage and that neither owns data LIFs belonging to other nodes on the cluster. In addition, you must ensure that node3 owns node1's aggregates and that node4 owns node2's aggregates, and that the volumes for both nodes are online.
+
+.Steps
+
+. After the post-checks of node2, the storage failover and cluster HA pair for the node2 cluster are enabled. When the operation is done,  both nodes show as completed and the system performs some cleanup operations.
+. Verify that storage failover is enabled:
++
+`storage failover show`
++
+The following example shows the output of the command when storage failover is enabled:
++
+....
+cluster::> storage failover show
+                  Takeover
+Node     Partner  Possible   State Description
+-------- -----    -------    ------------------
+node3    node4    true       Connected to node4
+node4    node3    true       Connected to node3
+....
+
+. Verify that node3 and node4 belong to the same cluster by using the following command and examining the output:
++
+`cluster show`
+
+. Verify that node3 and node4 can access each other's storage by using the following command and examining the output:
++
+`storage failover show -fields local-missing- disks,partner-missing-disks`
+
+. Verify that neither node3 nor node4 owns data LIFs home-owned by other nodes in the cluster by using the following command and examining the output:
++
+`network interface show`
++
+If neither node3 or node4 owns data LIFs home-owned by other nodes in the cluster, revert the data LIFs to their home owner:
++
+`network interface revert`
+
+. Verify that node3 owns the aggregates from node1 and that node4 owns the aggregates from node2:
++
+`storage aggregate show -owner-name <node3>`
++
+`storage aggregate show -owner-name <node4>`
+
+. Determine whether any volumes are offline:
++
+`volume show -node <node3> -state offline`
++
+`volume show -node <node4> -state offline`
+
+. If any volumes are offline, compare them with the list of offline volumes that you captured in the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade], and bring online any of the offline volumes, as required, by using the following command, once for each volume:
++
+`volume online -vserver <vserver-name> -volume <volume_name>`
+. Install new licenses for the new nodes by using the following command for each node:
++
+`system license add - license-code <license_code,license_code,license_code...>`
++
+The license-code parameter accepts a list of 28 upper-case alphabetic character keys. You can add one license at a time, or you can add multiple licenses at once, separating each license key by a comma.
+
+. Remove all of the old licenses from the original nodes by using one of the following commands:
++
+`system license clean-up -unused -expired`
++
+`system license delete -serial-number <node_serial_number> -package <licensable_package>`
+
+** Delete all expired licenses:
++
+`system license clean-up -expired`
+
+** Delete all unused licenses:
++
+`system license clean-up -unused`
+
+** Delete a specific license from a cluster by using the following commands on the nodes:
++
+`system license delete -serial-number <node1 serial number> -package *`
++
+`system license delete -serial-number <node2 serial number> -package *`
++
+The following output is displayed:
++
+....
+Warning: The following licenses will be removed:
+<list of each installed package>
+Do you want to continue? {y|n}: y
+....
++
+Enter `y` to remove all of the packages.
+
+
+.  Verify that the licenses are properly installed by using the following command and examining the output:
++
+`system license show`
++
+You might want to compare the output with the output that you captured in the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade].
+
+. If NetApp Storage Encryption (NSE) was in use on the configuration and you set the `setenv bootarg.storageencryption.support` command to `true` with the `<kmip.init.maxwait>` variable `off` (in link:install_boot_node4.html#step27[Install and boot node4, Step 27]), you need to reset the variable:
++
+`set diag; systemshell -node <nodename> -command sudo kenv -u -p kmip.init.maxwait`

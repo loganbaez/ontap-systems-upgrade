@@ -1,0 +1,20 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/decide_to_use_arl_guide.html
+keywords:  decision, decision, what to use, upgrade, HA pair, metrocluster, storage encryption, volume encryption, NSE, NVE
+summary: Whether or not to use this guide.
+---
+
+= Decide whether to use the aggregate relocation guide
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_decide_chunk_a.adoc[]
+* You have a system that uses Fabric MetroCluster 4-node and 8-node configurations running ONTAP 9.5 or earlier.
+
+include::../_include/ru_man_decide_chunk_b.adoc[]
+// 26 FEB 2021:  formatted from CMS

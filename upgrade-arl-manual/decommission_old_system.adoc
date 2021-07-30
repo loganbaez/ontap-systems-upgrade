@@ -1,0 +1,18 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/decommission_old_system.html
+keywords: decommission, system, metrocluster
+summary: Decommission the old system
+---
+
+= Decommission the old system
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+include::../_include/ru_man_decommission_old_system.adoc[]
+// 02 MAR 2021:  formmatted from CMS

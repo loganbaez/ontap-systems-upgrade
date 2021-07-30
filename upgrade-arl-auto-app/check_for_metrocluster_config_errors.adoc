@@ -1,0 +1,22 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/check_for_metrocluster_config_errors.html
+keywords: metrocluster, configuration, errors, config, advisor, netapp, support, site
+summary: You can use the Config Advisor tool available from the NetApp Support Site.
+---
+
+= Check for MetroCluster configuration errors
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:53.781875
+//
+
+[.lead]
+include::../_include/ru_all_check_metrocluster_configuration_errors.adoc[]

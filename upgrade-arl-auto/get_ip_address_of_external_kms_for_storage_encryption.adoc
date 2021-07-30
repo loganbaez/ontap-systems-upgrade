@@ -1,0 +1,28 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/get_ip_address_of_external_kms_for_storage_encryption.html
+keywords: IP address, external, key management, server, storage encryption, kmip, onboard key management
+summary: Configure Storage Encryption and establish a cluster-wide authentication key to replace the previous node-level authentication keys
+---
+
+= Get an IP address of an external key management server for storage encryption
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_auto_get_ip_address_external_key_management_server_encryption.adoc[]
+
+== Manage authentication using KMIP servers
+
+With ONTAP 9.5 to 9.7, you can use Key Management Interoperability Protocol (KMIP) servers to manage authentication keys.
+
+include::../_include/ru_auto_manage_authentication_kmip_servers.adoc[]
+
+include::../_include/ru_auto_manage_storage_encryption_okm.adoc[]
+
+include::../_include/ru_auto_quiesce_snapmirror_relationships.adoc[]
+
+// p. 20 of PDF-- include subheadings

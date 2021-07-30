@@ -1,0 +1,30 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html
+keywords: move, nas, san, lif, ports, broadcast domain, node1, node2, node3
+summary: You need to move the NAS data LIFs belonging to node1 that are currently on node2 from node2 to node3. You also need to verify the SAN LIFs on node3.
+---
+
+= Move NAS data LIFs owned by node1 from node2 to node3 and verify SAN LIFs on node3
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Before you relocate aggregates from node2 to node3, you need to move the NAS data LIFs belonging to node1 that are currently on node2 from node2 to node3. You also need to verify the SAN LIFs on node3.
+
+include::../_include/ru_man_move_nas_lifs_node1_from_node2_node3_verify_san_lifs_chunk_a.adoc[]
+
+. [[man_lif_verify_3_step5]]If you have data ports that are not the same on your platforms, add the ports to the broadcast domain:
++
+`network port broadcast-domain add-ports -ipspace <IPspace_name> -broadcast-domain mgmt -ports <node:port>`
++
+The following example adds port "e0a" on node "8200-1" and port "e0i" on node "8060-1" to broadcast domain "mgmt" in the IPspace "Default":
++
+----
+cluster::> network port broadcast-domain add-ports -ipspace Default -broadcast-domain mgmt -ports 8200-1:e0a, 8060-1:e0i
+----
+
+include::../_include/ru_man_move_nas_lifs_node1_from_node2_node3_verify_san_lifs_chunk_b.adoc[]

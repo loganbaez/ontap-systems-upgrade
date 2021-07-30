@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/lifs_invalid_ports_after_upgrade.html
+keywords: lifs, invalid, ports, error, mismatch, troublshoot, metrocluster
+summary: After the upgrade, the FC logical interfaces (LIFs) might be left on incorrect ports if you have a MetroCluster configuration.
+---
+
+= LIFs are on invalid ports after upgrade
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_lifs_invalid_ports.adoc[]
+// 5 MAR 2021: formatted from CMS

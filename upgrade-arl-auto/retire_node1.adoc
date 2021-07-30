@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/retire_node1.html
+keywords: retire, node1
+summary: To retire node1, you need to shut node1 down properly and remove it from the rack or chassis.
+---
+
+= Retire node1
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_auto_retire_node1.adoc[]

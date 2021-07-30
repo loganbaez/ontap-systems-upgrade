@@ -1,0 +1,31 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/verify_health_of_metrocluster_config.html
+keywords: health, metrocluster, alerts
+summary: Check the health of the MetroCluster configuration to verify proper operation.
+---
+
+= Verify the health of the MetroCluster configuration
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Before starting an upgrade on a Fabric MetroCluster configuration, you must check the health of the MetroCluster configuration to verify proper operation.
+
+.Steps
+
+. Verify that the MetroCluster components are healthy:
++
+`metrocluster check run`
++
+----
+dpgqa-mcc-funct-8040-0403_siteA::*> metrocluster check run
+----
+The operation runs in the background.
+
+include::../_include/ru_auto_verify_health_metrocluster_configuration.adoc[]
+
+// P. 10 of PDF

@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/relocate_non_root_aggr_node1_node2.html
+keywords: non-root aggregate, nonroot, move, relocate, nas
+summary: Before you can replace node1 with node3, you must move the non-root aggregates from node1 to node2 by using the `storage aggregate relocation` command and then verifying the relocation.
+---
+
+= Relocate non-root aggregates from node1 to node2
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+include::../_include/ru_man_relocate_non_root_aggr_node1_node2.adoc[]

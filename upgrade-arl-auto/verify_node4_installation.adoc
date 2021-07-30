@@ -1,0 +1,40 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/verify_node4_installation.html
+keywords: verify, node4, installation, MetroCluster
+summary: Verify that node4 is installed correctly.
+---
+
+= Verify the node4 installation
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+// pg. 64 middle only
+After you install and boot node4, you need to verify that it is installed correctly, that it is part of the cluster, and that it can communicate with node3.
+
+.About this task
+At this point in the procedure, the operation will have paused as node4 joins quorum.
+
+.Steps
+
+. Verify that node4 has joined quorum:
++
+`cluster show -node node4 -fields health`
+
+. Verify that node4 is part of the same cluster as node3 and healthy by entering the following command:
++
+`cluster show`
+. Check the status of the operation and verify that the configuration information for node4 is the same as node2:
++
+`system controller replace show-details`
++
+If the configuration is different for node4, a system disruption might occur later in the procedure.
+
+. Check that the replaced controller is configured correctly for MetroCluster configuration and not in switch-over mode.
++
+CAUTION: *Attention:* At this stage MetroCluster configuration will not be in a normal state and you might have errors to resolve. See link:verify_health_of_metrocluster_config.html[Verify the health of the MetroCluster configuration].

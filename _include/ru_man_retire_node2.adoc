@@ -1,0 +1,86 @@
+To retire node2, you need to shut node2 down properly and remove it from the rack or chassis. If the cluster is in a SAN environment, you also need to delete the SAN LIFs.
+
+.Steps
+
+. Take one of the following actions:
++
+[cols=2*,options="header",cols="35,65"]
+|===
+|If the cluster is... |Then...
+|A two-node cluster
+|Go to <<man_retire_2_Step2,Step 2>>.
+|A cluster with more than two nodes
+|Go to <<man_retire_2_Step9,Step 9>>.
+|===
+
+. [[man_retire_2_Step2]]Access the advanced privilege level by entering the following command on either node:
++
+`set -privilege advanced`
+
+. Verify that the cluster HA has been disabled by entering the following command and examining its output:
++
+`cluster ha show`
++
+The system displays the following message:
++
+----
+High Availability Configured: false
+----
+
+. Check if node2 currently holds epsilon by entering the following command and examining its output:
++
+`cluster show`
++
+The following example shows that node2 holds epsilon:
++
+----
+cluster*::> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  -----------
+node1                true    true          false
+node2                true    true          true
+
+Warning: Cluster HA has not been configured. Cluster HA must be configured on a two-node cluster to ensure data access availability in the event of storage failover. Use the "cluster ha modify -configured true" command to configure cluster HA.
+
+2 entries were displayed.
+----
+
+. If node2 holds epsilon, mark epsilon as `false` on the node so that it can be transferred to node3:
++
+`cluster modify -node <node2> -epsilon false`
+
+. Transfer epsilon to node3 by marking epsilon `true` on node3:
++
+`cluster modify -node <node3> -epsilon true`
+
+. Verify if the setup is a two-node switchless cluster:
++
+`network options switchless-cluster show`
++
+----
+cluster::*> network options switchless-cluster show
+Enable Switchless Cluster: false/true
+----
++
+The value of this command must match the physical state of the system.
+
+. Verify if the setup is a two-node switchless cluster:
++
+`network options switchless-cluster show`
++
+----
+cluster::*> network options switchless-cluster show
+Enable Switchless Cluster: false/true
+----
++
+The value of this command must match the physical state of the system.
+
+. [[man_retire_2_Step9]]Return to the admin level:
++
+`set -privilege admin`
+
+. Halt node2 by entering the following command on either controller:
+`system node halt -node <node2>`
+
+. After node2 shuts down completely, remove it from the chassis or the rack. You can decommission node2 after the upgrade is completed. See link:decommission_old_system.html[Decommission the old system].
+// 02 Mar 2021:  Formatted from CMS

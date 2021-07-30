@@ -1,0 +1,13 @@
+To retire node2, you need to shut node2 down properly and remove it from the rack or chassis.
+
+.Steps
+
+. Resume the operation:
++
+`system controller replace resume`
++
+The node halts automatically.
+
+.After you finish
+
+You can decommission node2 after the upgrade is completed. See link:decommission_old_system.html[Decommission the old system]

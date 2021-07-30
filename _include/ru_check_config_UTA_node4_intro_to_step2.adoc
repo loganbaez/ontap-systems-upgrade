@@ -1,0 +1,60 @@
+If node4 has onboard UTA/UTA2 ports or a UTA/UTA2A card, you must check the configuration of the ports and configure them, depending on how you want to use the upgraded system.
+
+.Before you begin
+
+You must have the correct SFP+ modules for the UTA/UTA2 ports.
+
+.About this task
+
+UTA/UTA2 ports can be configured into native FC mode or UTA/UTA2A mode. FC mode supports FC initiator and FC target; UTA/UTA2 mode allows concurrent NIC and FCoE traffic to share the same 10 GbE SFP+ interface and supports FC target.
+
+NOTE: NetApp marketing materials might use the term UTA2 to refer to CNA adapters and ports. However, the CLI uses the term CNA.
+
+UTA/UTA2 ports might be on an adapter or on the controller with the following configurations:
+
+* UTA/UTA2 cards ordered at the same time as the controller are configured before shipment to have the personality you requested.
+* UTA/UTA2 cards ordered separately from the controller are shipped with the default FC target personality.
+* Onboard UTA/UTA2 ports on new controllers are configured (before shipment) to have the personality you requested.
+
+However, you should check the configuration of the UTA/UTA2 ports on node4 and change it, if necessary.
+
+*Attention*: If your system has storage disks, you enter the commands in this section at the cluster prompt unless directed to enter Maintenance mode. If you have a MetroCluster FC system, V-Series system or a system with FlexArray Virtualization software that is connected to storage arrays,  you must be in Maintenance mode to configure UTA/UTA2 ports.
+
+.Steps
+
+. Check how the ports are currently configured by using one of the following commands on node4:
++
+|===
+|If the system... |Then…
+
+|Has storage disks
+|`system node hardware unified-connect show`
+|Is a V-Series system or has FlexArray Virtualization Software and is connected to storage arrays
+|`ucadmin show`
+|===
++
+The system displays output similar to the following examples:
++
+....
+*> ucadmin show
+                Current  Current    Pending   Pending   Admin
+Node   Adapter  Mode     Type       Mode      Type      Status
+----   -------  ---      ---------  -------   --------  -------
+f-a    0e       fc       initiator  -          -        online
+f-a    0f       fc       initiator  -          -        online
+f-a    0g       cna      target     -          -        online
+f-a    0h       cna      target     -          -        online
+f-a    0e       fc       initiator  -          -        online
+f-a    0f       fc       initiator  -          -        online
+f-a    0g       cna      target     -          -        online
+f-a    0h       cna      target     -          -        online
+*>
+....
+
+. If the current SFP+ module does not match the desired use, replace it with the correct SFP+ module.
++
+Contact your NetApp representative to obtain the correct SFP+ module.
+
+// This reuse file is used in the following files.
+//    upgrade-arl-manual-app\check_configure_uta_uta2_ports_node4.adoc.adoc
+//    upgrade-arl-auto-app\setting_the_fc_or_uta_uta2_configuration_on_node4.adoc

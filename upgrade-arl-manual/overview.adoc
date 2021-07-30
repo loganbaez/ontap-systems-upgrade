@@ -1,0 +1,18 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/overview.html
+keywords: upgrade, contoller, aggregates, nodes, lifs, network, ports, replacement
+summary: You upgrade the original controller hardware with the replacement controller hardware, relocating the ownership of non-root aggregates.
+---
+
+= Overview
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+// COPIED FROM 9.8 GUIDE...CHECK FOR REUSE, THEN REMOVE THIS COMMENT
+
+include::../_include/ru_man_use_arl_overview.adoc[]

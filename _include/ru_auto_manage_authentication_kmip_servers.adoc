@@ -1,0 +1,25 @@
+.Steps
+
+. Add a new controller:
++
+`security key-manager setup -node <new_controller_name>`
+
+. Add the key manager:
++
+`security key-manager -add <key_management_server_ip_address>`
+
+. Verify that the key management servers are configured and available to all nodes in the cluster:
++
+`security key-manager show -status`
+
+. Restore the authentication keys from all linked key management servers to the new node:
++
+`security key-manager restore -node <new_controller_name>`
+
+. Rekey all self-encrypting disks with the new authentication key:
++
+`storage encryption disk modify -disk * [-data-key-id nonMSID AK]`
+
+. If you use the Federal Information Processing Standard (FIPS), rekey all self-encrypting disks with the new authentication key:
++
+`storage encryption disk* modify -disk * [-fips-key-id nonMSID AK]`

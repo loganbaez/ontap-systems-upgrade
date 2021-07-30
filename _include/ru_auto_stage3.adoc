@@ -1,0 +1,1 @@
+During Stage 3, you install and boot node3, check that the cluster and node-management ports from node1 come online on node3, and verify the node3 installation. Non-SAN data LIFs and non-root aggregates belonging to node1 are moved from node2 to node3.

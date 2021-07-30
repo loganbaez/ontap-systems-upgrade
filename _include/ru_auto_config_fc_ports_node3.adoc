@@ -1,0 +1,71 @@
+== Configure FC ports on node3
+
+If node3 has FC ports, either onboard or on an FC adapter, you must set port configurations on the node before you bring it into service because the ports are not preconfigured. If the ports are not configured, you might experience a disruption in service.
+
+.Before you begin
+
+You must have the values of the FC port settings from node1 that you saved in the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade].
+
+.About this task
+
+You can skip this section if your system does not have FC configurations. If your system has onboard UTA/UTA2 ports or a UTA/UTA2 card, you configure them in <<Check and configure UTA/UTA2 ports on node3>>.
+
+*Important*: If your system has storage disks, enter the commands in this section at the cluster prompt. If you have a 'V-Series system' or have FlexArray Virtualization Software and are connected to storage arrays, enter commands in this section in Maintenance mode.
+
+. [[step1]]Compare the FC settings on node3 with the settings that you captured earlier from node1.
+. [[step2]]Take one of the following actions:
++
+[cols=2*,options="header",cols="30,70"]
+|===
+|If the system that you are upgrading... |Then…
+
+|Has storage disks
+a|In maintenance mode (option 5 at boot menu), modify the FC ports on node3 as needed:
+
+* To program target ports:
+
+`ucadmin modify -m fc -t target <adapter>`
+
+* To program initiator ports:
+
+`ucadmin modify -m fc -t initiator <adapter>`
+
+`-t` is the FC4 type: target or initiator.
+|Is a V-Series system or has FlexArray Virtualization Software and is connected to storage arrays
+
+|In maintenance mode (option 5 at boot menu), modify the FC ports on node3 as needed:
+
+`ucadmin modify -m fc -t initiator -f <adapter_port_name>`
+
+`-t` is the FC4 type, target or initiator.
+
+*Note*: The FC ports must be programmed as initiators.
+|===
+
+. [[step3]]Take one of the following actions:
++
+[cols=2*,options="header",cols="30,70"]
+|===
+|If the system that you are upgrading... |Then…
+
+|Has storage disks
+|Verify the new settings by using the following command and examining the output:
+
+`ucadmin show`
+|Is a V-Series system or has FlexArray Virtualization Software and is connected to storage arrays
+|Verify the new settings by using the following command and examining the output:
+
+`ucadmin show`
+|===
+
+. [[step4]]Exit Maintenance mode:
++
+`halt`
+
+. Boot the system from loader prompt:
++
+`boot_ontap menu`
+
+. [[step6]]After you enter the command, wait until the system stops at the boot environment prompt.
+
+. Select option `5` from the boot menu for maintenance mode.

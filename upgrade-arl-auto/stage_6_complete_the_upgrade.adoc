@@ -1,0 +1,22 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/stage_6_complete_the_upgrade.html
+keywords: complete upgrade, node, unified, target, storage, encryption, MetroCluster
+summary: During stage 6, ensure that the new nodes are set up correctly.
+---
+
+= Stage 6. Complete the upgrade
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+// top section of page 68 of PDF  NOTE:  Also include section "Completing the upgrade for // MetroCluster FC configuration"  HOWEVER, do not use a heading. Instead use the following coding:
+//
+// .For MetroCluster FC configuration
+//
+// You must replace...
+include::../_include/ru_auto_stage6_overview.adoc[]

@@ -1,0 +1,43 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/verify_health_mcc_config.html
+keywords:  health, mcc, metrocluster, configuration, configure
+summary: Check the health of the MetroCluster configuration to verify proper operation.
+---
+
+= Verify the health of the MetroCluster configuration
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You should check the health of the MetroCluster configuration to verify proper operation.
+
+.Steps
+
+. Verify that the MetroCluster components are healthy:
++
+`metrocluster check run`
++
+----
+cluster_A::> metrocluster check run
+
+Last Checked On: 10/1/2017 16:03:37
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          ok
+4 entries were displayed.
+
+Command completed. Use the "metrocluster check show -instance" command or sub-commands in "metrocluster check" directory for detailed results.
+To check if the nodes are ready to do a switchover or switchback operation, run "metrocluster switchover -simulate" or "metrocluster switchback -simulate", respectively.
+----
+
+. Verify that there are no health alerts:
++
+`system health alert show`

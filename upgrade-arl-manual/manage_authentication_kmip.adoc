@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/manage_authentication_kmip.html
+keywords: kmip, authentication, keys, fips
+summary: Use KMIP servers to manage authentication keys.
+---
+
+= Manage authentication using KMIP servers
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_manage_authentication_kmip.adoc[]
+// 5 MAR 2021:  formatted from CMS

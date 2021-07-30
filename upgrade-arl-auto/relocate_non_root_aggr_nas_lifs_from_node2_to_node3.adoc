@@ -1,0 +1,53 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html
+keywords: relocate, non-root, aggregates, nas, lif, node2, node3
+summary: Before you can replace node2 with node4, you must relocate the non-root aggregates that are owned by node2 to node3
+---
+
+= Relocate non-root aggregates and NAS data LIFs from node2 to node3
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+// page 46 and 47 in PDF
+include::../_include/ru_auto_relocate_non_root_aggr_nas_lifs_from_node2_to_node3_intro_step_4.adoc[]
+
+[start=5]
+. [[step5]]Verify that there are no data LIFs remaining on node2 by entering the following command and examining the output:
++
+`network interface show -curr-node <node2> -role data`
+
+. If you have interface groups or VLANs configured, complete the following substeps:
++
+.. Record VLAN and interface group information so you can recreate the VLANs and interface groups on node3 after node3 is booted up.
+.. Remove the VLANs from the interface groups:
++
+`network port vlan delete -node <nodename> -port <ifgrp> -vlan-id <VLAN_ID>`
+
+.. Check if there are any interface groups configured on the node by entering the following command and examining its output:
++
+`network port ifgrp show -node <node2> -ifgrp <ifgrp_name> -instance`
++
+The system displays interface group information for the node as shown in the following example:
++
+----
+cluster::> network port ifgrp show -node node2 -ifgrp a0a -instance
+                 Node: node3
+ Interface Group Name: a0a
+Distribution Function: ip
+        Create Policy: multimode_lacp
+          MAC Address: 02:a0:98:17:dc:d4
+   Port Participation: partial
+        Network Ports: e2c, e2d
+             Up Ports: e2c
+           Down Ports: e2d
+----
+.. If any interface groups are configured on the node, record the names of those groups and the ports assigned to them, and then delete the ports by entering the following command, once for each port:
++
+`network port ifgrp remove-port -node <nodename> -ifgrp <ifgrp_name> -port <netport>`
+// page 46 and 47 in PDF

@@ -1,0 +1,70 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/guidelines_upgrade_with_arl.html
+keywords:  guidelines, upgrade
+summary: Guidelines for upgrading controllers with ARL
+---
+
+= Guidelines for upgrading controllers with ARL
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+To understand whether you can use aggregate relocation (ARL) to upgrade a pair of controllers running ONTAP 9.0 to 9.7 depends on the platform and the configuration of both the original and replacement controllers.
+
+== Supported upgrades for ARL
+You can upgrade a pair of nodes using ARL under the following circumstances:
+
+
+* Both the original controllers and the replacement controllers must be running the same version of ONTAP 9.x before the upgrade.
+
+include::../_include/ru_man_supported_upgrades_chunk_a.adoc[]
+
+NOTE: Before performing an AFF system upgrade, you must upgrade ONTAP to release versions 9.3P12, 9.4P6 or 9.5P1 or later. These release levels are required for a successful upgrade.
+
+include::../_include/ru_man_supported_upgrades_chunk_b.adoc[]
+
+== Upgrades not supported for ARL
+
+You cannot perform the following upgrades:
+
+*  To or from controllers that cannot run a version of ONTAP from ONTAP 9.0 to ONTAP 9.7.
++
+For information on controller upgrades for systems running Data ONTAP operating in 7-Mode, refer to link:other_references.html[References] to link to the _NetApp Support Site_.
+
+* To replacement controllers that do not support the disk shelves connected to the original controllers.
++
+For disk-support information, refer to link:other_references.html[References] to link to the _Hardware Universe_.
+
+* From controllers with root aggregates or data aggregates on internal drives.
++
+If you want to upgrade controllers with root aggregates or data aggregates on internal disk drives, refer to link:other_references.html[References] to link to the _Controller Hardware Upgrade Express Guide_ and go to the procedure _Upgrading a pair of nodes running clustered Data ONTAP by moving volumes_.
++
+NOTE: If you want to upgrade ONTAP on nodes in a cluster, refer to link:other_references.html[References] to link to the _ONTAP 9 Upgrade and Revert/Downgrade Guide_.
+
+== Assumptions and terminology
+
+include::../_include/ru_man_assumptions_terminology.adoc[]
+
+== Licensing in ONTAP 9.7 or earlier
+
+include::../_include/ru_man_licensing.adoc[]
+
+All license keys are 28 uppercase alphabetic characters in length. Refer to link:other_references.html[References] to link to the _NetApp Support Site_ where you can obtain new 28-character license keys for ONTAP 9.7. or earlier. The keys are available in the _My Support_ section under _Software licenses_. If the site does not have the license keys you need, contact your NetApp sales representative.
+
+For detailed information about licensing, go to link:other_references.html[References] to link to the _System Administration Reference_.
+
+== Storage Encryption
+
+include::../_include/ru_man_storage_encryption.adoc[]
+
+== Two-node switchless clusters
+
+If you are upgrading nodes in a two-node switchless cluster, you can leave the nodes in the switchless cluster while performing the upgrade. You do not need to convert them to a switched cluster.
+
+== Troubleshooting
+include::../_include/ru_man_troubleshooting.adoc[]
+// 26 FEB 2021:  formatted from CMS

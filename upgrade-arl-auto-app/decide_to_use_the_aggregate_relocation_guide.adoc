@@ -1,0 +1,57 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html
+keywords: deciding, aggregate, relocation, guide, storage, controllers, administrators, ontap, ha, high, availability
+summary: This guide describes how to upgrade the storage controllers in an HA pair with new controllers.
+---
+
+= Decide whether to use the aggregate relocation guide
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:53.673641
+//
+
+[.lead]
+This guide describes how to upgrade the storage controllers in an HA pair with new controllers while keeping all the existing data and disks. This is a complex procedure that should be used only by experienced administrators.
+
+You should use this guide under the following circumstances:
+
+* You are running ONTAP 9.8 or later.
+* You do not want to add the new controllers as a new HA pair to the cluster and migrate the data using volume moves.
+* You are experienced in administering ONTAP and are comfortable with the risks of working in the diagnostic privilege mode.
+* If you are upgrading a MetroCluster configuration, it is a 4-node or higher FC configuration, and all nodes are running ONTAP 9.8 or later.
++
+For upgrading MetroCluster IP configurations, refer to link:other_references.html[References] to link to the _MetroCluster Upgrade and Expansion Guide_.
+
+NOTE: You can use NetApp Storage Encryption (NSE) and NetApp Volume Encryption (NVE) with this procedure.
+
+The following table shows the supported model matrix for the controller upgrade.
+
+|===
+|Old controller |Replacement controller
+
+|FAS8020, FAS8040, FAS8060, FAS8080
+|FAS8200, FAS8300, FAS8700, FAS9000
+|AFF8020, AFF8040, AFF8060, AFF8080
+|AFF A300, AFF A400, AFF A700, AFF A800*
+|FAS8200
+|FAS8700, FAS9000, FAS8300
+|AFF A300
+|AFF A700, AFF A800*, AFF A400
+|===
+
+NOTE: If your controller upgrade model combination is not in the above table, contact technical support.
+
+*For the additional steps needed for A800 systems, go to the step that references A800 in section link:set_fc_or_uta_uta2_config_on_node3.html#step23[Check and configure UTA/UTA2 ports on node3, Step 23], or link:set_fc_or_uta_uta2_config_node4.html#step23[Check and configure UTA/UTA2 ports on node4, Step 23].
+
+include::../_include/ru_auto_decide_use_arl_guide_end.adoc[]
+
+// 2021-04-14 Burt 1367155
+// 2021-04-16 Burt 1379899

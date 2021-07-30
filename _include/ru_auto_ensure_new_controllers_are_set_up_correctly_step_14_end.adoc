@@ -1,0 +1,22 @@
+. Take the following actions on one of the new nodes:
+
+.. Enter advanced privilege level:
++
+`set -privilege advanced`
+
+.. Enter the following command:
++
+`storage failover modify -node <node_name> - cifs- ndo-duration default|medium|low`
++
+* Enter `medium` if the system will have workloads in which 50% to 75% of the operations will be 4 KB or smaller.
+* Enter `low` if the system will have workloads in which 75% to 100% of the operations will be 4 KB or smaller.
++
+.. Return to the admin level:
++
+`set -privilege admin`
+.. Reboot the system to ensure that the changes take effect.
+. If you want to set up a switchless cluster on the new nodes, refer to link:other_references.html[References] to link to the _NetApp Support Site_ and follow the instructions in _Transitioning to a two-node switchless cluster_.
+
+.After you finish
+
+If Storage Encryption is enabled on node3 and node4, complete the section link:set_up_storage_encryption_new_module.html[Set up Storage Encryption on the new controller module]. Otherwise, complete the section link:decommission_old_system.html[Decommission the old system].
