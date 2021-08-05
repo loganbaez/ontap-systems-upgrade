@@ -1,0 +1,40 @@
+[start=6]
+. [[step6]]Configure the netboot connection by choosing one of the following actions.
++
+NOTE: You should use the management port and IP as the netboot connection. Do not use a data LIF IP or a data outage might occur while the upgrade is being performed.
+
++
+[cols="25,75"]
+|===
+|If Dynamic Host Configuration Protocol (DHCP) is... |Then...
+
+|Running
+|Configure the connection automatically by using the following command at the boot environment prompt:
+`ifconfig e0M -auto`
+|Not running
+|Manually configure the connection by using the following command at the boot environment prompt:
+
+`ifconfig e0M -addr=<filer_addr> -mask=<netmask> -gw=<gateway> - dns=<dns_addr> domain=<dns_domain>`
+
+`<filer_addr>` is the IP address of the storage system.
+`<netmask>` is the network mask of the storage system.
+`<gateway>` is the gateway for the storage system.
+`<dns_addr>` is the IP address of a name server on your network. This parameter is optional.
+`<dns_domain>` is the Domain Name Service (DNS) domain name. This parameter is optional.
+
+*Note*: Other parameters might be necessary for your interface. Enter `help ifconfig` at the firmware prompt for details.
+|===
+
+. [[step7]]Perform netboot on node3:
++
+|===
+|For... |Then...
+
+|FAS/AFF8000 series systems
+|`netboot \http://<web_server_ip/path_to_web-accessible_directory>/netboot/kernel`
+|All other systems
+|`netboot \http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz`
+|===
+// This reuse file is used in the following adoc files:
+// -- upgrade-arl-auto-app/installing_and_booting_node3.adoc
+// -- upgrade-arl-auto/install_boot_node3.adoc

@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/ensure_controllers_set_up_correctly.html
+keywords: set up, controllers, correctly, ha pair, lif, aggregate, node, failover
+summary: Ensure the new controllers are set up correctly by enabling the HA pair.
+---
+
+= Ensure that the new controllers are set up correctly
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_ensure_controllers_set_up_correctly.adoc[]
+// 25 Feb 2021:  formatted from CMS

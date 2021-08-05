@@ -1,0 +1,11 @@
+.About this task
+
+Synchronize the encryption configuration to the new nodes by performing the following steps:
+
+.Steps
+
+. Synchronize the encryption configuration for OKM by using the following command at the cluster prompt:
++
+`security key-manager onboard sync`
+
+. Enter the cluster-wide passphrase for the OKM.

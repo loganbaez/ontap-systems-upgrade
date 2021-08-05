@@ -1,0 +1,49 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/reboots_panics_or_power_cycles.html
+keywords: reboots, panics, power, cycles, node, crash
+summary: The system might crash – reboot, panic or go through a power cycle.
+---
+
+= Reboots, panics, or power cycles
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+// bottom half of pg. 74, 75, 76, and top half of 77 in PDF.  INCLUDE ALL SUBHEADS and SUB-SUBHEADS.
+include::../_include/ru_auto_reboots_panics_or_power_cycles.adoc[]
+
+== Reboots, panics, or power cycles during the second verification phase
+
+=== Node3 crashes during the second verification phase
+
+If node3 crashes during this phase, takeover does not happen since HA is already disabled.
+
+.About this task
+
+There is an outage for non-root aggregates that were already relocated until node3 reboots.
+
+.Steps
+
+. Bring up node3.
++
+A client outage occurs for all aggregates while node3 is booting up.
+
+. Continue with the node-pair upgrade procedure.
+
+=== Node4 crashes during the second verification phase
+
+If node4 crashes during this phase, takeover does not happen. Node3 serves data from the aggregates.
+
+.About this task
+
+There is an outage for non-root aggregates that were already relocated until node4 reboots.
+
+.Steps
+
+. Bring up node4.
+. Continue with the node-pair upgrade procedure.

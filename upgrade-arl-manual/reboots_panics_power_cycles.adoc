@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/reboots_panics_power_cycles.html
+keywords: crash, reboot, node1, node2, node3, node4, upgrade
+summary: The system might crash – reboot, panic or go through a power cycle – during different stages of the upgrade. The solution to these problems depends on when they occur.
+---
+
+= Reboots, panics, or power cycles
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_reboots_panics_power_cycles.adoc[]
+// 02 MAR 2021 formatted from CMS

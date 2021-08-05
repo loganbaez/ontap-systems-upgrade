@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/record_node2_information.html
+keywords: record, node2, information
+summary: Before you shut down and retire node2, you need to record information about node2.
+---
+
+= Record node2 information
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_record_node2.adoc[]
+// 02 MAR 2021: Formatted from CMS

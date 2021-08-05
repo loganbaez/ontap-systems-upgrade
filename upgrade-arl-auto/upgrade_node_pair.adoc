@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/upgrade_node_pair.html
+keywords: upgrade, node, pair, original
+summary: You need to upgrade the node pair.
+---
+
+= Upgrade the node pair
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_auto_upgrade_node_pair.adoc[]
+// p. 15 of PDF

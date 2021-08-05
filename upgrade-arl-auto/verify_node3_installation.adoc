@@ -1,0 +1,40 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/verify_node3_installation.html
+keywords: install, boot, node3, join quorum
+summary: After you install and boot node3, you need to verify that it is installed correctly.
+---
+
+= Verify the node3 installation
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+After you install and boot node3, you need to verify that it is installed correctly. You must wait for node3 to join quorum and then resume the relocation operation.
+
+.About this task
+
+At this point in the procedure, the operation will have paused as node3 joins quorum.
+
+.Steps
+
+. Verify that node3 has joined quorum:
++
+`cluster show -node node3 -fields health`
+
+. Verify that node3 is part of the same cluster as node2 and that it is healthy:
++
+`cluster show`
+
+. Check the status of the operation and verify that the configuration information for node3 is the same as node1:
++
+`system controller replace show-details`
++
+If the configuration is different for node3, a system disruption might occur later in the procedure.
+
+. Check that the replaced controller is configured correctly for the MetroCluster configuration, the MetroCluster configuration should be in healthy state and not in switch over mode. Refer to link:verify_health_of_metrocluster_config.html[Verify the health of the MetroCluster configuration].
+
+// bottom half of p. 42. in PDF

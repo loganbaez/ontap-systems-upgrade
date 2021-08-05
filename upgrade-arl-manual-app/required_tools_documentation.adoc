@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/required_tools_documentation.html
+keywords:  Tool, documentation, center, guides, reference, worksheet
+summary: Tools and documentation you will need during upgrade.
+---
+
+= Required tools and documentation
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+include::../_include/ru_man_required_tools_documentation.adoc[]

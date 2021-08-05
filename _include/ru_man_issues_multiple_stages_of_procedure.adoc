@@ -1,0 +1,43 @@
+Some issues can occur during different stages of the procedure.
+
+== Unexpected "storage failover show" command output
+
+During the procedure, if the node that hosts all data aggregates panics or is rebooted accidentally, you might see unexpected output for the `storage failover show` command before and after the reboot, panic, or power cycle.
+
+.About this task
+
+You might see unexpected output from the `storage failover show` command in Stage 2, Stage 3, Stage 4, or Stage 5.
+
+The following example shows the expected output of the `storage failover show` command if there are no reboots or panics on the node that hosts all the data aggregates:
+
+....
+cluster::> storage failover show
+
+                   Takeover
+Node     Partner   Possible  State Description
+-------  --------  --------- -----------------
+node1    node2     false     Unknown
+node2    node1     false     Node owns partner aggregates as part of the non-disruptive head upgrade procedure. Takeover is not possible: Storage failover is disabled.
+....
+
+The following example shows the output of the `storage failover show` command after a reboot or panic:
+
+....
+cluster::> storage failover show
+
+                   Takeover
+Node     Partner   Possible  State Description
+-------  --------  --------- -----------------
+node1    node2     -         Unknown
+node2    node1    false      Waiting for node1, Partial giveback, Takeover is not possible: Storage failover is disabled
+....
+
+Although the output says that a node is in partial giveback and that storage failover is disabled, you can disregard this message.
+
+.Steps
+
+No action is required; continue with the node-pair upgrade procedure.
+
+// This reuse file is used in the following adoc files:
+// upgrade-arl-auto\issues_in_multiple_stages_of_procedure.adoc
+// upgrade-arl-auto-app\issues_in_multiple_stages_of_procedure.adoc

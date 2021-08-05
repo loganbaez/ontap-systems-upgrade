@@ -1,0 +1,104 @@
+You must gather certain information to successfully upgrade the original nodes.  The information includes node IDs, port and LIF details, licensing keys, and IP addresses.
+
+You can use the following worksheet to record information for use later in the procedure:
+
+|===
+|Information needed |When collected |When used |Collected Information
+
+|Model, system ID, serial number of original nodes
+|Stage 1: _Prepare the nodes for the upgrade_
+|Stage 3: _Install and boot node3_
+
+Stage 5: _Install and boot node4_
+
+Stage 6: _Decommission the old system_
+|
+|Shelf and disk information, flash storage details, memory, NVRAM, and adapter cards on original nodes
+|Stage 1: _Preparing the nodes for the upgrade_
+|Throughout the procedure
+|
+|Online aggregates and volumes on original nodes
+|Stage 1: _Prepare the nodes for the upgrade_
+|Throughout the procedure to verify that aggregates and volumes remain online except during brief relocation
+|
+|Output of commands `network port vlan show` and `network port ifgrp show`
+|Stage 1: _Prepare the nodes for the upgrade_
+|Stage 3: _Map ports from node1 to node3_
+
+Stage 5: _Map ports from node2 to node4_
+|
+|(SAN environments only) Default configuration of FC ports
+|Stage 1: _Prepare the nodes for the upgrade_
+|When configuring FC ports on the new nodes
+|
+|(V-Series systems or systems with FlexArray Virtualization software only)
+
+Topology for V-Series systems or systems with FlexArray Virtualization software
+|Stage 1: _Prepare the nodes for the upgrade_
+|Stage 3: _Install and boot node3_
+
+Stage 5: _Install and boot node4_
+|
+|IP address of SPs
+|Stage 1: _Prepare the nodes for the upgrade_
+|Stage 6: _Ensure that the new controllers are set up correctly_
+|
+|License keys
+|Stage 1: _Prepare the nodes for the upgrade_
+|Stage 6: _Ensure that the new controllers are set up correctly_
+|
+|IP address for the external key management server
+|Stage 1: _Rekey  disks for Storage Encryption_
+|Stage 6: _Set up Storage Encryption on the new nodes_
+|
+|Name and path of web-accessible directory where you download files to netboot the nodes
+|Stage 1: _Prepare to netboot_
+|Stage 3: _Install  and boot node3_
+
+Stage 5: _Install and boot node4_
+|
+|Non-SAN data LIFs owned by node1
+|Stage 2: _Move nonSAN data LIFs owned by node1 to node2_
+|Later in the section
+|
+|Cluster, intercluster, node-management, cluster-management, and physical ports
+|Stage 2: _Record node1 information_
+|Stage 3: _Install and boot node3_
+
+Stage 3: _Map ports from node1 to node3_
+|
+|Ports on new nodes
+|Stage 3: _Map ports from node1 to node3_
+|Later in the section and in the section _Map ports from node2 to node4_
+|
+|Available ports and broadcast domains on node3
+|Stage 3: _Map ports from node1 to node3_
+|Later in the section
+|
+|Non-SAN data LIFs not owned by node2
+|_Moving non-SAN data LIFs belonging to node1 from node2 to node3 and verifying SAN LIFs on node3_
+|Later in the section
+|
+|Non-SAN data LIFs owned by node2
+|Stage 3: _Move nonSAN data LIFs owned by node2 to node3_
+|Later in the section
+|
+|Cluster, intercluster, node-management, cluster-management, and physical ports
+|Stage 4: _Record node2 information_
+|Stage 5: _Install and booting node4_
+
+Stage 5:_ Map ports from node2 to node4_
+|
+|Cluster network ports on node4
+|Stage 5: _Map ports from node2 to node4_
+|Later in the section
+|
+|Available ports and broadcast domains on node4
+|Stage 5: _Map ports from node2 to node4_
+|Later in the section
+|
+|Private and public SSL certificates for the storage system and private SSL certificates for each key management server
+|Stage 6: _Set up Storage Encryption on the new nodes_
+|Later in the section
+|
+|===

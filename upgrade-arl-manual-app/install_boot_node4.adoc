@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/install_boot_node4.html
+keywords: node4, install ONTAP, boot, node4, relocate, non-root aggregates, disks
+summary: You need to install node4 in the rack, transfer node2 connections to node4, and boot node4.
+---
+
+= Install and boot node4
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_install_boot_node4.adoc[]

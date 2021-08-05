@@ -1,0 +1,23 @@
+This document is written with the following assumptions:
+
+* The replacement controller hardware is new and has not been used.
++
+WARNING: *Attention*: Because this procedure assumes that the replacement controller hardware is new and has not been used, the steps required to prepare used controllers with the `wipeconfig` command are not included in this procedure. You must contact technical support if the replacement controller hardware was previously used, especially if the controllers were running Data ONTAP in 7-Mode.
+
+* You read and understand the guidelines for upgrading the pair of nodes.
++
+WARNING: *Attention*: Do not try to clear the NVRAM contents. If you need to clear the contents of NVRAM, contact NetApp technical support.
+
+* You are performing the appropriate command before and after the `modify` commands and comparing the output of both `show` commands to verify that the `modify` command was successful.
+
+* If you have a SAN configuration, you have local and partner LIFs for each storage virtual machine (SVM), on the HA pair. If you do not have local and partner LIFs for each SVM, you should add the SAN data LIF on the remote and local node for that SVM before beginning the upgrade.
+
+* If you have port sets in a SAN configuration, you must have verified that each bound port set contains at least one LIF from each node in the HA pair.
+
+This procedure uses the term _boot environment prompt_ to refer to the prompt on a node from which you can perform certain tasks, such as rebooting the node and printing or setting environmental variables. The prompt is sometimes referred to informally as the _boot loader prompt_.
+
+The boot environment prompt is shown in the following example:
+
+----
+LOADER>
+----

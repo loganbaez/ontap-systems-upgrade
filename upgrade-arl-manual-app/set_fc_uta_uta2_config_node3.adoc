@@ -1,0 +1,21 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/set_fc_uta_uta2_config_node3.html
+keywords: configure, configuration, fc, uta, uta2, settings
+summary: Settings must be configured before completing the upgrade.
+---
+
+= Set the FC or UTA/UTA2 configuration on node3
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_set_fc_uta_uta2_config_node3.adoc[]
+
+include::../_include/ru_man_config_fc_ports_node3.adoc[]
+
+include::../_include/ru_man_check_config_uta_uta2_ports_node3.adoc[]
+// 22 FEB 2021: Formatted from CMS

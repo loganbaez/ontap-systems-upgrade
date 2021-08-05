@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/retire_node2.html
+keywords: retire, node2, cluster, SAN, LIFs
+summary: To retire node2, you need to shut node2 down properly and remove it from the rack or chassis.
+---
+
+= Retire node2
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_retire_node2.adoc[]
+// 02 Mar 2021: Formatted from CMS

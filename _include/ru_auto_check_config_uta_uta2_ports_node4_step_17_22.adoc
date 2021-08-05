@@ -1,0 +1,28 @@
+
+. [[auto_check_4_step17]]Press `Ctrl-C` during autoboot to stop the node at the `LOADER>` prompt.
+
+. At the loader prompt, enter maintenance mode:
++
+`boot_ontap maint`
+
+. In maintenance mode, display all the previously set initiator ports that are now in target mode:
++
+`ucadmin show`
++
+Change the ports back to initiator mode:
++
+`ucadmin modify -m fc -t initiator -f <adapter name>`
+
+. Verify that the ports have been changed to initiator mode:
++
+`ucadmin show`
+
+. Exit maintenance mode:
++
+`halt`
+
+. [[auto_check_4_step22]]At the loader prompt boot up:
++
+`boot_ontap`
++
+Now, on booting, the node can detect all the disks that were previously assigned to it and can boot up as expected.

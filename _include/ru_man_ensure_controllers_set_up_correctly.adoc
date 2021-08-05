@@ -1,0 +1,128 @@
+To ensure correct setup, you must enable the HA pair. You must also verify that node3 and node4 can access each other's storage and that neither owns data LIFs belonging to other nodes on the cluster. In addition, you must ensure that node3 owns node1's aggregates and that node4 owns node2's aggregates, and that the volumes for both nodes are online.
+
+.Steps
+
+. Enable storage failover by entering the following command on one of the nodes:
++
+`storage failover modify -enabled true -node <node3>`
+
+. Verify that storage failover is enabled:
++
+`storage failover show`
++
+The following example shows the output of the command when storage failover is enabled:
++
+----
+cluster::> storage failover show
+                              Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- ------------------
+node3          node4          true     Connected to node4
+node4          node3          true     Connected to node3
+----
+
+. Take one of the following actions:
++
+|===
+|If the cluster is a... |Description
+
+|Two-node cluster |Enable cluster high availability by entering the following command on either node:
+`cluster ha modify -configured true`
+|Cluster with more than two nodes
+|Go to <<man_ensure_setup_Step4,Step 4>>.
+|===
+
+. [[man_ensure_setup_Step4]]Verify that node3 and node4 belong to the same cluster by entering the following command and examining the output:
++
+`cluster show`
+
+. Verify that node3 and node4 can access each other's storage by entering the following command and examining the output:
++
+`storage failover show -fields local-missing-disks,partner-missing-disks`
+
+. Verify that neither node3 nor node4 owns data LIFs home-owned by other nodes in the cluster by entering the following command and examining the output:
++
+`network interface show`
++
+If either node3 or node4 owns data LIFs home-owned by other nodes in the cluster, use the `network interface revert` command to revert the data LIFs to their home-owner.
+
+. Verify that node3 owns the aggregates from node1 and that node4 owns the aggregates from node2:
++
+`storage aggregate show -owner-name <node3>`
+`storage aggregate show -owner-name <node4>`
+
+. Determine whether any volumes are offline:
++
+`volume show -node <node3> -state offline`
+`volume show -node <node4> -state offline`
+
+. If any volumes are offline, compare them with the list of offline volumes that you captured in  link:prepare_nodes_for_upgrade.html#step19d[Step 19 (d)] in _Prepare the nodes for upgrade_, and bring online any of the offline volumes, as required, by entering the following command, once for each volume:
++
+`volume online -vserver <vserver-name> -volume <volume_name>`
+
+. Install new licenses for the new nodes by entering the following command for each node:
++
+`system license add -license-code <license_code,license_code,license_code...>`
++
+The license-code parameter accepts a list of 28 upper-case alphabetic character keys. You can add one license at a time, or you can add multiple licenses at once, each license key separated by a comma.
+
+. If NetApp Storage Encryption (NSE) was in use on the configuration and you set the `setenv bootarg.storageencryption.support` command to "true" with the `kmip.init.maxwait` variable "off" (in link:install_boot_node3.html#step16[Step 16] of _Install and boot node3_), you need to reset the variable:
+`set diag; systemshell -node <node-name> -command sudo kenv -u -p kmip.init.maxwait`
+
+. To remove all of the old licenses from the original nodes, enter one of the following commands:
++
+`system license clean-up -unused -expired`
+`system license delete -serial-number <node_serial_number> -package <licensable_package>`
+
+* To delete all expired licenses, enter:
++
+`system license clean-up -expired`
+* To delete all unused licenses, enter:
++
+`system license clean-up -unused`
+* To delete a specific license from a cluster, enter the following commands on the nodes:
++
+`system license delete -serial-number <node1-serial-number> -package *`
+`system license delete -serial-number <node2-serial-number> -package *`
++
+The following output is displayed:
++
+----
+Warning: The following licenses will be removed:
+<list of each installed package>
+Do you want to continue? {y|n}: y
+----
+Enter `y` to remove all of the packages.
+
+. Verify that the licenses are properly installed by entering the following command and examining its output:
++
+`system license show`
++
+You might want to compare the output with the output that you captured in link:prepare_nodes_for_upgrade.html#step30[Step 30] of _Prepare the nodes for upgrade_.
+
+. Configure the SPs by performing the following command on both nodes:
++
+`system service-processor network modify -node <node-name>`
++
+Go to link:other_references.html[References] to link to the _System Administration Reference_ for information about the SPs and the _ONTAP 9 Commands: Manual Page Reference_ for detailed information about the `system service- processor network modify` command.
+
+. Take the following actions on one of the new nodes:
+.. Enter advanced privilege level by entering the following command:
++
+`set -privilege advanced`
+.. Enter the following command:
++
+`storage failover modify -node <node-name> -cifs-ndo-duration default|medium|low`
++
+* Enter `medium` if the system will have workloads in which 50 percent to 75 percent of the operations will be 4 KB or smaller.
+* Enter `low` if the system will have workloads in which 75 percent to 100 percent of the operations will be 4 KB or smaller.
+.. Return to the admin level by entering the following command:
++
+`set -privilege admin`
+.. Reboot the system to ensure that the changes take effect.
+
+. If you want to set up a switchless cluster on the new nodes, go to link:other_references.html[References] to link to the _Network Support Site_ and follow the instructions in _Transitioning to a two-node switchless cluster_.
+
+.After you finish
+
+If Storage Encryption is enabled on node3 and node4, complete the steps in link:set_up_storage_encryption_new_controller.html[Set up Storage Encryption on the new controller module]. Otherwise, complete the steps in link:decommission_old_system.html[Decommission the old system].

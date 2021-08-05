@@ -1,0 +1,114 @@
+Before you can replace node2 with node4, you must send an AutoSupport message for node2 and then relocate the non-root aggregates that are owned by node2 to node3.
+
+.Steps
+
+. [[step1]] Send an AutoSupport message to NetApp for node2:
++
+`system node autosupport invoke -node <node2> -type all -message "Upgrading <node2> from <platform_old> to <platform_new>"`
+
+. Verify that the AutoSupport message was sent:
++
+`system node autosupport show -node <node2> -instance`
++
+The fields "Last Subject Sent:"" and "Last Time Sent:"" contain the message title of the last message that was sent and the time when the message was sent.
+
+. [[step3]]Relocate the non-root aggregates:
+
+.. Set the privilege level to advanced:
++
+`set -privilege advanced`
+
+.. List the aggregates that are owned by node2:
++
+`storage aggregate show -owner-name <node2>`
+
+.. Start aggregate relocation:
++
+`storage aggregate relocation start -node <node2> -destination <node3> -aggregate-list * -ndo-controller-upgrade true`
++
+NOTE: The command locates only non-root aggregates.
+
+.. When prompted, enter `y`.
++
+Relocation occurs in the background. It can take anywhere from a few seconds to a couple of minutes to relocate an aggregate. The time includes both client outage and non-outage portions. The command does not relocate any offline or restricted aggregates.
+
+.. Return to the admin privilege level:
++
+`set -privilege admin`
+
+. Verify the relocation status of node2:
++
+`storage aggregate relocation show -node <node2>`
++
+The output will display "Done" for an aggregate after it has been relocated.
++
+NOTE: You must wait until all of the aggregates that are owned by node2 have been relocated to node3 before proceeding to the next step.
+
+. Take one of the following actions:
++
+[cols="35,65"]
+|===
+|If relocation of... |Then...
+
+|All aggregates was successful
+|Go to <<man_relocate_2_3_step6,Step 6>>.
+|Any aggregates failed, or was vetoed
+a|.. Display a detailed status message:
++
+`storage aggregate show -instance`
++
+You can also check the EMS logs to see the corrective action that is needed.
++
+*Note*: The `event log show` command lists any errors that have occurred.
+
+.. Perform the corrective action.
+
+.. Set the privilege level to advanced:
++
+`set -privilege advanced`
+
+.. Relocate any failed or vetoed aggregates:
++
+`storage aggregate relocation start -node <node2> -destination <node3> -aggregate-list * -ndo-controllerupgrade true`
+
+.. When prompted, enter `y`.
+
+.. Return to the admin privilege level:
++
+`set -privilege admin`
+
+If necessary, you can force the relocation by using one of the following methods:
+
+* By overriding veto checks:
++
+`storage aggregate relocation start -override-vetoes true -ndo-controller-upgrade`
+
+* By overriding destination checks:
++
+`storage aggregate relocation start -override-destination-checks true -ndocontroller-upgrade`
+
+For more information about the storage aggregate relocation commands, go to link:other_references.html[References] to link to the _ONTAP 9 Disks and Aggregates Power Guide_ and the _ONTAP 9 Commands: Manual Page Reference_.
+|===
+
+. [[man_relocate_2_3_step6]]Verify that all of the non-root aggregates are online on node3:
++
+`storage aggregate show -node <node3> -state offline -root false`
++
+If any aggregates have gone offline or have become foreign, you must bring them online, once for each aggregate:
++
+`storage aggregate online -aggregate <aggr_name>`
+
+. Verify that all of the volumes are online on node3:
++
+`volume show -node <node3> -state offline`
++
+If any volumes are offline on node3, you must bring them online, once for each volume:
++
+`volume online -vserver <Vserver-name> -volume <volume-name>`
+
+. Verify that node2 does not own any online non-root aggregates:
++
+`storage aggregate show -owner-name <node2> -ha-policy sfo -state online`
++
+The command output should not display online non-root aggregates because all of the non-root online aggregates have already been relocated to node3.
+// 24 FEB 2021:  formatted from CMS

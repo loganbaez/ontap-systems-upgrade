@@ -1,0 +1,148 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/move_non_root_aggr_nas_lifs_node1_from_node2_to_node3.html
+keywords: aggregate relocation, lifs, node3, node1, node2, NAS
+summary: After you verify the node3 installation and before you relocate aggregates from node2 to node3, you need to move the NAS data LIFs.
+---
+
+= Move non-root aggregates and NAS data LIFs owned by node1 from node2 to node3
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+After you verify the node3 installation and before you relocate aggregates from node2 to node3, you need to move the NAS data LIFs belonging to node1 that are currently on node2 from node2 to node3. You also need to verify that the SAN LIFs exist on node3.
+
+.About this task
+
+Remote LIFs handle traffic to SAN LUNs during the upgrade procedure. Moving SAN LIFs is not necessary for cluster or service health during the upgrade. SAN LIFs are not moved unless they need to be mapped to new ports. You will verify that the LIFs are healthy and located on appropriate ports after you bring node3 online.
+
+.Steps
+
+. Resume the relocation operation:
++
+`system controller replace resume`
++
+The system performs the following tasks:
++
+* Cluster quorum check
+* System ID check
+* Image version check
+* Target platform check
+* Network reachability check
+
++
+The operation pauses at this stage in the network reachability check.
+
+. Manually verify that the network and all VLANs, interface groups, and broadcast domains have been configured correctly.
+
+. Resume the relocation operation:
++
+`system controller replace resume`
++
+----
+To complete the "Network Reachability" phase, ONTAP network configuration must
+be manually adjusted to match the new physical network configuration of the
+hardware. This includes assigning network ports to the correct broadcast
+domains, creating any required ifgrps and VLANs, and modifying the home-port
+parameter of network interfaces to the appropriate ports. Refer to the "Using
+aggregate relocation to upgrade controller hardware on a pair of nodes running
+ONTAP 9.x" documentation, Stages 3 and 5. Have all of these steps been manually
+completed? [y/n]
+----
+
+. Enter `y` to continue.
+
+. The system performs the following checks:
+* Cluster health check
+* Cluster LIF status check
+
++
+After performing these checks, the system relocates the non-root aggregates and NAS data LIFs owned by node1 to the new controller, node3.
+The system pauses once the resource relocation is complete.
+
+. Check the status of the aggregate relocation and NAS data LIF move operations:
++
+`system controller replace show-details`
+
+. Verify that the non-root aggregates and NAS data LIFs have been successfully relocated to node3.
++
+If any aggregates fail to relocate or are vetoed, you must manually relocate the aggregates, or override either the vetoes or destination checks, if necessary. See link:relocate_failed_or_vetoed_aggr.html[Relocate failed or vetoed aggregates] for more information.
+
+. Verify that the SAN LIFs are on the correct ports on node3 by completing the following substeps:
+
+.. Enter the following command and examine its output:
++
+`network interface show -data-protocol <iscsi|fcp> -home-node <node3>`
++
+The system returns output similar to the following example:
++
+----
+cluster::> net int show -data-protocol iscsi|fcp -home-node node3
+
+        Logical   Status     Network           Current  Current Is
+Vserver Interface Admin/Oper Address/Mask      Node     Port    Home
+------- --------- ---------- ----------------- -------- ------- ----
+vs0
+        a0a       up/down     10.63.0.53/24     node3   a0a     true
+        data1     up/up       10.63.0.50/18     node3   e0c     true
+        rads1     up/up       10.63.0.51/18     node3   e1a     true
+        rads2     up/down     10.63.0.52/24     node3   e1b     true
+vs1
+        lif1      up/up       172.17.176.120/24 node3   e0c     true
+        lif2      up/up       172.17.176.121/24 node3   e1a     true
+----
+
+.. If node3 has any SAN LIFs or groups of SAN LIFs that are on a port that did not exist on node1 or that need to be mapped to a different port, move them to an appropriate port on node3 by completing the following substeps:
+
+... Set the LIF status to down:
++
+`network interface modify -vserver <Vserver_name> -lif <LIF_name> -status-admin down`
+
+... Remove the LIF from the port set:
++
+`portset remove -vserver <Vserver_name> -portset <portset_name> -port-name <port_name>`
+
+... Enter one of the following commands:
++
+* Move a single LIF:
++
+`network interface modify -vserver <Vserver_name> -lif <LIF_name> -home-port <new_home_port>`
+
+* Move all the LIFs on a single nonexistent or incorrect port to a new port:
++
+`network interface modify {-home-port <port_on_node1> -home-node <node1> -role data} -home-port <new_home_port_on_node3>`
+
+* Add the LIFs back to the port set:
++
+`portset add -vserver <Vserver_name> -portset <portset_name> -port-name <port_name>`
++
+NOTE: You need to ensure that you move SAN LIFs to a port that has the same link speed as the original port.
+
+.. Modify the status of all LIFs to "up" so the LIFs can accept and send traffic on the node:
++
+`network interface modify -home-port <port_name> -home-node <node3> -lif data -status admin up`
+
+.. Enter the following command on either node and examine its output to verify that LIFs have been moved to the correct ports and that the LIFs have the status of `up`:
++
+`network interface show -home-node <node3> -role data`
+
+.. If any LIFs are down, set the administrative status of the LIFs to `up` by entering the following command, once for each LIF:
++
+`network interface modify -vserver <vserver_name> -lif <lif_name> -status-admin up`
+
+. Resume the operation to prompt the system to perform the required post-checks:
++
+`system controller replace resume`
++
+The system performs the following post-checks:
++
+* Cluster quorum check
+* Cluster health check
+* Aggregates reconstruction check
+* Aggregate status check
+* Disk status check
+* Cluster LIF status check
+// bottom of page 43, 44, and 45 in PDF.

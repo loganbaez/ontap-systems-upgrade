@@ -1,0 +1,22 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/resume_snapmirror_operations.html
+keywords: resuming, snapmirror, operations, transfer, relationship, updates, schedule, complete
+summary: You can resume SnapMirror transfers that were quiesced before upgrade and resume the SnapMirror relationships.
+---
+
+= Resume SnapMirror operations
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:55.809837
+//
+
+[.lead]
+include::../_include/ru_auto_resume_snapmirror_operations.adoc[]

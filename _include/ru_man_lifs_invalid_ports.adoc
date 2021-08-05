@@ -1,0 +1,8 @@
+After the upgrade is completed, the FC logical interfaces (LIFs) might be left on incorrect ports if you have a MetroCluster configuration. You can perform a resync operation to reassign the LIFs to the correct ports.
+
+.Step
+
+. Enter the `metrocluster vserver resync` command to reallocate the LIFs to the correct ports.
++
+`metrocluster vserver resync -vserver <vserver_name> fcp-mc.headupgrade.test.vs`
+// 5 MAR 2021:  formatted from CMS

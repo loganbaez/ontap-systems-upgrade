@@ -1,0 +1,12 @@
+.Steps
+
+. To synchronize encryption configuration for Onboard Key Manager, run the following command at the cluster prompt:
++
+|===
+|For this ONTAP version… |Use this command...
+
+|ONTAP 9.6 or 9.7 |security key-manager onboard sync
+|ONTAP 9.5 |security key-manager setup -node <node_name>
+|===
+
+. Enter the cluster-wide passphrase for the Onboard Key Manager.

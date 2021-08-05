@@ -1,0 +1,182 @@
+The system might crash – reboot, panic or go through a power cycle – during different stages of the upgrade. The solution to these problems depends on when they occur.
+
+== Reboots, panics, or power cycles during Stage 2
+
+Crashes can occur before, during, or immediately after Stage 2, during which you relocate aggregates from node1 to node2, move data LIFs and SAN LIFs owned by node1 to node2, record node1 information, and retire node1.
+
+=== Node1 or node2 crashes before Stage 2 with HA still enabled
+
+If either node1 or node2 crashes before Stage 2, no aggregates have been relocated yet and the HA configuration is still enabled.
+
+.About this task
+
+Takeover and giveback can proceed normally.
+
+.Steps
+
+. Check the console for EMS messages that the system might have issued, and take the recommended corrective action.
+. Continue with the node-pair upgrade procedure.
+
+=== Node1 crashes during or just after Stage 2 with HA still enabled
+
+Some or all aggregates have been relocated from node1 to node2, and HA is still enabled. Node2 will take over node1's root volume and any non-root aggregates that were not relocated.
+
+.About this task
+
+Ownership of aggregates that were relocated looks the same as the ownership of non-root aggregates that were taken over because home owner has not changed.
+When node1 enters the `waiting for giveback state`, node2 will give back all the node1 nonroot aggregates.
+
+.Steps
+
+. Complete link:relocate_non_root_aggr_node1_node2.html#step1[Step 1] in the section _Relocate non-root aggregates from node1 to node2_ again.
+. Continue with the node-pair upgrade procedure.
+
+=== Node1 crashes after Stage 2 while HA is disabled
+
+Node2 will not take over but it is still serving data from all non-root aggregates.
+
+.Steps
+
+. Bring up node1.
+. Continue with the node-pair upgrade procedure.
++
+You might see some changes in the output of the `storage failover show` command, but that is typical and does not affect the procedure. See the troubleshooting section link:issues_multiple_stages_of_procedure.html#Unexpected-storage-failover-show-command-output[Unexpected storage failover show command output].
+
+=== Node2 fails during or after Stage 2 with HA still enabled
+
+Node1 has relocated some or all of its aggregates to node2. HA is enabled.
+
+.About this task
+
+Node1 will take over all of node2's aggregates as well any of its own aggregates that it had relocated to node2. When node2 enters the `Waiting for Giveback` state, node1 gives back all of node2's aggregates.
+
+.Steps
+
+. Complete link:relocate_non_root_aggr_node1_node2.html#step1[Step 1] in the section _Relocate non-root aggregates from node1 to node2_ again.
+. Continue with the node-pair upgrade procedure.
+
+=== Node2 crashes after Stage 2 and after HA is disabled
+
+Node1 will not take over.
+
+.Steps
+
+. Bring up node2.
++
+A client outage will occur for all aggregates while node2 is booting up.
+. Continue with the rest of the node pair upgrade procedure.
+
+== Reboots, panics, or power cycles during Stage 3
+
+Failures can occur during or immediately after Stage 3, during which you install and boot node3, map ports from node1 to node3, move data LIFs and SAN LIFs belonging to node1 and node2 to node3, and relocate all aggregates from node2 to node3.
+
+=== Node2 crash during Stage 3 with HA disabled and before relocating any aggregates
+
+Node3 will not take over following a node2 crash as HA is already disabled.
+
+.Steps
+
+. Bring up node2.
++
+A client outage will occur for all aggregates while node2 is booting up.
+. Continue with the node-pair upgrade procedure.
+
+=== Node2 crashes during Stage 3 after relocating some or all aggregates
+
+Node2 has relocated some or all of its aggregates to node3, which will serve data from aggregates that were relocated. HA is disabled.
+
+.About this task
+
+There will be client outage for aggregates that were not relocated.
+
+.Steps
+
+. Bring up node2.
+. Relocate the remaining aggregates by completing link:relocate_non_root_aggr_node2_node3.html#step1[Step 1] through link:relocate_non_root_aggr_node2_node3.html#step3[Step 3] in the section _Relocate non-root aggregates from node2 to node3_.
+. Continue with the node-pair upgrade procedure.
+
+=== Node3 crashes during Stage 3 and before node2 has relocated any aggregates
+
+Node2 does not take over but it is still serving data from all non-root aggregates.
+
+.Steps
+
+. Bring up node3.
+
+. Continue with the node-pair upgrade procedure.
+
+=== Node3 crashes during Stage 3 during aggregate relocation
+
+If node3 crashes while node2 is relocating aggregates to node3, node2 will abort the relocation of any remaining aggregates.
+
+.About this task
+
+Node2 continues to serve remaining aggregates, but aggregates that were already relocated to node3 encounter client outage while node3 is booting.
+
+.Steps
+
+. Bring up node3.
+. Complete link:relocate_non_root_aggr_node2_node3.html#step3[Step 3] again in the section _Relocate non-root aggregates from node2 to node3_.
+
+. Continue with the node-pair upgrade procedure.
+
+=== Node3 fails to boot after crashing in Stage 3
+
+Because of a catastrophic failure, node3 cannot be booted following a crash during Stage 3.
+
+.Step
+
+Contact technical support.
+
+=== Node2 crashes after Stage 3 but before Stage 5
+
+Node3 continues to serve data for all aggregates. The HA pair is disabled.
+
+.Steps
+
+. Bring up node2.
+. Continue with the node-pair upgrade procedure.
+
+=== Node3 crashes after Stage 3 but before Stage 5
+
+Node3 crashes after Stage 3 but before Stage 5. The HA pair is disabled.
+
+.Steps
+
+. Bring up node3.
++
+There will be a client outage for all aggregates.
+. Continue with the node-pair upgrade procedure.
+
+== Reboots, panics, or power cycles during Stage 5
+
+Crashes can occur during Stage 5, the stage in which you install and boot node4, map ports from node2 to node4, move data LIFs and SAN LIFs belonging to node2 from node3 to node4, and relocate all of node2's aggregates from node3 to node4.
+
+=== Node3 crashes during Stage 5
+Node3 has relocated some or all of node2's aggregates to node4. Node4 does not take over but continues to serve non-root aggregates that node3 already relocated. The HA pair is disabled.
+
+.About this task
+
+There is be an outage for the rest of the aggregates until node3 boots again.
+
+.Steps
+
+. Bring up node3.
+. Relocate the remaining aggregates that belonged to node2 by repeating link:relocate_node2_non_root_aggr_node3_node4.html#Step1[Step 1] through link:relocate_node2_non_root_aggr_node3_node4.html#step3[Step 3] in the section _Relocate node2's non-root aggregates from node3 to node4_.
+
+. Continue with the node pair upgrade procedure.
+
+=== Node4 crashes during Stage 5
+
+Node3 has relocated some or all of node2's aggregates to node4. Node3 does not take over but continues to serve non-root aggregates that node3 owns as well as those that were not relocated. HA is disabled.
+
+.About this task
+
+There is an outage for non-root aggregates that were already relocated until node4 boots again.
+
+.Steps
+
+. Bring up node4.
+. Relocate the remaining aggregates that belonged to node2 by again completing link:relocate_node2_non_root_aggr_node3_node4.html#Step1[Step 1] through link:relocate_node2_non_root_aggr_node3_node4.html#step3[Step 3] in _Relocate node2's non-root aggregates from node3 to node4_.
+. Continue with the node-pair upgrade procedure.
+// 02 MAR 2021 Formatted from CMS

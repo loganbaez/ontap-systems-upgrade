@@ -1,0 +1,6 @@
+This procedure includes troubleshooting suggestions.
+
+If any problems occur while upgrading the controllers, you can refer to the link:troubleshoot.html[Troubleshoot] section at the end of the procedure for more information and possible solutions.
+
+If you do not find a solution to the problem you encountered, you should contact technical support.
+// 1 MAR 2021: formatted from CMS

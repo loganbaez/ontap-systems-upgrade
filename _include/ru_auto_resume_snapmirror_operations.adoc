@@ -1,0 +1,11 @@
+You can resume SnapMirror transfers that were quiesced before upgrade and resume the SnapMirror relationships. The updates are on schedule after the upgrade is completed.
+
+.Steps
+
+. Verify the SnapMirror status on the destination:
++
+`snapmirror show`
+
+. Resume the SnapMirror relationship:
++
+`snapmirror resume -destination–vserver <vserver_name>`

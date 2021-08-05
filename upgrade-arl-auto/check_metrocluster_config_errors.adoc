@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/check_metrocluster_config_errors.html
+keywords: Config Advisor, configuration, errors, validation, health, Active IQ
+summary: Use the Config Advisor tool to check for common configuration errors.
+---
+
+= Check for MetroCluster configuration errors
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_all_check_metrocluster_configuration_errors.adoc[]
+// p. 11 of PDF

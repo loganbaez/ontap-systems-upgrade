@@ -1,0 +1,80 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/join_quorum_node_has_different_ports_stage3.html
+keywords: aggregate relocation, YYYYY
+summary: If the new node has a different set of network ports, you must ensure that the node successfully joins the quorum.
+---
+
+= Join the quorum when a node has a different set of network ports
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+The node with the new controller boots and attempts to join the cluster automatically at first; however, if the new node has a different set of network ports, you must perform the following steps to ensure that the node successfully joins the quorum.
+
+.About this task
+
+You can use these instructions for any relevant node. Node3 is used throughout the following
+sample.
+
+.Steps
+
+. Verify that the new cluster ports are in the Cluster broadcast domain by entering the following command and checking its output:
++
+`network port show -node node -port port -fields broadcast-domain`
++
+The following example shows that port "e1a" is in the Cluster domain on node3:
++
+----
+cluster::> network port show -node node3 -port e1a -fields broadcast-domain
+node   port broadcast-domain
+------ ---- ----------------
+node3  e1a  Cluster
+----
+. Add the correct ports to the Cluster broadcast domain by entering the following command and checking its output:
++
+`network port modify -node -port -ipspace Cluster -mtu 9000`
++
+This example adds Cluster port "e1b" on node3:
++
+----
+network port modify -node node3 -port e1b -ipspace Cluster -mtu 9000
+----
+. Migrate the cluster LIFs to the new ports, once for each LIF, using the following command:
++
+`network interface migrate -vserver Cluster -lif <lif_name> -source-node node3 - destination-node node3 -destination-port <port_name>`
+
+. Modify the home port of the cluster LIFs:
++
+`network interface modify -vserver Cluster -lif <lif_name> –home-port <port_name>`
+
+. If the cluster ports are not in the Cluster broadcast-domain, add them by using the following command:
++
+`network port broadcast-domain add-ports -ipspace Cluster -broadcastdomain Cluster - ports node:port`
+
+. Remove the old ports from the Cluster broadcast domain. You can use for any relevant node. The following command removes port "e0d" on node3:
++
+`network port broadcast-domain remove-ports network port broadcast-domain remove-ports ipspace Cluster -broadcast-domain Cluster ‑ports node3:e0d`
+
+. Verify the node has rejoined quorum:
++
+`cluster show -node node3 -fields health`
+
+. Adjust the broadcast domains hosting your cluster LIFs and node-management/cluster management LIFs. Ensure that each broadcast domain contains the correct ports. A port cannot be moved between broadcast domains if it is hosting or is home to a LIF, so you might need to migrate and modify the LIFs as follows:
+
+.. Display the home port of a LIF:
++
+`network interface show -fields home-node,home-port`
+.. Display the broadcast domain containing this port:
++
+`network port broadcast-domain show -ports <node_name:port_name>`
+.. Add or remove ports from broadcast domains:
+`network port broadcast-domain add-ports network port broadcast-domain remove-port`
+.. Modify a home port of a LIF:
+`network interface modify -vserver vserver -lif <lif_name> –home-port <port_name>` Adjust the intercluster broadcast domains and migrate the intercluster LIFs, if necessary. The data LIFs remain unchanged.
+
+// This is for the stage 3 procedure.  There is a similar procedure in Stage 5.
+// Pg 41  and top of 42 in pdf.

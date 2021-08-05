@@ -1,0 +1,27 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html
+keywords: relocate, non-root, aggregates, nas, lif, node2, node3
+summary: Before you can replace node2 with node4, you must relocate the non-root aggregates that are owned by node2 to node3.
+---
+
+= Relocate non-root aggregates and NAS data LIFs from node2 to node3
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:54.913361
+//
+
+[.lead]
+include::../_include/ru_auto_relocate_non_root_aggr_nas_lifs_from_node2_to_node3_intro_step_4.adoc[]
+[start=5]
+.  [[Step5]]Verify that there are no data LIFs remaining on node2 by entering the following command and examining the output:
++
+`network interface show - curr-node <node2> -role data`
+// 10 Dec 2020, thomi, checked

@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/troubleshoot.html
+keywrods: troubleshoot, failure, aggregate, relocate, lifs
+summary: troubleshoot, troubleshooting, problem, error, failure
+---
+
+= Troubleshoot
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_troubleshoot.adoc[]
+// 02 MAR 2021:  formatted from CMS

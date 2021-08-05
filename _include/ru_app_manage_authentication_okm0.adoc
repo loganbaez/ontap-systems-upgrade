@@ -1,0 +1,8 @@
+You can use the OKM to manage encryption keys. If you plan to use OKM, you must record the passphrase and backup material before beginning the upgrade.
+
+.Steps
+
+. Save the passphrase to a secure location.
+. Create a backup for recovery purposes. Run the following command and save the output:
++
+`key-manager onboard show-backup`

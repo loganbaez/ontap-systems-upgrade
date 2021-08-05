@@ -1,0 +1,167 @@
+To retire node1, you need to disable the HA pair with node2, shut node1 down properly, and remove it from the rack or chassis.
+
+.Steps
+
+. Verify the number of nodes in the cluster:
++
+`cluster show`
++
+The system displays the nodes in the cluster, as shown in the following example:
++
+----
+cluster::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+node1                 true    true
+node2                 true    true
+2 entries were displayed.
+----
+
+. [[man_retire_1_step2]]Disable storage failover, as applicable:
++
+[cols="35,65"]
+|===
+|If the cluster is... |Then...
+
+|A two-node cluster
+a|.. Disable cluster high availability by entering the following command on either node:
+
+`cluster ha modify -configured false`
+
+.. Disable storage failover:
+
+`storage failover modify -node <node1> -enabled false`
+
+|A cluster with more than two nodes
+|Disable storage failover:
+
+`storage failover modify -node <node1> -enabled false`
+|===
+
+. Verify that storage failover was disabled:
++
+`storage failover show`
++
+The following example shows the output of the `storage failover show` command when storage failover has been disabled for a node:
++
+----
+ cluster::> storage failover show
+                               Takeover
+ Node           Partner        Possible State Description
+ -------------- -------------- -------- -------------------------------------
+ node1          node2          false    Connected to node2, Takeover
+                                        is not possible: Storage failover is
+                                        disabled
+
+ node2          node1          false    Node owns partner's aggregates as part
+                                        of the nondisruptive controller upgrade
+                                        procedure. Takeover is not possible:
+                                        Storage failover is disabled
+ 2 entries were displayed.
+----
+
+. Verify the data LIF status:
++
+`network interface show -role data -curr-node <node2> -home-node <node1>`
++
+Look in the *Status Admin/Oper* column to see if any LIFs are down. If any LIFs are down, consult the link:troubleshoot.html[Troublehsoot] section.
+
+. Take one of the following actions:
++
+[cols="35,65"]
+|===
+|If the cluster is... |Then...
+
+|A two-node cluster
+|Go to <<man_retire_1_step6,Step 6>>.
+|A cluster with more than two nodes
+|Go to <<man_retire_1_step8,Step 8>>.
+|===
+
+. [[man_retire_1_step6]]Access the advanced privilege level on either node:
++
+`set -privilege advanced`
+
+. [[step7]]Verify that the cluster HA has been disabled:
++
+`cluster ha show`
++
+The system displays the following message:
++
+----
+High Availability Configured: false
+----
++
+If cluster HA has not been disabled, repeat <<man_retire_1_step2,Step 2>>.
+
+. [[man_retire_1_step8]]Check whether node1 currently holds epsilon:
++
+`cluster show`
++
+Because there is the possibility of a tie in a cluster that has an even number of nodes, one node has an extra fractional voting weight called epsilon. Refer to link:other_references.html[References] to link to the _System Administration Reference_ for more information.
++
+NOTE: If you have a four-node cluster, epsilon might be on a node in a different HA pair in the cluster.
+
++
+The following example shows that node1 holds epsilon:
++
+----
+ cluster::*> cluster show
+
+ Node                 Health  Eligibility  Epsilon
+ -------------------- ------- ------------ ------------
+ node1                true    true         true
+ node2                true    true         false
+----
+
+. If node1 holds epsilon, then mark epsilon `false` on the node so that it can be transferred to the node2:
++
+`cluster modify -node <node1> -epsilon false`
+
+. Transfer epsilon to node2 by marking epsilon `true` on node2:
++
+`cluster modify -node <node2> -epsilon true`
+
+. Verify that the change to node2 occurred:
++
+`cluster show`
++
+----
+ cluster::*> cluster show
+ Node                 Health  Eligibility  Epsilon
+ -------------------- ------- ------------ ------------
+ node1                true    true         false
+ node2                true    true         true
+----
++
+The epsilon for node2 should now be true and the epsilon for node1 should be false.
+
+. Verify whether the setup is a two-node switchless cluster:
++
+`network options switchless-cluster show`
++
+----
+ cluster::*> network options switchless-cluster show
+
+ Enable Switchless Cluster: false/true
+----
++
+The value of this command must match the physical state of the system.
+
+. Return to the admin level:
++
+`set -privilege admin`
+
+. Halt node1 from the node1 prompt:
++
+`system node halt -node <node1>`
++
+WARNING: *Attention*: If node1 is in same chassis as node2, do not power off the chassis by using the power switch or by pulling the power cable. If you do so, node2, which is serving data, will go down.
+
+. When the system prompts you to confirm that you want to halt the system, enter `y`.
++
+The node stops at the boot environment prompt.
+
+. When node1 displays the boot environment prompt, remove it from the chassis or the rack.
++
+You can decommission node1 after the upgrade is completed. See link:decommission_old_system.html[Decommission the old system].

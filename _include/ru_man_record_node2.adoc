@@ -1,0 +1,114 @@
+Before you can shut down and retire node2, you need to record information about its cluster network, management, and FC ports as well as its NVRAM System ID. You need that information later in the procedure when you map node2 to node4 and reassign disks.
+
+.Steps
+
+. Find the cluster network, node-management, intercluster, and cluster-management ports on node2:
++
+`network interface show -curr-node <node_name> -role cluster,intercluster,nodemgmt,cluster-mgmt`
++
+The system displays the LIFs for that node and other nodes in the cluster, as shown in the following example:
++
+----
+cluster::> network interface show -curr-node node2 -role
+cluster,intercluster,node-mgmt,cluster-mgmt
+         Logical     Status     Network            Current     Current Is
+Vserver  Interface   Admin/Oper Address/Mask       Node        Port    Home
+-------- ----------  ---------- ------------------ ----------  ------- ----
+node2
+         intercluster up/up     192.168.1.202/24   node2       e0e     true
+         clus1        up/up     169.254.xx.xx/24   node2       e0a     true
+         clus2        up/up     169.254.xx.xx/24   node2       e0b     true
+         mgmt1        up/up     192.168.0.xxx/24   node2       e0c     true
+4 entries were displayed.
+----
++
+NOTE: Your system might not have intercluster LIFs. You will have a cluster management LIF only on one node of a node pair. A cluster management LIF was displayed in the example output of link:record_node1_information.html#step[Step 1] in _Record node1 port information_.
+
+. Capture the information in the output to use in the section link:map_ports_node2_node4.html[Map ports from node2 to node4].
++
+The output information is required to map the new controller ports to the old controller ports.
+
+. Determine physical ports on node2:
++
+`network port show -node <node_name> -type physical` +
++
+`node_name` is the node which is being migrated.
++
+The system displays the physical ports on node2, as shown in the following example:
++
+----
+cluster::> network port show -node node2 -type physical
+
+                                                             Speed (Mbps)
+Node   Port      IPspace      Broadcast Domain Link   MTU    Admin/Oper
+------ --------- ------------ ---------------- ----- ------- -----------
+node2
+       e0M       Default      IP_address       up       1500  auto/100
+       e0a       Default      -                up       1500  auto/1000
+       e0b       Default      -                up       1500  auto/1000
+       e1a       Cluster      Cluster          up       9000  auto/10000
+       e1b       Cluster      Cluster          up       9000  auto/10000
+5 entries were displayed.
+----
+
+. Record the ports and their broadcast domains.
++
+The broadcast domains will need to be mapped to the ports on the new controller later in the procedure.
+
+. Determine the FC ports on node2:
++
+`network fcp adapter show`
++
+The system displays the FC ports on the node2, as shown in the following example:
++
+----
+cluster::> network fcp adapter show -node node2
+                     Connection  Host
+Node         Adapter Established Port Address
+------------ ------- ----------- ------------
+node2
+             0a      ptp         11400
+node2
+             0c      ptp         11700
+node2
+             6a      loop        0
+node2
+             6b      loop        0
+4 entries were displayed.
+----
+
+. Record the ports.
++
+The output information is required to map the new FC ports on the new controller later in the procedure.
+
+. If you have not done so earlier, check whether there are interface groups or VLANs configured on node2:
++
+`ifgrp show`
++
+`vlan show`
++
+You will use the information in the section link:map_ports_node2_node4.html[Map ports from node2 to node4].
+
+. Take one of the following actions:
++
+[cols=2*,options="header",cols="35,65"]
+|===
+|If you... |Then...
+|Recorded NVRAM System ID number in link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade]
+|Go to link:retire_node2.html[Retire node2].
+|Did not record the NVRAM System ID number in link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade]
+|Complete <<man_record_2_step9,Step 9>> and <<man_record_2_step10,Step 10>> and then go to the next section, link:retire_node2.html[Retire node2].
+|===
+
+. [[man_record_2_step9]]Display the attributes of node 2:
++
+`system node show -instance -node node2`
++
+----
+cluster::> system node show -instance -node node2
+                            ...
+                 NVRAM System ID: system_ID
+                           ...
+----
+
+. [[man_record_2_step10]]Record the NVRAM System ID to use in the section link:install_boot_node4.html[Install and boot node4].

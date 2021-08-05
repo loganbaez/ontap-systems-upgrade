@@ -1,0 +1,18 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual/lif_migration_failure.html
+keywords: lif, migration, failure, error, troubleshoot
+summary: LIF migration failure
+---
+
+= LIF migration failure
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+include::../_include/ru_man_lif_migration_failure.adoc[]
+// 3 MAR 2021:  formatted from CMS
