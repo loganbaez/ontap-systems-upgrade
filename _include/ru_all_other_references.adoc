@@ -58,13 +58,13 @@ Documents specific to this upgrade are listed in the table below.
 |Describes how to administer ONTAP systems, shows you how to use the CLI interface, how to access the cluster, how to manage nodes, and much more.
 |link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html[ONTAP 9 Upgrade and Revert/Downgrade Guide^]
 |Contains instructions for downloading and upgrading ONTAP.
-|link:https://docs.netapp.com/us-en/ontap-systems/upgrade-arl-auto/[Using "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.5 to ONTAP 9.7^]
+|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html[Using "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.5 to ONTAP 9.7^]
 |Describes the aggregate relocation procedures needed to non-disruptively upgrade controllers running ONTAP 9.5 to ONTAP 9.7 by using "system controller replace" commands.
-|link:https://docs.netapp.com/us-en/ontap-systems/upgrade-arl-auto-app/[Using "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.8^]
+|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html[Using "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.8^]
 |Describes the aggregate relocation procedures needed to non-disruptively upgrade controllers running ONTAP 9.8 by using "system controller replace" commands.
-|link:https://docs.netapp.com/us-en/ontap-systems/upgrade-arl-manual/[Using Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.7 or Earlier^]
+|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html[Using Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.7 or Earlier^]
 |Describes the aggregate relocation procedures needed to perform manual non-disruptive controller upgrades running ONTAP 9.7 or earlier.
-|link:https://docs.netapp.com/us-en/ontap-systems/upgrade-arl-manual-app/[Using Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.8 or Later^]
+|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html[Using Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.8 or Later^]
 |Describes the aggregate relocation procedures needed to perform manual non-disruptive controller upgrades running ONTAP 9.8 or later.
 |===
 
