@@ -5,7 +5,7 @@ keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, me
 summary: You upgrade the original controller hardware with the replacement controller hardware, relocating the ownership of non-root aggregates.
 ---
 
-= Use aggregate relocation to upgrade controller hardware
+= Use "system controller replace" commands to upgrade controller hardware running ONTAP 9.5 to ONTAP 9.7
 :hardbreaks:
 :nofooter:
 :icons: font
