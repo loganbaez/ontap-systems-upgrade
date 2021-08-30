@@ -42,16 +42,21 @@ The following table shows the supported model matrix for the controller upgrade.
 |AFF8020, AFF8040, AFF8060, AFF8080
 |AFF A300, AFF A400, AFF A700, AFF A800^1^
 |FAS8200
-|FAS8700, FAS9000, FAS8300^2^
+|FAS8700, FAS9000, FAS8300^3^
 |AFF A300
-|AFF A700, AFF A800^1^, AFF A400^2^
+|AFF A700, AFF A800^1^, AFF A400^3^
+|AFF A320
+|AFF A400^2^
 |===
 
 NOTE: If your controller upgrade model combination is not in the above table, contact technical support.
 
 ^1^For the additional steps needed for A800 systems, go to the step that references A800 in section link:set_fc_or_uta_uta2_config_on_node3.html#step23[Check and configure UTA/UTA2 ports on node3, Step 23], or link:set_fc_or_uta_uta2_config_node4.html#step23[Check and configure UTA/UTA2 ports on node4, Step 23].
 
-^2^If you are upgrading from an AFF A300 to an AFF A400 or an FAS8200 to an FAS8300 system in a two-node switchless cluster configuration, you must pick temporary cluster ports for the controller upgrade. The AFF A400 and FAS8300 systems come in two configurations, as an Ethernet bundle where the mezzanine card ports are Ethernet type and as an FC bundle where the mezzanine ports are FC type.
+^2^ARL automated upgrade from an AFF A320 to an AFF A400 system is supported from ONTAP 9.9.1.
+// BURT 1379899 30-Aug-2021
+
+^3^If you are upgrading from an AFF A300 to an AFF A400 or an FAS8200 to an FAS8300 system in a two-node switchless cluster configuration, you must pick temporary cluster ports for the controller upgrade. The AFF A400 and FAS8300 systems come in two configurations, as an Ethernet bundle where the mezzanine card ports are Ethernet type and as an FC bundle where the mezzanine ports are FC type.
 
 * For an AFF A400 or an FAS8300 with an Ethernet type configuration, you can use any of the two mezzanine ports as temporary cluster ports.
 * For an AFF A400 or an FAS8300 with an FC type configuration, you must add a four-port 10 GbE network interface card (part number X1147A) to provide temporary cluster ports.
