@@ -45,8 +45,8 @@ The operation pauses at this stage in the network reachability check.
 . Resume the relocation operation by using the following command:
 +
 `system controller replace resume`
-
-. The system performs the following checks:
++
+The system performs the following checks:
 
 * Cluster health check
 * Cluster LIF status check
