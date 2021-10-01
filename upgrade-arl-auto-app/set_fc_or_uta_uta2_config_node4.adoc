@@ -210,7 +210,7 @@ The following procedure sets node4 to boot from the root aggregate of node2:
 +
 `aggr status -r`
 
-.. Check the status of the node2 aggregate by using the following command:
+.. Check the status of the node2 aggregate:
 +
 `aggr status`
 

@@ -247,7 +247,7 @@ When a VLAN restore is successful, the displaced VLANs are created on the specif
 Wait about one minute for newly restored VLANs to be placed into their appropriate broadcast domains.
 
 .. Create new VLAN ports as needed for VLAN ports that are not in the `displaced- vlans show` output but should be configured on other physical ports.
-. [[step9]]Delete any empty broadcast domains after all port repairs have been completed by using the following command:
+. [[step9]]Delete any empty broadcast domains after all port repairs have been completed:
 +
 `broadcast-domain delete -broadcast-domain <broadcast_domain_name>`
 
