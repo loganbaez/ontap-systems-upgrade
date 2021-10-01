@@ -28,7 +28,7 @@ The relocation operation will have paused due to the error.
 .Steps
 
 . Check the event management system (EMS) logs to determine why the aggregate failed to relocate or was vetoed.
-. Relocate any failed or vetoed aggregates by using the following command:
+. Relocate any failed or vetoed aggregates:
 +
 `storage aggregate relocation start -node <node1> -destination <node2> aggregate-list <aggr_name> -ndo-controller-upgrade true`
 

@@ -40,12 +40,12 @@ This procedure includes steps that are performed on the new controller module. Y
 |===
 
 . Add the key management servers listed in the previous step to the key management server list in the new controller:
-.. Add the key management server by using the following command:
+.. Add the key management server:
 +
 `security key-manager -add <key_management_server_ip_address>`
 
 .. Repeat the previous step for each listed key management server. You can link up to four key management servers.
-.. Verify the that the key management servers were added successfully by using the following command:
+.. Verify the that the key management servers were added successfully:
 +
 `security key-manager show`
 
@@ -53,7 +53,7 @@ This procedure includes steps that are performed on the new controller module. Y
 +
 You must install the same key management servers that are installed on the existing controller module.
 
-.. Launch the key management server setup wizard on the new node by using the following command:
+.. Launch the key management server setup wizard on the new node:
 +
 `security key-manager setup -node <new_controller_name>`
 

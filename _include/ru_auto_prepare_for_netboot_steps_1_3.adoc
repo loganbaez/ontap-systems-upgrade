@@ -9,7 +9,7 @@
 |For... |Then...
 
 |FAS/AFF8000 series systems
-|Extract the contents of the `<ontap_version>_image.tgz` file to the target directory by using the following command:
+|Extract the contents of the `<ontap_version>_image.tgz` file to the target directory:
 `tar -zxvf <ontap_version>_image.tgz`
 
 *Note*: If you are extracting the contents on Windows, use 7-Zip or WinRAR to extract the netboot image.
