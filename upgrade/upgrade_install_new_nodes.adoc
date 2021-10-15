@@ -1,0 +1,24 @@
+---
+permalink: upgrade/upgrade-install-new-nodes.html
+sidebar: sidebar
+keywords: upgrade, moving, move, storage, install, node3, node4, attach, power, console, network, connection, install the new nodes
+summary: When you upgrade by moving storage, you begin by installing the node3 and node4 and attaching power, console, and network connections to the new nodes.
+---
+= Install the new nodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When you upgrade by moving storage, you begin by installing the node3 and node4 and attaching power, console, and network connections to the new nodes.
+
+.Steps
+. If needed, install any adapters in node3 and node4, following the instructions in the appropriate adapter installation guide.
+. Install the new nodes, following the _Installation and Setup Instructions_ for the platform.
++
+Do not attach disk shelves from the original nodes to the new nodes at this point.
+
+. Attach power and console connections to the node3/node4 HA pair, following the _Installation and Setup Instructions_ for the platform.
+. Attach the network cables.
+. Transfer all remaining cables, other than storage shelf cables, from the node1/node2 HA pair to corresponding ports on node3/node4 respectively.
++
+This includes Fibre Channel and Ethernet cables that are not used to attach storage shelves.

@@ -1,12 +1,111 @@
 section: upgrade
-title: Use aggregate relocation to upgrade controller hardware
-url: index.html
+title: Platform upgrade
 entries:
-- title: Upgrade controller hardware running ONTAP 9.8 or later using "system controller replace" command
-  url: http://docs.netapp.com/us-en/ontap-systems/upgrade-arl-auto-app/index.html
-- title: Upgrade controller hardware running ONTAP 9.5 to 9.7 using "system controller replace" command
-  url: http://docs.netapp.com/us-en/ontap-systems/upgrade-arl-auto/index.html
-- title: Manually upgrade controller hardware running ONTAP 9.8 or later using Aggregate Relocation
-  url: http://docs.netapp.com/us-en/ontap-systems/upgrade-arl-manual-app/index.html
-- title: Manually upgrade controller hardware running ONTAP 9.7 or earlier using Aggregate Relocation
-  url: http://docs.netapp.com/us-en/ontap-systems/upgrade-arl-manual/index.html
+  - title: Overview
+    url: /upgrade/upgrade-decide-to-use-this-guide.html
+  - title: Considerations for upgrading controller hardware
+    url: /upgrade/upgrade-considerations.html
+  - title: Choose methods for upgrading controller hardware
+    url: /upgrade/upgrade-methods.html
+  - title: Upgrade controller hardware by moving storage
+    url: /upgrade/upgrade-by-moving-storage-parent.html
+    entries:
+    - title: Prepare for the upgrade when moving storage
+      url: /upgrade/upgrade-prepare-when-moving-storage.html
+    - title: Shut down the original nodes
+      url: /upgrade/upgrade-shutdown-remove-original-nodes.html
+    - title: Remove ownership of disks attached to the new nodes
+      url: /upgrade/upgrade-remove-disk-ownership-new-nodes.html
+    - title: Reset the default configuration on the new nodes
+      url: /upgrade/upgrade-reset-default-configuration-node3-and-node4.html
+    - title: Install the new nodes
+      url: /upgrade/upgrade-install-new-nodes.html
+    - title: Set up the new nodes
+      url: /upgrade/upgrade-set-up-new-nodes.html
+    - title: Optional - Moving internal storage or converting the system to a drive shelf
+      url: /upgrade/upgrade-optional-move-internal-storage.html
+      entries:
+      - title: Move internal drives from an original node
+        url: /upgrade/upgrade-move-internal-drives.html
+      - title: Convert an original node to a drive shelf
+        url: /upgrade/upgrade-convert-node-to-shelf.html
+    - title: Attach storage shelves and reassign disk ownership
+      url: /upgrade/upgrade-attach-shelves-reassign-disks.html
+    - title: Restore the root volume configuration
+      url: /upgrade/upgrade-restore-root-volume-config.html
+    - title: Complete the upgrade
+      entries:
+        - title: Overview
+          url: /upgrade/upgrade-complete.html
+          entries:
+          - title: Complete the upgrade in ONTAP 9.8
+            entries:
+            - title: Overview
+              url: /upgrade/upgrade-complete-ontap-9-8.html
+            - title: Map network ports using ONTAP 9.8
+              url: /upgrade/upgrade-map-network-ports-ontap-9-8.html
+            - title: Perform the final upgrade steps in ONTAP 9.8
+              url: /upgrade/upgrade-final-upgrade-steps-in-ontap-9-8.html
+          - title: Complete the upgrade in ONTAP 9.7 or earlier
+            entries:
+            - title: Overview
+              url: /upgrade/upgrade-complete-ontap-9-7-or-earlier.html
+            - title: Map network ports using ONTAP 9.7 or earlier
+              url: /upgrade/upgrade-map-network-ports-ontap-9-7-or-earlier.html
+            - title: Perform the final upgrade steps in ONTAP 9.7 or earlier
+              url: /upgrade/upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html
+  - title: Upgrade controller hardware by moving volumes
+    url: /upgrade/upgrade-by-moving-volumes-parent.html
+    entries:
+    - title: Prepare for the upgrade when moving volumes
+      url: /upgrade/upgrade-prepare-when-moving-volumes.html
+    - title: Install the new nodes and join them to the cluster
+      url: /upgrade/upgrade-install-and-join-new-nodes-move-vols.html
+    - title: Create an aggregate and move volumes to the new nodes
+      url: /upgrade/upgrade-create-aggregate-move-volumes.html
+    - title: Move non-SAN data LIFs and cluster management LIFs to the new nodes
+      url: /upgrade/upgrade-move-lifs-to-new-nodes.html
+    - title: Delete SAN LIFs from the original nodes
+      url: /upgrade/upgrade-delete-san-lifs.html
+    - title: Unjoin the original nodes from the cluster
+      url: /upgrade/upgrade-unjoin-original-nodes-move-volumes.html
+    - title: Complete the upgrade
+      url: /upgrade/upgrade-complete-move-volumes.html
+  - title: Boot the recovery image in a two-node MetroCluster configuration
+    url: /upgrade/2n-mcc-boot-recovery-image.html
+  - title: Complete node shutdown
+    url: /upgrade/shutdown-bootmedia.html
+  - title: Verify LIFs and register the serial number
+    url: /upgrade/upgrade-check-lifs-register-serial-number.html
+  - title: Complete the replacement process
+    url: /upgrade/complete-rma.html
+  - title: Install licenses for the replacement node in ONTAP
+    url: /upgrade/install-licenses.html
+  - title: Manually reassign the system ID on systems in a two-node MetroCluster
+      configuration
+    url: /upgrade/2n-mcc-reassign-sysid.html
+  - title: Recable the system
+    url: /upgrade/upgrade-recable-system.html
+  - title: Restore Storage and Volume Encryption functionality
+    url: /upgrade/restore-storage-encryption.html
+  - title: Set and verify system time after replacing the controller
+    url: /upgrade/set-time-after-controller-rep.html
+  - title: Shut down a node in a two-node MetroCluster configuration
+    url: /upgrade/shutdown-2n-mcc.html
+  - title: Restore encryption
+    url: /upgrade/encryption-restore-bootmedia.html
+  - title: Pre-shutdown checks for onboard encryption keys
+    url: /upgrade/encryption-steps-before-shutdown.html
+
+  - title: Check NVE or NSE on systems running ONTAP 9.5 and earlier
+    url: /upgrade/encryption-check-95-earlier.html
+  - title: Check NVE or NSE on systems running ONTAP 9.6 and later
+    url: /upgrade/encryption-check-96-later.html
+  - title: Switch back aggregates in a two-node MetroCluster configuration
+    url: /upgrade/2n-mcc-switchback.html
+  - title: Shut down the node
+    url: /upgrade/shutdown-chassis.html
+  - title: Shut down the impaired node
+    url: /upgrade/shutdown-controller.html
+  - title: Shut down the node
+    url: /upgrade/shutdown-most-frus.html

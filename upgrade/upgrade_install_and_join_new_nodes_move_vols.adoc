@@ -1,0 +1,32 @@
+---
+permalink: upgrade/upgrade-install-and-join-new-nodes-move-vols.html
+sidebar: sidebar
+keywords: install, node, join, cluster, volume, original, node, install the new nodes and joining them to the cluster
+summary: You must install the new nodes and join them to the cluster so that you can move volumes from the original nodes.
+---
+= Install the new nodes and join them to the cluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You must install the new nodes and join them to the cluster so that you can move volumes from the original nodes.
+
+.About this task
+When you upgrade controller hardware by moving volumes, both the original nodes and the new nodes must be in the same cluster.
+
+.Step
+. Install the new nodes and join them to the cluster:
++
+[options="header" cols="1,2"]
+|===
+| If the cluster is running...| Follow instructions in...
+
+a|
+ONTAP 9.0 or later
+a|
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-expand/home.html[ONTAP 9 Cluster Expansion Express Guide]
+a|
+Releases before ONTAP 9.0
+a|
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092[Find the Cluster Expansion Express Guide for your version of Data ONTAP 8]
+|===
