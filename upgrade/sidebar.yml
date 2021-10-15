@@ -8,32 +8,34 @@ entries:
   - title: Choose method
     url: /upgrade/upgrade-methods.html
   - title: Upgrade by moving storage
-    url: /upgrade/upgrade-by-moving-storage-parent.html
     entries:
-    - title: Prepare for the upgrade when moving storage
+    - title: Workflow
+      url: /upgrade/upgrade-by-moving-storage-parent.html
+    - title: Prepare
       url: /upgrade/upgrade-prepare-when-moving-storage.html
-    - title: Shut down the original nodes
+    - title: Shut down original nodes
       url: /upgrade/upgrade-shutdown-remove-original-nodes.html
-    - title: Remove ownership of disks attached to the new nodes
+    - title: Remove disk ownership
       url: /upgrade/upgrade-remove-disk-ownership-new-nodes.html
-    - title: Reset the default configuration on the new nodes
+    - title: Reset default configuration
       url: /upgrade/upgrade-reset-default-configuration-node3-and-node4.html
-    - title: Install the new nodes
+    - title: Install new nodes
       url: /upgrade/upgrade-install-new-nodes.html
-    - title: Set up the new nodes
+    - title: Set up new nodes
       url: /upgrade/upgrade-set-up-new-nodes.html
-    - title: Optional - Moving internal storage or converting the system to a drive shelf
-      url: /upgrade/upgrade-optional-move-internal-storage.html
+    - title: Optional - Move internal storage or convert to drive shelf
       entries:
+      - title: Choices
+        url: /upgrade/upgrade-optional-move-internal-storage.html
       - title: Move internal drives
         url: /upgrade/upgrade-move-internal-drives.html
-      - title: Convert an original node to a drive shelf
+      - title: Convert node to drive shelf
         url: /upgrade/upgrade-convert-node-to-shelf.html
     - title: Attach storage shelves and reassign disk ownership
       url: /upgrade/upgrade-attach-shelves-reassign-disks.html
     - title: Restore root volume configuration
       url: /upgrade/upgrade-restore-root-volume-config.html
-    - title: Complete the upgrade
+    - title: Complete upgrade
       entries:
         - title: Overview
           url: /upgrade/upgrade-complete.html
@@ -44,7 +46,7 @@ entries:
               url: /upgrade/upgrade-complete-ontap-9-8.html
             - title: Map network ports using ONTAP 9.8
               url: /upgrade/upgrade-map-network-ports-ontap-9-8.html
-            - title: Perform the final upgrade steps in ONTAP 9.8
+            - title: Perform final steps in ONTAP 9.8
               url: /upgrade/upgrade-final-upgrade-steps-in-ontap-9-8.html
           - title: Complete in ONTAP 9.7 or earlier
             entries:
@@ -55,19 +57,20 @@ entries:
             - title: Perform final steps in ONTAP 9.7 or earlier
               url: /upgrade/upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html
   - title: Upgrade by moving volumes
-    url: /upgrade/upgrade-by-moving-volumes-parent.html
     entries:
+    - title: Workflow
+      url: /upgrade/upgrade-by-moving-volumes-parent.html
     - title: Prepare
       url: /upgrade/upgrade-prepare-when-moving-volumes.html
     - title: Install and join new nodes
       url: /upgrade/upgrade-install-and-join-new-nodes-move-vols.html
-    - title: Create an aggregate and move volumes to new nodes
+    - title: Create aggregate and move volumes
       url: /upgrade/upgrade-create-aggregate-move-volumes.html
     - title: Move non-SAN data LIFs and cluster management LIFs
       url: /upgrade/upgrade-move-lifs-to-new-nodes.html
     - title: Delete SAN LIFs
       url: /upgrade/upgrade-delete-san-lifs.html
-    - title: Unjoin the original nodes
+    - title: Unjoin original nodes
       url: /upgrade/upgrade-unjoin-original-nodes-move-volumes.html
-    - title: Complete the upgrade
+    - title: Complete upgrade
       url: /upgrade/upgrade-complete-move-volumes.html
