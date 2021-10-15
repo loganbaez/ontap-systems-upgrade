@@ -45,19 +45,19 @@ Failover groups
 a|
 `network interface failover-groups show -vserver <vserver_name>`
 
-*Note:* Record the names and ports of failover groups that are not clusterwide.
+Record the names and ports of failover groups that are not clusterwide.
 a|
 VLAN configuration
 a|
 `network port vlan show -node <node_name>`
 
-*Note:* Record each network port and VLAN ID pairing.
+Record each network port and VLAN ID pairing.
 a|
 Interface group configuration
 a|
 `network port ifgrp show -node <node_name> -instance`
 
-*Note:* Record the names of the interface groups and the ports assigned to them.
+Record the names of the interface groups and the ports assigned to them.
 a|
 Broadcast domains
 a|
@@ -104,4 +104,4 @@ NOTE: You do not need to extract the contents of the `<ontap_version>_image.tgz`
 
 |===
 
-You will use information in the directory to link:setting_up_the_new_nodes.md#[Set up the new nodes].
+You will use information in the directory to link:setting_up_the_new_nodes.html#[Set up the new nodes].
