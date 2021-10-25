@@ -1,0 +1,40 @@
+---
+permalink: upgrade/upgrade-prepare-when-moving-volumes.html
+sidebar: sidebar
+keywords: perform, preparation, upgrading, upgrade, controller, hardware, moving, move, volume, prepare for the upgrade when moving volumes
+summary: You need to perform a few preparation steps before upgrading controller hardware by moving volumes.
+---
+= Prepare for the upgrade when moving volumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You need to perform a few preparation steps before upgrading controller hardware by moving volumes.
+
+.Steps
+. Display the volumes on the original nodes:
++
+`volume show`
++
+You use the command output to prepare the list of volumes to move to the new nodes.
+
+. Display and record license information from the original nodes:
++
+`system license show`
+
+. If you use Storage Encryption on the original nodes and the new nodes have encryption-enabled disks, make sure that the original nodes' disks are correctly keyed:
+.. Display information about self-encrypting disks (SEDs):
++
+`storage encryption disk show`
+.. If any disks are associated with a non-manufacture secure ID (non-MSID) key, rekey them to an MSID key:
++
+`storage encryption disk modify`
+. If the cluster is currently in a two-node switchless configuration, migrate the cluster to a two-node switched cluster using the type of switch you prefer.
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536[Migrating to a two-node switched cluster with Cisco cluster switches]
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535[Migrating to a two-node switched cluster with NetApp CN1610 cluster switches]
+
+. Send an AutoSupport message from each original node to inform technical support of the upgrade:
++
+`system node autosupport invoke -node <node_name> -type all -message "Upgrading node_name from <platform_original> to <platform_new>"`

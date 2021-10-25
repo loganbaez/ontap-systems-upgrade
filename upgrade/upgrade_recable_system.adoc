@@ -1,0 +1,25 @@
+---
+permalink: upgrade/upgrade-recable-system.html
+sidebar: sidebar
+keywords: run, diagnostic, recable, controller, module, storage, network, connection, recable the system
+summary: After running diagnostics, you must recable the controller module’s storage and network connections.
+---
+= Recabling the system
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+After running diagnostics, you must recable the controller module's storage and network connections.
+
+. Recable the system.
+. Verify that the cabling is correct by using Config Advisor.
+ .. Download and install Config Advisor from the NetApp Support Site.
++
+http://mysupport.netapp.com/[mysupport.netapp.com]
+
+ .. Enter the information for the target system, and then click *Collect Data*.
+ .. Click the *Cabling* tab, and then examine the output.
++
+Make sure that all disk shelves are displayed and all disks appear in the output, correcting any cabling issues you find.
+
+ .. Check other cabling by clicking the appropriate tab, and then examining the output from Config Advisor.
