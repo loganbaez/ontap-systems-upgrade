@@ -10,6 +10,10 @@ sidebar:
 
 homepage:
   tiles:
+    - title: Get started
+      links:
+        - title: ONTAP Release notes
+          url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
     - title: Upgrade by moving storage or volumes (most systems)
       links:
         - title: Upgrade controller hardware
