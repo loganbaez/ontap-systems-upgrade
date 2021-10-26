@@ -1,3 +1,10 @@
+---
+settings:
+  name: AFF and FAS Controller Upgrade
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
 sidebar:
   entries:
     - title: AFF and FAS System Upgrade Documentation
