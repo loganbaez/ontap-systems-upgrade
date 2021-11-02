@@ -24,9 +24,13 @@ This guide describes how to upgrade the storage controllers in an HA pair with n
 You should use this guide under the following circumstances:
 
 * You are running ONTAP 9.8 or later.
+* When you are upgrading a four-node MetroCluster FC configuration, you select the `-nso false` option when issuing the CLI command.
++
+Beginning with ONTAP 9.10.1, the automated negotiated switchover (NSO) based controller upgrade is the default procedure for a four-node MetroCluster FC configuration. If you do not select the `-nso false` option, the automated NSO based procedure is initiated.
+// 2021-11-02, BURT 1438029
 * You do not want to add the new controllers as a new HA pair to the cluster and migrate the data using volume moves.
 * You are experienced in administering ONTAP and are comfortable with the risks of working in the diagnostic privilege mode.
-* If you are upgrading a MetroCluster configuration, it is a 4-node or higher FC configuration, and all nodes are running ONTAP 9.8 or later.
+* If you are upgrading a MetroCluster configuration, it is a four-node or higher FC configuration, and all nodes are running ONTAP 9.8 or later.
 +
 For upgrading MetroCluster IP configurations, refer to link:other_references.html[References] to link to the _MetroCluster Upgrade and Expansion Guide_.
 
