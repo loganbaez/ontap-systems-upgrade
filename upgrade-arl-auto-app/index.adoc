@@ -35,4 +35,6 @@ This upgrade procedure primarily applies to upgrade scenarios where the controll
 * You can use this procedure to upgrade the controller hardware in clusters with more than two nodes; however, you need to perform the procedure separately for each high-availability (HA) pair in the cluster.
 * This procedure applies to FAS systems, V-Series systems, AFF systems, and systems with FlexArray Virtualization Software. FAS systems released after ONTAP 9.5 can attach to storage arrays if the required license is installed. For more information about the storage array and V-Series models, refer to link:other_references.html[References] to link to the _Hardware Universe_ and go to the V-Series Support Matrix.
 * This procedure applies to systems running 4-node NetApp MetroCluster configuration or higher. Since MetroCluster configuration sites can be at two physically different locations, the automated controller upgrade must be carried out individually at each MetroCluster site for an HA pair.
+* For non-MetroCluster systems, such as HA clusters, the ARL upgrade is the only supported procedure.
+// 2021-11-02, BURT 1438029
 * If you are upgrading from an AFF A320 system, you can use volume moves to upgrade controller hardware or contact technical support. Refer to link:other_references.html[References] to link to the _Controller Hardware Upgrade Express Guide_.
