@@ -1,0 +1,19 @@
+---
+permalink: upgrade/upgrade-complete.html
+sidebar: sidebar
+keywords: complete, upgrade, ontap, complete the upgrade
+summary: Complete the upgrade in ONTAP 9.8, or ONTAP 9.7 or earlier.
+---
+= Complete the upgrade
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Complete the upgrade in ONTAP 9.8, or ONTAP 9.7 or earlier.
+
+You must use the procedure for your version of ONTAP.
+
+image::../media/workflow_completing_upgrade_98_or_97x.png[]
+
+* To complete the upgrade in ONTAP 9.8, go to xref:upgrade-complete-ontap-9-8.adoc[Complete the upgrade in ONTAP 9.8].
+* To complete the upgrade in ONTAP 9.7 or earlier, go to xref:upgrade-complete-ontap-9-7-or-earlier.adoc[Complete the upgrade in ONTAP 9.7 or earlier].

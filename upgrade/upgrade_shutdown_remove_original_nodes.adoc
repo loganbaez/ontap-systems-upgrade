@@ -1,0 +1,112 @@
+---
+permalink: upgrade/upgrade-shutdown-remove-original-nodes.html
+sidebar: sidebar
+keywords:
+summary: 'When shutting down and removing the original nodes you must send an AutoSupport message about the upgrade, destroy the mailboxes, power down the nodes, and remove the chassis.'
+---
+= Shut down the original nodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When shutting down and removing the original nodes you must send an AutoSupport message about the upgrade, destroy the mailboxes, power down the nodes, and remove the chassis.
+
+.Steps
+. Send an AutoSupport message from node1 and node2 to inform technical support of the upgrade:
++
+`system node autosupport invoke -node <node_name> -type all -message "MAINT=2h Upgrading node_name from <platform_original> to <platform_new>"`
+. Disable high availability or storage failover on node1 and node2:
++
+[options="header" cols="1,2"]
+|===
+| If you have a...| Enter...
+
+a|
+Two-node cluster
+a|
+
+ .. `cluster ha modify -configured false`
+ .. `storage failover modify -node <node_name> -enabled false`
+
+a|
+Cluster with more than two nodes
+a|
+`storage failover modify -node <node_name> -enabled false`
+|===
+
+. Halt the node:
++
+`system node halt -node <node_name>`
++
+You can suppress the quorum check during the reboot process by using the `-ignore-quorum-warnings` option.
+
+. Connect to the serial console, if you are not already connected. The node should be at the LOADER prompt. Use the `boot_ontap maint` command to boot into maintenance mode.
++
+A message might appear asking you to ensure that the partner node is down or takeover is manually disabled on the partner node. You can enter `yes` to continue.
+
+. [[shutdown_node_step5]]Record each original node's system ID, which is obtained through disk ownership information in Maintenance mode:
++
+`disk show -v`
++
+You need the system IDs when you assign disks from the original nodes to the new nodes.
++
+----
+*> disk show -v
+Local System ID: 118049495
+DISK    OWNER               POOL    SERIAL NUMBER          HOME
+----    -----               ----    -------------          ----
+0a.33   node1 (118049495)   Pool0   3KS6BN970000973655KL   node1 (118049495)
+0a.32   node1 (118049495)   Pool0   3KS6BCKD000097363ZHK   node1 (118049495)
+0a.36   node1 (118049495)   Pool0   3KS6BL9H000097364W74   node1 (118049495)
+...
+----
+
+. If you have FC or CNA port configuration, display the configuration in Maintenance mode:
++
+`ucadmin show`
++
+You should record the command output for later reference.
++
+----
+*> ucadmin show
+Current Current Pending   Pending
+Adapter Mode    Type      Mode    Type    Status
+------- ------- --------- ------- ------- ------
+0e      fc      initiator -       -       online
+0f      fc      initiator -       -       online
+0g      cna     target    -       -       online
+0h      cna     target    -       -       online
+...
+----
+
+. In Maintenance mode, destroy thenode1 and node2 mailboxes: +
++
+`mailbox destroy local`
++
+The console displays a message similar to the following:
++
+----
+Destroying mailboxes forces a node to create new empty mailboxes, which
+clears any takeover state, removes all knowledge of out-of-date plexes and
+mirrored volumes, and will prevent management services from going online in
+2-node cluster HA configurations.
+Are you sure you want to destroy the local mailboxes?
+----
+
+. Destroy the mailboxes by entering `y` when you see a prompt similar to the following:
++
+----
+.............Mailboxes destroyed
+Takeover On Reboot option will be set to ON after the node boots.
+This option is ON by default except on setups that have iSCSI or FCP license.
+Use "storage failover modify -node <nodename> -onreboot false" to turn it OFF.
+
+*>
+----
+
+. Exit Maintenance mode:
++
+`halt`
+. Turn off the power to node1 and node2, and then unplug them from the power source.
+. Label and remove all cables from node1 and node2.
+. Remove the chassis containing node1 and node2.

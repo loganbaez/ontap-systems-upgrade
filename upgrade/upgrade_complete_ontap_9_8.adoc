@@ -1,0 +1,15 @@
+---
+permalink: upgrade/upgrade-complete-ontap-9-8.html
+sidebar: sidebar
+keywords: complete, upgrade, ontap, complete the upgrade in ontap 9.8
+summary: Use these steps to complete the upgrade in ONTAP 9.8.
+---
+= Complete the upgrade in ONTAP 9.8
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Use these steps to complete the upgrade in ONTAP 9.8:
+
+* link:upgrade-map-network-ports-ontap-9-8.html[Map network ports using ONTAP 9.8]
+* link:upgrade-final-upgrade-steps-in-ontap-9-8.html[Perform final upgrade steps in ONTAP 9.8]
