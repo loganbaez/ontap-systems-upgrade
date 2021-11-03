@@ -31,7 +31,7 @@ You must perform the following steps to prepare the nodes for upgrade.
 ====
 *	Beginning with ONTAP 9.10.1, the automated negotiated switchover (NSO) based upgrade procedure is the default for a four-node MetroCluster FC configuration. If you are upgrading a four-node MetroCluster FC configuration, when you issue the `system controller replace start` command, you must prevent the NSO based procedure initiating by setting the `-nso` parameter to `false`:
 +
-`system controller replace start -nso false`
+`system controller replace start -nodes <node_names> -nso false`
 // 2021-11-02, BURT 1438029
 * The `system controller replace start` command can only be executed at the advanced privilege level:
 +
