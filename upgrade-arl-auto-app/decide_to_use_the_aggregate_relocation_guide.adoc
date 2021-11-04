@@ -26,7 +26,7 @@ You should use this guide under the following circumstances:
 * You are running ONTAP 9.8 or later.
 * You do not want to add the new controllers as a new HA pair to the cluster and migrate the data using volume moves.
 * You are experienced in administering ONTAP and are comfortable with the risks of working in the diagnostic privilege mode.
-* If you are upgrading a MetroCluster configuration, it is a 4-node or higher FC configuration, and all nodes are running ONTAP 9.8 or later.
+* If you are upgrading a MetroCluster configuration, it is a four-node or higher FC configuration, and all nodes are running ONTAP 9.8 or later.
 +
 For upgrading MetroCluster IP configurations, refer to link:other_references.html[References] to link to the _MetroCluster Upgrade and Expansion Guide_.
 
