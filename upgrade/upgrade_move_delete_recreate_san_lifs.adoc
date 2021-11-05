@@ -1,15 +1,16 @@
 ---
 permalink: upgrade/upgrade_move_delete_recreate_san_lifs.html
 sidebar: sidebar
-keywords: cluster, san, environment, delete, lif, recreate, move san lifs
-summary: Depending on your cluster contents and cluster environment, you need to move, delete, or recreate SAN LIFs.
+keywords: cluster, san, environment, delete, lif, recreate, move san lifs, create
+summary: Depending on your cluster contents and cluster environment, you need to move, delete, or recreate the SAN LIFs, or create new SAN LIFs.
 ---
 = Move, delete, or recreate SAN LIFS
 :icons: font
 :imagesdir: ../media/
 
 [.lead]
-Depending on your cluster contents and cluster environment, you need to move, delete, or recreate SAN LIFs.
+Depending on your cluster contents and cluster environment, you need to move, delete, or recreate the SAN LIFs, or create new SAN LIFs:
 
-* If you need to move SAN LIFS, go to link:upgrade_considerations_move_san_lifs.html[Considerations for moving SAN LIFS]
-* If you need to delete SAN LIFs, follow the procedure in link:upgrade-delete-san-lifs.html[Delete SAN LIFs no longer required from the original nodes]
+* link:upgrade_considerations_move_san_lifs.html[Considerations for moving SAN LIFS]
+* link:upgrade-delete-san-lifs.html[Delete SAN LIFs no longer required from the original nodes]
+* link:upgrade_create_recreate_san_lifs.html[Create new SAN LIFs or re-create deleted SAN LIFs]
