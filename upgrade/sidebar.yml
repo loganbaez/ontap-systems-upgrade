@@ -68,8 +68,16 @@ entries:
       url: /upgrade/upgrade-create-aggregate-move-volumes.html
     - title: Move non-SAN data LIFs and cluster management LIFs
       url: /upgrade/upgrade-move-lifs-to-new-nodes.html
-    - title: Delete SAN LIFs
-      url: /upgrade/upgrade-delete-san-lifs.html
+    - title: "Move, delete, or recreate SAN LIFS"
+      entries:
+        - title: Overview
+          url: /upgrade/upgrade_move_delete_recreate_san_lifs.html
+        - title: Considerations for moving SAN LIFs
+          url: /upgrade/upgrade_considerations_move_san_lifs.html
+        - title: Delete SAN LIFs
+          url: /upgrade/upgrade-delete-san-lifs.html
+        - title: Create new SAN LIFs or re-create deleted SAN LIFs
+          url: /upgrade/upgrade_create_recreate_san_lifs.html
     - title: Unjoin original nodes
       url: /upgrade/upgrade-unjoin-original-nodes-move-volumes.html
     - title: Complete upgrade

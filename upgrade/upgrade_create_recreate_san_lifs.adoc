@@ -1,0 +1,12 @@
+---
+permalink: upgrade/upgrade_create_recreate_san_lifs.html
+sidebar: sidebar
+keywords: cluster, san, environment, delete, lif, recreate, move san lifs
+summary: Depending on your cluster contents and cluster environment, you need to move, delete, or recreate SAN LIFs.
+---
+= Create new SAN LIFs or re-create deleted SAN LIFs
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Depending on the requirement of your environment, you may decide to create new or re-create SAN LIFs that were deleted previously in this procedure. To create SAN LIFs, refer to https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_creating_network_interfaces.html[Cluster management using System Manager 9.6 and 9.7].
