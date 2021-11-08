@@ -9,7 +9,7 @@ summary: Depending on your cluster contents and cluster environment, you need to
 :imagesdir: ../media/
 
 [.lead]
-Depending on your cluster contents and cluster environment, you need to move, delete, or re-create the SAN LIFs, or create new SAN LIFs:
+Depending on your cluster contents and cluster environment, you need to move or delete the SAN LIFs, re-create deleted SAN LIFs, or create new SAN LIFs:
 
 * link:upgrade_considerations_move_san_lifs.html[Considerations for moving SAN LIFS]
 * link:upgrade-delete-san-lifs.html[Delete SAN LIFs no longer required from the original nodes]
