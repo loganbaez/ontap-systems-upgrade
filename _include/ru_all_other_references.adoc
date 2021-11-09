@@ -44,19 +44,17 @@ Documents specific to this upgrade are listed in the table below.
 |Describes how to install and manage high-availability clustered configurations, including storage failover and takeover/giveback.
 |link:https://docs.netapp.com/us-en/ontap/volumes/index.html[Logical storage management with the CLI^]
 |Describes how to efficiently manage your logical storage resources, using volumes, FlexClone volumes, files and LUNs, FlexCache volumes, deduplication, compression, qtrees, and quotas.
-|link:https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_managing_network.html[ONTAP 9 Network Management Guide for 9.7 and Earlier^]
-|Describes how to configure and manage physical and virtual network ports (VLANs and interface groups), LIFs, routing, and host-resolution services in clusters; optimize network traffic by load balancing; and monitor the cluster by using SNMP.
-|link:https://docs.netapp.com/us-en/ontap/networking/index.html[ONTAP 9 Network Management Guide^]
+|link:https://docs.netapp.com/us-en/ontap/network-management/index.html[Network Management^]
 |Describes how to configure and manage physical and virtual network ports (VLANs and interface groups), LIFs, routing, and host-resolution services in clusters; optimize network traffic by load balancing; and monitor the cluster by using SNMP.
 |link:https://docs.netapp.com/us-en/ontap/san-admin/index.html[SAN management with the CLI^]
 |Describes how to configure and manage iSCSI and FC protocols for SAN environments.
-|link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanconf/home.html[ONTAP 9 SAN Configuration Guide^]
+|link:https://docs.netapp.com/us-en/ontap/san-config/index.html[SAN configuration reference^]
 |Contains information about FC and iSCSI topologies and wiring schemes.
-|link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html[ONTAP 9 Software Setup Guide^]
+|link:https://docs.netapp.com/us-en/ontap/software_setup/concept_decide_whether_to_use_ontap_cli.html[Decide whether to use System Manager or the ONTAP CLI for cluster setup^]
 |Describes how to set up and configure ONTAP.
-|link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html[ONTAP 9 System Administration Reference^]
+|link:https://docs.netapp.com/us-en/ontap/system-admin/index.html[Administration overview with the CLI^]
 |Describes how to administer ONTAP systems, shows you how to use the CLI interface, how to access the cluster, how to manage nodes, and much more.
-|link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html[ONTAP 9 Upgrade and Revert/Downgrade Guide^]
+|link:https://docs.netapp.com/us-en/ontap/upgrade/index.html[Upgrade ONTAP^]
 |Contains instructions for downloading and upgrading ONTAP.
 |link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html[Use "system controller replace" commands to upgrade controller hardware running ONTAP 9.5 to ONTAP 9.7^]
 |Describes the aggregate relocation procedures needed to non-disruptively upgrade controllers running ONTAP 9.5 to ONTAP 9.7 by using "system controller replace" commands.
@@ -72,6 +70,6 @@ Documents specific to this upgrade are listed in the table below.
 
 The link:https://mysupport.netapp.com[NetApp Support Site^] Site also contains documentation about network interface cards (NICs) and other hardware that you might use with your system. It also contains the link:https://hwu.netapp.com[Hardware Universe^], which provides information about the hardware that the new system supports.
 
-See the link:https://docs.netapp.com/ontap-9/index.jsp[ONTAP 9 Documentation Center^] to access ONTAP 9 product documentation.
+See the https://docs.netapp.com/us-en/ontap/index.html[ONTAP 9 Documentation^] to access ONTAP 9 product documentation.
 
 See the _NetApp Support Site_ to link to the link:https://mysupport.netapp.com/site/tools[Active IQ Config Advisor^] tool.

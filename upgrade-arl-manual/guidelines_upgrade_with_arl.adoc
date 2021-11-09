@@ -41,9 +41,9 @@ For disk-support information, refer to link:other_references.html[References] to
 
 * From controllers with root aggregates or data aggregates on internal drives.
 +
-If you want to upgrade controllers with root aggregates or data aggregates on internal disk drives, refer to link:other_references.html[References] to link to the _Controller Hardware Upgrade Express Guide_ and go to the procedure _Upgrading a pair of nodes running clustered Data ONTAP by moving volumes_.
+If you want to upgrade controllers with root aggregates or data aggregates on internal disk drives, refer to link:other_references.html[References] to link to _Upgrade by moving volumes or storage_ and go to the procedure _Upgrading a pair of nodes running clustered Data ONTAP by moving volumes_.
 +
-NOTE: If you want to upgrade ONTAP on nodes in a cluster, refer to link:other_references.html[References] to link to the _ONTAP 9 Upgrade and Revert/Downgrade Guide_.
+NOTE: If you want to upgrade ONTAP on nodes in a cluster, refer to link:other_references.html[References] to link to _Upgrade ONTAP_.
 
 == Assumptions and terminology
 

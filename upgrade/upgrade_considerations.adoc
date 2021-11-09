@@ -16,7 +16,7 @@ Requirements and limitations
 * The procedure for upgrading by moving storage is disruptive. The procedure for upgrading by moving volumes is nondisruptive.
 * The new nodes must support the same software version as the original nodes.
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html[ONTAP 9 Upgrade and Revert/Downgrade Guide]
+|link:https://docs.netapp.com/us-en/ontap/upgrade/index.html[Upgrade ONTAP^]
 +
 http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092[Find the Upgrade and Revert/Downgrade Guide for your version of Data ONTAP 8]
 
@@ -32,7 +32,7 @@ https://hwu.netapp.com[NetApp Hardware Universe]
 
 * The new nodes must have enough storage to accommodate storage associated with the original nodes.
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html[ONTAP 9 Disks and Aggregates Power Guide]
+https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html[Disk and aggregate management with the CLI]
 +
 http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092[Find a Storage Management Guide for your version of Data ONTAP 8]
 

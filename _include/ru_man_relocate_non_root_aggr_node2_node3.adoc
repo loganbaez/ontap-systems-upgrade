@@ -87,7 +87,7 @@ If necessary, you can force the relocation by using one of the following methods
 +
 `storage aggregate relocation start -override-destination-checks true -ndocontroller-upgrade`
 
-For more information about the storage aggregate relocation commands, go to link:other_references.html[References] to link to the _ONTAP 9 Disks and Aggregates Power Guide_ and the _ONTAP 9 Commands: Manual Page Reference_.
+For more information about the storage aggregate relocation commands, go to link:other_references.html[References] to link to _Disk and aggregate management with the CLI_ and the _ONTAP 9 Commands: Manual Page Reference_.
 |===
 
 . [[man_relocate_2_3_step6]]Verify that all of the non-root aggregates are online on node3:

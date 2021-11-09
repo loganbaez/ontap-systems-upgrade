@@ -33,9 +33,9 @@ If node4 is in a separate chassis from node3, you can put node4 in the same loca
 +
 The following references help you make proper cable connections. Go to link:other_references.html[References] to link to them.
 +
-* _Installation and Setup Instructions_ or _FlexArray Virtualization Installation Requirements and Reference_ for the node4 platform.
-* The appropriate disk shelf guide.
-* The _ONTAP 9 High-Availability Configuration Guide_
+* _Installation and Setup Instructions_ or _FlexArray Virtualization Installation Requirements and Reference_ for the node4 platform
+* The appropriate disk shelf guide
+* The _High Availability management_ documentation
 
 +
 Cable the following connections:
