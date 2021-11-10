@@ -9,4 +9,4 @@ summary: Depending on your cluster contents and cluster environment, you need to
 :imagesdir: ../media/
 
 [.lead]
-Depending on the requirement of your cluster environment, you might decide to create new SAN LIFs or re-create SAN LIFs that you deleted earlier in this procedure. To create or re-create SAN LIFs, refer to https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_creating_network_interfaces.html[Cluster management using System Manager 9.6 and 9.7^].
+Depending on the requirement of your cluster environment, you might decide to create new SAN LIFs or re-create SAN LIFs that you deleted earlier in this procedure. To create or re-create SAN LIFs, you can use the https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_creating_network_interfaces.html[Create network interfaces^] procedure.
