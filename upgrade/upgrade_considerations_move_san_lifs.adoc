@@ -20,4 +20,4 @@ During the LIF movements, you can nondisruptively perform the following tasks:
 * Shift the resources of a storage virtual machine (SVM) from one set of nodes in a cluster to another set of nodes in the same cluster
 * When the host server is online, you can move a SAN LUN to a new HA pair without disrupting the host server access to the LUN data
 
-For more information, see https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html[Move a SAN LIF^] in the _ONTAP SAN management with the CLI_ documentation.
+For more information, see the https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html[move a SAN LIF^] procedure in the _SAN storage management_ documentation.
