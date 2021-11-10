@@ -17,7 +17,6 @@ image::../media/workflow_for_upgrading_by_moving_volumes.gif[Workflow for upgrad
 . xref:upgrade-prepare-when-moving-volumes.adoc[Prepare for the upgrade when moving volumes]
 . xref:upgrade-install-and-join-new-nodes-move-vols.adoc[Install the new nodes and join them to the cluster]
 . xref:upgrade-create-aggregate-move-volumes.adoc[Create an aggregate and move volumes to the new nodes]
-. xref:upgrade-move-lifs-to-new-nodes.adoc[Move non-SAN data LIFs and cluster management LIFs to the new nodes]
-. xref:upgrade-delete-san-lifs.adoc[Delete SAN LIFs from the original nodes]
+. xref:upgrade_move_delete_recreate_san_lifs.adoc[Move, delete, or create SAN LIFS]
 . xref:upgrade-unjoin-original-nodes-move-volumes.adoc[Unjoin the original nodes from the cluster]
 . xref:upgrade-complete-move-volumes.adoc[Complete the upgrade]
