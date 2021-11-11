@@ -13,12 +13,12 @@ If your original node is one of the supported models, during the process of upgr
 
 .Before you begin
 
-You must have reviewed link:upgrade_considerations.html#[Considerations for upgrading controller hardware] about converting a node to a drive shelf. You should contact technical support if you need guidance specific to your configuration.
+You must have reviewed xref:upgrade_considerations.adoc[Considerations for upgrading controller hardware] about converting a node to a drive shelf. You should contact technical support if you need guidance specific to your configuration.
 
 .Steps
 . Replace the controller modules in the node you are converting with appropriate IOM modules.
 +
-https://hwu.netapp.com[NetApp Hardware Universe]
+https://hwu.netapp.com[NetApp Hardware Universe^]
 
 . Set the drive shelf ID.
 +

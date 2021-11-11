@@ -74,12 +74,12 @@ You can modify the CNA configuration only when the CNA adapters are offline.
 
 . Set up a switchless cluster on the new nodes if necessary.
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1140536[Migrating to a two-node switched cluster with Cisco cluster switches]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536[Migrating to a two-node switched cluster with Cisco cluster switches^]
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1140535[Migrating to a two-node switched cluster with NetApp CN1610 cluster switches]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535[Migrating to a two-node switched cluster with NetApp CN1610 cluster switches^]
 
 . As needed, decommission the original systems through the NetApp Support Site to inform NetApp that the systems are no longer in operation and can be removed from support databases:
- .. Log in to the https://mysupport.netapp.com/site/global/dashboard[NetApp Support] site.
+ .. Log in to the https://mysupport.netapp.com/site/global/dashboard[NetApp Support^] site.
  .. Click the link *My Installed Systems*.
  .. On the Installed Systems page, enter the serial number of the old system in the form and then click *Go!*
  .. On the Decommission Form page, fill out the form and click *Submit*.

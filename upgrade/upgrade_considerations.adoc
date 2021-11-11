@@ -16,7 +16,7 @@ Requirements and limitations
 * The procedure for upgrading by moving storage is disruptive. The procedure for upgrading by moving volumes is nondisruptive.
 * The new nodes must support the same software version as the original nodes.
 +
-|link:https://docs.netapp.com/us-en/ontap/upgrade/index.html[Upgrade ONTAP^]
+link:https://docs.netapp.com/us-en/ontap/upgrade/index.html[Upgrade ONTAP^]
 
 * You must observe the maximum cluster size.
 +
@@ -71,7 +71,7 @@ https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FlexPod_wi
 
 * If your system uses out-of-band ACP, you might need to migrate from out-of-band ACP to in-band ACP.
 +
-https://kb.netapp.com/app/answers/answer_view/a_id/1029778[NetApp KB Article 1029778: In-Band ACP Setup and Support]
+https://kb.netapp.com/app/answers/answer_view/a_id/1029778[NetApp KB Article 1029778: In-Band ACP Setup and Support^]
 
 *Related information*
 

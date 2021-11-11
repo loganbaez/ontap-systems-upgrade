@@ -15,7 +15,7 @@ image::../upgrade/media/methods_for_upgrading_controller_hardware.png[Methods fo
 
 NOTE: Models with internal drives are: FAS2220, FAS2240-2, FAS2240-4, FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700s, AFF A800, AFF A250.
 
-If your system is not listed above, see the https://hwu.netapp.com[NetApp Hardware Universe] to check if it has internal drives.
+If your system is not listed above, see the https://hwu.netapp.com[NetApp Hardware Universe^] to check if it has internal drives.
 
 *Related information*
 

@@ -2,16 +2,16 @@
 permalink: upgrade/upgrade-decide-to-use-this-guide.html
 sidebar: sidebar
 keywords:
-summary: 'This guide describes how to upgrade controller hardware of an AFF system or a FAS system in a cluster by moving storage or volumes.'
+summary: 'This content describes how to upgrade controller hardware of an AFF system or a FAS system in a cluster by moving storage or volumes.'
 ---
 = Decide whether to upgrade by moving volumes or storage
 :icons: font
 :imagesdir: ../media/
 
 [.lead]
-This guide describes how to upgrade controller hardware of an AFF system or a FAS system in a cluster by moving storage or volumes.
+This content describes how to upgrade controller hardware of an AFF system or a FAS system in a cluster by moving storage or volumes.
 
-You should use this guide if you want to upgrade controller hardware in the following situations:
+You should use this procedure if you want to upgrade controller hardware in the following situations:
 
 NOTE: The hardware upgrade procedures have been simplified in ONTAP 9.8 with the introduction of the automatic port placement feature.
 
@@ -25,9 +25,9 @@ Upgrading by moving volumes is nondisruptive.
 
 * You plan to convert a node of a supported model to a disk shelf, and then attach it to the new nodes.
 
-If you are upgrading a two-node MetroCluster configuration, you must use the procedure in the https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/index.html[MetroCluster® Upgrade and Expansion content^].
+If you are upgrading a two-node MetroCluster configuration, you must use the procedure in the https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/index.html[MetroCluster® Upgrade and Expansion^] content.
 
-This content does not describe how to use aggregate relocation (ARL) to upgrade controller hardware, which is described in link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl/index.html[ARL] content.
+This content does not describe how to use aggregate relocation (ARL) to upgrade controller hardware, which is described in the link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl/index.html[ARL controller hardware upgrade^] content.
 
 If you are replacing an individual component, see the field-replaceable unit (FRU) flyer for that component.
 
@@ -35,7 +35,7 @@ If you are replacing an individual component, see the field-replaceable unit (FR
 ====
 In the steps for upgrading controller hardware by moving storage, the original nodes are called node1 and node2, and the new nodes are called node3 and node4. During the described procedure, node1 is replaced by node3, and node2 is replaced by node4.
 
-image::../media/original_to_new_nodes.png[]
+image::../upgrade/media/original_to_new_nodes.png[]
 ====
 
 The terms node1, node2, node3, and node4 are used only to distinguish between the original and new nodes. When following the procedure, you must substitute the real names of your original and new nodes. However, in reality, the names of the nodes do not change: node3 has the name node1, and node4 has the name node2 after the controller hardware is upgraded.
@@ -46,6 +46,6 @@ xref:upgrade-considerations.adoc[Considerations for upgrading controller hardwar
 
 xref:upgrade-methods.adoc[Choose methods for upgrading controller hardware]
 
-https://docs.netapp.com/us-en/ontap-metrocluster/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html[Where to find procedures for MetroCluster maintenance tasks]
+https://docs.netapp.com/us-en/ontap-metrocluster/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html[Where to find procedures for MetroCluster maintenance tasks^]
 
-https://hwu.netapp.com[NetApp Hardware Universe]
+https://hwu.netapp.com[NetApp Hardware Universe^]

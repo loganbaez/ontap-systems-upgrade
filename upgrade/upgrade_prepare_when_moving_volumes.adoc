@@ -31,9 +31,9 @@ You use the command output to prepare the list of volumes to move to the new nod
 `storage encryption disk modify`
 . If the cluster is currently in a two-node switchless configuration, migrate the cluster to a two-node switched cluster using the type of switch you prefer.
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1140536[Migrating to a two-node switched cluster with Cisco cluster switches]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536[Migrating to a two-node switched cluster with Cisco cluster switches^]
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1140535[Migrating to a two-node switched cluster with NetApp CN1610 cluster switches]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535[Migrating to a two-node switched cluster with NetApp CN1610 cluster switches^]
 
 . Send an AutoSupport message from each original node to inform technical support of the upgrade:
 +

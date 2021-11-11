@@ -21,10 +21,10 @@ NOTE: The following command examples refer to "node1" because at this stage in t
 
 .Steps
 . If your system is running ONTAP 9.7 or earlier, *STOP*. You must use the procedure in xref:upgrade-map-network-ports-ontap-9-7-or-earlier.adoc[Map network ports using ONTAP 9.7 or earlier].
-. Locate the port and LIF configuration information for node1 and node2 that you recorded in link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3[Prepare for upgrade when moving storage, Step 3].
-. Locate the information for ports, broadcast domains, and IPspaces that you recorded in link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3.html[Prepare for upgrade when moving storage, Step 3].
+. Locate the port and LIF configuration information for node1 and node2 that you recorded in _Prepare for upgrade when moving storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3[Step 3].
+. Locate the information for ports, broadcast domains, and IPspaces that you recorded in _Prepare for upgrade when moving storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3.html[Step 3].
 +
-https://hwu.netapp.com[NetApp Hardware Universe]
+https://hwu.netapp.com[NetApp Hardware Universe^]
 
 . Make the following changes:
 .. Boot and log in to node3 and node4 if you have not already done so.
@@ -52,7 +52,7 @@ When all cluster LIFs are migrated and cluster communication is established, the
 .. Display the health state of node3 and node4:
 +
 `cluster show -node <node1> -fields health`
-. [[map_9.8_5]]Modify the broadcast domain memberships of physical ports hosting data LIFs. You can do this manually, as shown in link:upgrade-map-network-ports-ontap-9-7-or-earlier.html#map_9.7_7[Map network ports using ONTAP 9.7 or earlier, Step7]. The recommended approach is to use the enhanced network reachability scan and repair procedure introduced in ONTAP 9.8, as shown in the following Step 5, substeps (a) to (g).
+. [[map_98_5]]Modify the broadcast domain memberships of physical ports hosting data LIFs. You can do this manually, as shown in _Map network ports using ONTAP 9.7 or earlier_, link:upgrade-map-network-ports-ontap-9-7-or-earlier.html#map_97_7[Step 7]. The recommended approach is to use the enhanced network reachability scan and repair procedure introduced in ONTAP 9.8, as shown in the following Step 5, substeps (a) to (g).
 .. List the reachability status of all ports:
 +
 `network port reachability show`
@@ -92,7 +92,7 @@ Create VLAN ports:
 +
 NOTE: Depending on the complexity of the networking configuration of the system being upgraded, you might be required to repeat Step 5, substeps (a) to (g) ountil all ports are placed correctly where needed.
 
-. If there are no VLANs configured on the system, go to Step <<map_9.8_7,Step 7>>. If there are VLANs configured, restore displaced VLANs that were previously configured on ports that no longer exist or were configured on ports that were moved to another broadcast domain.
+. If there are no VLANs configured on the system, go to Step <<map_98_7,Step 7>>. If there are VLANs configured, restore displaced VLANs that were previously configured on ports that no longer exist or were configured on ports that were moved to another broadcast domain.
 .. Display the displaced VLANs:
 +
 `displaced-vlans show`
@@ -105,7 +105,7 @@ NOTE: Depending on the complexity of the networking configuration of the system 
 .. VLANs are automatically placed into the appropriate broadcast domains about a minute after they are created. Verify that the restored VLANs have been placed into the appropriate broadcast domains:
 +
 `network port reachability show`
-. [[map_9.8_7]]Starting from ONTAP 9.8, ONTAP will automatically modify the home ports of LIFs if the ports are moved between broadcast domains during the network port reachability repair procedure. If a LIF's home port was moved to another node, or is unassigned, that LIF will be presented as a displaced LIF. Restore the home ports of displaced LIFs whose home ports either no longer exist or were relocated to another node.
+. [[map_98_7]]Starting from ONTAP 9.8, ONTAP will automatically modify the home ports of LIFs if the ports are moved between broadcast domains during the network port reachability repair procedure. If a LIF's home port was moved to another node, or is unassigned, that LIF will be presented as a displaced LIF. Restore the home ports of displaced LIFs whose home ports either no longer exist or were relocated to another node.
 .. Display the LIFs whose home ports might have moved to another node or no longer exist:
 +
 `displaced-interface show`
@@ -117,7 +117,7 @@ NOTE: Depending on the complexity of the networking configuration of the system 
 `displaced-interface show`
 
 +
-When all ports are correctly configured and added to the correct broadcast domains, the network port reachability show command should report the reachability status as ok for all connected ports, and the status as no-reachability for ports with no physical connectivity. If any ports are reporting a status other than these two, repair the reachability as outlined in <<map_9.8_5,Step 5>>.
+When all ports are correctly configured and added to the correct broadcast domains, the network port reachability show command should report the reachability status as ok for all connected ports, and the status as no-reachability for ports with no physical connectivity. If any ports are reporting a status other than these two, repair the reachability as outlined in <<map_98_5,Step 5>>.
 . Verify that all LIFs are administratively up on ports belonging to the correct broadcast domains.
 .. Check for any LIFs that are administratively down:
 +

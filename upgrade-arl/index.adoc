@@ -29,9 +29,9 @@ If you are performing an upgrade by using system commands refer to the following
 |If you’re running this ONTAP version…
 |To upgrade with system commands, use…
 |9.8 or later
-|link:http://docs.netapp.com/us-en/ontap-systems/upgrade-arl-auto-app/index.html[Using "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.8 or Later]
+|link:upgrade-arl-auto-app/index.html[Using "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.8 or Later]
 |9.5 to 9.7
-|link:http://docs.netapp.com/us-en/ontap-systems/upgrade-arl-auto/index.html[Using "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.5 to ONTAP 9.7]
+|link:upgrade-arl-auto/index.html[Using "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.5 to ONTAP 9.7]
 |===
 If you are performing a manual upgrade refer to the following table:
 [cols=2*,options="header",cols="30,70"]
@@ -39,9 +39,9 @@ If you are performing a manual upgrade refer to the following table:
 |If you’re running this ONTAP version…
 |To manually upgrade, use…
 |9.8 or later
-|link:http://docs.netapp.com/us-en/ontap-systems/upgrade-arl-manual-app/index.html[Using Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.8 or Later]
+|link:upgrade-arl-manual-app/index.html[Using Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.8 or Later]
 |9.0 to 9.7
-|link:http://docs.netapp.com/us-en/ontap-systems/upgrade-arl-manual/index.html[Using Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.7 or Earlier]
+|link:upgrade-arl-manual/index.html[Using Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.7 or Earlier]
 |===
 
 // 24 FEB 2021:  formatted from CMS

@@ -14,7 +14,7 @@ You create at least an aggregate on each of the new nodes to store the volumes y
 .Before you begin
 Data protection mirror relationships must have been initialized before you can move a volume.
 
-https://docs.netapp.com/us-en/ontap/data-protection-disaster-recovery/index.html[Find the required data protection procedure^] 
+https://docs.netapp.com/us-en/ontap/data-protection-disaster-recovery/index.html[Find the required data protection procedure^]. 
 
 .Steps
 . Create at least one aggregate on each new node:

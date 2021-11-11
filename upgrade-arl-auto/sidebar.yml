@@ -1,7 +1,8 @@
 section: upgrade-arl-auto
 title: Use "system controller replace" commands to upgrade controller hardware running ONTAP 9.5 to 9.7
-url: /upgrade-arl-auto/index.html
 entries:
+- title: Overview
+  url: /upgrade-arl-auto/index.html
 - title: Automate the controller upgrade process
   url: /upgrade-arl-auto/automate_the_controller_upgrade_process.html
 - title: Decide whether to use the aggregate relocation guide
