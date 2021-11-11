@@ -57,9 +57,7 @@ Re-enable storage failover: `storage failover modify -node node_name -enabled tr
 . From each new node, send a post-upgrade AutoSupport message to technical support:
 +
 `system node autosupport invoke -node node_name -type all -message "MAINT=END node_name successfully upgraded from platform_old to platform_new"`
-. Restore Storage or Volume Encryption functionality by using the appropriate procedure in the _NetApp Encryption Power Guide_.
-+
-https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html[Manage encryption with the CLI]
+. Restore Storage or Volume Encryption functionality by using the appropriate procedure in the https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html[Manage encryption with the CLI^] content.
 +
 Use one of the following procedures, depending on whether you are using onboard or external key management:
 
@@ -71,8 +69,6 @@ Use one of the following procedures, depending on whether you are using onboard 
 `system node hardware unified-connect modify -node node-name -adapter adapter-name -mode {fc|cna} -type {target|initiator}`
 +
 link:https://docs.netapp.com/us-en/ontap/san-admin/index.html[SAN management with the CLI^]
-+
-http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092[Find the SAN Administration Guide for your version of Data ONTAP 8]
 +
 You can modify the CNA configuration only when the CNA adapters are offline.
 

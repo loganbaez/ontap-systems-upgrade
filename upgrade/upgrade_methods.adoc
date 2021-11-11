@@ -11,7 +11,7 @@ summary: 'In general, how you upgrade the controller hardware depends on the pla
 [.lead]
 In general, how you upgrade the controller hardware depends on the platform models of the original nodes. You upgrade either by moving the storage (a disruptive procedure) or by moving the volumes (a nondisruptive procedure).
 
-image::../media/methods_for_upgrading_controller_hardware.png[Methods for upgrading controller hardware]
+image::../upgrade/media/methods_for_upgrading_controller_hardware.png[Methods for upgrading controller hardware]
 
 NOTE: Models with internal drives are: FAS2220, FAS2240-2, FAS2240-4, FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700s, AFF A800, AFF A250.
 

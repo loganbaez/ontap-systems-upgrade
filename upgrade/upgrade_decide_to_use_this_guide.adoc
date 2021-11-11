@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:
 summary: 'This guide describes how to upgrade controller hardware of an AFF system or a FAS system in a cluster by moving storage or volumes.'
 ---
-= Decide whether to use this guide
+= Decide whether to upgrade by moving volumes or storage
 :icons: font
 :imagesdir: ../media/
 
@@ -25,14 +25,9 @@ Upgrading by moving volumes is nondisruptive.
 
 * You plan to convert a node of a supported model to a disk shelf, and then attach it to the new nodes.
 
-If you are upgrading a two-node MetroCluster configuration, you must use the procedure in the https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/index.html[MetroCluster® Upgrade and Expansion Guide].
+If you are upgrading a two-node MetroCluster configuration, you must use the procedure in the https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/index.html[MetroCluster® Upgrade and Expansion content^].
 
-This guide does not describe how to use aggregate relocation to upgrade controller hardware, which is described in the following guides:
-
-* https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html[Use "system controller replace" commands to upgrade controller hardware running ONTAP 9.8 or later^]
-* https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html[Use "system controller replace" commands to upgrade controller hardware running ONTAP 9.5 to ONTAP 9.7^]
-* https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html[Use aggregate relocation to manually upgrade controller hardware running ONTAP 9.8 and later^]
-* https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html[Use aggregate relocation to manually upgrade controller hardware running ONTAP 9.7 and earlier^]
+This content does not describe how to use aggregate relocation (ARL) to upgrade controller hardware, which is described in link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl/index.html[ARL] content.
 
 If you are replacing an individual component, see the field-replaceable unit (FRU) flyer for that component.
 
@@ -51,6 +46,6 @@ xref:upgrade-considerations.adoc[Considerations for upgrading controller hardwar
 
 xref:upgrade-methods.adoc[Choose methods for upgrading controller hardware]
 
-https://library.netapp.com/ecm/ecm_download_file/ECMP1650547[MetroCluster Service Guide]
+https://docs.netapp.com/us-en/ontap-metrocluster/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html[Where to find procedures for MetroCluster maintenance tasks]
 
 https://hwu.netapp.com[NetApp Hardware Universe]
