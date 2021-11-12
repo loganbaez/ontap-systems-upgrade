@@ -13,7 +13,7 @@ If your original node is one of the supported models, during the process of upgr
 
 .Before you begin
 
-* You must have reviewed xref:upgrade_considerations.adoc[Considerations for upgrading controller hardware] about moving internal drives.
+* You must have reviewed link:upgrade-considerations.html[Considerations for upgrading controller hardware] about moving internal drives.
 +
 You should contact technical support if you need guidance specific to your configuration.
 
