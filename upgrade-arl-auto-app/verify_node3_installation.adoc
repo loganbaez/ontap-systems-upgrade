@@ -88,7 +88,7 @@ To complete the Network Reachability task, the ONTAP network configuration must 
 2 entries were displayed.
 ....
 +
-NOTE: In this guide, the section _Re-creating VLANs, ifgrps, and broadcast domains_ has been renamed _Restore network configuration on node3_.
+NOTE: In this procedure, the section _Re-creating VLANs, ifgrps, and broadcast domains_ has been renamed _Restore network configuration on node3_.
 
 . With the controller replacement in a paused state, proceed to the next section of this document to restore network configuration on the node.
 

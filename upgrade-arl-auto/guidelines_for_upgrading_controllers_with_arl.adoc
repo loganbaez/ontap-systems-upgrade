@@ -25,7 +25,7 @@ You should validate in the cluster mixing rules whether new nodes can become par
 
 NOTE: Before performing an AFF system upgrade, you must upgrade ONTAP to release versions 9.5P1 or later. These release levels are required for a successful upgrade.
 
-NOTE: If you are upgrading a system that supports internal drives (for example, an FAS2700 or AFF A250) but does NOT have internal drives, refer to link:other_references.html[References] and use the procedure in the _Aggregate Relocation to Manually Upgrade Controller Hardware_ guide that is correct for your version of ONTAP.
+NOTE: If you are upgrading a system that supports internal drives (for example, an FAS2700 or AFF A250) but does NOT have internal drives, refer to link:other_references.html[References] and use the procedure in the _Aggregate Relocation to Manually Upgrade Controller Hardware_ content that is correct for your version of ONTAP.
 
 Controller upgrade using ARL is supported on systems configured with SnapLock Enterprise andSnapLock Compliance volumes.
 

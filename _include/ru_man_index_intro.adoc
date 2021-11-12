@@ -1,4 +1,4 @@
-This guide describes how to upgrade the controller hardware without disruption by using aggregate relocation.
+This content describes how to upgrade the controller hardware without disruption by using aggregate relocation.
 
 You can nondisruptively upgrade the controller hardware on a pair of nodes running ONTAP 9 by migrating non-root aggregates from the original nodes to the new nodes in the same cluster. The data hosted on the nodes that are being upgraded is accessible during the upgrade.
 

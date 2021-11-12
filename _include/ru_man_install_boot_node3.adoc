@@ -24,7 +24,7 @@ NOTE: If you are upgrading to a system with both nodes in the same chassis, inst
 The following references help you make proper cable connections. Go to link:other_references.html[References] to link to them.
 +
 * _Installation and Setup Instructions_ or _FlexArray Virtualization Installation Requirements and Reference_ for the node3 platform
-* The appropriate disk shelf guide
+* The appropriate disk shelf procedure
 * The _High Availability management_ documentation
 
 +

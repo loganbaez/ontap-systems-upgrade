@@ -94,7 +94,7 @@ network displaced-vlans restore" to restore the VLAN on the desired port.
 2 entries were displayed.
 ....
 +
-NOTE: In this guide, section _Re-creating VLANs, ifgrps, and broadcast domains_ has been renamed _Restoring network configuration on node4_.
+NOTE: In this procedure, section _Re-creating VLANs, ifgrps, and broadcast domains_ has been renamed _Restoring network configuration on node4_.
 
 . With the controller replacement in a paused state, proceed to the next section of this document to restore network configuration on the node.
 

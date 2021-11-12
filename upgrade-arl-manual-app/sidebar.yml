@@ -3,7 +3,7 @@ title: "Use aggregate relocation to manually upgrade controller hardware running
 entries:
   - title: Overview
     url: /upgrade-arl-manual-app/index.html
-  - title: "Decide whether to use the aggregate relocation guide"
+  - title: "Decide whether to use the aggregate relocation content"
     url: /upgrade-arl-manual-app/decide_to_use_arl_guide.html
   - title: "ARL upgrade workflow"
     url: /upgrade-arl-manual-app/arl_upgrade_workflow.html
