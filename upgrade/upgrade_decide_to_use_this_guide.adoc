@@ -27,7 +27,7 @@ Upgrading by moving volumes is nondisruptive.
 
 If you are upgrading a two-node MetroCluster configuration, you must use the procedure in the https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/index.html[MetroCluster® Upgrade and Expansion^] content.
 
-This content does not describe how to use aggregate relocation (ARL) to upgrade controller hardware, which is described in the link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl/index.html[ARL controller hardware upgrade^] content.
+This content does not describe how to use aggregate relocation (ARL) to upgrade controller hardware, which is described in the link:upgrade-arl/index.html[ARL controller hardware upgrade^] content.
 
 If you are replacing an individual component, see the field-replaceable unit (FRU) flyer for that component.
 
