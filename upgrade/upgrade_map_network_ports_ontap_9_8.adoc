@@ -22,7 +22,7 @@ NOTE: The following command examples refer to "node1" because at this stage in t
 .Steps
 . If your system is running ONTAP 9.7 or earlier, *STOP*. You must use the procedure in xref:upgrade-map-network-ports-ontap-9-7-or-earlier.adoc[Map network ports using ONTAP 9.7 or earlier].
 . Locate the port and LIF configuration information for node1 and node2 that you recorded in _Prepare for upgrade when moving storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3[Step 3].
-. Locate the information for ports, broadcast domains, and IPspaces that you recorded in _Prepare for upgrade when moving storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3.html[Step 3].
+. Locate the information for ports, broadcast domains, and IPspaces that you recorded in _Prepare for upgrade when moving storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3[Step 3].
 +
 https://hwu.netapp.com[NetApp Hardware Universe^]
 
@@ -92,7 +92,7 @@ Create VLAN ports:
 +
 NOTE: Depending on the complexity of the networking configuration of the system being upgraded, you might be required to repeat Step 5, substeps (a) to (g) ountil all ports are placed correctly where needed.
 
-. If there are no VLANs configured on the system, go to Step <<map_98_7,Step 7>>. If there are VLANs configured, restore displaced VLANs that were previously configured on ports that no longer exist or were configured on ports that were moved to another broadcast domain.
+. If there are no VLANs configured on the system, go to <<map_98_7,Step 7>>. If there are VLANs configured, restore displaced VLANs that were previously configured on ports that no longer exist or were configured on ports that were moved to another broadcast domain.
 .. Display the displaced VLANs:
 +
 `displaced-vlans show`
