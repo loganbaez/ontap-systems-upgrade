@@ -39,7 +39,7 @@ Content specific to this upgrade are listed in the table below.
 |link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-980/home.html[ONTAP 9.8 Commands: Manual Page Reference^]
 |Describes syntax and usage of supported ONTAP 9.8 commands.
 |link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html[Disk and aggregate management with the CLI^]
-|Describes how to manage ONTAP physical storage, shows you how to create, expand, and manage aggregates, how to work with Flash Pool aggregates, how to manage disks, and how to manage RAID policies.
+|Describes how to manage ONTAP physical storage using the CLI. It shows you how to create, expand, and manage aggregates, how to work with Flash Pool aggregates, how to manage disks, and how to manage RAID policies.
 |link:https://docs.netapp.com/us-en/ontap/high-availability/index.html[High Availability management^]
 |Describes how to install and manage high-availability clustered configurations, including storage failover and takeover/giveback.
 |link:https://docs.netapp.com/us-en/ontap/volumes/index.html[Logical storage management with the CLI^]
@@ -47,7 +47,7 @@ Content specific to this upgrade are listed in the table below.
 |link:https://docs.netapp.com/us-en/ontap/network-management/index.html[Network Management^]
 |Describes how to configure and manage physical and virtual network ports (VLANs and interface groups), LIFs, routing, and host-resolution services in clusters; optimize network traffic by load balancing; and monitor the cluster by using SNMP.
 |link:https://docs.netapp.com/us-en/ontap/san-admin/index.html[SAN management with the CLI^]
-|Describes how to configure and manage iSCSI and FC protocols for SAN environments.
+|Describes how to configure and manage LUNs, igroups, and targets using the iSCSI and FC protocols, and namespaces and subsystems using the NVMe/FC protocol.
 |link:https://docs.netapp.com/us-en/ontap/san-config/index.html[SAN configuration reference^]
 |Contains information about FC and iSCSI topologies and wiring schemes.
 |link:https://docs.netapp.com/us-en/ontap/software_setup/concept_decide_whether_to_use_ontap_cli.html[Decide whether to use System Manager or the ONTAP CLI for cluster setup^]
@@ -70,6 +70,6 @@ Content specific to this upgrade are listed in the table below.
 
 The link:https://mysupport.netapp.com[NetApp Support Site^] also contains documentation about network interface cards (NICs) and other hardware that you might use with your system. It also contains the link:https://hwu.netapp.com[Hardware Universe^], which provides information about the hardware that the new system supports.
 
-Access https://docs.netapp.com/us-en/ontap/index.html[ONTAP 9^] product content.
+Access https://docs.netapp.com/us-en/ontap/index.html[ONTAP 9 documentation^].
 
 Access the link:https://mysupport.netapp.com/site/tools[Active IQ Config Advisor^] tool.
