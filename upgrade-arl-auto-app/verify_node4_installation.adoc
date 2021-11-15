@@ -94,7 +94,7 @@ network displaced-vlans restore" to restore the VLAN on the desired port.
 2 entries were displayed.
 ....
 +
-NOTE: In this guide, section _Re-creating VLANs, ifgrps, and broadcast domains_ has been renamed _Restoring network configuration on node4_.
+NOTE: In this procedure, section _Re-creating VLANs, ifgrps, and broadcast domains_ has been renamed _Restoring network configuration on node4_.
 
 . With the controller replacement in a paused state, proceed to the next section of this document to restore network configuration on the node.
 
@@ -104,7 +104,7 @@ After you confirm that node4 is in quorum and can communicate with node3, verify
 
 .About this task
 
-For more information on creating and re-creating VLANs, interface groups, and broadcast domains, refer to link:other_references.html[References] to link to the _ONTAP 9 Network Management Guide_.
+For more information on creating and re-creating VLANs, interface groups, and broadcast domains, refer to link:other_references.html[References] to link to _Network Management_.
 
 
 .Steps

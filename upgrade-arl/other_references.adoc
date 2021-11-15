@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-manual-app/other_references.html
+permalink: upgrade-arl/other_references.html
 keywords: other references, documentation, hardware universe, content, documentation center, information
 summary: You can link to other reference content and websites in this topic.
 ---
@@ -14,4 +14,3 @@ summary: You can link to other reference content and websites in this topic.
 
 [.lead]
 include::../_include/ru_all_other_references.adoc[]
-// 02 MAR 2021:  added new approach for external references

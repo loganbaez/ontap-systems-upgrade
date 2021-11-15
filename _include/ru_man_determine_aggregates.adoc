@@ -117,12 +117,12 @@ Based on the output in <<man_aggr_step4,Step 4>> and Step 6, aggr2 uses three in
 |Contain aggregates but no volumes on the internal disk drives
 |Continue with this procedure.
 
-*Note*: Before you continue, you must place the aggregates offline, and then destroy the aggregates on the internal disk drives. Refer to link:other_references.html[References] to link to the _Disk and Aggregates Power Guide_ for information about managing aggregates.
+*Note*: Before you continue, you must place the aggregates offline, and then destroy the aggregates on the internal disk drives. Refer to link:other_references.html[References] to link to the _Disk and aggregate management with the CLI_ content for information about managing aggregates.
 
 |Contain non-root volumes on the internal drives
 |Continue with this procedure.
 
-*Note*: Before you continue, you must move the volumes to an external disk shelf, place the aggregates offline, and then destroy the aggregates on the internal disk drives. Refer to link:other_references.html[References] to link to the _Disk and Aggregates Power Guide_ for information about moving volumes.
+*Note*: Before you continue, you must move the volumes to an external disk shelf, place the aggregates offline, and then destroy the aggregates on the internal disk drives. Refer to link:other_references.html[References] to link to the _Disk and aggregate management with the CLI_ content for information about moving volumes.
 
 |Contain root volumes on the internal drives
 |Do not continue with this procedure.
