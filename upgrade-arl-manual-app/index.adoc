@@ -20,6 +20,6 @@ include::../_include/ru_man_use_arl_overview.adoc[]
 ** For MetroCluster configurations running ONTAP 9.7 and earlier, go to link:other_references.html[References] to link to _Using Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.7 or Earlier_.
 
 ** For MetroCluster IP configurations and additional upgrade options for Fabric MetroCluster
-configurations, go to link:other_references.html[References] to link to the _MetroCluster Upgrade and Expansion Guide_.
+configurations, go to link:other_references.html[References] to link to the _MetroCluster Upgrade and Expansion_ content.
 
 // 24 FEB 2021:  Formatted from CMS

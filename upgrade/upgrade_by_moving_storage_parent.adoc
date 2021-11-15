@@ -11,7 +11,7 @@ summary: 'If you are upgrading by moving storage, you prepare the original nodes
 [.lead]
 If you are upgrading by moving storage, you prepare the original nodes and set up the new nodes. Some platform models support transferring internal storage to the new nodes. You reassign disks and restore root volume configuration to the new nodes and configure network ports. Upgrading by moving storage is a disruptive procedure.
 
-image::../media/workflow_for_upgrading_by_moving_storage.png[Workflow for upgrading controller hardware by moving storage]
+image::../upgrade/media/workflow_for_upgrading_by_moving_storage.png[Workflow for upgrading controller hardware by moving storage]
 
 .Steps
 . xref:upgrade-prepare-when-moving-storage.adoc[Prepare for the upgrade when moving storage]

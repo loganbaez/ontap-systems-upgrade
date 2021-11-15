@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: upgrade-arl-manual-app/decide_to_use_arl_guide.html
 keywords:  decision, decision, what to use, upgrade, HA pair, metrocluster, storage encryption, volume encryption, NSE, NVE
-summary: Whether or not to use this guide.
+summary: Whether or not to use this content.
 ---
 
-= Decide whether to use the aggregate relocation guide
+= Decide whether to use the aggregate relocation content
 :hardbreaks:
 :nofooter:
 :icons: font

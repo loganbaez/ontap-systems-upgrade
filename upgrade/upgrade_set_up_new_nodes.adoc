@@ -1,7 +1,7 @@
 ---
 permalink: upgrade/upgrade-set-up-new-nodes.html
 sidebar: sidebar
-keywords: Controller Hardware Upgrade Express Guide
+keywords: upgrade, nodes, moving, storage, port, original, new
 summary: 'During the process of upgrading by moving storage, you power on node3 and node4, boot the
 software image, and configure the nodes.'
 ---
@@ -10,10 +10,10 @@ software image, and configure the nodes.'
 :imagesdir: ../media/
 
 [.lead]
-During the process of upgrading by moving storage, you power on node3 and node4, boot the sof tware image, and configure the nodes. Physical port layout between original and new nodes can be different. Mapping of ports between original and replacement nodes should be done to identify proper layout of ports and connections.
+During the process of upgrading by moving storage, you power on node3 and node4, boot the software image, and configure the nodes. Physical port layout between original and new nodes can be different. Mapping of ports between original and replacement nodes should be done to identify proper layout of ports and connections.
 
 .Before you begin
-If the version of ONTAP running on the new nodes is different to the version on the original nodes, you must have downloaded the correct `<ontap_version>_image.tgz` file from the NetApp Support Site to a web-accessible directory (see link:upgrade-prepare-when-moving-storage.html[Prepare for the upgrade when moving storage, Step5]). You need the `<ontap_version>_image.tgz` file to perform a netboot of your system.
+If the version of ONTAP running on the new nodes is different to the version on the original nodes, you must have downloaded the correct `<ontap_version>_image.tgz` file from the NetApp Support Site to a web-accessible directory (see _Prepare for the upgrade when moving storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_5[Step5]). You need the `<ontap_version>_image.tgz` file to perform a netboot of your system.
 
 .Steps
 . Turn on the power to node3, and then immediately press Ctrl-C at the console terminal to access the LOADER prompt.
@@ -82,9 +82,8 @@ Enter username/password if applicable, or press Enter to continue.
 . From the boot menu, select *(5) Maintenance mode boot* to access Maintenance mode.
 . If necessary, make changes to the FC or CNA ports on the node, and then reboot the node to Maintenance mode.
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html[ONTAP 9 SAN Administration Guide]
-+
-https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092[Find the SAN Administration Guide for your version of Data ONTAP 8]
+link:https://docs.netapp.com/us-en/ontap/san-admin/index.html[SAN management with the CLI^]
+
 . You should verify that the command output shows `ha`:
 +
 ----
@@ -96,10 +95,7 @@ https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=3
 Systems record in a PROM whether they are in an HA pair or stand-alone configuration. The state must be the same on all components within the stand-alone system or HA pair
 +
 The `ha-config modify controller ha` command configures `ha` for the controller setting. The `ha-config modify chassis ha` command configures `ha` for the chassis setting.
-+
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html[ONTAP 9 High-Availability Configuration Guide]
-+
-https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092[Find the High-Availability Configuration Guide for your version of Data ONTAP 8]
+
 . Exit Maintenance mode:
 +
 `halt`

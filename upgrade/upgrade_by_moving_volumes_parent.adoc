@@ -11,7 +11,7 @@ summary: 'If you are upgrading by moving volumes, you prepare the original nodes
 [.lead]
 If you are upgrading by moving volumes, you prepare the original nodes and join the new nodes to the cluster. You move volumes to the new nodes, configure LIFs, and unjoin the original nodes from the cluster. Upgrading by moving volumes is a nondisruptive procedure.
 
-image::../media/workflow_for_upgrading_by_moving_volumes.gif[Workflow for upgrading controller hardware by moving volumes]
+image::../upgrade/media/workflow_for_upgrading_by_moving_volumes.gif[Workflow for upgrading controller hardware by moving volumes]
 
 .Steps
 . xref:upgrade-prepare-when-moving-volumes.adoc[Prepare for the upgrade when moving volumes]
