@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: upgrade-arl-manual-app/required_tools_documentation.html
-keywords:  Tool, documentation, center, guides, reference, worksheet
+keywords:  Tool, documentation, center, content, reference, worksheet
 summary: Tools and documentation you will need during upgrade.
 ---
 

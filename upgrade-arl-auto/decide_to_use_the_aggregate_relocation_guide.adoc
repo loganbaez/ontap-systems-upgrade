@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: upgrade-arl-auto/decide_to_use_the_aggregate_relocation_guide.html
 keywords: aggregate relocation, decide to use, upgrade, model, matrix, replacement, controller
-summary: This guide describes how to upgrade the storage controllers in an HA pair with new controllers while keeping all the existing data and disks.
+summary: This content describes how to upgrade the storage controllers in an HA pair with new controllers while keeping all the existing data and disks.
 ---
 
-= Decide whether to use the aggregate relocation guide
+= Decide whether to use the aggregate relocation content
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,9 +13,9 @@ summary: This guide describes how to upgrade the storage controllers in an HA pa
 :imagesdir: ./media/
 
 [.lead]
-This guide describes how to upgrade the storage controllers in an HA pair with new controllers while keeping all the existing data and disks. This is a complex procedure that should be used only by experienced administrators.
+This content describes how to upgrade the storage controllers in an HA pair with new controllers while keeping all the existing data and disks. This is a complex procedure that should be used only by experienced administrators.
 
-You should use this guide under the following circumstances:
+You should use this content under the following circumstances:
 
 * You are upgrading NetApp controllers running ONTAP 9.5, 9.6 or 9.7. This document is not applicable to upgrades to ONTAP 9.8.
 

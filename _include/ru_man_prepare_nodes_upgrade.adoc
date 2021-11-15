@@ -4,7 +4,7 @@ Before you can replace the original nodes, you must ensure that they are in an H
 
 . Ensure that each of the original nodes has enough resources to adequately support the workload of both nodes during takeover mode.
 +
-Refer to link:other_references.html[References] to link to _ONTAP 9 High-Availability Configuration Guide_ and follow the _Best practices for HA pairs_ section. Neither of the original nodes should be running at more than 50 percent utilization; if a node is running at less than 50 percent utilization, it can handle the loads for both nodes during the controller upgrade.
+Refer to link:other_references.html[References] to link to _High Availability management_ and follow the _Best practices for HA pairs_ section. Neither of the original nodes should be running at more than 50 percent utilization; if a node is running at less than 50 percent utilization, it can handle the loads for both nodes during the controller upgrade.
 
 . Complete the following substeps to create a performance baseline for the original nodes:
 
@@ -32,7 +32,7 @@ WARNING: *Attention* Do not try to clear the NVRAM contents. If there is a need 
 
 . Check the version of ONTAP on node3 and node4.
 +
-The new nodes must have the same version of ONTAP 9.x installed on them that is installed on the original nodes. If the new nodes have a different version of ONTAP installed, you need to netboot the new controllers after you install them. For instructions on how to upgrade ONTAP, refer to link:other_references.html[References] to link to the _ONTAP 9 Upgrade and Revert/Downgrade Guide_.
+The new nodes must have the same version of ONTAP 9.x installed on them that is installed on the original nodes. If the new nodes have a different version of ONTAP installed, you need to netboot the new controllers after you install them. For instructions on how to upgrade ONTAP, refer to link:other_references.html[References] to link to _Upgrade ONTAP_.
 +
 Information about the version of ONTAP on node3 and node4 should be included in the shipping boxes. The ONTAP version is displayed when the node boots up or you can boot the node to maintenance mode and run the command:
 +
@@ -132,7 +132,7 @@ node1          node2          true     Connected to node2, Partial giveback
 node2          node1          true     Connected to node1
 ....
 +
-If either node is in partial giveback, use the `storage failover giveback` command to perform the giveback, and then use the `storage failover show-giveback` command to make sure that no aggregates still need to be given back. For detailed information about the commands, refer to link:other_references.html[References] to link to the _ONTAP 9 High-Availability Configuration Guide_.
+If either node is in partial giveback, use the `storage failover giveback` command to perform the giveback, and then use the `storage failover show-giveback` command to make sure that no aggregates still need to be given back. For detailed information about the commands, refer to link:other_references.html[References] to link to _High Availability management_.
 
 . [[man_prepare_nodes_step9]]Ensure that neither node1 nor node2 owns the aggregates for which it is the current owner (but not the home owner):
 +
@@ -214,7 +214,7 @@ node1    None                None
 node2    None                None
 ....
 +
-If any disks are missing, refer to link:other_references.html[References] to link to the _ONTAP 9 Disks and Aggregates Power Guide_, the _ONTAP 9 Logical Storage Management Guide_, and the _ONTAP 9 High-Availability Configuration Guide_ to configure storage for the HA pair.
+If any disks are missing, refer to link:other_references.html[References] to link to _Disk and aggregate management with the CLI_, _Logical storage management with the CLI_, and _High Availability management_ to configure storage for the HA pair.
 
 . Ensure that node1 and node2 are healthy and eligible to participate in the cluster:
 +
@@ -291,7 +291,7 @@ For detailed information about the `network interface revert` command, refer to 
 +
 `storage disk show -nodelist <node1,node2> -broken`
 +
-If any of the disks have failed, remove them, following instructions in the _ONTAP 9 Disks and Aggregates Power Guide_. (Refer to link:other_references.html[References] to link to the _ONTAP 9 Disks and Aggregates Power Guide_.)
+If any of the disks have failed, remove them, following instructions in the _Disk and aggregate management with the CLI_. (Refer to link:other_references.html[References] to link to _Disk and aggregate management with the CLI_.)
 
 . Collect information about node1 and node2 by completing the following substeps and recording the output of each command:
 +
