@@ -21,10 +21,10 @@ NOTE: The following command examples refer to "node1" because at this stage in t
 
 .Steps
 . If your system is running ONTAP 9.8, *STOP*. You must use the procedure in xref:upgrade-map-network-ports-ontap-9-8.adoc[Map network ports using ONTAP 9.8].
-. Locate the port and LIF configuration information for node1 and node2 that you recorded in link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3[Prepare for upgrade when moving storage, Step 3].
-. Locate the information for ports, broadcast domains, and IPspaces that you recorded in  link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3[Prepare for upgrade when moving storage, Step 3].
+. Locate the port and LIF configuration information for node1 and node2 that you recorded in _Prepare for upgrade when moving storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3[Step 3].
+. Locate the information for ports, broadcast domains, and IPspaces that you recorded in  _Prepare for upgrade when moving storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3[Step 3].
 +
-https://hwu.netapp.com[NetApp Hardware Universe]
+https://hwu.netapp.com[NetApp Hardware Universe^]
 
 . Make the following changes:
 .. Boot node3 and node4 to the cluster prompt if you have not already done so.
@@ -55,7 +55,7 @@ SAN data LIFs can be migrated only when they are offline.
 . Delete the node1 and node2 ports that no longer exist on node3 and node4 (advanced privilege level):
 +
 `network port delete -node <node1> -port <port_name>`
-. [[map_9.7_7]] Adjust the node-management broadcast domain and migrate the node-management and cluster-management LIFs if necessary:
+. [[map_97_7]] Adjust the node-management broadcast domain and migrate the node-management and cluster-management LIFs if necessary:
 .. Display the home port of a LIF:
 +
 `network interface show -fields home-node,home-port`
@@ -70,8 +70,8 @@ SAN data LIFs can be migrated only when they are offline.
 .. Modify a LIF's home port if necessary:
 +
 `network interface modify -vserver <vserver_name> -lif <lif_name> –home-port <port_name>`
-. Adjust the intercluster broadcast domains and migrate the intercluster LIFs, if necessary, using the commands in <<map_9.7_7,Step 7>>.
-. Adjust any other broadcast domains and migrate the data LIFs, if necessary, using the commands in <<map_9.7_7,Step 7>>.
+. Adjust the intercluster broadcast domains and migrate the intercluster LIFs, if necessary, using the commands in <<map_97_7,Step 7>>.
+. Adjust any other broadcast domains and migrate the data LIFs, if necessary, using the commands in <<map_97_7,Step 7>>.
 . Adjust all the LIF failover groups:
 +
 `network interface modify -failover-group <failover_group> -failover-policy <failover_policy>`

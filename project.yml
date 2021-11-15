@@ -12,10 +12,7 @@ sidebar:
     - title: AFF and FAS System Upgrade Documentation
       url: /index.html
     - section: upgrade
-    - section: upgrade-arl-auto-app
-    - section: upgrade-arl-manual-app
-    - section: upgrade-arl-auto
-    - section: upgrade-arl-manual
+    - section: upgrade-arl
 
 homepage:
   tiles:

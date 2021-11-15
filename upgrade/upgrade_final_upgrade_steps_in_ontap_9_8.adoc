@@ -57,9 +57,7 @@ Re-enable storage failover: `storage failover modify -node node_name -enabled tr
 . From each new node, send a post-upgrade AutoSupport message to technical support:
 +
 `system node autosupport invoke -node node_name -type all -message "MAINT=END node_name successfully upgraded from platform_old to platform_new"`
-. Restore Storage or Volume Encryption functionality by using the appropriate procedure in the _NetApp Encryption Power Guide_.
-+
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html[ONTAP 9 NetApp Encryption Power Guide]
+. Restore Storage or Volume Encryption functionality by using the appropriate procedure in the https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html[Manage encryption with the CLI^] content.
 +
 Use one of the following procedures, depending on whether you are using onboard or external key management:
 
@@ -70,20 +68,18 @@ Use one of the following procedures, depending on whether you are using onboard 
 +
 `system node hardware unified-connect modify -node node-name -adapter adapter-name -mode {fc|cna} -type {target|initiator}`
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html[ONTAP 9 SAN Administration Guide]
-+
-http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092[Find the SAN Administration Guide for your version of Data ONTAP 8]
+link:https://docs.netapp.com/us-en/ontap/san-admin/index.html[SAN management with the CLI^]
 +
 You can modify the CNA configuration only when the CNA adapters are offline.
 
 . Set up a switchless cluster on the new nodes if necessary.
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1140536[Migrating to a two-node switched cluster with Cisco cluster switches]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536[Migrating to a two-node switched cluster with Cisco cluster switches^]
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1140535[Migrating to a two-node switched cluster with NetApp CN1610 cluster switches]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535[Migrating to a two-node switched cluster with NetApp CN1610 cluster switches^]
 
 . As needed, decommission the original systems through the NetApp Support Site to inform NetApp that the systems are no longer in operation and can be removed from support databases:
- .. Log in to the https://mysupport.netapp.com/site/global/dashboard[NetApp Support] site.
+ .. Log in to the https://mysupport.netapp.com/site/global/dashboard[NetApp Support^] site.
  .. Click the link *My Installed Systems*.
  .. On the Installed Systems page, enter the serial number of the old system in the form and then click *Go!*
  .. On the Decommission Form page, fill out the form and click *Submit*.

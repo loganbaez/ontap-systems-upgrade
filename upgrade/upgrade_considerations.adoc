@@ -16,40 +16,36 @@ Requirements and limitations
 * The procedure for upgrading by moving storage is disruptive. The procedure for upgrading by moving volumes is nondisruptive.
 * The new nodes must support the same software version as the original nodes.
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html[ONTAP 9 Upgrade and Revert/Downgrade Guide]
-+
-http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092[Find the Upgrade and Revert/Downgrade Guide for your version of Data ONTAP 8]
+link:https://docs.netapp.com/us-en/ontap/upgrade/index.html[Upgrade ONTAP^]
 
 * You must observe the maximum cluster size.
 +
 When you upgrade by moving volumes, new nodes are joined to the cluster before the original nodes are removed. Ensure the number of controllers in the cluster does not exceed the supported maximum cluster size during the procedure.
 +
-https://hwu.netapp.com[NetApp Hardware Universe]
+https://hwu.netapp.com[NetApp Hardware Universe^]
 
 * When combining different controller platform model in a cluster, you must follow storage platform mixing rules.
 +
-https://hwu.netapp.com[NetApp Hardware Universe]
+https://hwu.netapp.com[NetApp Hardware Universe^]
 
 * The new nodes must have enough storage to accommodate storage associated with the original nodes.
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html[ONTAP 9 Disks and Aggregates Power Guide]
-+
-http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092[Find a Storage Management Guide for your version of Data ONTAP 8]
+https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html[Disk and aggregate management with the CLI^]
 
 * The root aggregate size and the number of disks supported by the new system must be equal to or greater than those supported by the original system.
 +
-For root aggregate size requirements, see the https://hwu.netapp.com[NetApp Hardware Universe]
+For root aggregate size requirements, see the https://hwu.netapp.com[NetApp Hardware Universe^]
 
 * The controllers in a HA pair must be two AFF models or two FAS models.
 * You can upgrade by moving volumes or physical storage from one FAS2xxx to a later FAS2xxx if the nodes are in the same cluster. For example, you can move volumes or physical storage from a FAS2552 to a FAS2750.
 
-* If you are upgrading a two-node MetroCluster configuration, see: https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html[Choosing an upgrade or refresh method]
+* If you are upgrading a two-node MetroCluster configuration, see: https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html[Choosing an upgrade or refresh method^]
 
 Systems with internal storage
 
 NOTE: The following systems have internal storage: FAS2220, FAS2240-2, FAS2240-4, FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700s, AFF A800, AFF A250.
 
-* If your system is not listed above, see the https://hwu.netapp.com[NetApp Hardware Universe] to check if it has internal drives.
+* If your system is not listed above, see the https://hwu.netapp.com[NetApp Hardware Universe^] to check if it has internal drives.
 * If you have a system with internal storage, the recommended upgrade method is upgrading by moving volumes.
 * If you have a system with internal storage, you can convert the system to a drive shelf and attach it to a new node in the same cluster. FAS2220 and FAS2520 controllers cannot be converted to a drive shelf.
 +
@@ -63,19 +59,19 @@ Situations where additional steps might be needed
 
 * If the new system has fewer slots than the original system, or if it has fewer or different types of ports, you might need to add an adapter to the new system.
 +
-https://hwu.netapp.com[NetApp Hardware Universe]
+https://hwu.netapp.com[NetApp Hardware Universe^]
 
 * If the original nodes or new nodes use FlexArray Virtualization software.
 +
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/V_Series/What_are_the_specific_steps_involved_in_FlexArray_for_NetApp_controller_upgrades%2F%2Freplacements%3F[NetApp KB Article: What are the specific steps involved in FlexArray for NetApp controller upgrades and replacements]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/V_Series/What_are_the_specific_steps_involved_in_FlexArray_for_NetApp_controller_upgrades%2F%2Freplacements%3F[NetApp KB Article: What are the specific steps involved in FlexArray for NetApp controller upgrades and replacements^]
 
 * If your cluster has SAN hosts you might need to take steps to resolve issues with LUN serial number changes.
 +
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FlexPod_with_Infrastructure_Automation/resolve_issues_during_storage_controller_motherboard_replacement_and_head_upgrades_with_iSCSI_and_FCP[How to resolve issues during storage controller motherboard replacement and head upgrades with iSCSI and FCP]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FlexPod_with_Infrastructure_Automation/resolve_issues_during_storage_controller_motherboard_replacement_and_head_upgrades_with_iSCSI_and_FCP[How to resolve issues during storage controller motherboard replacement and head upgrades with iSCSI and FCP^]
 
 * If your system uses out-of-band ACP, you might need to migrate from out-of-band ACP to in-band ACP.
 +
-https://kb.netapp.com/app/answers/answer_view/a_id/1029778[NetApp KB Article 1029778: In-Band ACP Setup and Support]
+https://kb.netapp.com/app/answers/answer_view/a_id/1029778[NetApp KB Article 1029778: In-Band ACP Setup and Support^]
 
 *Related information*
 

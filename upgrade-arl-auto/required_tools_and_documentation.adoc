@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: upgrade-arl-auto/required_tools_and_documentation.html
 keywords: required, tools, documentation, install, worksheet, ontap
-summary: You need specific tools to install the new hardware.  Also, you can reference additional guides and other information.
+summary: You need specific tools to install the new hardware.  Also, you can reference additional documents and other information.
 ---
 
 = Required tools and documentation

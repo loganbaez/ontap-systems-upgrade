@@ -12,7 +12,7 @@ summary: When you upgrade by moving storage, you begin by installing the node3 a
 When you upgrade by moving storage, you begin by installing the node3 and node4 and attaching power, console, and network connections to the new nodes.
 
 .Steps
-. If needed, install any adapters in node3 and node4, following the instructions in the appropriate adapter installation guide.
+. If needed, install any adapters in node3 and node4, following the instructions in the appropriate adapter installation procedure.
 . Install the new nodes, following the _Installation and Setup Instructions_ for the platform.
 +
 Do not attach disk shelves from the original nodes to the new nodes at this point.
