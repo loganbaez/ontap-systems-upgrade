@@ -37,7 +37,7 @@ include::../_include/ru_auto_relocate_non_root_aggr_nas_lifs_from_node1_to_node2
 
 . If you have interface groups or VLANs configured, complete the following substeps:
 
-.. If you have not already saved them, record the VLAN and interface group information so you can recreate the VLANs and interface groups on node3 after node3 is booted up.
+.. If you have not already saved them, record the VLAN and interface group information so you can re-create the VLANs and interface groups on node3 after node3 is booted up.
 
 .. Remove the VLANs from the interface groups:
 +
