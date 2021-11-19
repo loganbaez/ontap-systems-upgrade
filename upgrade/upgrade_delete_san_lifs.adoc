@@ -4,12 +4,12 @@ sidebar: sidebar
 keywords: cluster, san, environment, delete, lid, original, node, unjoin, original, delete san lifs from the original nodes
 summary: If the cluster is in a SAN environment, you must delete any SAN LIFs from the original nodes before you can unjoin the original nodes from the cluster.
 ---
-= Delete SAN LIFs from the original nodes
+= Delete SAN LIFs no longer required from the original nodes
 :icons: font
 :imagesdir: ../media/
 
 [.lead]
-If the cluster is in a SAN environment, you must delete any SAN LIFs from the original nodes before you can unjoin the original nodes from the cluster.
+If the cluster is in a SAN environment, you must delete any SAN LIFs that you no longer require from the original nodes before you can unjoin the original nodes from the cluster.
 
 .Steps
 . If you have iSCSI initiators, complete the following steps:
