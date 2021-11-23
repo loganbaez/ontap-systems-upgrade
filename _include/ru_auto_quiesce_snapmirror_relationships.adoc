@@ -1,4 +1,4 @@
-== Quiesce the SnapMrror relationships (optional)
+== Quiesce the SnapMirror relationships (optional)
 
 Before you proceed with the procedure, you must confirm that all the SnapMirror relationships are quiesced. When a SnapMirror relationship is quiesced, it remains quiesced across reboots and failovers.
 
