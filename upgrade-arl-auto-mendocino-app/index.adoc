@@ -1,0 +1,33 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-mendocino-app/index.html
+keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology
+summary: You upgrade the original controller hardware with the replacement controller hardware, relocating the ownership of non-root aggregates.
+---
+
+= AFF A700 to AFF A900 nondisruptive upgrade by swapping the controller module and nonvolatile storage module
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You can nondisruptively upgrade controller hardware on a HA pair of AFF A700 nodes running ONTAP 9.10.1 or later to an AFF A900 system by swapping only the controller module and the nonvolatile storage module (NVS). The upgrade includes migrating non-root aggregates between the AFF A700 nodes and migrating to the AFF A900 nodes in the HA pair. The data hosted on the nodes that are being upgraded is accessible during the upgrade
+
+.About this task
+During this controller upgrade procedure, to upgrade an AFF A700 to an AFF A900 system, you only need to swap two field replaceable units (FRUs) per node on the AFF A700 system with new FRUs. You do not need to move, disconnect, or reconnect the I/O cards, data cables, disk shelves, and disks.
+
+This procedure uses a method called aggregate relocation (ARL), which takes advantage of the HA configuration to enable you to move ownership of non-root aggregates from one node to another if they share storage within the same cluster.
+
+During the procedure, you upgrade the original controller hardware with the replacement controller hardware, relocating the ownership of non-root aggregates. You migrate aggregates multiple times from node to node to ensure that at least one node is serving data from the aggregates throughout the upgrade procedure. You also migrate data logical interfaces (LIFs) between nodes in the cluster as you proceed.
+
+NOTE: Note:	The terms *node1* and *node2*, are used only as a reference to node names in this document. When following the procedure, you must substitute the real names of your nodes.
+
+.Important information to note
+
+* This procedure is complex and assumes that you have advanced ONTAP administration skills. You also should read and understand the link:guidelines-for-upgrading-controllers-with-arl.html[Guidelines for upgrading from an AFF A700 to an AFF A900 with ARL] and the  link:overview-of-the-arl-upgrade.html[Overview of the ARL upgrade] sections before beginning the upgrade.
+* This procedure assumes that the replacement controller hardware is new and has not been used in another system. The steps required to prepare used controllers with the `wipeconfig` command are not included in this procedure. You must contact technical support if the replacement controller hardware was previously used as part of another ONTAP cluster or as a standalone single node system.
+* You can use this procedure to upgrade the controller hardware in clusters with more than two nodes; however, you need to perform the procedure separately for each high-availability (HA) pair in the cluster.
+* This procedure applies only to AFF A700 systems. For all other controller models that need upgrading to an AFF A900 system, refer to link:other_references.html[References] to link to the _Use "system controller replace" commands to upgrade controller hardware running ONTAP 9.8 or later_ and the _Using Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.8 or Later_ content. 
+* If you are upgrading from an AFF A700 system with downtime, you can upgrade controller hardware by moving storage or contact technical support. Refer to link:other_references.html[References] to link to _Upgrade by moving volumes or storage_.

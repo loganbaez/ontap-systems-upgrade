@@ -1,0 +1,34 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-mendocino-app/decide-to-use-the-aggregate-relocation-guide.html
+keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability
+summary: This content describes how to upgrade the storage controllers in an HA pair with new controllers.
+---
+
+= Decide whether to use the aggregate relocation content
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This content describes how to upgrade the storage controllers in an AFF A700 HA pair with new AFF A900 controllers, while keeping all the existing data and disks. This is a complex procedure that should be used only by experienced administrators.
+
+You should use this guide under the following circumstances:
+*	You have received the NetApp AFF A900 controller module and NVS upgrade kit.
+*	You are running ONTAP 9.10.1 or later.
+*	You do not want to add the new controllers as a new HA pair to the cluster and migrate the data using volume moves.
+*	You are experienced in administering ONTAP and are comfortable with the risks of working in the diagnostic privilege mode.
+
+You should NOT use this guide under the following circumstances:
+* If you are using FlexArray Virtualization Software on AFF A700 systems, do *NOT* use this procedure.
+* If you are using a shared switch for cluster-interconnect and Ethernet attached storage, do *NOT* use this procedure.
+
+For upgrading Fabric MetroCluster or MetroCluster IP configurations, refer to link:other_references.html[References] to link to the _MetroCluster Upgrade and Expansion_ content.
+
+NOTE: You can use NetApp Storage Encryption (NSE) and NetApp Volume Encryption (NVE) with this procedure.
+
+If you prefer a different method of upgrading the controller hardware and are willing to do volume moves, refer to link:other_references.html[References] to link to _Upgrade by moving volumes or storage_.
+
+Refer to link:other_references.html[References] to link to the _ONTAP 9 Documentation Center_ where you can access ONTAP 9 product documentation.

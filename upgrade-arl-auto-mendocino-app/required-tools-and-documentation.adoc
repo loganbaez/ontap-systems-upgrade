@@ -1,0 +1,29 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-mendocino-app/required-tools-and-documentation.html
+keywords: required, tools, documentation, install, worksheet, ontap
+summary: You must have specific tools to install the new hardware, and you need to reference other documents during the upgrade process.
+---
+
+= Required tools and documentation
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You must have specific tools to install the new hardware, and you need to reference other documents during the upgrade process.
+
+You need the following tools to perform the up grade:
+
+* Grounding strap
+
+Go to the link:other_references.html[References] section to access the list of reference documents required for this upgrade.
+
+The NetApp Support Site also contains information:
+
+* Documentation about network interface cards (NICs) and other hardware that you might use with your system. Refer to link:other_references.html[References] to link to the _NetApp Support Site_
+* The Hardware Universe, which provides information about the hardware that the new system supports. Refer to link:other_references.html[References] to link to the _Hardware Universe_.
+
+Refer to link:other_references.html[References] to link to the _ONTAP 9 Documentation Center_ where you can access ONTAP 9 product documentation.

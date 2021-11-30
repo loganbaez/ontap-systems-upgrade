@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-mendocino-app/automate-the-controller-upgrade-process.html
+keywords: automating, controller, upgrade, network, port, aff, a700, a900
+summary: During a controller upgrade, an AFF A700 controller is replaced with an AFF A900 controller.
+---
+
+= Automate the controller upgrade process
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+During this controller upgrade, an AFF A700 controller is replaced with an AFF A900 controller. This content provides the steps for the automated procedure which utilizes automatic disk assignment and network port reachability checks to simplify the controller upgrade experience.

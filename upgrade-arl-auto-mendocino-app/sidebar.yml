@@ -2,17 +2,17 @@ section: upgrade-arl-mendocino
 title: AFF A700 to AFF A900 nondisruptive upgrade by swapping the controller module and nonvolatile storage module
 entries:
 - title: Overview
-  url: /upgrade-arl-mendocino/index.html
+  url: /upgrade-arl-mendocino-app/index.html
 - title: Automate the controller upgrade process
-  url: /upgrade-arl-mendocino/automate-the-controller-upgrade-process.html
+  url: /upgrade-arl-mendocino-app/automate-the-controller-upgrade-process.html
 - title: Decide whether to use the aggregate relocation content
-  url: /upgrade-arl-mendocino/decide-to-use-the-aggregate-relocation-guide.html
+  url: /upgrade-arl-mendocino-app/decide-to-use-the-aggregate-relocation-guide.html
 - title: Required tools and documentation
-  url: /upgrade-arl-mendocino/required-tools-and-documentation.html
+  url: /upgrade-arl-mendocino-app/required-tools-and-documentation.html
 - title: Guidelines for upgrading from an AFF A700 to an AFF A900 with ARL
-  url: /upgrade-arl-mendocino/guidelines-for-upgrading-controllers-with-arl.html
+  url: /upgrade-arl-mendocino-app/guidelines-for-upgrading-controllers-with-arl.html
 - title: Overview of the ARL upgrade
-  url: /upgrade-arl-mendocino/overview-of-the-arl-upgrade.html
+  url: /upgrade-arl-mendocino-app/overview-of-the-arl-upgrade.html
 - title: Upgrade the node pair
   url: /upgrade-arl-mendocino/upgrade-node-pair.html
 - title: Stage 1 Prepare for upgrade
@@ -86,7 +86,7 @@ entries:
 - title: Troubleshoot
   entries:
   - title: Overview
-    url: /upgrade-arl-mendocino/index.html
+    url: /upgrade-arl-mendocino-app/troubleshoot-index.html
   - title: Aggregate relocation failures
     url: /upgrade-arl-mendocino/aggregate-relocation-failures.html
   - title: Reboots, panics, or power cycles
@@ -96,4 +96,4 @@ entries:
   - title: LIF migration failure
     url: /upgrade-arl-mendocino/lif-migration-failure.html
 - title: References
-  url: /upgrade-arl-mendocino/other-references.html
+  url: /upgrade-arl-mendocino-app/other-references.html

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-mendocino-app/other-references.html
+permalink: upgrade-arl-manual-app/other_references.html
 keywords: other references, documentation, hardware universe, content, documentation center, information
 summary: You can link to other reference content and websites in this topic.
 ---
