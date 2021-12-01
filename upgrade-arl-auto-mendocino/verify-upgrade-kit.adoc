@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-mendocino/verify-upgrade-kit.html
+keywords: preparing, nodes, upgrade
+summary: Begin the controller replacement process by entering the following command in the ONTAP command line.
+---
+
+= Verify the upgrade kit
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Before you start the upgrade, you must verify that your upgrade kit is for upgrading from an AFF A700 to an AFF A900 system. The kit should contain a minimum of two system controller modules and two NVS modules per HA pair that is required to be upgraded. If there are parts missing, contact technical support for assistance.
