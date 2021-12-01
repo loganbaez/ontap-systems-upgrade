@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-manual/get_address_key_management_server_encryption.html
+permalink: upgrade-arl-auto-mendocino/get-ip-address-of-external-kms-for-storage-encryption.html
 keywords: storage, encryption, authentication, key, manager, external
 summary: Configure Storage Encryption and establish a client authentication key.
 ---
