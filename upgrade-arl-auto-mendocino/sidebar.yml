@@ -50,7 +50,7 @@ entries:
     - title: Relocate non-root aggregates and NAS data LIFs from node2 to node1
       url: /upgrade-arl-auto-mendocino/relocate-non-root-aggr-nas-lifs-from-node2-to-node1.html
     - title: Retire node2
-      url: /upgrade-arl-auto-mendocino/retire_node2.html
+      url: /upgrade-arl-auto-mendocino/retire-node2.html
 - title: Stage 5 Install the AFF A900 NVS and controller module on node2
   entries:
    - title: Install AFF A900 NVS and controller module on node2
@@ -76,7 +76,7 @@ entries:
   - title: Set up NetApp Volume Encryption on the new controller module
     url: /upgrade-arl-auto-mendocino/set-up-netapp-volume-encryption-new-module.html
   - title: Decommission the old system
-    url: /upgrade-arl-auto-mendocino/decommission-old-system.html
+    url: /upgrade-arl-auto-mendocino/decommission_old_system.html.html
   - title: Resume SnapMirror operations
     url: /upgrade-arl-auto-mendocino/resume-snapmirror-operations.html
 - title: Troubleshoot
