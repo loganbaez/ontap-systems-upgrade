@@ -44,14 +44,16 @@ WARNING: When you are working on node1, you only remove the console and e0M cabl
 .	Unlock and remove the controller module A from the chassis.
 ..	Slide the orange button on the cam handle downward until it unlocks.
 +
-image::../upgrade/media/drw_9500_remove_PCM.png[Remove controller module]
+image::../media/drw_9500_remove_PCM.png[Remove controller module]
 +
 [cols=2*,cols="25,75"]
 
 |===
-|
+a|
+image::../media/black_circle_one.png[Number one]
 |Cam handle release button
-|
+a|
+image::../media/black_circle_two.png[Number two]
 |Cam handle
 |===
 
@@ -74,12 +76,16 @@ The cam button moves away from the chassis.
 The NVS disengages from the chassis and moves a few inches.
 ..	Remove the NVS from the chassis by pulling on the pull tabs on the sides of the module face.
 +
+image::../media/drw_a900_move-remove_NVRAM_module.png[Remove NVS]
++
 [cols=2*,cols="25,75"]
 
 |===
-|
+a|
+image::../media/black_circle_one.png[Number one]
 |Lettered and numbered I/O cam latch
-|
+a|
+image::../media/black_circle_two.png[Number two]
 |I/O latch completely unlocked
 |===
 
@@ -98,12 +104,16 @@ Use the following procedure to install the AFF A900 NVS in slot 6 of node1.
 .	Align the NVS with the edges of the chassis opening in slot 6.
 .	Gently slide the NVS into the slot until the lettered and numbered I/O cam latch begins to engage with the I/O cam pin, and then push the I/O cam latch all the way up to lock the NVS in place.
 +
+image::../media/drw_a900_move-remove_NVRAM_module.png[Install NVS]
++
 [cols=2*,cols="25,75"]
 
 |===
-|
+a|
+image::../media/black_circle_one.png[Number one]
 |Lettered and numbered I/O cam latch
-|
+a|
+image::../media/black_circle_two.png[Number two]
 |I/O latch completely unlocked
 |===
 
@@ -124,13 +134,17 @@ NOTE:	Because the chassis is already powered ON, node1 starts BIOS initializatio
 The locking latch rises when the controller module is fully seated.
 +
 WARNING: Do not use excessive force when sliding the controller module into the chassis to avoid damaging the connectors.
-
++
+image::../media/drw_9500_remove_PCM.png[Install controller module]
++
 [cols=2*,cols="25,75"]
 
 |===
-|
+a|
+image::../media/black_circle_one.png[Number one]
 |Cam handle locking latch
-|
+a|
+image::../media/black_circle_two.png[Number two]
 |Cam handle in the unlocked position
 |===
 

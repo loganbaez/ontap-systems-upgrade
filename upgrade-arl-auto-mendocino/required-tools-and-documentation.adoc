@@ -23,7 +23,7 @@ Go to the link:other_references.html[References] section to access the list of r
 
 The NetApp Support Site also contains information:
 
-* Documentation about network interface cards (NICs) and other hardware that you might use with your system. Refer to link:other_references.html[References] to link to the _NetApp Support Site_
+* Documentation about network interface cards (NICs) and other hardware that you might use with your system. Refer to link:other_references.html[References] to link to the _NetApp Support Site_.
 * The Hardware Universe, which provides information about the hardware that the new system supports. Refer to link:other_references.html[References] to link to the _Hardware Universe_.
 
 Refer to link:other_references.html[References] to link to the _ONTAP 9 Documentation Center_ where you can access ONTAP 9 product documentation.
