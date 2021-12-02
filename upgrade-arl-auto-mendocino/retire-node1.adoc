@@ -46,7 +46,7 @@ WARNING: When you are working on node1, you only remove the console and e0M cabl
 +
 image::../media/drw_9500_remove_PCM.png[Remove controller module]
 +
-[cols=2*,cols="25,75"]
+[cols=2*,cols="20,80"]
 
 |===
 a|
@@ -78,7 +78,7 @@ The NVS disengages from the chassis and moves a few inches.
 +
 image::../media/drw_a900_move-remove_NVRAM_module.png[Remove NVS]
 +
-[cols=2*,cols="25,75"]
+[cols=2*,cols="20,80"]
 
 |===
 a|
@@ -106,7 +106,7 @@ Use the following procedure to install the AFF A900 NVS in slot 6 of node1.
 +
 image::../media/drw_a900_move-remove_NVRAM_module.png[Install NVS]
 +
-[cols=2*,cols="25,75"]
+[cols=2*,cols="20,80"]
 
 |===
 a|
@@ -137,7 +137,7 @@ WARNING: Do not use excessive force when sliding the controller module into the 
 +
 image::../media/drw_9500_remove_PCM.png[Install controller module]
 +
-[cols=2*,cols="25,75"]
+[cols=2*,cols="20,80"]
 
 |===
 a|
