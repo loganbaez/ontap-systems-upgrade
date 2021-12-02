@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-app/relocate_failed_vetoed_aggr.html
-keywords: relocating, failed, vetoed, aggregates, relocation, operation
+permalink: upgrade-arl-auto-mendocino/relocate-failed-or-vetoed-aggr.html
+keywords: relocate, failed, vetoed, aggregates, relocation, operation
 summary: If any aggregates fail to relocate or are vetoed, you must manually relocate the aggregates.
 ---
 
@@ -12,11 +12,6 @@ summary: If any aggregates fail to relocate or are vetoed, you must manually rel
 :linkattrs:
 :imagesdir: ./media/
 
-//
-// This file was created with NDAC Version 2.0 (August 17, 2020)
-//
-// 2020-12-02 14:33:54.060713
-//
-
 [.lead]
+
 include::../_include/ru_auto_relocate_failed_vetoed_aggregates.adoc[]

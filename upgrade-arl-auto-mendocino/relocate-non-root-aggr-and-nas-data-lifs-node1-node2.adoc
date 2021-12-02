@@ -1,0 +1,31 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-mendocino/relocate-non-root-aggr-and-nas-data-lifs-node1-node2.html
+keywords: relocating, non-root, aggregates, nas, data, lif, node1, node2
+summary: Before you can replace node1 with the AFF A900 controller module and NVS, you must move the non-root aggregates and NAS data LIFs from node 1 to node2.
+---
+
+= Relocate non-root aggregates and NAS data LIFs owned by node1 to node2
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Before you can replace node1 with the AFF A900 controller module and NVS, you must move the non-root aggregates and NAS data LIFs from node1 to node2 before eventually restoring node1's resources back on node1 running on the AFF A900 hardware. This process is largely automated; the operation pauses to allow you to check its status.
+
+.Before you begin
+
+The operation should already be paused when you begin the task; you must manually resume the operation.
+
+.About this task
+
+Remote LIFs handle traffic to SAN LUNs during the upgrade procedure. You are not required to move SAN LIFs for cluster or service health during the upgrade. You must verify that the LIFs are healthy and located on appropriate ports after you bring node1 online as AFF A900.
+
+include::../_include/ru_auto_relocate_non_root_aggr_nas_lifs_from_node1_to_node2_steps_1_4.adoc[]
+
+[start=5]
+. [[step5]]If any LIFs are down, set the administrative status of the LIFs to `up` by using the following command, once for each LIF:
++
+`network interface modify -vserver <vserver_name> -lif <LIF_name> -home-node <nodename> - status-admin up`

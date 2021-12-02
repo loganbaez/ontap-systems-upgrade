@@ -33,10 +33,6 @@ entries:
       url: /upgrade-arl-auto-mendocino/relocate-failed-or-vetoed-aggr.html
     - title: Retire node1
       url: /upgrade-arl-auto-mendocino/retire-node1.html
-    - title: Remove the AFF A700 controller module and NVS
-      url: /upgrade-arl-auto-mendocino/remove-a700-controller-and-nvs
-    - title: Install the AFF A900 NVS and controller module on node1
-      url: /upgrade-arl-auto-mendocino/install-a900-nvs-and-controller-on-node1
     - title: Netboot node1
       url: /upgrade-arl-auto-mendocino/netboot-node1.html
 - title: Stage 3 Boot node1 with the AFF A900 controller module and NVS
