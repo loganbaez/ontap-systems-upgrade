@@ -60,7 +60,8 @@ The license-code parameter accepts a list of 28 upper-case alphabetic character 
 `system license clean-up -unused -expired`
 +
 `system license delete -serial-number <node_serial_number> -package <licensable_package>`
-
++
+--
 ** Delete all expired licenses:
 +
 `system license clean-up -expired`
@@ -74,6 +75,7 @@ The license-code parameter accepts a list of 28 upper-case alphabetic character 
 `system license delete -serial-number <node1 serial number> -package *`
 +
 `system license delete -serial-number <node2 serial number> -package *`
+--
 +
 The following output is displayed:
 +

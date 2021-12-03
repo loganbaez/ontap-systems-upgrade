@@ -1,0 +1,49 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-mendocino/install-a900-nvs-and-controller-on-node2.html
+keywords: relocating, non-root, aggregates, nas, data, lif, node1, node2
+summary: Before you can replace node1 with the AFF A900 controller module and NVS, you must move the non-root aggregates and NAS data LIFs from node 1 to node2.
+---
+
+= Install AFF A900 NVS and controller module on node2
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You must install the AFF A900 NVS and controller module from the upgrade kit on node2. Node2 is the controller B located on the right side of the chassis when looking at the controllers from the rear of the system.
+
+.Before you begin
+If you are not already grounded, properly ground yourself.
+
+== Install the AFF A900 NVS
+Use the following procedure to install the AFF A900 NVS in slot 6 of node2.
+
+.Steps
+.	Align the NVS with the edges of the chassis opening in slot 6.
+.	Gently slide the NVS into the slot until the lettered and numbered I/O cam latch begins to engage with the I/O cam pin, and then push the I/O cam latch all the way up to lock the NVS in place.
+
+== Install the AFF A900 controller module in node2.
+Use the following procedure to install the AFF A900 controller module in node2.
+
+.Steps
+.	Align the end of the controller module with bay B in the chassis, and then gently push the controller module halfway into the system.
++
+TIP:  The bay label is located on the chassis directly above the controller module.
++
+NOTE: Do not completely insert the controller module in the chassis until you are instructed to do so.
+
+.	Cable the management and console ports to the node2 controller module.
++
+NOTE: Because the chassis is already powered ON, node2 starts booting as soon as it is fully seated. To avoid node2 booting, it is recommended to connect the console and management cables to the node2 controller module before completely inserting controller module into the slot.
+
+.	Firmly push the controller module into the chassis until it meets the midplane and is fully seated.
++
+The locking latch rises when the controller module is fully seated.
++
+WARNING: Do not use excessive force when sliding the controller module into the chassis to avoid damaging the connectors.
+
+.	Connect the serial console as soon as the module is seated and be ready to interrupt AUTOBOOT of node1.
+.	After autoboot is interrupted, node2 stops at the LOADER prompt. If autoboot is not interrupted on time and node2 starts booting, wait for the prompt to press *Ctrl-C* to go into the boot menu. After the node stops at the boot menu, use option 8 to reboot the node and interrupt the autoboot during reboot. 

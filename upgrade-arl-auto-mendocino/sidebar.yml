@@ -12,7 +12,7 @@ entries:
 - title: Guidelines for upgrading from an AFF A700 to an AFF A900 with ARL
   url: /upgrade-arl-auto-mendocino/guidelines-for-upgrading-controllers-with-arl.html
 - title: Overview of the ARL upgrade
-  url: /upgrade-arl-auto-mendocino/overview-of-the-arl-upgrade.html
+  url: /upgrade-arl-auto-mendocino/overview_of_the_arl_upgrade.html
 - title: Upgrade the node pair
   url: /upgrade-arl-auto-mendocino/upgrade-node-pair.html
 - title: Stage 1 Prepare for upgrade
@@ -55,8 +55,8 @@ entries:
   entries:
    - title: Install AFF A900 NVS and controller module on node2
      url: /upgrade-arl-auto-mendocino/install-a900-nvs-and-controller-on-node2.html
-   - title: Netboot node1
-     url: /upgrade-arl-auto-mendocino/netboot-node1.html
+   - title: Netboot node2
+     url: /upgrade-arl-auto-mendocino/netboot-node2.html
 - title: Stage 6 Boot node2 with the AFF A900 controller module and NVS
   entries:
    - title: Boot node2 with the AFF A900 controller module and NVS

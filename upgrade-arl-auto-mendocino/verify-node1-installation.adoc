@@ -40,15 +40,15 @@ The output of the `health` field should be `true`.
 .	Resume the controller replacement operation:
 +
 `system controller replace resume`
-.	Controller replacement will pause for intervention with the following message:
+.	The controller replacement operation pauses for intervention with the following message:
 +
 ----
 Cluster::*> system controller replace show
-Node             Status                       Error-Action
+Node          Status                       Error-Action
 ------------  ------------------------     ------------------------------------
 Node1         Paused-for-intervention      Follow the instructions given in
-                                              Step Details
-Node2                      None
+                                           Step Details
+Node2         None
 
 Step Details:
 --------------------------------------------
@@ -69,14 +69,14 @@ NOTE:	In this guide section _Re-creating VLANs, ifgrps, and broadcast domains_ h
 After you confirm that node1 is in quorum and can communicate with node2, verify that node1’s VLANs, interface groups, and broadcast domains are seen on node1. Also, verify that all node1 network ports are configured in their correct broadcast domains.
 
 .About this task
-For more information on creating and re-creating VLANs, interface groups, and broadcast domains. Refer to link:other_references.html[References] to link to the _Network Management_ content.
+For more information on creating and re-creating VLANs, interface groups, and broadcast domains, refer to link:other_references.html[References] to link to the _Network Management_ content.
 
 .Steps
 .	List all the physical ports that are on upgraded node1:
 +
 `network port show -node node1`
 +
-All physical network ports, VLAN ports and interface group ports on the node are displayed. From this output, you can see any physical ports that have been moved into the Cluster broadcast domain by ONTAP. You can use this output to aid in deciding which ports should be used as interface group member ports, VLAN base ports or standalone physical ports for hosting LIFs.
+All physical network ports, VLAN ports, and interface group ports on the node are displayed. From this output, you can see any physical ports that have been moved into the `Cluster` broadcast domain by ONTAP. You can use this output to aid in deciding which ports should be used as interface group member ports, VLAN base ports, or standalone physical ports for hosting LIFs.
 .	List the broadcast domains on the cluster:
 +
 `broadcast-domain show`

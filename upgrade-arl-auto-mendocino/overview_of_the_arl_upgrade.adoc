@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-mendocino/overview-of-the-arl-upgrade.html
+permalink: upgrade-arl-auto-mendocino/overview_of_the_arl_upgrade.html
 keywords: overview, arl, upgrade, owner, controller, hardware
 summary: Before you upgrade the nodes using ARL, you should understand how the procedure works.
 ---

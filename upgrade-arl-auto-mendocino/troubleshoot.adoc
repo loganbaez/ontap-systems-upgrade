@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: /upgrade-arl-auto-mendocino-app/troubleshoot-index.html
+keywords: troubleshooting, node, aggregate, lif, migrate, failure
+summary: You might encounter a failure while upgrading the node pair.
+---
+
+= Troubleshoot
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+
+[.lead]
+include::../_include/ru_auto_troubleshoot.adoc[]

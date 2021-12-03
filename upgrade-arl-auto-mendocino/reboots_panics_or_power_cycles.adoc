@@ -1,3 +1,18 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-mendocino/reboots-panics-or-power-cycles.html
+keywords: reboots, panics, power, cycles, node, crash
+summary: The system might crash – reboot, panic or go through a power cycle.
+---
+
+= Reboots, panics, or power cycles
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
 The system might crash – reboot, panic or go through a power cycle – during different stages of the upgrade.
 
 The solution to these problems depends on when they occur.
@@ -68,13 +83,13 @@ Node1 does not take over.
 +
 A client outage occurs for all aggregates while node2 is booting up.
 
-. Continue with the rest of the node-pair upgrade procedure.
+. Continue the with rest of the node-pair upgrade procedure.
 
 == Reboots, panics, or power cycles during the first verification phase
 
 === Node2 crashes during the first verification phase with HA pair disabled
 
-Node3 does not take over following a node2 crash as the HA pair is already disabled.
+Node1 does not take over following a node2 crash as the HA pair is already disabled.
 
 .Steps
 
@@ -84,46 +99,46 @@ A client outage occurs for all aggregates while node2 is booting up.
 
 . Continue with the node-pair upgrade procedure.
 
-=== Node3 crashes during the first verification phase with HA pair disabled
+=== Node1 crashes during the first verification phase with HA pair disabled
 
 Node2 does not take over but it is still serving data from all non-root aggregates.
 
 .Steps
 
-. Bring up node3.
+. Bring up node1.
 . Continue with the node-pair upgrade procedure.
 
 == Reboots, panics, or power cycles during first resource-regain phase
 
 === Node2 crashes during the first resource-regain phase during aggregate relocation
 
-Node2 has relocated some or all of its aggregates from node1 to node3. Node3 serves data from aggregates that were relocated. The HA pair is disabled and hence there is no takeover.
+Node2 has relocated some or all of its aggregates from node1 to node1. Node1 serves data from aggregates that were relocated. The HA pair is disabled and hence there is no takeover.
 
 .About this task
 
-There is client outage for aggregates that were not relocated. On booting up node2, the aggregates of node1 are relocated to node3.
+There is client outage for aggregates that were not relocated. On booting up node2, the aggregates of node1 are relocated to node1.
 
 .Steps
 
 . Bring up node2.
 . Continue with the node-pair upgrade procedure.
 
-=== Node3 crashes during the first resource-regain phase during aggregate relocation
+=== Node1 crashes during the first resource-regain phase during aggregate relocation
 
-If node3 crashes while node2 is relocating aggregates to node3, the task continues after node3 boots up.
+If node1 crashes while node2 is relocating aggregates to node1, the task continues after node1 boots up.
 
 .About this task
 
-Node2 continues to serve remaining aggregates, but aggregates that were already relocated to node3 encounter client outage while node3 is booting up.
+Node2 continues to serve remaining aggregates, but aggregates that were already relocated to node1 encounter client outage while node1 is booting up.
 
 .Steps
 
-. Bring up node3.
+. Bring up node1.
 . Continue with the controller upgrade.
 
 == Reboots, panics, or power cycles during post-check phase
 
-=== Node2 or node3 crashes during the post-check phase
+=== Node1 or node2 crashes during the post-check phase
 
 The HA pair is disabled hence this is no takeover. There is a client outage for aggregates belonging to the node that rebooted.
 
@@ -134,17 +149,17 @@ The HA pair is disabled hence this is no takeover. There is a client outage for 
 
 == Reboots, panics, or power cycles during second resource-release phase
 
-=== Node3 crashes during the second resource-release phase
+=== Node1 crashes during the second resource-release phase
 
-If node3 crashes while node2 is relocating aggregates, the task continues after node3 boots up.
+If node1 crashes while node2 is relocating aggregates, the task continues after node1 boots up.
 
 .About this task
 
-Node2 continues to serve remaining aggregates but aggregates that were already relocated to node3 and node3's own aggregates encounter client outages while node3 is booting.
+Node2 continues to serve remaining aggregates but aggregates that were already relocated to node1 and node1's own aggregates encounter client outages while node1 is booting.
 
 .Steps
 
-. Bring up node3.
+. Bring up node1.
 . Continue with the controller upgrade procedure.
 
 === Node2 crashes during the second resource-release phase
@@ -153,9 +168,37 @@ If node2 crashes during aggregate relocation, node2 is not taken over.
 
 .About this task
 
-Node3 continues to serve the aggregates that have been relocated,  but the aggregates owned by node2 encounter client outages.
+Node1 continues to serve the aggregates that have been relocated,  but the aggregates owned by node2 encounter client outages.
 
 .Steps
 
 . Bring up node2.
 . Continue with the controller upgrade procedure.
+
+== Reboots, panics, or power cycles during the second verification phase
+
+=== Node1 crashes during the second verification phase
+
+If node1 crashes during this phase, takeover does not happen because the HA pair is already disabled.
+
+.About this task
+
+There is a client outage for all aggregates until node1 reboots.
+
+.Steps
+
+. Bring up node1.
+. Continue with the node-pair upgrade procedure.
+
+=== Node2 crashes during the second verification phase
+
+If node2 crashes during this phase, takeover does not happen. Node1 serves data from the aggregates.
+
+.About this task
+
+There is an outage for non-root aggregates that were already relocated until node2 reboots.
+
+.Steps
+
+. Bring up node2.
+. Continue with the node-pair upgrade procedure.
