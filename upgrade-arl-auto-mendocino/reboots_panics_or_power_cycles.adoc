@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-mendocino/reboots-panics-or-power-cycles.html
+permalink: upgrade-arl-auto-mendocino/reboots_panics_or_power_cycles.html
 keywords: reboots, panics, power, cycles, node, crash
 summary: The system might crash – reboot, panic or go through a power cycle.
 ---

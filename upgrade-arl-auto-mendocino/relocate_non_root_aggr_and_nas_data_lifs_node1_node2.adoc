@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-mendocino/relocate-non-root-aggr-and-nas-data-lifs-node1-node2.html
+permalink: upgrade-arl-auto-mendocino/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html
 keywords: relocating, non-root, aggregates, nas, data, lif, node1, node2
 summary: Before you can replace node1 with the AFF A900 controller module and NVS, you must move the non-root aggregates and NAS data LIFs from node 1 to node2.
 ---

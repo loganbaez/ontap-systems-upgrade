@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-mendocino/required-tools-and-documentation.html
+permalink: upgrade-arl-auto-mendocino/required_tools_and_documentation.html
 keywords: required, tools, documentation, install, worksheet, ontap
 summary: You must have specific tools to install the new hardware, and you need to reference other documents during the upgrade process.
 ---

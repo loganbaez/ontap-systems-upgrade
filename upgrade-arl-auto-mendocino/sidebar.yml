@@ -4,92 +4,90 @@ entries:
 - title: Overview
   url: /upgrade-arl-auto-mendocino/index.html
 - title: Automate the controller upgrade process
-  url: /upgrade-arl-auto-mendocino/automate-the-controller-upgrade-process.html
+  url: /upgrade-arl-auto-mendocino/automate_the_controller_upgrade_process.html
 - title: Decide whether to use the aggregate relocation content
-  url: /upgrade-arl-auto-mendocino/decide-to-use-the-aggregate-relocation-guide.html
+  url: /upgrade_arl-auto_mendocino/decide_to_use_the_aggregate_relocation_guide.html
 - title: Required tools and documentation
-  url: /upgrade-arl-auto-mendocino/required-tools-and-documentation.html
+  url: /upgrade-arl-auto-mendocino/required_tools_and_documentation.html
 - title: Guidelines for upgrading from an AFF A700 to an AFF A900 with ARL
-  url: /upgrade-arl-auto-mendocino/guidelines-for-upgrading-controllers-with-arl.html
+  url: /upgrade-arl-auto-mendocino/guidelines_for_upgrading_controllers_with_arl.html
 - title: Overview of the ARL upgrade
   url: /upgrade-arl-auto-mendocino/overview_of_the_arl_upgrade.html
 - title: Upgrade the node pair
-  url: /upgrade-arl-auto-mendocino/upgrade-node-pair.html
+  url: /upgrade-arl-auto-mendocino/upgrade_node_pair.html
 - title: Stage 1 Prepare for upgrade
   entries:
     - title: Verify the upgrade kit
-      url: /upgrade-arl-auto-mendocino/verify-upgrade-kit.html
+      url: /upgrade-arl-auto-mendocino/verify_upgrade_kit.html
     - title: Prepare the nodes for upgrade
-      url: /upgrade-arl-auto-mendocino/prepare-nodes-for-upgrade.html
-    - title: License
-      url: /upgrade-arl-auto-mendocino/license.html
+      url: /upgrade-arl-auto-mendocino/prepare_nodes_for_upgrade.html
     - title: Get an IP address of an external key management server for storage encryption
-      url: /upgrade-arl-auto-mendocino/get-ip-address-of-external-kms-for-storage-encryption.html
+      url: /upgrade-arl-auto-mendocino/get_ip_address_of_external_kms_for_storage_encryption.html
 - title: Stage 2 Relocate resources from node1 and retire the AFF A700 node1
   entries:
     - title: Relocate non-root aggregates and NAS data LIFs owned by node1 to node2
-      url: /upgrade-arl-auto-mendocino/relocate-non-root-aggr-and-nas-data-lifs-node1-node2.html
+      url: /upgrade-arl-auto-mendocino/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html
     - title: Relocate failed or vetoed aggregates
-      url: /upgrade-arl-auto-mendocino/relocate-failed-or-vetoed-aggr.html
+      url: /upgrade-arl-auto-mendocino/relocate_failed_or_vetoed_aggr.html
     - title: Retire node1
-      url: /upgrade-arl-auto-mendocino/retire-node1.html
+      url: /upgrade-arl-auto-mendocino/retire_node1.html
     - title: Netboot node1
-      url: /upgrade-arl-auto-mendocino/netboot-node1.html
+      url: /upgrade-arl-auto-mendocino/netboot_node1.html
 - title: Stage 3 Boot node1 with the AFF A900 controller module and NVS
   entries:
     - title: Boot node1 with the AFF A900 controller module and NVS
-      url: /upgrade-arl-auto-mendocino/boot-node1-with-a900-controller-and-nvs.html
+      url: /upgrade-arl-auto-mendocino/boot_node1_with_a900_controller_and_nvs.html
     - title: Verify the node1 installation
-      url: /upgrade-arl-auto-mendocino/verify-node1-installation.html
+      url: /upgrade-arl-auto-mendocino/verify_node1_installation.html
     - title: Restore key-manager configuration on the upgraded node1
-      url: /upgrade-arl-auto-mendocino/restore-key-manager-config-upgraded-node1.html
+      url: /upgrade-arl-auto-mendocino/restore_key_manager_config_upgraded_node1.html
     - title: Move non-root aggregates and NAS data LIFs owned by node1 from node2 to the upgraded node1
-      url: /upgrade-arl-auto-mendocino/move-non-root-aggr-nas-lifs-node1-from-node2-to-upgraded-node1.html
+      url: /upgrade-arl-auto-mendocino/move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html
 - title: Stage 4 Relocate resources from node2 and retire node2
   entries:
     - title: Relocate non-root aggregates and NAS data LIFs from node2 to node1
-      url: /upgrade-arl-auto-mendocino/relocate-non-root-aggr-nas-lifs-from-node2-to-node1.html
+      url: /upgrade-arl-auto-mendocino/relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html
     - title: Retire node2
-      url: /upgrade-arl-auto-mendocino/retire-node2.html
+      url: /upgrade-arl-auto-mendocino/retire_node2.html
 - title: Stage 5 Install the AFF A900 NVS and controller module on node2
   entries:
    - title: Install AFF A900 NVS and controller module on node2
-     url: /upgrade-arl-auto-mendocino/install-a900-nvs-and-controller-on-node2.html
+     url: /upgrade-arl-auto-mendocino/install_a900_nvs_and_controller_on_node2.html
    - title: Netboot node2
-     url: /upgrade-arl-auto-mendocino/netboot-node2.html
+     url: /upgrade-arl-auto-mendocino/netboot_node2.html
 - title: Stage 6 Boot node2 with the AFF A900 controller module and NVS
   entries:
    - title: Boot node2 with the AFF A900 controller module and NVS
-     url: /upgrade-arl-auto-mendocino/boot-node2-with-a900-controller-and-nvs.html
+     url: /upgrade-arl-auto-mendocino/boot_node2_with_a900_controller_and_nvs.html
    - title: Verify the node2 installation
-     url: /upgrade-arl-auto-mendocino/verify-node2-installation.html
+     url: /upgrade-arl-auto-mendocino/verify_node2_installation.html
    - title: Restore key-manager configuration on node2
-     url: /upgrade-arl-auto-mendocino/restore-key-manager-config-node2.html
+     url: /upgrade-arl-auto-mendocino/restore_key_manager_config_node2.html
    - title: Move non-root aggregates and NAS data LIFs back to node2
-     url: /upgrade-arl-auto-mendocino/move-non-root-aggr-and-nas-data-lifs-back-to-node2.html
+     url: /upgrade-arl-auto-mendocino/move_non_root_aggr_and_nas_data_lifs_back_to_node2.html
 - title: Stage 7 Complete the upgrade
   entries:
   - title: Ensure that the new controllers are set up correctly
-    url: /upgrade-arl-auto-mendocino/ensure-new-controllers-are-set-up-correctly.html
+    url: /upgrade-arl-auto-mendocino/ensure_new_controllers_are_set_up_correctly.html
   - title: Set up Storage Encryption on the new controller module
-    url: /upgrade-arl-auto-mendocino/set-up-storage-encryption-new_module.html
+    url: /upgrade-arl-auto-mendocino/set_up_storage_encryption_new_module.html
   - title: Set up NetApp Volume Encryption on the new controller module
-    url: /upgrade-arl-auto-mendocino/set-up-netapp-volume-encryption-new-module.html
+    url: /upgrade-arl-auto-mendocino/set_up_netapp_volume_encryption_new_module.html
   - title: Decommission the old system
     url: /upgrade-arl-auto-mendocino/decommission_old_system.html.html
   - title: Resume SnapMirror operations
-    url: /upgrade-arl-auto-mendocino/resume-snapmirror-operations.html
+    url: /upgrade-arl-auto-mendocino/resume_snapmirror_operations.html
 - title: Troubleshoot
   entries:
   - title: Overview
     url: /upgrade-arl-auto-mendocino-app/troubleshoot-index.html
   - title: Aggregate relocation failures
-    url: /upgrade-arl-auto-mendocino/aggregate-relocation-failures.html
+    url: /upgrade-arl-auto-mendocino/aggregate_relocation_failures.html
   - title: Reboots, panics, or power cycles
-    url: /upgrade-arl-auto-mendocino/reboots-panics-or-power-cycles.html
+    url: /upgrade-arl-auto-mendocino/reboots_panics_or_power_cycles.html
   - title: Issues that can arise in multiple stages of the procedure
-    url: /upgrade-arl-auto-mendocino/issues-in-multiple-stages-of-procedure.html
+    url: /upgrade-arl-auto-mendocino/issues_in_multiple_stages_of_procedure.html
   - title: LIF migration failure
-    url: /upgrade-arl-auto-mendocino/lif-migration-failure.html
+    url: /upgrade-arl-auto-mendocino/lif_migration_failure.html
 - title: References
-  url: /upgrade-arl-auto-mendocino/other-references.html
+  url: /upgrade-arl-auto-mendocino/other_references.html

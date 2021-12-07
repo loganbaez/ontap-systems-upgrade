@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-mendocino/guidelines-for-upgrading-controllers-with-arl.html
+permalink: upgrade-arl-auto-mendocino/guidelines_for_upgrading_controllers_with_arl.html
 keywords: guidelines, upgrade
 summary: Guidelines for upgrade controllers with ARL
 ---

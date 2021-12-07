@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-mendocino/netboot-node1
+permalink: upgrade-arl-auto-mendocino/netboot_node2.html
 keywords: preparing, netboot, ndac, ontap
 summary: After you physically rack node3 and node4 later in the procedure, you might need to netboot them.
 ---
 
-= Netboot node1
+= Netboot node2
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: After you physically rack node3 and node4 later in the procedure, you m
 :imagesdir: ./media/
 
 [.lead]
-After swapping the corresponding AFF A900 node1 controller module and NVS, you must netboot node1. The term netboot means you are booting from an ONTAP image stored on a remote server. When preparing for netboot, you must add a copy of the ONTAP 9 boot image onto a web server that the system can access.
+After swapping the corresponding AFF A900 node2 controller module and NVS, you might need to netboot them. The term netboot means you are booting from an ONTAP image stored on a remote server. When preparing for netboot, you must put a copy of the ONTAP 9 boot image onto a web server that the system can access.
 
 It is not possible to check the version of ONTAP installed on the boot media of an AFF A900 controller module unless it is installed in a chassis and powered ON. The ONTAP version on the AFF A900 boot media should be same as the ONTAP version running on the AFF A700 system that is being upgraded and both the primary and backup boot images should match. You can configure the images by performing a neboot followed by the `wipeconfig` command from the boot menu. If the controller module was previously used in another cluster, the `wipeconfig` command clears any residual configuration on the boot media.
 
@@ -28,7 +28,7 @@ You must netboot the new controllers if they do not have the same version of ONT
 
 .Steps
 .	Refer to link:other_references.html[References] to link to the _NetApp Support Site_ to download the files used for performing the netboot of the system.
-.	[[netboot_node1_step2]]Download the appropriate ONTAP software from the software download section of the NetApp Support Site and store the `<ontap_version>_image.tgz` file on a web-accessible directory.
+.	[[netboot_node2_step2]]Download the appropriate ONTAP software from the software download section of the NetApp Support Site and store the `<ontap_version>_image.tgz` file on a web-accessible directory.
 .	Change to the web-accessible directory and verify that the files you need are available.
 .	Your directory listing should contain `<ontap_version>_image.tgz`.
 .	Configure the netboot connection by choosing one of the following actions.
@@ -55,15 +55,15 @@ a|Manually configure the connection by using the following command at the boot e
 NOTE:	Other parameters might be necessary for your interface. Enter `help ifconfig` at the firmware prompt for details.
 |===
 
-.	Perform netboot on node1:
+.	Perform netboot on node2:
 +
 `netboot http://<web_server_ip/path_to_web_accessible_directory>/<ontap_version>_image.tgz`
 +
-The `<path_to_the_web-accessible_directory>` should lead to where you downloaded the `<ontap_version>_image.tgz` in <<netboot_node1_step2,Step 2>>.
+The `<path_to_the_web-accessible_directory>` should lead to where you downloaded the `<ontap_version>_image.tgz` in <<netboot_node2_step2,Step 2>>.
 +
 NOTE:	Do not interrupt the boot.
 
-.	Wait for the node1 now running on the AFF A900 controller module to boot and display the boot menu options as shown below:
+.	Wait for the node2 now running on the AFF A900 controller module to boot and display the boot menu options as shown below:
 +
 ----
 Please choose one of the following:
@@ -108,7 +108,7 @@ The node must be rebooted to start using the newly installed software. Do you wa
 ----
 +
 The controller module reboots but stops at the boot menu because the boot device was reformatted, and the configuration data needs to be restored.
-.	At the prompt, run the `wipeconfig` command to clear any previous configuration on the boot media:
+.	At the prompt, run the `wipeconfig` command to clear any previous configuration on the boot media.
 ..	When you see the message below, answer `yes`:
 +
 ----
@@ -117,7 +117,7 @@ Warning: do not run this option on a HA node that has been taken over.
 Are you sure you want to continue?:
 ----
 ..	The node reboots to finish the `wipeconfig` and then stops at the boot menu.
-.	Select option `5` to go to maintenance mode from the boot menu. Answer `yes` to the prompts until the node stops at maintenance mode and the command prompt *>.
+.	Select maintenance mode `5` from the boot menu and enter `y` when you are prompted to continue with the boot.
 .	Verify that the controller and chassis are configured as `ha`:
 +
 `ha-config show`
@@ -133,43 +133,34 @@ Controller HA configuration: ha
 `ha-config modify controller ha`
 +
 `ha-config modify chassis ha`
-.	Verify the `ha-config` settings:
-+
-`ha-config show`
-+
-----
-Chassis HA configuration: ha
-Controller HA configuration: ha
-----
-.	Halt node1:
+
+.	Halt node2:
 +
 `halt`
 +
-Node1 should stop at LOADER> prompt.
+Node2 should stop at LOADER> prompt.
 .	On node2, check the system date, time, and time zone:
 +
 `date`
-.	On node1, check the date by using the following command at the boot environment prompt:
+.	On node2, check the date by using the following command at the boot environment prompt:
 +
 `show date`
-.	If necessary, set the date on node1:
+.	If necessary, set the date on node2:
 +
 `set date <mm/dd/yyyy>`
-.	On node1, check the time by using the following command at the boot environment prompt:
+.	On node2, check the time by using the following command at the boot environment prompt:
 +
 `show time`
-.	If necessary, set the time on node1:
+.	If necessary, set the time on node2:
 +
 `set time <hh:mm:ss>`
-.	Set the partner system ID on node1:
+.	Set the partner system ID on node2:
 +
-`setenv partner-sysid <node2_sysid>`
-+
-You can obtain the node2 system ID from the `node show -node <node2>` command output on node2.
-+
+`setenv partner-sysid <node1_sysid>`
+
 ..	Save the settings:
 +
 `saveenv`
-.	On node1, at the LOADER prompt, you should verify the `partner-sysid`. For node1, the `partner-sysid` needs to be that of node2. Verify the `partner-sysid` for node1:
+.	On node2, at the LOADER prompt, you should verify the `partner-sysid`. For node2, the `partner-sysid` needs to be that of node1. Verify the `partner-sysid` for node1:
 +
 `printenv partner-sysid`

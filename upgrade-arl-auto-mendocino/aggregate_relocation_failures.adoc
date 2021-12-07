@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-app/aggregate_relocation_failures.html
+permalink: upgrade-arl-auto-mendocino/aggregate_relocation_failures.html
 keywords: aggregate, relocation, failures, ARL
 summary: Aggregate relocation (ARL) might fail at different points during the upgrade.
 ---
@@ -40,9 +40,9 @@ You can fix the incorrect ownership problem after Stage 6, after you have enable
 +
 `storage aggregate show -nodes <node2> -is-home true`
 +
-To identify aggregates that were not correctly relocated, refer to the list of aggregates with the home owner of node1 that you obtained in the section link:prepare-nodes-for-upgrade.html[Prepare the nodes for upgrade] and compare it with the output of the above command.
+To identify aggregates that were not correctly relocated, refer to the list of aggregates with the home owner of node1 that you obtained in the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade] and compare it with the output of the above command.
 
-.	Compare the output of Step 1 with the output you captured for node1 in the section link:prepare-nodes-for-upgrade.html[Prepare the nodes for upgrade] and note any aggregates that were not correctly relocated.
+.	Compare the output of Step 1 with the output you captured for node1 in the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade] and note any aggregates that were not correctly relocated.
 .	Relocate the aggregates left behind on node2:
 +
 `storage aggregate relocation start -node <node2> -aggr <aggr_node_1> -destination <node1>`

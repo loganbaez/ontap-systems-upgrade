@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-mendocino/decide-to-use-the-aggregate-relocation-guide.html
+permalink: upgrade-arl-auto-mendocino/decide_to_use_the_aggregate_relocation_guide.html
 keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability
 summary: This content describes how to upgrade the storage controllers in an HA pair with new controllers.
 ---

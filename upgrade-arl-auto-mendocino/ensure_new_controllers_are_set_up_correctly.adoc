@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-app/ensure_new_controllers_are_set_up_correctly.html
+permalink: upgrade-arl-auto-mendocino/ensure_new_controllers_are_set_up_correctly.html
 keywords: ensure, controllers, set up, ha, node3, node4, node2, lif, cluster, high, availability
 summary: To ensure correct setup, you must enable the HA pair.
 ---
@@ -56,7 +56,7 @@ If neither node1 or node2 owns data LIFs home-owned by other nodes in the cluste
 `volume show -node <node1> -state offline`
 +
 `volume show -node <node2> -state offline`
-.	If any volumes are offline, compare them with the list of offline volumes that you captured in the section link:prepare-nodes-for-upgrade.html[Prepare the nodes for upgrade], and bring online any of the offline volumes, as required, by using the following command, once for each volume:
+.	If any volumes are offline, compare them with the list of offline volumes that you captured in the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade], and bring online any of the offline volumes, as required, by using the following command, once for each volume:
 +
 `volume online -vserver <vserver-name> -volume <volume_name>`
 .	Install new licenses for the new nodes by using the following command for each node:
@@ -95,8 +95,8 @@ Enter `y` to remove all of the packages.
 +
 `system license show`
 +
-You might want to compare the output with the output that you captured in the link:prepare-nodes-for-upgrade.html[Prepare the nodes for upgrade] section.
-.	If NetApp Storage Encryption (NSE) was in use on the configuration and you set the `setenv bootarg.storageencryption.support` command to `true` with the `<kmip.init.maxwait>` variable `off` (in _Boot node2 with the AFF A900 controller module and NVS_, link:boot-node2-with-a900-controller-and-nvs.html#boot_node2_step1[Step 1]), you need to reset the variable:
+You might want to compare the output with the output that you captured in the link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade] section.
+.	If NetApp Storage Encryption (NSE) was in use on the configuration and you set the `setenv bootarg.storageencryption.support` command to `true` with the `<kmip.init.maxwait>` variable `off` (in _Boot node2 with the AFF A900 controller module and NVS_, link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1[Step 1]), you need to reset the variable:
 +
 `set diag; systemshell -node <nodename> -command sudo kenv -u -p kmip.init.maxwait`
 .	Configure the SPs by using the following command on both nodes:

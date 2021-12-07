@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-mendocino/prepare-nodes-for-upgrade.html
+permalink: upgrade-arl-auto-mendocino/prepare_nodes_for_upgrade.html
 keywords: preparing, nodes, upgrade
 summary: Begin the controller replacement process by entering the following command in the ONTAP command line.
 ---

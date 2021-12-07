@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-mendocino/restore-key-manager-config-node2.html
+permalink: upgrade-arl-auto-mendocino/restore_key_manager_config_upgraded_node1.html
 keywords: restore key-manager, configuration, node1, nve, arl, volume, encryption
 summary: If you are using Netapp Volume Encryption (NVE) to encrypt volumes on the system you are upgrading.
 ---
 
-= Restore key-manager configuration on node2
+= Restore key-manager configuration on the upgraded node1
 :hardbreaks:
 :nofooter:
 :icons: font
