@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: /upgrade-arl-auto-mendocino-app/troubleshoot-index.html
+permalink: /upgrade-arl-auto-mendocino-app/troubleshoot_index.html
 keywords: troubleshooting, node, aggregate, lif, migrate, failure
 summary: You might encounter a failure while upgrading the node pair.
 ---
@@ -14,4 +14,6 @@ summary: You might encounter a failure while upgrading the node pair.
 
 
 [.lead]
-include::../_include/ru_auto_troubleshoot.adoc[]
+You might encounter a failure while upgrading the node pair. The node might crash, aggregates might not relocate, or LIFs might not migrate. The cause of the failure and its solution depend on when the failure occurred during the upgrade procedure.
+
+Refer to the table describing the different phases of the procedure in the section link:overview_of_the_arl_upgrade.html[Overview of the ARL upgrade]. Information about the failures that can occur is listed by the phase of the procedure.

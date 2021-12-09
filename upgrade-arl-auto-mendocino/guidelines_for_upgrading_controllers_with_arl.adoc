@@ -28,6 +28,6 @@ If you are upgrading nodes in a two-node switchless cluster, you can leave the n
 
 == Troubleshoot
 
-If any problems occur while upgrading the controllers, you can refer to the link:troubleshoot-index.html[Troubleshoot] section at the end of the procedure for more information and possible solutions.
+If any problems occur while upgrading the controllers, you can refer to the link:troubleshoot_index.html[Troubleshoot] section at the end of the procedure for more information and possible solutions.
 
 If you do not find a solution to the problem you encountered, you should contact technical support.

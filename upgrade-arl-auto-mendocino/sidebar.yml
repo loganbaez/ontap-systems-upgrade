@@ -6,7 +6,7 @@ entries:
 - title: Automate the controller upgrade process
   url: /upgrade-arl-auto-mendocino/automate_the_controller_upgrade_process.html
 - title: Decide whether to use the aggregate relocation content
-  url: /upgrade_arl-auto_mendocino/decide_to_use_the_aggregate_relocation_guide.html
+  url: /upgrade-arl-auto-mendocino/decide_to_use_the_aggregate_relocation_guide.html
 - title: Required tools and documentation
   url: /upgrade-arl-auto-mendocino/required_tools_and_documentation.html
 - title: Guidelines for upgrading from an AFF A700 to an AFF A900 with ARL
@@ -74,13 +74,13 @@ entries:
   - title: Set up NetApp Volume Encryption on the new controller module
     url: /upgrade-arl-auto-mendocino/set_up_netapp_volume_encryption_new_module.html
   - title: Decommission the old system
-    url: /upgrade-arl-auto-mendocino/decommission_old_system.html.html
+    url: /upgrade-arl-auto-mendocino/decommission_old_system.html
   - title: Resume SnapMirror operations
     url: /upgrade-arl-auto-mendocino/resume_snapmirror_operations.html
 - title: Troubleshoot
   entries:
   - title: Overview
-    url: /upgrade-arl-auto-mendocino-app/troubleshoot-index.html
+    url: /upgrade-arl-auto-mendocino-app/troubleshoot_index.html
   - title: Aggregate relocation failures
     url: /upgrade-arl-auto-mendocino/aggregate_relocation_failures.html
   - title: Reboots, panics, or power cycles

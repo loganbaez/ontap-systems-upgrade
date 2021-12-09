@@ -47,7 +47,6 @@ WARNING: When you are working on node1, you only remove the console and e0M cabl
 image::../media/drw_9500_remove_PCM.png[Remove controller module]
 +
 [cols=2*,cols="20,80"]
-
 |===
 a|
 image::../media/black_circle_one.png[Number one]

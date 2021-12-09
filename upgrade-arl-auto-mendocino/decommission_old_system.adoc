@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: /upgrade-arl-auto-mendocino/decommission_old_system.html.html
+permalink: /upgrade-arl-auto-mendocino/decommission_old_system.html
 keywords: decommission, old system, upgrade, databases, netapp, support, site, serial, number, cluster
 summary: After upgrading, you can decommission the old system through the NetApp Support Site.
 ---
