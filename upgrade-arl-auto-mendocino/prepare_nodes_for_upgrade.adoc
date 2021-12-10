@@ -13,7 +13,7 @@ summary: Begin the controller replacement process by entering the following comm
 :imagesdir: ./media/
 
 [.lead]
-During Stage 1, you must prepare the nodes for the upgrade and run a series of prechecks.
+During Stage 1, you must prepare the nodes for the upgrade and run a series of prechecks. You must also prepare to netboot the new controllers.
 
 .Steps
 

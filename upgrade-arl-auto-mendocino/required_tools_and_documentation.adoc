@@ -15,15 +15,6 @@ summary: You must have specific tools to install the new hardware, and you need 
 [.lead]
 You must have specific tools to install the new hardware, and you need to reference other documents during the upgrade process.
 
-You need the following tools to perform the up grade:
+You need a grounding to perform the upgrade.
 
-* Grounding strap
-
-Go to the link:other_references.html[References] section to access the list of reference documents required for this upgrade.
-
-The NetApp Support Site also contains information:
-
-* Documentation about network interface cards (NICs) and other hardware that you might use with your system. Refer to link:other_references.html[References] to link to the _NetApp Support Site_.
-* The Hardware Universe, which provides information about the hardware that the new system supports. Refer to link:other_references.html[References] to link to the _Hardware Universe_.
-
-Refer to link:other_references.html[References] to link to the _ONTAP 9 Documentation Center_ where you can access ONTAP 9 product documentation.
+Go to the link:other_references.html[References] section to access the list of reference documents and reference sites required for this upgrade.

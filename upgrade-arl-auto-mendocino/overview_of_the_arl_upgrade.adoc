@@ -12,12 +12,6 @@ summary: Before you upgrade the nodes using ARL, you should understand how the p
 :linkattrs:
 :imagesdir: ./media/
 
-//
-// This file was created with NDAC Version 2.0 (August 17, 2020)
-//
-// 2020-12-02 14:33:53.808201
-//
-
 [.lead]
 include::../_include/ru_auto_overview_arl_workflow_top.adoc[]
 
@@ -26,31 +20,31 @@ include::../_include/ru_auto_overview_arl_workflow_top.adoc[]
 | Stage | Steps
 
 | Stage 1. Prepare for upgrade
-a| . Run prechecks to verify that the operation can be performed.
-. Correct aggregate ownership if a precheck fails.
-. Enter the cluster-base license keys.
-. Get an IP address for storage encryption.
-. Manage authentication using a KMIP server.
-. Manage storage encryption using an onboard key manager (OKM).
-. Quiesce the SnapMirror relationships (optional).
+a| . Run prechecks to verify that the operation can be performed
+. Correct aggregate ownership if a precheck fails
+. Input the cluster-base license keys
+. Get an IP address for storage encryption
+. Manage authentication using a KMIP server
+. Manage storage encryption using an onboard key manager (OKM)
+. Quiesce the SnapMirror relationships (optional)
 
 Aggregate ownership at the end of Stage 1:
 
-* Node1 is the home owner and current owner of the node1 aggregates.
-* Node2 is the home owner and current owner of the node2 aggregates.
+* Node1 is the home owner and current owner of the node1 aggregates
+* Node2 is the home owner and current owner of the node2 aggregates
 
-|Stage 2. Relocate resources from node1 and retire the AFF A700 node1
-a| .	Relocate non-root aggregates and NAS data LIFs owned by node1 to node2.
-. Relocate failed or vetoed aggregates.
-. Retire node1.
+|Stage 2. Relocate resources from node1 and retire AFF A700 node1
+a| .	Relocate non-root aggregates and NAS data LIFs owned by node1 to node2
+. Relocate failed or vetoed aggregates
+. Retire node1
 .	Remove the AFF A700 controller module and NVS module
-.	Install AFF A900 NVS and controller module on node1
+.	Install the AFF A900 NVS and controller module on node1
 .	Netboot node 1
 
 Aggregate ownership at the end of Stage 2:
 
-* Node2 is the current owner of node1 aggregates.
-* Node2 is the home owner and current owner of node2 aggregates.
+* Node2 is the current owner of node1 aggregates
+* Node2 is the home owner and current owner of node2 aggregates
 
 |Stage 3. Boot node1 with the AFF A900 controller module NVS
 a| . Boot node1 with the AFF A900 controller module and NVS
@@ -61,21 +55,21 @@ a| . Boot node1 with the AFF A900 controller module and NVS
 
 Aggregate ownership at the end of Stage 3:
 
-* Upgraded AFF A900 node1 is the home owner and current owner of node1 aggregates.
-* Node2 is the home owner and current owner of node2 aggregates.
+* Upgraded AFF A900 node1 is the home owner and current owner of node1 aggregates
+* Node2 is the home owner and current owner of node2 aggregates
 
 |Stage 4. Relocate resources from node2 and retire node2
-a| .	Relocate non-root aggregates and NAS data LIFs from node2 to node1.
-.	Retire node2.
+a| .	Relocate non-root aggregates and NAS data LIFs from node2 to node1
+.	Retire node2
 
 Aggregate ownership at the end of Stage 4:
 
-*	Upgraded node1 is the home owner and current owner of aggregates that originally belonged to node1.
-*	Node2 is the home owner of node2 aggregates.
-*	Upgraded node1 is the current owner of node2 aggregates.
+*	Upgraded node1 is the home owner and current owner of aggregates that originally belonged to node1
+*	Node2 is the home owner of node2 aggregates
+*	Upgraded node1 is the current owner of node2 aggregates
 
 |Stage 5. Install the AFF A900 NVS and controller module on node2
-a| .	Install AFF A900 NVS and controller module on node2.
+a| .	Install the AFF A900 NVS and controller module on node2
 .	Netboot node2
 
 Aggregate ownership at the end of Stage 5:
@@ -90,9 +84,9 @@ a| .	Boot node2 with the AFF A900 controller module and NVS
 .	Move non-root aggregates and NAS data LIFs back to node2
 
 |Stage 7. Complete the upgrade
-a| . Verify that the new controllers are set up correctly.
-. Set up Storage Encryption on the new controller module.
+a| . Verify that the new controllers are set up correctly
+. Set up Storage Encryption on the new controller module
 . Set up NetApp Volume Encryption on the new controller module.
 . Decommission the old system.
-. Resume NetApp SnapMirror operations.
+. Resume NetApp SnapMirror operations
 |===
