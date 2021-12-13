@@ -5,7 +5,7 @@ keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, me
 summary: You upgrade the original controller hardware with the replacement controller hardware, relocating the ownership of non-root aggregates.
 ---
 
-= AFF A700 to AFF A900 nondisruptive upgrade by swapping the controller module and nonvolatile storage module
+= Use "system controller replace" commands and exchange controller and nonvolatile storage modules to upgrade AFF A700 to AFF A900
 :hardbreaks:
 :nofooter:
 :icons: font

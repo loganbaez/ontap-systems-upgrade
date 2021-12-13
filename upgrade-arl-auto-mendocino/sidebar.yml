@@ -1,5 +1,5 @@
 section: upgrade-arl-auto-mendocino
-title: AFF A700 to AFF A900 nondisruptive upgrade by swapping the controller module and nonvolatile storage module
+title: Use "system controller replace" commands and exchange controller and nonvolatile storage modules to upgrade AFF A700 to AFF A900
 entries:
 - title: Overview
   url: /upgrade-arl-auto-mendocino/index.html
