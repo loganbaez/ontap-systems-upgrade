@@ -19,7 +19,7 @@ include::../_include/ru_auto_overview_arl_workflow_top.adoc[]
 |===
 | Stage | Steps
 
-| Stage 1. Prepare for upgrade
+| Stage 1: Prepare for upgrade
 a| . Run prechecks to verify that the operation can be performed
 . Correct aggregate ownership if a precheck fails
 . Input the cluster-base license keys
@@ -33,7 +33,7 @@ Aggregate ownership at the end of Stage 1:
 * Node1 is the home owner and current owner of the node1 aggregates
 * Node2 is the home owner and current owner of the node2 aggregates
 
-|Stage 2. Relocate resources from node1 and retire AFF A700 node1
+|Stage 2: Relocate resources from node1 and retire AFF A700 node1
 a| .	Relocate non-root aggregates and NAS data LIFs owned by node1 to node2
 . Relocate failed or vetoed aggregates
 . Retire node1
@@ -46,7 +46,7 @@ Aggregate ownership at the end of Stage 2:
 * Node2 is the current owner of node1 aggregates
 * Node2 is the home owner and current owner of node2 aggregates
 
-|Stage 3. Boot node1 with the AFF A900 controller module NVS
+|Stage 3: Boot node1 with the AFF A900 controller module NVS
 a| . Boot node1 with the AFF A900 controller module and NVS
 .	Verify that node1 is successfully installed
 .	Restore node1 network configuration
@@ -58,7 +58,7 @@ Aggregate ownership at the end of Stage 3:
 * Upgraded AFF A900 node1 is the home owner and current owner of node1 aggregates
 * Node2 is the home owner and current owner of node2 aggregates
 
-|Stage 4. Relocate resources from node2 and retire node2
+|Stage 4: Relocate resources from node2 and retire node2
 a| .	Relocate non-root aggregates and NAS data LIFs from node2 to node1
 .	Retire node2
 
@@ -68,7 +68,7 @@ Aggregate ownership at the end of Stage 4:
 *	Node2 is the home owner of node2 aggregates
 *	Upgraded node1 is the current owner of node2 aggregates
 
-|Stage 5. Install the AFF A900 NVS and controller module on node2
+|Stage 5: Install the AFF A900 NVS and controller module on node2
 a| .	Install the AFF A900 NVS and controller module on node2
 .	Netboot node2
 
@@ -77,13 +77,13 @@ Aggregate ownership at the end of Stage 5:
 *	Node1 is the home owner and current owner of the aggregates that originally belonged to node1.
 *	Upgraded node2 is the home owner and current owner of aggregates that originally belonged to node2.
 
-|Stage 6. Boot node2 with the AFF A900 controller module and NVS
+|Stage 6: Boot node2 with the AFF A900 controller module and NVS
 a| .	Boot node2 with the AFF A900 controller module and NVS
 .	Verify that node2 is correctly installed
 .	Restore node2 network configuration
 .	Move non-root aggregates and NAS data LIFs back to node2
 
-|Stage 7. Complete the upgrade
+|Stage 7: Complete the upgrade
 a| . Verify that the new controllers are set up correctly
 . Set up Storage Encryption on the new controller module
 . Set up NetApp Volume Encryption on the new controller module.

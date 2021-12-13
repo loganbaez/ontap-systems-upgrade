@@ -15,7 +15,7 @@ entries:
   url: /upgrade-arl-auto-mendocino/overview_of_the_arl_upgrade.html
 - title: Upgrade the node pair
   url: /upgrade-arl-auto-mendocino/upgrade_node_pair.html
-- title: Stage 1 Prepare for upgrade
+- title: "Stage 1: Prepare for upgrade"
   entries:
     - title: Verify the upgrade kit
       url: /upgrade-arl-auto-mendocino/verify_upgrade_kit.html
@@ -23,7 +23,7 @@ entries:
       url: /upgrade-arl-auto-mendocino/prepare_nodes_for_upgrade.html
     - title: Get an IP address of an external key management server for storage encryption
       url: /upgrade-arl-auto-mendocino/get_ip_address_of_external_kms_for_storage_encryption.html
-- title: Stage 2 Relocate resources from node1 and retire the AFF A700 node1
+- title: "Stage 2: Relocate resources from node1 and retire the AFF A700 node1"
   entries:
     - title: Relocate non-root aggregates and NAS data LIFs owned by node1 to node2
       url: /upgrade-arl-auto-mendocino/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html
@@ -33,7 +33,7 @@ entries:
       url: /upgrade-arl-auto-mendocino/retire_node1.html
     - title: Netboot node1
       url: /upgrade-arl-auto-mendocino/netboot_node1.html
-- title: Stage 3 Boot node1 with the AFF A900 controller module and NVS
+- title: "Stage 3: Boot node1 with the AFF A900 controller module and NVS"
   entries:
     - title: Boot node1 with the AFF A900 controller module and NVS
       url: /upgrade-arl-auto-mendocino/boot_node1_with_a900_controller_and_nvs.html
@@ -43,19 +43,19 @@ entries:
       url: /upgrade-arl-auto-mendocino/restore_key_manager_config_upgraded_node1.html
     - title: Move non-root aggregates and NAS data LIFs owned by node1 from node2 to the upgraded node1
       url: /upgrade-arl-auto-mendocino/move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html
-- title: Stage 4 Relocate resources from node2 and retire node2
+- title: "Stage 4: Relocate resources from node2 and retire node2"
   entries:
     - title: Relocate non-root aggregates and NAS data LIFs from node2 to node1
       url: /upgrade-arl-auto-mendocino/relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html
     - title: Retire node2
       url: /upgrade-arl-auto-mendocino/retire_node2.html
-- title: Stage 5 Install the AFF A900 NVS and controller module on node2
+- title: "Stage 5: Install the AFF A900 NVS and controller module on node2"
   entries:
    - title: Install AFF A900 NVS and controller module on node2
      url: /upgrade-arl-auto-mendocino/install_a900_nvs_and_controller_on_node2.html
    - title: Netboot node2
      url: /upgrade-arl-auto-mendocino/netboot_node2.html
-- title: Stage 6 Boot node2 with the AFF A900 controller module and NVS
+- title: "Stage 6: Boot node2 with the AFF A900 controller module and NVS"
   entries:
    - title: Boot node2 with the AFF A900 controller module and NVS
      url: /upgrade-arl-auto-mendocino/boot_node2_with_a900_controller_and_nvs.html
@@ -65,7 +65,7 @@ entries:
      url: /upgrade-arl-auto-mendocino/restore_key_manager_config_node2.html
    - title: Move non-root aggregates and NAS data LIFs back to node2
      url: /upgrade-arl-auto-mendocino/move_non_root_aggr_and_nas_data_lifs_back_to_node2.html
-- title: Stage 7 Complete the upgrade
+- title: "Stage 7: Complete the upgrade"
   entries:
   - title: Ensure that the new controllers are set up correctly
     url: /upgrade-arl-auto-mendocino/ensure_new_controllers_are_set_up_correctly.html
