@@ -48,7 +48,7 @@ You must install the same key management servers that are installed on the exist
 |`security key-manager external restore`
 This command needs the OKM passphrase
 |Onboard Key Manager (OKM)
-`security key-manager onboard sync`
+|`security key-manager onboard sync`
 |===
 
 .After you finish

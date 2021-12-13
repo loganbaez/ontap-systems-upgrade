@@ -119,7 +119,7 @@ All physical network ports, VLAN ports and interface group ports on the node are
 +
 `broadcast-domain show`
 
-. List network port reachability of all ports on node4:
+. List the network port reachability of all ports on node4:
 +
 `network port reachability show`
 +

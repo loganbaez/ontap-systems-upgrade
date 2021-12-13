@@ -58,7 +58,7 @@ If neither node1 or node2 owns data LIFs home-owned by other nodes in the cluste
 `volume show -node <node2> -state offline`
 .	If any volumes are offline, compare them with the list of offline volumes that you captured in the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade], and bring online any of the offline volumes, as required, by using the following command, once for each volume:
 +
-`volume online -vserver <vserver-name> -volume <volume_name>`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 .	Install new licenses for the new nodes by using the following command for each node:
 +
 `system license add -license-code <license_code,license_code,license_code...>`
@@ -79,8 +79,8 @@ The license-code parameter accepts a list of 28 upper-case alphabetic character 
 `system license clean-up -unused`
 * Delete a specific license from a cluster by using the following commands on the nodes:
 +
-`system license delete -serial-number <node1 serial number> -package *`
-`system license delete -serial-number <node2 serial number> -package *`
+`system license delete -serial-number <node1_serial_number> -package *`
+`system license delete -serial-number <node2_serial_number> -package *`
 --
 +
 The following output is displayed:
@@ -98,12 +98,12 @@ Enter `y` to remove all of the packages.
 You might want to compare the output with the output that you captured in the link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade] section.
 .	If NetApp Storage Encryption (NSE) was in use on the configuration and you set the `setenv bootarg.storageencryption.support` command to `true` with the `<kmip.init.maxwait>` variable `off` (in _Boot node2 with the AFF A900 controller module and NVS_, link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1[Step 1]), you need to reset the variable:
 +
-`set diag; systemshell -node <nodename> -command sudo kenv -u -p kmip.init.maxwait`
+`set diag; systemshell -node <node_name> -command sudo kenv -u -p kmip.init.maxwait`
 .	Configure the SPs by using the following command on both nodes:
 +
 `system service-processor network modify -node <node_name>`
 +
-Refer to link:other_references.html[References] to link to the _System Administration Reference_ for information about the SPs and the _ONTAP 9.8 Commands: Manual Page Reference_ for detailed information about the system `service-processor network modify` command.
+Refer to link:other_references.html[References] to link to the _System Administration Reference_ for information about the SPs and the _ONTAP 9 Commands: Manual Page Reference_ for detailed information about the system `service-processor network modify` command.
 . Take the following actions on one of the new nodes:
 
 .. Enter advanced privilege level:
@@ -125,4 +125,4 @@ Refer to link:other_references.html[References] to link to the _System Administr
 
 .After you finish
 
-If Storage Encryption is enabled on node3 and node4, complete the section link:set_up_storage_encryption_new_module.html[Set up Storage Encryption on the new controller module]. Otherwise, complete the section link:decommission_old_system.html[Decommission the old system].
+If Storage Encryption is enabled on node1 and node2, complete the section link:set_up_storage_encryption_new_module.html[Set up Storage Encryption on the new controller module]. Otherwise, complete the section link:decommission_old_system.html[Decommission the old system].

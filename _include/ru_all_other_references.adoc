@@ -38,6 +38,10 @@ Content specific to this upgrade are listed in the table below.
 |Describes syntax and usage of supported ONTAP 9.7 commands.
 |link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-980/home.html[ONTAP 9.8 Commands: Manual Page Reference^]
 |Describes syntax and usage of supported ONTAP 9.8 commands.
+|link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-991/home.html[ONTAP 9.9.1 Commands: Manual Page Reference^]
+|Describes syntax and usage of supported ONTAP 9.9.1 commands.
+|link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-9101/home.html[ONTAP 9.10.1 Commands: Manual Page Reference^]
+|Describes syntax and usage of supported ONTAP 9.10.1 commands.
 |link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html[Disk and aggregate management with the CLI^]
 |Describes how to manage ONTAP physical storage using the CLI. It shows you how to create, expand, and manage aggregates, how to work with Flash Pool aggregates, how to manage disks, and how to manage RAID policies.
 |link:https://docs.netapp.com/us-en/ontap/high-availability/index.html[High Availability management^]

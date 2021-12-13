@@ -29,7 +29,7 @@ cluster::> storage failover show
 Node     Partner   Possible  State Description
 -------  --------  --------- -----------------
 node1    node2     -         Unknown
-node2    node1    false      Waiting for node1, Partial giveback, Takeover is not possible: Storage failover is disabled
+node2    node1     false     Waiting for node1, Partial giveback, Takeover is not possible: Storage failover is disabled
 ....
 
 Although the output says that a node is in partial giveback and that storage failover is disabled, you can disregard this message.

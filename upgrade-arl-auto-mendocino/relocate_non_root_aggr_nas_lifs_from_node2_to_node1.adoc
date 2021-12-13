@@ -16,7 +16,7 @@ summary: Before you can replace node2 with node4, you must relocate the non-root
 Before you can replace node2 with the AFF A900 controller module and NVS, you must first relocate the non-root aggregates that are owned by node2 to node1.
 
 .Before you begin
-After the post-checks are completed from the previous stage, the resource release for node2 starts automatically. The non-root aggregates and non-SAN data LIFs are migrated from node2 to the new node1.
+After the post-checks from the previous stage complete, the resource release for node2 starts automatically. The non-root aggregates and non-SAN data LIFs are migrated from node2 to the new node1.
 
 .About this task
 After the aggregates and LIFs are migrated, the operation is paused for verification purposes. At this stage, you must verify that all the non-root aggregates and non-SAN data LIFs are migrated to the new node1.

@@ -2,7 +2,7 @@ Before you can replace node2 with node4, you must relocate the non-root aggregat
 
 .Before you begin
 
-After the post-checks are completed from the previous stage, the resource release for node2 starts automatically. The non-root aggregates and non-SAN data LIFs are migrated from node2 to node3.
+After the post-checks from the previous stage complete, the resource release for node2 starts automatically. The non-root aggregates and non-SAN data LIFs are migrated from node2 to node3.
 
 .About this task
 
@@ -40,13 +40,13 @@ If the aggregates have gone offline or become foreign on node3, bring them onlin
 +
 If any volumes are offline on node3, bring them online by using the following command on node3, once for each volume:
 +
-`volume online -vserver <vserver-name> -volume <volume-name>`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 +
-The `<vserver-name>` to use with this command is found in the output of the previous `volume show` command.
+The `<vserver_name>` to use with this command is found in the output of the previous `volume show` command.
 
 . Verify that the LIFs have been moved to the correct ports and have a status of `up`. If any LIFs are down, set the administrative status of the LIFs to `up` by entering the following command, once for each LIF:
 +
-`network interface modify -vserver <vserver_name> - lif <LIF_name> -home-node <nodename> - status-admin up`
+`network interface modify -vserver <vserver_name> - lif <LIF_name> -home-node <node_name> - status-admin up`
 
 . If the ports currently hosting data LIFs will not exist on the new hardware, remove them from the broadcast domain:
 +

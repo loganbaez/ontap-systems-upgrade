@@ -63,7 +63,7 @@ To complete the Network Reachability task, the ONTAP network configuration must 
 +
 NOTE:	In this guide section _Re-creating VLANs, ifgrps, and broadcast domains_ has been renamed _Restore network configuration on node1_.
 
-.	With the controller replacement in a paused state, proceed to the next section of this document to restore network configuration on the node.
+.	With the controller replacement in a paused state, proceed to the <<Restore network configuration on node1>>.
 
 == Restore network configuration on node1
 After you confirm that node1 is in quorum and can communicate with node2, verify that node1’s VLANs, interface groups, and broadcast domains are seen on node1. Also, verify that all node1 network ports are configured in their correct broadcast domains.
@@ -80,7 +80,7 @@ All physical network ports, VLAN ports, and interface group ports on the node ar
 .	List the broadcast domains on the cluster:
 +
 `broadcast-domain show`
-.	List network port reachability of all ports on node1:
+.	List the network port reachability of all ports on node1:
 +
 `network port reachability show -node node1`
 +
@@ -119,14 +119,16 @@ Node1
 +
 In the above example, node1 booted after the controller replacement. Some ports do not have reachability because there is no physical connectivity. You must repair any ports with a reachability status other than `ok`.
 +
-NOTE:	During an AFF A700 to an AFF A900 controller upgrade, the network ports and their connectivity should not change. All ports should reside in the correct broadcast domains and the network port reachability should not change. However, before moving LIFs back from node2 to node1, you must verify the reachability and health of network ports.
+NOTE:	During an AFF A700 to an AFF A900 controller upgrade, the network ports and their connectivity should not change. All ports should reside in the correct broadcast domains and the network port reachability should not change. However, before moving LIFs from node2 back to node1, you must verify the reachability and health status of the network ports.
 
 .	[[restore_node1_step4]]Repair the reachability for each of the ports on node1 with a reachability status other than `ok` by using the following command, in the following order:
 +
 `network port reachability repair -node <node_name>  -port <port_name>`
 +
+--
 ..	Physical ports
 ..	VLAN ports
+--
 +
 You should see output like the following example:
 +

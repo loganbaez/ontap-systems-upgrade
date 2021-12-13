@@ -48,7 +48,7 @@ If neither node3 or node4 owns data LIFs home-owned by other nodes in the cluste
 
 . If any volumes are offline, compare them with the list of offline volumes that you captured in the section link:prepare_nodes_for_upgrade.html[Prepare the nodes for upgrade], and bring online any of the offline volumes, as required, by using the following command, once for each volume:
 +
-`volume online -vserver <vserver-name> -volume <volume_name>`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 . Install new licenses for the new nodes by using the following command for each node:
 +
 `system license add - license-code <license_code,license_code,license_code...>`
@@ -72,9 +72,9 @@ The license-code parameter accepts a list of 28 upper-case alphabetic character 
 
 ** Delete a specific license from a cluster by using the following commands on the nodes:
 +
-`system license delete -serial-number <node1 serial number> -package *`
+`system license delete -serial-number <node1_serial_number> -package *`
 +
-`system license delete -serial-number <node2 serial number> -package *`
+`system license delete -serial-number <node2_serial_number> -package *`
 --
 +
 The following output is displayed:
@@ -96,4 +96,4 @@ You might want to compare the output with the output that you captured in the se
 
 . If NetApp Storage Encryption (NSE) was in use on the configuration and you set the `setenv bootarg.storageencryption.support` command to `true` with the `<kmip.init.maxwait>` variable `off` (in link:install_boot_node4.html#step27[Install and boot node4, Step 27]), you need to reset the variable:
 +
-`set diag; systemshell -node <nodename> -command sudo kenv -u -p kmip.init.maxwait`
+`set diag; systemshell -node <node_name> -command sudo kenv -u -p kmip.init.maxwait`

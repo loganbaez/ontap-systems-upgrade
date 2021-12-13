@@ -17,7 +17,7 @@ After you verify network configuration on node1 and before you relocate aggregat
 
 .About this task
 
-Remote LIFs handle traffic to SAN LUNs during the upgrade procedure. Moving SAN LIFs is not necessary for cluster or service health during the upgrade. SAN LIFs are not moved unless they need to be mapped to new ports. You will verify that the LIFs are healthy and located on appropriate ports after you bring node1 online.
+Remote LIFs handle traffic to SAN LUNs during the upgrade procedure. Moving SAN LIFs is not necessary for cluster or service health during the upgrade. SAN LIFs are not moved unless they need to be mapped to new ports. After you bring node1 online, you must verify that the LIFs are healthy and located on the appropriate ports.
 
 .Steps
 
@@ -26,12 +26,14 @@ Remote LIFs handle traffic to SAN LUNs during the upgrade procedure. Moving SAN 
 `system controller replace resume`
 +
 The system performs the following tasks:
-
++
+--
 * Cluster quorum check
 * System ID check
 * Image version check
 * Target platform check
 * Network reachability check
+--
 +
 The operation pauses at this stage in the network reachability check.
 

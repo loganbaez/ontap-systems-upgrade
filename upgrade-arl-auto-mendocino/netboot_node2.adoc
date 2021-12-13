@@ -21,7 +21,7 @@ NOTE:	You can also use the USB boot option to perform the netboot. See the link:
 
 .Before you begin
 * Verify that you can access a HTTP server with the system.
-* You need to download the necessary system files for your system and the correct version of ONTAP from the _NetApp Support Site_. Refer to link:other_references.html[References] to link to the _NetApp Support Site_.
+* Download the necessary system files for your system and the correct version of ONTAP from the _NetApp Support Site_. Refer to link:other_references.html[References] to link to the _NetApp Support Site_.
 
 .About this task
 You must netboot the new controllers if they do not have the same version of ONTAP 9 installed on them that is installed on the original controllers. After you install each new controller, you boot the system from the ONTAP 9 image stored on the web server. You can then download the correct files to the boot media device for subsequent system boots.
@@ -82,7 +82,7 @@ Please choose one of the following:
 Selection (1-11)?
 ----
 
-.	From the boot menu, select option `(7) Install new software first.`
+.	From the boot menu, select option `(7) Install new software first`.
 +
 This menu option downloads and installs the new ONTAP image to the boot device.
 +
@@ -138,7 +138,7 @@ Controller HA configuration: ha
 +
 `halt`
 +
-Node2 should stop at LOADER> prompt.
+Node2 should stop at the LOADER> prompt.
 .	On node2, check the system date, time, and time zone:
 +
 `date`
@@ -154,7 +154,7 @@ Node2 should stop at LOADER> prompt.
 .	If necessary, set the time on node2:
 +
 `set time <hh:mm:ss>`
-.	Set the partner system ID on node2:
+.	If necessary, set the partner system ID on node2:
 +
 `setenv partner-sysid <node1_sysid>`
 

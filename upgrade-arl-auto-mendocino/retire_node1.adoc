@@ -14,7 +14,7 @@ summary: To retire node1, you resume the automated operation to disable the HA p
 
 
 [.lead]
-To retire node1, resume the automated operation to disable the HA pair with node2 and shut down node1 correctly. You must later remove the AFF A700 controller module and NVS from the node1 chassis.
+To retire node1, resume the automated operation to disable the HA pair with node2 and shut down node1 correctly. You must later remove the AFF A700 controller module and NVS from the node1 chassis and then install the AFF A900 NVS and controller module on node1.
 
 .Steps
 .	Resume the operation:
@@ -148,8 +148,8 @@ image::../media/black_circle_two.png[Number two]
 |===
 
 .	Connect the serial console as soon as the module is seated and be ready to interrupt AUTOBOOT of node1.
-.	After autoboot is interrupted, node1 stops at the LOADER prompt. If autoboot is not interrupted on time and node1 starts booting, wait for the prompt to press *Ctrl-C* to go into the boot menu. After the node stops at the boot menu, use option 8 to reboot the node and interrupt the autoboot during reboot.
-.	At the LOADER of node1, set the default environment variables:
+.	After you interrupt AUTOBOOT, node1 stops at the LOADER prompt. If you do not interrupt AUTOBOOT on time and node1 starts booting, wait for the prompt to press *Ctrl-C* to go into the boot menu. After the node stops at the boot menu, use option `8` to reboot the node and interrupt the AUTOBOOT during reboot.
+.	At the LOADER> prompt of node1, set the default environment variables:
 +
 `set-defaults`
 .	Save the default environment variables settings:
