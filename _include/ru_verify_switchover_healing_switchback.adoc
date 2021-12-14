@@ -1,3 +1,0 @@
-You should verify the switchover, healing, and switchback operations of the MetroCluster configuration.
-
-Use the procedures for negotiated switchover, healing, and switchback that are mentioned in the link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-mgmt-dr/home.html[MetroCluster Management and Disaster Recovery Guide].
