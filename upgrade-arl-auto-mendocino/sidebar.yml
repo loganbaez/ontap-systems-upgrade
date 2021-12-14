@@ -80,7 +80,7 @@ entries:
 - title: Troubleshoot
   entries:
   - title: Overview
-    url: /upgrade-arl-auto-mendocino-app/troubleshoot_index.html
+    url: /upgrade-arl-auto-mendocino/troubleshoot_index.html
   - title: Aggregate relocation failures
     url: /upgrade-arl-auto-mendocino/aggregate_relocation_failures.html
   - title: Reboots, panics, or power cycles
