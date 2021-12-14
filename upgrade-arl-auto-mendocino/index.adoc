@@ -5,7 +5,7 @@ keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, me
 summary: You upgrade the original controller hardware with the replacement controller hardware, relocating the ownership of non-root aggregates.
 ---
 
-= Upgrade AFF A700 to AFF A900 by using "system controller replace" commands and swapping controller module and NVS (ONTAP 9.10.1 or later)
+= Use "system controller replace" commands and swap controller module and NVS to upgrade AFF A700 to AFF A900 running ONTAP 9.10.1 or later
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -29,7 +29,7 @@ If you are performing an upgrade by using system commands refer to the following
 |If you’re running this ONTAP version…
 |To upgrade with system commands, use…
 |9.10.1 or later
-|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-mendocino/index.html[Upgrade AFF A700 to AFF A900 by using "system controller replace" commands and swapping controller module and NVS (ONTAP 9.10.1 or later)]
+|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-mendocino/index.html[Use "system controller replace" commands and swap controller module and NVS to upgrade AFF A700 to AFF A900 running ONTAP 9.10.1 or later]
 |9.8 or later
 |link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html[Use "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.8 or Later]
 |9.5 to 9.7
