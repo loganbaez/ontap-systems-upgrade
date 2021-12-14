@@ -31,9 +31,9 @@ If you are performing an upgrade by using system commands refer to the following
 |9.10.1 or later
 |link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-mendocino/index.html[Use "system controller replace" commands and swap controller module and NVS to upgrade AFF A700 to AFF A900 running ONTAP 9.10.1 or later]
 |9.8 or later
-|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html[Use "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.8 or Later]
+|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html[Use "system controller replace" commands to upgrade controller hardware running ONTAP 9.8 or later]
 |9.5 to 9.7
-|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html[Use "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.5 to ONTAP 9.7]
+|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html[Use "system controller replace" commands to upgrade controller hardware running ONTAP 9.5 to ONTAP 9.7]
 |===
 If you are performing a manual upgrade refer to the following table:
 [cols=2*,options="header",cols="30,70"]
@@ -41,9 +41,9 @@ If you are performing a manual upgrade refer to the following table:
 |If you’re running this ONTAP version…
 |To manually upgrade, use…
 |9.8 or later
-|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html[Use Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.8 or Later]
+|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html[Use aggregate relocation to manually upgrade controller hardware running ONTAP 9.8 or later]
 |9.0 to 9.7
-|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html[Use Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.7 or Earlier]
+|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html[Use aggregate relocation to manually upgrade controller hardware running ONTAP 9.7 or earlier]
 |===
 
 // 24 FEB 2021:  formatted from CMS
