@@ -16,12 +16,14 @@ summary: This content describes how to upgrade the storage controllers in an HA 
 This content describes how to upgrade the storage controllers in an AFF A700 HA pair with new AFF A900 controllers, while keeping all the existing data and disks. This is a complex procedure that should be used only by experienced administrators.
 
 You should use this guide under the following circumstances:
+
 *	You have received the NetApp AFF A900 controller module and NVS upgrade kit.
 *	You are running ONTAP 9.10.1 or later.
 *	You do not want to add the new controllers as a new HA pair to the cluster and migrate the data using volume moves.
 *	You are experienced in administering ONTAP and are comfortable with the risks of working in the diagnostic privilege mode.
 
 You should NOT use this guide under the following circumstances:
+
 * If you are using FlexArray Virtualization Software on AFF A700 systems, do *NOT* use this procedure.
 * If you are using a shared switch for cluster-interconnect and Ethernet attached storage, do *NOT* use this procedure.
 
