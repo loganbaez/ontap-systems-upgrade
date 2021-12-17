@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto/stage_6_complete_the_upgrade.html
+permalink: upgrade-arl-auto/stage_6_index.html
 keywords: complete upgrade, node, unified, target, storage, encryption, MetroCluster
 summary: During stage 6, ensure that the new nodes are set up correctly.
 ---
