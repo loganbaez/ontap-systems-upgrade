@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-manual/reconfig_fc_switch_layout.html
+permalink: upgrade-arl-manual/reconfig_index.html
 keywords: reconfigure, fc, switch, layout, RCF, metrocluster
 summary: Decommission the old system
 ---

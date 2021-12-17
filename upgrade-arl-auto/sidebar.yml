@@ -55,11 +55,6 @@ entries:
       url: /upgrade-arl-auto/join_quorum_node_has_different_ports_stage3.html
     - title: Verify the node3 installation
       url: /upgrade-arl-auto/verify_node3_installation.html
-      entries:
-        - title: Re-create VLANs, ifgrps, and broadcast domains on node3
-          url: /upgrade-arl-auto/recreate_vlans_ifgrps_broadcast_domains_node3.html
-        - title: Restore key-manager configuration on node3
-          url: /upgrade-arl-auto/restore_key_manager_config_node3.html
     - title: Move non-root aggregates and NAS data LIFs owned by node1 from node2 to node3
       url: /upgrade-arl-auto/move_non_root_aggr_nas_lifs_node1_from_node2_to_node3.html
 - title: "Stage 4. Relocate and retire node"
@@ -84,11 +79,6 @@ entries:
      url: /upgrade-arl-auto/join_quorum_node_has_different_ports_stage5.html
    - title: Verify the node4 installation
      url: /upgrade-arl-auto/verify_node4_installation.html
-     entries:
-     - title: Re-create VLANs,ifgrps, and broadcast domains on node4
-       url: /upgrade-arl-auto/recreate_vlans_ifgrps_broadcast_domains_node4.html
-     - title: Restore key-manager configuration on node4
-       url: /upgrade-arl-auto/restore_key-manager_config_node4.html
    - title: Move non-root aggregates and NAS data LIFs owned by node2 from node3 to node4
      url: /upgrade-arl-auto/move_non_root_aggr_and_nas_data_lifs_node2_from_node3_to_node4.html
 - title: "Stage 6. Complete the upgrade"

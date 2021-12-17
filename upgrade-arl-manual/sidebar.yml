@@ -14,8 +14,9 @@ entries:
   - title: " Worksheet:  Information to collect before and during the controller upgrade"
     url: /upgrade-arl-manual/worksheet_information_before_during_upgrade.html
   - title: "Reconfigure the FC switch layout for ONTAP 9.1 or later"
-    url: /upgrade-arl-manual/reconfig_fc_switch_layout.html
     entries:
+      - title: Overview
+        url: /upgrade-arl-manual/reconfig_index.html
       - title: "Send a custom AutoSupport message prior to reconfiguring switches"
         url: /upgrade-arl-manual/send_custom_asup_message_prior_reconfig_switches.html
       - title: "Verify the health of the MetroCluster configuration"
