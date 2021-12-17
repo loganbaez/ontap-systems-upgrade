@@ -17,8 +17,8 @@ entries:
   url: /upgrade-arl-auto-mendocino/upgrade_node_pair.html
 - title: "Stage 1: Prepare for upgrade"
   entries:
-    - title: Verify the upgrade kit
-      url: /upgrade-arl-auto-mendocino/verify_upgrade_kit.html
+    - title: Verify the upgrade hardware
+      url: /upgrade-arl-auto-mendocino/verify_upgrade_hardware.html
     - title: Prepare the nodes for upgrade
       url: /upgrade-arl-auto-mendocino/prepare_nodes_for_upgrade.html
     - title: Get an IP address of an external key management server for storage encryption

@@ -91,7 +91,7 @@ image::../media/black_circle_two.png[Number two]
 .	If you are using any add-on modules as coredump devices on the AFF A700 NVS, do NOT transfer them to the AFF A900 NVS.
 
 == Install the AFF A900 NVS and controller module on node1
-You must install the AFF A900 NVS and controller module that you received in the upgrade kit on node1. Do NOT move the coredump devices from the AFF A700 NVS module to the AFF A900 NVS module.
+You must install the AFF A900 NVS and controller module that you received for the upgrade on node1. Do NOT move the coredump devices from the AFF A700 NVS module to the AFF A900 NVS module.
 
 .Before you begin
 If you are not already grounded, properly ground yourself.
