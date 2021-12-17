@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-app/stage_6_complete_the_upgrade_overview.html
+permalink: upgrade-arl-auto-app/stage_6_index.html
 keywords: complete upgrade, node, unified, target, storage, encryption
 summary: During stage 6, confirm that the new nodes are set up correctly.
 ---

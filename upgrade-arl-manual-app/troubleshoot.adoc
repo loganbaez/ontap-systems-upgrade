@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-manual-app/troubleshoot.html
+permalink: upgrade-arl-manual-app/troubleshoot_index.html
 keywrods: troubleshoot, failure, aggregate, relocate, lifs
 summary: troubleshoot, troubleshooting, problem, error, failure
 ---

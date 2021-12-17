@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-manual/troubleshoot.html
+permalink: upgrade-arl-manual/troubleshoot_index.html
 keywords: troubleshoot, troubleshooting, problem, error, failure
 summary: You might encounter a failure while upgrading the node pair.
 ---

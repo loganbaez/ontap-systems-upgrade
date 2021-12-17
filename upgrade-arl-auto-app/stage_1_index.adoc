@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto-app/stage_1_prepare_for_upgrade_overview.html
+permalink: upgrade-arl-auto-app/stage_1_index.html
 keywords: upgrade, preparing, preparation, prepare, overview
 summary: During Stage 1, you must prepare the nodes for the upgrade and run a series of prechecks.
 ---

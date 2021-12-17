@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto/stage_3_install_boot_node3_overview.html
+permalink: upgrade-arl-auto/stage_3_index.html
 keywords: stage 3, install node3, non-SAN data LIFs, non-root aggregates
 summary: During Stage 3, you install and boot node3.
 ---

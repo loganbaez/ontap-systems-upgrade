@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-manual/stage6_complete_upgrade.html
+permalink: upgrade-arl-manual/stage_6_index.html
 keywords: stage 6, complete, upgrade, set up, setup, controller, storage encryption, netapp encryption, decommission, resume snapmirror
 summary: During stage 6, ensure that the new nodes are set up correctly.
 ---
 
-= Stage 6: Complete the upgrade
+= Stage 6. Complete the upgrade
 :hardbreaks:
 :nofooter:
 :icons: font

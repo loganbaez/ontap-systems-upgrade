@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-manual/stage2_relocate_retire_node1.html
+permalink: upgrade-arl-manual/stage_2_index.html
 keywords: relocate, retire, node1, steps
 summary: During Stage 2, you relocate the node1 aggregates and LIFs to node2, record node1 information, and then retire node1.
 ---
 
-= Stage 2: Relocate and retire node1
+= Stage 2. Relocate and retire node1
 :hardbreaks:
 :nofooter:
 :icons: font

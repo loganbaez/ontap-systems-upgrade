@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-auto/stage_4_relocate_retire_node2.html
+permalink: upgrade-arl-auto/stage_4_index.html
 keywords: relocate, retire, node2, LIF, node3, non-root aggregates
 summary: During Stage 4, all non-root aggregates are relocated from node2 to node3.
 ---
