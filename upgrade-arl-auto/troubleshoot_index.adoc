@@ -1,0 +1,18 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto/troubleshoot_index.html
+keywords: node, failure, upgrading, crash, relocate, solution
+summary: You might encounter a failure while upgrading the node pair.
+---
+
+= Troubleshoot
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+// top section on page 73 of PDF
+include::../_include/ru_auto_troubleshoot.adoc[]

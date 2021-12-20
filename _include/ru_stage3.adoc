@@ -1,4 +1,0 @@
-During Stage 3, you install and boot node3, check that the cluster and node-management ports from node1 come online on node3, and verify the node3 installation. Non-SAN data LIFs and non-root aggregates belonging to node1 are moved from node2 to node3.
-// This reuse file is used in the following adoc files:
-// upgrade-arl-auto-app/stage_3_installing_and_booting_node3_overview.adoc
-// upgrade-arl-auto/stage_3_install_boot_node3.adoc
