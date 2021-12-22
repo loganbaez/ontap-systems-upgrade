@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/retire_node2.html
 keywords: retire, node2
-summary: To retire node2, you need to shut node2 down properly and remove it from the rack or chassis.
+summary: Retire node2 by shutting down node2 correctly and removing it from the rack or chassis.
 ---
 
 = Retire node2

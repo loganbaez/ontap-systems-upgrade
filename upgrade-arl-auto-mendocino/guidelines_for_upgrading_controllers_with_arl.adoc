@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/guidelines_for_upgrading_controllers_with_arl.html
-keywords: guidelines, upgrade
-summary: Guidelines for upgrade controllers with ARL
+keywords: guidelines, upgrade, aff, a900, a700, ontap, controllers
+summary: Using ARL to upgrade a pair of AFF A700 controllers running ONTAP 9.10.1 or later to an AFF A900 system depends on the system and the controller configuration.
 ---
 
 = Guidelines for upgrading from an AFF A700 to an AFF A900 with ARL
@@ -13,7 +13,7 @@ summary: Guidelines for upgrade controllers with ARL
 :imagesdir: ./media/
 
 [.lead]
-Using ARL to upgrade a pair of AFF A700 controllers running ONTAP 9.10.1 or later to an AFF A900 depends on the system and the configuration of both the original and replacement controllers.
+Using ARL to upgrade a pair of AFF A700 controllers running ONTAP 9.10.1 or later to an AFF A900 system depends on the system and the configuration of both the original and replacement controllers.
 
 == Supported upgrades for ARL
 An AFF A700 to an AFF A900 upgrade using ARL and swapping only the controller module and the NVS is the supported combination. If you have received a new AFF A900 system as a complete system, including a new chassis, refer to link:other_references.html[References] to link to the _Use "system controller replace" commands to upgrade controller hardware running ONTAP 9.8 or later_ content.

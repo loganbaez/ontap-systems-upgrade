@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/relocate_failed_or_vetoed_aggr.html
 keywords: relocate, failed, vetoed, aggregates, relocation, operation
-summary: If any aggregates fail to relocate or are vetoed, you must manually relocate the aggregates.
+summary: If aggregates fail to relocate or are vetoed, you must manually relocate the aggregates or override either the vetoes or destination checks.
 ---
 
 = Relocate failed or vetoed aggregates

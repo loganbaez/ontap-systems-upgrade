@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/boot_node1_with_a900_controller_and_nvs.html
-keywords: automating, controller, upgrade, network, port, aff, a700, a900
-summary: During a controller upgrade, an AFF A700 controller is replaced with an AFF A900 controller.
+keywords: boot, nvs, controller, module, node1, aff, a700, a900
+summary: Boot node1 with the AFF A900 controller module and NVS.
 ---
 
 = Boot node1 with the AFF A900 controller module and NVS

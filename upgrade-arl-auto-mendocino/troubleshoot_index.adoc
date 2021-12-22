@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/troubleshoot_index.html
 keywords: troubleshooting, node, aggregate, lif, migrate, failure
-summary: You might encounter a failure while upgrading the node pair.
+summary: Troubleshoot failures that might occur when upgrading the node pair.
 ---
 
 = Troubleshoot

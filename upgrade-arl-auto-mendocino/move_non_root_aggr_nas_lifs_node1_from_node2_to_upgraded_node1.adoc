@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: /upgrade-arl-auto-mendocino/move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html
-keywords: moving, non-root, aggregates, nas, lif, node1, node2, node3
-summary: After you verify network configuration on node3 and before you relocate aggregates from node2 to node3.
+keywords: moving, non-root, aggregates, nas, lif, node1, node2
+summary: After you verify network configuration on node1 and before you relocate aggregates from node2 to node1, you must verify the LIF ownership on node1.
 ---
 
 = Move non-root aggregates and NAS data LIFs owned by node1 from node2 to the upgraded node1

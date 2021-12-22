@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/other_references.html
-keywords: other references, documentation, hardware universe, content, documentation center, information
-summary: You can link to other reference content and websites in this topic.
+keywords: references, documentation, hardware universe, content, documentation center, information
+summary: Link to reference content and websites that are required to support the upgrade.
 ---
 
 = References

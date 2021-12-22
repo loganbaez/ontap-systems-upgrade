@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/verify_node2_installation.html
-keywords: verifying, verify, node, install, installation
-summary: Verifying the node3 installation
+keywords: verifying, verify, node, install, installation, aff, a900, nvs, controller
+summary: Verify the node2 installation with the AFF A900 controller module and NVS.
 ---
 
 = Verify the node2 installation

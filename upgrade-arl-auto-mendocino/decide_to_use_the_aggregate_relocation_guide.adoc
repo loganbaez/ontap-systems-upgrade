@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/decide_to_use_the_aggregate_relocation_guide.html
-keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability
-summary: This content describes how to upgrade the storage controllers in an HA pair with new controllers.
+keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability, aff, a700, a900
+summary: Decide whether to use ARL to upgrade storage controllers in an AFF A700 HA pair with new AFF A900 controllers.
 ---
 
 = Decide whether to use the aggregate relocation content
@@ -13,7 +13,7 @@ summary: This content describes how to upgrade the storage controllers in an HA 
 :imagesdir: ./media/
 
 [.lead]
-This content describes how to upgrade the storage controllers in an AFF A700 HA pair with new AFF A900 controllers, while keeping all the existing data and disks. This is a complex procedure that should be used only by experienced administrators.
+This content describes how to upgrade storage controllers in an AFF A700 HA pair with new AFF A900 controllers, while keeping all the existing data and disks. This is a complex procedure that should be used only by experienced administrators.
 
 You should use this guide under the following circumstances:
 

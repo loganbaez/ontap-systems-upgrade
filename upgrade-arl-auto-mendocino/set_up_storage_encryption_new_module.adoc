@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/set_up_storage_encryption_new_module.html
 keywords: set up storage, encryption, controller, module, node
-summary: If the replaced controller or the HA partner of the new controller uses Storage Encryption.
+summary: If the replaced controller or the HA partner of the new controller uses Storage Encryption, you must configure the new controller module for Storage Encryption.
 ---
 
 = Set up Storage Encryption on the new controller module

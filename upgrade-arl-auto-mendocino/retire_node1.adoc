@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/retire_node1.html
 keywords: retiring, node, retire
-summary: To retire node1, you resume the automated operation to disable the HA pair with node2 and shut Lonode1 down properly.
+summary: Retire node1 by resuming the automated operation to disable the HA pair with node2 and shutting down node1 correctly.
 ---
 
 = Retire node1

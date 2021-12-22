@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/netboot_node1.html
-keywords: preparing, netboot, ndac, ontap
-summary: After you physically rack node3 and node4 later in the procedure, you might need to netboot them.
+keywords: preparing, netboot, ontap, node1, aff, a900
+summary: After swapping the corresponding AFF A900 node1 controller module and NVS, you must netboot node1.
 ---
 
 = Netboot node1

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/aggregate_relocation_failures.html
-keywords: aggregate, relocation, failures, ARL
+keywords: aggregate, relocation, failures, arl, stage 2, stage 3, stage 5
 summary: Aggregate relocation (ARL) might fail at different points during the upgrade.
 ---
 

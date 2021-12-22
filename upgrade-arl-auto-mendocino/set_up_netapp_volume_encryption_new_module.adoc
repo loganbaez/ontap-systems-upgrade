@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/set_up_netapp_volume_encryption_new_module.html
 keywords: set up, netapp volume encryption, controller, module, nve, node
-summary: If the replaced controller or the HA partner of the new controller uses NetApp Volume Encryption.
+summary: If the replaced controller or the HA partner of the new controller uses NetApp Volume Encryption, you must configure the new controller module for NVE.
 ---
 
 = Set up NetApp Volume Encryption on the new controller module

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/index.html
-keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology
-summary: You upgrade the original controller hardware with the replacement controller hardware, relocating the ownership of non-root aggregates.
+keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology, aff, a700, a900
+summary: You upgrade the AFF A700 controller hardware with the AFF A900 controller hardware, relocating the ownership of non-root aggregates.
 ---
 
 = Use "system controller replace" commands and swap controller module and NVS to upgrade AFF A700 to AFF A900 running ONTAP 9.10.1 or later

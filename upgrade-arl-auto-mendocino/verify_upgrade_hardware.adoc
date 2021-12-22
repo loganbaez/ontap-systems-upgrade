@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: upgrade-arl-auto-mendocino/verify_upgrade_hardware.html
 keywords: preparing, nodes, upgrade
-summary: Begin the controller replacement process by entering the following command in the ONTAP command line.
+summary: Before starting the upgrade, verify that you have the correct hardware to upgrade an AFF A700 system to an AFF A900 system.
 ---
 
 = Verify the upgrade hardware
@@ -13,4 +13,4 @@ summary: Begin the controller replacement process by entering the following comm
 :imagesdir: ./media/
 
 [.lead]
-Before you start the upgrade, you must verify that you have the correct hardware to upgrade an AFF A700 system to an AFF A900 system. For each HA pair that you are upgrading, you should have two system controller modules and two NVS modules. If there are parts missing, contact technical support for assistance.
+Before starting the upgrade, you must verify that you have the correct hardware to upgrade an AFF A700 system to an AFF A900 system. For each HA pair that you are upgrading, you should have two system controller modules and two NVS modules. If there are parts missing, contact technical support for assistance.
