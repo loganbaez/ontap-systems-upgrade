@@ -5,7 +5,7 @@ keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, me
 summary: You upgrade the AFF A700 controller hardware with the AFF A900 controller hardware, relocating the ownership of non-root aggregates.
 ---
 
-= Use "system controller replace" commands and swap controller module and NVS to upgrade AFF A700 to AFF A900 running ONTAP 9.10.1 or later
+= Use "system controller replace" commands and swap controller module and NVS to upgrade AFF A700 to AFF A900 (ONTAP 9.10.1 or later)
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary: You upgrade the AFF A700 controller hardware with the AFF A900 controll
 :imagesdir: ./media/
 
 [.lead]
-You can nondisruptively upgrade controller hardware on a HA pair of AFF A700 nodes running ONTAP 9.10.1 or later to an AFF A900 system by swapping only the controller module and the nonvolatile storage module (NVS). You migrate non-root aggregates between the AFF A700 nodes and then migrate to the AFF A900 nodes in the HA pair. The data hosted on the nodes that you are upgrading is accessible during the upgrade procedure.
+You can nondisruptively upgrade controller hardware on a HA pair of AFF A700 nodes running ONTAP 9.10.1 or later to an AFF A900 system by swapping the controller module and the nonvolatile storage module (NVS). You migrate non-root aggregates between the AFF A700 nodes and then migrate to the AFF A900 nodes in the HA pair. The data hosted on the nodes that you are upgrading is accessible during the upgrade procedure.
 
 .About this task
 During this controller upgrade procedure, to upgrade an AFF A700 to an AFF A900 system, you only need to swap two the field replaceable units (FRUs) on each node on the AFF A700 system with the new FRUs. You do not need to move, disconnect, or reconnect the I/O cards, data cables, disk shelves, and disks.

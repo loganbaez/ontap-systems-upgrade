@@ -1,5 +1,5 @@
 section: upgrade-arl-auto-mendocino
-title: Use "system controller replace" commands and swap controller module and NVS to upgrade AFF A700 to AFF A900 running ONTAP 9.10.1 or later
+title: Use "system controller replace" commands to upgrade AFF A700 to AFF A900 running ONTAP 9.10.1 or later
 entries:
 - title: Overview
   url: /upgrade-arl-auto-mendocino/index.html
