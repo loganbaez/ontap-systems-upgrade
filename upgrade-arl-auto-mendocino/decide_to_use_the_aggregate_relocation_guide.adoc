@@ -5,7 +5,7 @@ keywords: deciding, aggregate, relocation, content, storage, controllers, admini
 summary: Decide whether to use ARL to upgrade storage controllers in an AFF A700 HA pair with new AFF A900 controllers.
 ---
 
-= Decide whether to use the aggregate relocation content
+= Decide whether to use the aggregate relocation procedure
 :hardbreaks:
 :nofooter:
 :icons: font

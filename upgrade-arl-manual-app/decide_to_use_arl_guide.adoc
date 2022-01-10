@@ -5,7 +5,7 @@ keywords:  decision, decision, what to use, upgrade, HA pair, metrocluster, stor
 summary: Whether or not to use this content.
 ---
 
-= Decide whether to use the aggregate relocation content
+= Decide whether to use the aggregate relocation procedure
 :hardbreaks:
 :nofooter:
 :icons: font

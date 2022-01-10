@@ -5,7 +5,7 @@ keywords: deciding, aggregate, relocation, content, storage, controllers, admini
 summary: This content describes how to upgrade the storage controllers in an HA pair with new controllers.
 ---
 
-= Decide whether to use the aggregate relocation content
+= Decide whether to use the aggregate relocation procedure
 :hardbreaks:
 :nofooter:
 :icons: font
