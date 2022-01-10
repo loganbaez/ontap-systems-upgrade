@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
-permalink: upgrade-arl-manual-app/troubleshoot_index.html
-keywrods: troubleshoot, failure, aggregate, relocate, lifs
-summary: troubleshoot, troubleshooting, problem, error, failure
+permalink: upgrade-arl-manual/troubleshoot_index.html
+keywords: troubleshoot, troubleshooting, problem, error, failure
+summary: You might encounter a failure while upgrading the node pair.
 ---
 
 = Troubleshoot

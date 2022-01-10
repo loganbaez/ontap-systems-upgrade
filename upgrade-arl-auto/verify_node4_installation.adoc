@@ -38,3 +38,35 @@ If the configuration is different for node4, a system disruption might occur lat
 . Check that the replaced controller is configured correctly for MetroCluster configuration and not in switch-over mode.
 +
 CAUTION: *Attention:* At this stage MetroCluster configuration will not be in a normal state and you might have errors to resolve. See link:verify_health_of_metrocluster_config.html[Verify the health of the MetroCluster configuration].
+
+== Re-create VLANs, interface groups, and broadcast domains on node4
+
+After you confirm that node4 is in quorum and can communicate with node3, you must re-create node2's VLANs, interface groups, and broadcast domains on node4. You must also add the node3 ports to the newly re-created broadcast domains.
+
+.About this task
+
+For more information on creating and re-creating VLANs, interface groups, and broadcast domains, go to link:other_references.html[References] and link to _Network Management_.
+
+.Steps
+
+. Re-create the VLANs on node4 using the node2 information recorded in the link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html[Relocate non-root aggregates and NAS data LIFs from node2 to node3] section:
++
+`network port vlan create -node <node4> -vlan <vlan-names>`
+
+. Re-create the interface groups on node4 using the node2 information recorded in the link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html[Relocate non-root aggregates and NAS data LIFs from node2 to node3] section:
++
+`network port ifgrp create -node <node4> -ifgrp <port_ifgrp_names>-distr-func`
+
+. Re-create the broadcast domains on node4 using the node2 information recorded in the link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html[Relocate non-root aggregates and NAS data LIFs from node2 to node3] section:
++
+`network port broadcast-domain create -ipspace Default -broadcast-domain <broadcast_domain_names> -mtu <mtu_size> -ports <node_name:port_name,node_name:port_name>`
+
+. Add the node4 ports to the newly re-created broadcast domains:
++
+`network port broadcast-domain add-ports -broadcast-domain <broadcast_domain_names> -ports <node_name:port_name,node_name:port_name>`
+
+== Restore key-manager configuration on node4
+
+If you are using NetApp Volume Encryption (NVE) to encrypt volumes on the system you are upgrading, the encryption configuration must be synchronized to the new nodes. Encrypted volumes are taken offline when ARL is complete for node1 aggregates from node2 to node4.
+
+include::../_include/ru_auto_restore_key_manager_config_ontap_95_97.adoc[]

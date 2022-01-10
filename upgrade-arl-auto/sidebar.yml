@@ -21,16 +21,18 @@ entries:
   url: /upgrade-arl-auto/overview_of_the_arl_upgrade.html
 - title: Upgrade the node pair
   url: /upgrade-arl-auto/upgrade_node_pair.html
-- title: Stage 1 Prepare for upgrade
-  url: /upgrade-arl-auto/stage_1_prepare_for_upgrade_overview.html
+- title: "Stage 1. Prepare for upgrade"
   entries:
+    - title: Overview
+      url: /upgrade-arl-auto/stage_1_index.html
     - title: Prepare the nodes for upgrade
       url: /upgrade-arl-auto/prepare_nodes_for_upgrade.html
     - title: Get an IP address of an external key management server for storage encryption
       url: /upgrade-arl-auto/get_ip_address_of_external_kms_for_storage_encryption.html
-- title: Stage 2 Relocate and retire node1
-  url: /upgrade-arl-auto/stage_2_relocate_retire_node1_overview.html
+- title: "Stage 2. Relocate and retire node1"
   entries:
+    - title: Overview
+      url: /upgrade-arl-auto/stage_2_index.html
     - title: Relocate non-root aggregates and NAS data LIFs owned by node1 to node2
       url: /upgrade-arl-auto/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html
     - title: Relocate failed or vetoed aggregates
@@ -39,9 +41,10 @@ entries:
       url: /upgrade-arl-auto/retire_node1.html
     - title: Prepare for netboot
       url: /upgrade-arl-auto/prepare_for_netboot.html
-- title: Stage 3 Install and boot node3
-  url: /upgrade-arl-auto/stage_3_install_boot_node3_overview.html
+- title: "Stage 3. Install and boot node3"
   entries:
+    - title: Overview
+      url: /upgrade-arl-auto/stage_3_index.html
     - title: Install and boot node3
       url: /upgrade-arl-auto/install_boot_node3.html
     - title: Set the FC or UTA/UTA2 configuration on node3
@@ -52,23 +55,20 @@ entries:
       url: /upgrade-arl-auto/join_quorum_node_has_different_ports_stage3.html
     - title: Verify the node3 installation
       url: /upgrade-arl-auto/verify_node3_installation.html
-      entries:
-        - title: Re-create VLANs, ifgrps, and broadcast domains on node3
-          url: /upgrade-arl-auto/recreate_vlans_ifgrps_broadcast_domains_node3.html
-        - title: Restore key-manager configuration on node3
-          url: /upgrade-arl-auto/restore_key_manager_config_node3.html
     - title: Move non-root aggregates and NAS data LIFs owned by node1 from node2 to node3
       url: /upgrade-arl-auto/move_non_root_aggr_nas_lifs_node1_from_node2_to_node3.html
-- title: Stage 4 Relocate and retire node2
-  url: /upgrade-arl-auto/stage_4_relocate_retire_node2.html
+- title: "Stage 4. Relocate and retire node"
   entries:
+    - title: Overview
+      url: /upgrade-arl-auto/stage_4_index.html
     - title: Relocate non-root aggregates and NAS data LIFs from node2 to node3
       url: /upgrade-arl-auto/relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html
     - title: Retire node2
       url: /upgrade-arl-auto/retire_node2.html
-- title: Stage 5 Install and boot node4
-  url: /upgrade-arl-auto/stage_5_install_and_boot_node4.html
+- title: "Stage 5. Install and boot node4"
   entries:
+   - title: Overview
+     url: /upgrade-arl-auto/stage_5_index.html
    - title: Install and boot node4
      url: /upgrade-arl-auto/install_boot_node4.html
    - title: Set the FC or UTA/UTA2 configuration on node4
@@ -79,16 +79,12 @@ entries:
      url: /upgrade-arl-auto/join_quorum_node_has_different_ports_stage5.html
    - title: Verify the node4 installation
      url: /upgrade-arl-auto/verify_node4_installation.html
-     entries:
-     - title: Re-create VLANs,ifgrps, and broadcast domains on node4
-       url: /upgrade-arl-auto/recreate_vlans_ifgrps_broadcast_domains_node4.html
-     - title: Restore key-manager configuration on node4
-       url: /upgrade-arl-auto/restore_key-manager_config_node4.html
    - title: Move non-root aggregates and NAS data LIFs owned by node2 from node3 to node4
      url: /upgrade-arl-auto/move_non_root_aggr_and_nas_data_lifs_node2_from_node3_to_node4.html
-- title: Stage 6 Complete the upgrade
-  url: /upgrade-arl-auto/stage_6_complete_the_upgrade.html
+- title: "Stage 6. Complete the upgrade"
   entries:
+  - title: Overview
+    url: /upgrade-arl-auto/stage_6_index.html
   - title: Ensure that the new controllers are set up correctly
     url: /upgrade-arl-auto/ensure_new_controllers_are_set_up_correctly.html
   - title: Set up Storage Encryption on the new controller module
@@ -100,8 +96,10 @@ entries:
   - title: Resume SnapMirror operations
     url: /upgrade-arl-auto/resume_snapmirror_operations.html
 - title: Troubleshoot
-  url: /upgrade-arl-auto/troubleshoot.html
+
   entries:
+  - title: Overview
+    url: /upgrade-arl-auto/troubleshoot_index.html
   - title: Aggregate relocation failures
     url: /upgrade-arl-auto/aggregate_relocation_failures.html
   - title: Reboots, panics, or power cycles

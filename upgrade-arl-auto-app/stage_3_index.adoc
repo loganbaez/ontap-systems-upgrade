@@ -1,0 +1,30 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-app/stage_3_index.html
+keywords: installing, booting, node3, install, cluster
+summary: During Stage 3, you install and boot node3.
+---
+
+= Stage 3. Install and boot node3
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2020-12-02 14:33:54.127102
+//
+
+[.lead]
+During Stage 3, you install and boot node3, check that the cluster and node-management ports from node1 come online on node3, and verify the node3 installation. Non-SAN data LIFs and non-root aggregates belonging to node1 are moved from node2 to node3.
+
+.Steps
+
+. link:install_boot_node3.html[Install and boot node3]
+. link:set_fc_or_uta_uta2_config_on_node3.html[Set the FC or UTA/UTA2 configuration on node3]
+. link:verify_node3_installation.html[Verify the node3 installation]
+. link:restore_key-manager_configuration_node3.html[Restore key-manager configuration on node3]
+. link:move_non-root_aggr_and_nas_data_lifs_node1_from_node2_to_node3.html[Move non-root aggregates and NAS data LIFs owned by node1 from node2 to node3]
