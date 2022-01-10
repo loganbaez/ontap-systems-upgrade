@@ -13,4 +13,4 @@ summary: Before starting the upgrade, verify that you have the correct hardware 
 :imagesdir: ./media/
 
 [.lead]
-Before starting the upgrade, you must verify that you have the correct hardware to upgrade an AFF A700 system to an AFF A900 system. For each HA pair that you are upgrading, you should have two system controller modules and two NVS modules. If there are parts missing, contact technical support for assistance.
+Before starting the upgrade, you must verify that you have the correct hardware to upgrade an AFF A700 system to an AFF A900 system. For each HA pair that you are upgrading, you should have two system controller modules and two NVS modules. If there are parts missing, contact technical support or your NetApp sales contact for assistance.
