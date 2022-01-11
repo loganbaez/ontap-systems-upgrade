@@ -23,7 +23,7 @@ entries:
       url: /upgrade-arl-auto-mendocino/prepare_nodes_for_upgrade.html
     - title: Get an IP address of an external key management server for storage encryption
       url: /upgrade-arl-auto-mendocino/get_ip_address_of_external_kms_for_storage_encryption.html
-- title: "Stage 2. Relocate resources and retire the AFF A700 node1"
+- title: "Stage 2. Relocate resources and retire AFF A700 node1"
   entries:
     - title: Relocate non-root aggregates and NAS data LIFs owned by node1 to node2
       url: /upgrade-arl-auto-mendocino/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html
