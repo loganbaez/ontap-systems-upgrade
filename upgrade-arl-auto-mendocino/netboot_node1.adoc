@@ -57,9 +57,7 @@ NOTE:	Other parameters might be necessary for your interface. Enter `help ifconf
 
 .	Perform netboot on node1:
 +
-`netboot \http://<web_server_ip/path_to_web_accessible_directory>/<ontap_version>_image.tgz`
-+
-The `<path_to_the_web-accessible_directory>` should lead to where you downloaded the `<ontap_version>_image.tgz` in <<netboot_node1_step2,Step 2>>.
+`netboot \http://<web_server_ip/path_to_web_accessible_directory>/netboot/kernel`
 +
 NOTE:	Do not interrupt the boot.
 
@@ -95,6 +93,9 @@ Always use netboot to update the new node to the desired image. If you use anoth
 
 .	If you are prompted to continue the procedure, enter `y`, and when prompted for the package, enter the URL:
 `\http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz`
++
+The `<path_to_the_web-accessible_directory>` should lead to where you downloaded the `<ontap_version>_image.tgz` in <<netboot_node1_step2,Step 2>>.
+
 .	Complete the following substeps to reboot the controller module:
 ..	Enter `n` to skip the backup recovery when you see the following prompt:
 +

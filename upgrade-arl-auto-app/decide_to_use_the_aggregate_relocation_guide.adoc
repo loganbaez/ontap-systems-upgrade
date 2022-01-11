@@ -51,7 +51,7 @@ The following table shows the supported model matrix for the controller upgrade.
 
 NOTE: If your controller upgrade model combination is not in the above table, contact technical support.
 
-^1^For the additional steps needed for A800 systems, go to the step that references A800 in section link:set_fc_or_uta_uta2_config_on_node3.html#step23[Check and configure UTA/UTA2 ports on node3, Step 23], or link:set_fc_or_uta_uta2_config_node4.html#step23[Check and configure UTA/UTA2 ports on node4, Step 23].
+^1^For the additional steps needed for AFF A800 systems, go to the step that references A800 in section link:set_fc_or_uta_uta2_config_on_node3.html#step23[Check and configure UTA/UTA2 ports on node3, Step 23], or link:set_fc_or_uta_uta2_config_node4.html#step23[Check and configure UTA/UTA2 ports on node4, Step 23].
 
 ^2^ARL automated upgrade from an AFF A320 to an AFF A400 system is supported from ONTAP 9.9.1.
 // BURT 1379899 30-Aug-2021
