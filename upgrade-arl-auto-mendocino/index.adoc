@@ -26,7 +26,7 @@ This procedure uses a method called aggregate relocation (ARL), which takes adva
 
 During the procedure, you upgrade the original controller hardware with the replacement controller hardware, relocating the ownership of non-root aggregates. You migrate aggregates multiple times from node to node to ensure that at least one node is serving data from the aggregates throughout the upgrade procedure. You also migrate data logical interfaces (LIFs) between nodes in the cluster as you proceed.
 
-NOTE: Note:	The terms *node1* and *node2*, are used only as a reference to node names in this document. When following the procedure, you must substitute the real names of your nodes.
+NOTE: The terms *node1* and *node2*, are used only as a reference to node names in this document. When following the procedure, you must substitute the real names of your nodes.
 
 .Important information to note
 

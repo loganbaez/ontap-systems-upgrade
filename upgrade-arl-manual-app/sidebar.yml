@@ -1,5 +1,5 @@
 section: upgrade-arl-manual-app
-title: "Use aggregate relocation to manually upgrade controller hardware running ONTAP 9.8 or later"
+title: "Manually upgrade controller hardware running ONTAP 9.8 or later"
 entries:
   - title: Overview
     url: /upgrade-arl-manual-app/index.html
