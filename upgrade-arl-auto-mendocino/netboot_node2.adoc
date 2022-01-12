@@ -149,19 +149,29 @@ Node2 should stop at the LOADER> prompt.
 .	If necessary, set the date on node2:
 +
 `set date <mm/dd/yyyy>`
++
+NOTE: Set the corresponding UTC date on node2.
+
 .	On node2, check the time by using the following command at the boot environment prompt:
 +
 `show time`
 .	If necessary, set the time on node2:
 +
 `set time <hh:mm:ss>`
++
+NOTE: Set the corresponding UTC time on node2.
+
 .	If necessary, set the partner system ID on node2:
++
+NOTE: This is the system ID for the node1 that you upgraded to an AFF A900.
 +
 `setenv partner-sysid <node1_sysid>`
 
 ..	Save the settings:
 +
 `saveenv`
+
+
 .	On node2, at the LOADER prompt, you should verify the `partner-sysid`. For node2, the `partner-sysid` needs to be that of node1. Verify the `partner-sysid` for node1:
 +
 `printenv partner-sysid`
