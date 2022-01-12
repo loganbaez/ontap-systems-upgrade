@@ -163,7 +163,7 @@ NOTE: Set the corresponding UTC time on node2.
 
 .	If necessary, set the partner system ID on node2:
 +
-NOTE: This is the system ID for the node1 that you upgraded to an AFF A900.
+NOTE: This is the system ID of the node1 that you are upgrading to an AFF A900.
 +
 `setenv partner-sysid <node1_sysid>`
 
