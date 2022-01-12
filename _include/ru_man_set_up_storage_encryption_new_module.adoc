@@ -31,7 +31,7 @@ You must install the same key management servers that are installed on the exist
 
 .. Launch the key management server setup wizard on the new node:
 +
-`security key-manager external enable -node <new_controller_name>`
+`security key-manager setup -node <new_controller_name>`
 
 .. Complete the steps in the wizard to configure key management servers.
 . Restore authentication keys from all linked key management servers to the new node:

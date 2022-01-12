@@ -8,7 +8,7 @@ After upgrading, you must immediately configure Storage Encryption and establish
 
 . Configure Storage Encryption on all nodes by using the following command on each node:
 +
-`security key-manager external enable`
+`security key-manager setup`
 
 . Add the IP address for each key management server:
 +

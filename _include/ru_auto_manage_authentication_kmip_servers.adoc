@@ -2,7 +2,7 @@
 
 . Add a new controller:
 +
-`security key-manager external enable -node <new_controller_name>`
+`security key-manager setup -node <new_controller_name>`
 
 . Add the key manager:
 +
