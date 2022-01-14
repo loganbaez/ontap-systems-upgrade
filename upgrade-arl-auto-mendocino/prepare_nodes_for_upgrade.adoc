@@ -1,0 +1,132 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-mendocino/prepare_nodes_for_upgrade.html
+keywords: preparing, nodes, upgrade, stage 1, prechecks
+summary: During Stage 1, you must prepare the nodes for the upgrade and run a series of prechecks.
+---
+
+= Prepare the nodes for upgrade
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+During Stage 1, you must prepare the nodes for the upgrade and run a series of prechecks. You must also prepare to netboot the new controllers.
+
+.Steps
+
+. Begin the controller replacement process by entering the following command in the advanced privilege mode of the ONTAP command line:
++
+`set -privilege advanced`
++
+`system controller replace start -nodes <node_names>`
++
+You will see output similar to the following:
++
+....
+Warning:
+1. Current ONTAP version is 9.x
+
+2. Verify that NVMEM or NVRAM batteries of the new nodes are charged, and charge them if they are not. You need to physically check the new nodes to see if the NVMEM or NVRAM  batteries are charged. You can check the battery status either by connecting to a serial console or using SSH, logging into the Service Processor (SP) or Baseboard Management Controller (BMC) for your system, and use the system sensors to see if the battery has a sufficient charge.
+
+Attention: Do not try to clear the NVRAM contents. If there is a need to clear the contents of NVRAM, contact NetApp technical support.
+
+3. If a controller was previously part of a different cluster, run wipeconfig before using it as the replacement controller.
+
+Do you want to continue? {y|n}: y
+....
++
+. Select `y`, you will see the following output:
++
+....
+Controller replacement operation: Prechecks in progress.
+Controller replacement operation has been paused for user intervention.
+....
++
+During the prechecks phase, the system runs the following list of checks in the background.
++
+[cols="35,65"]
+|===
+|Precheck |Description
+
+|Cluster Health Check
+|Checks all the nodes in the cluster to confirm they are healthy.
+|Aggregate Relocation Status Check
+|Checks whether an aggregate relocation is already in progress.
+If another aggregate relocation is in progress, the check fails.
+|Model Name Check
+|Checks whether the controller models are supported for this procedure.
+If the models are not supported, the task fails.
+|Cluster Quorum Check
+|Checks that the nodes being replaced are in quorum. If the nodes are not in quorum, the task fails.
+|Image Version Check
+|Checks that the nodes being replaced run the same version of ONTAP.
+If the ONTAP image versions are different, the task fails.
+The new nodes must have the same version of ONTAP 9.x installed on them that is installed on the original nodes. If the new nodes have a different version of ONTAP installed, you need to netboot the new controllers after you install them. For instructions on how to upgrade ONTAP, refer to link:other_references.html[References] to link to _Upgrade ONTAP_.
+|HA Status Check
+|Checks if both the nodes being replaced are in a high-availability (HA) pair configuration.
+If storage failover is not enabled for the controllers, the task fails.
+|Aggregate Status Check
+|If the nodes being replaced own aggregates for which they are not the home owner, the task fails.
+The nodes should not own any non-local aggregates.
+|Disk Status Check
+|If any nodes being replaced have missing or failed disks, the task fails.
+If any disks are missing, refer to link:other_references.html[References] to link to _Disk and aggregate management with the CLI_,  _Logical storage management with the CLI_, and _High Availability management_ to configure storage for the HA pair.
+|Data LIF Status Check
+|Checks if any of the nodes being replaced have non-local data LIFs.
+The nodes should not contain any data LIFs for which they are not the home owner. If one of the nodes contains non-local data LIFs, the task fails.
+|Cluster LIF Status
+|Checks whether the cluster LIFs are up for both nodes. If the cluster LIFs are down, the task fails.
+|ASUP Status Check
+|If ASUP notifications are not configured, the task fails.
+You must enable ASUP before beginning the controller replacement procedure.
+|CPU Utilization Check
+|Checks if the CPU utilization is more than 50% for any of the nodes being replaced.
+If the CPU usage is more than 50% for a considerable period of time, the task fails.
+|Aggregate Reconstruction Check
+|Checks if reconstruction is occurring on any data aggregates.
+If aggregate reconstruction is in progress, the task fails.
+|Node Affinity Job Check
+|Checks if any node affinity jobs are running.
+If node affinity jobs are running, the check fails.
+|===
+
+.	After the controller replacement operation is started and the prechecks are completed, the operation pauses allowing you to collect output information that you might need later in the controller upgrade process.
+
+. Run the below set of commands as directed by the controller replacement procedure on the system console.
++
+You must run and save the output of the following commands individually:
++
+* vserver services name-service dns show
+* network interface show -curr-node <nodename> -role cluster,intercluster,node-mgmt,cluster-mgmt,data
+* network port show -node <node_name> -type physical
+* service-processor show -node * -instance
+* network fcp adapter show -node <node_name>
+* network port ifgrp show
+* system node show -instance -node <node_name>
+* run -node <node_name> sysconfig
+* storage aggregate show -node <node_name>
+* volume show -node <node_name>
+* storage array config show -switch <switch_name>
+* system license show -owner <node_name>
+* storage encryption disk show
+* security key-manager backup show
+* security key-manager external show
+* security key-manager external show-status
+* reachability show -detail
+
+NOTE: If NetApp Volume Encryption using Onboard Key Manager (OKM) is in use, keep the key- manager passphrase ready to complete the key manager resync later in the procedure.
+
+include::../_include/ru_auto_correct_aggregate_ownership.adoc[]
+
+== License
+
+When you set up a cluster, the setup wizard prompts you to enter the cluster-base license key. However, some features require additional licenses, which are issued as _packages_ that include one or more features. Each node in the cluster must have its own key for each feature to be used in the cluster.
+
+If you do not have new license keys, currently licensed features in the cluster are available to the new controller. However, using unlicensed features on the controller might put you out of compliance with your license agreement, so you should install the new license key or keys for the new controller after the upgrade is complete.
+
+Refer to link:other_references.html[References] to link to the _NetApp Support Site_ where you can obtain new 2-character license keys for 9.10.1 or later. The keys are available in the _My Support_ section under _Software licenses_. If the site does not have the license keys you need, you can contact your NetApp sales representative.
+
+For detailed information about licensing, refer to link:other_references.html[References] to link to the _System Administration Reference_.

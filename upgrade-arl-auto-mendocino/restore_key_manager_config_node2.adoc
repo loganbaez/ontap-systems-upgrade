@@ -1,0 +1,19 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-mendocino/restore_key_manager_config_node2.html
+keywords: restore key-manager, configuration, node1, nve, arl, volume, encryption
+summary: If you are using Netapp Volume Encryption (NVE) to encrypt volumes on the upgraded system, synchronize the encryption configuration to the new nodes.
+---
+
+= Restore key-manager configuration on node2
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+If you are using NetApp Volume Encryption (NVE) to encrypt volumes on the system you are upgrading, the encryption configuration must be synchronized to the new nodes. Encrypted volumes are taken offline when ARL is complete for node1 aggregates from node2 to node1.
+
+include::../_include/ru_auto_restore_key_manager_config_ontap_98.adoc[]
+// 11 DEC 2020, thomi, checked

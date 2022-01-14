@@ -1,4 +1,4 @@
-NOTE: The home owner for the aggregates and LIFs are not modified; only the current -owner is modified.
+NOTE: The home owner for the aggregates and LIFs are not modified; only the current owner is modified.
 
 .Steps
 
@@ -40,6 +40,6 @@ If the aggregates have gone offline or become foreign on node2, bring them onlin
 +
 If any volumes are offline on node2, bring them online by using the following command on node2, once for each volume:
 +
-`volume online -vserver <vserver-name> -volume <volume-name>`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 +
-The `<vserver-name>` to use with this command is found in the output of the previous `volume show` command.
+The `<vserver_name>` to use with this command is found in the output of the previous `volume show` command.

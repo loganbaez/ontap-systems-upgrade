@@ -24,6 +24,8 @@ homepage:
           url: /upgrade/upgrade-decide-to-use-this-guide.html
     - title: Upgrade by moving aggregates on systems running ONTAP 9.8 and later
       links:
+        - title: Use "system controller replace" commands (AFF A700 to AFF A900)
+          url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-mendocino/
         - title: Use "system controller replace" commands (most systems)
           url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/
         - title: Use manual commands

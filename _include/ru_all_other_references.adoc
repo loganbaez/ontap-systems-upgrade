@@ -38,6 +38,10 @@ Content specific to this upgrade are listed in the table below.
 |Describes syntax and usage of supported ONTAP 9.7 commands.
 |link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-980/home.html[ONTAP 9.8 Commands: Manual Page Reference^]
 |Describes syntax and usage of supported ONTAP 9.8 commands.
+|link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-991/home.html[ONTAP 9.9.1 Commands: Manual Page Reference^]
+|Describes syntax and usage of supported ONTAP 9.9.1 commands.
+|link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-9101/home.html[ONTAP 9.10.1 Commands: Manual Page Reference^]
+|Describes syntax and usage of supported ONTAP 9.10.1 commands.
 |link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html[Disk and aggregate management with the CLI^]
 |Describes how to manage ONTAP physical storage using the CLI. It shows you how to create, expand, and manage aggregates, how to work with Flash Pool aggregates, how to manage disks, and how to manage RAID policies.
 |link:https://docs.netapp.com/us-en/ontap/high-availability/index.html[High Availability management^]
@@ -56,14 +60,16 @@ Content specific to this upgrade are listed in the table below.
 |Describes how to administer ONTAP systems, shows you how to use the CLI interface, how to access the cluster, how to manage nodes, and much more.
 |link:https://docs.netapp.com/us-en/ontap/upgrade/index.html[Upgrade ONTAP^]
 |Contains instructions for downloading and upgrading ONTAP.
-|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html[Use "system controller replace" commands to upgrade controller hardware running ONTAP 9.5 to ONTAP 9.7^]
-|Describes the aggregate relocation procedures needed to non-disruptively upgrade controllers running ONTAP 9.5 to ONTAP 9.7 by using "system controller replace" commands.
+|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-mendocino/index.html[Use "system controller replace" commands to upgrade AFF A700 to AFF A900 running ONTAP 9.10.1 RC2 or later^]
+|Describes the aggregate relocation procedures needed to non-disruptively upgrade an AFF A700 to an AFF A900 running ONTAP 9.10.1 RC2 or later by using "system controller replace" commands.
 |link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html[Use "system controller replace" commands to upgrade controller hardware running ONTAP 9.8 or later^]
 |Describes the aggregate relocation procedures needed to non-disruptively upgrade controllers running ONTAP 9.8 by using "system controller replace" commands.
-|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html[Use aggregate relocation to manually upgrade controller hardware running ONTAP 9.7 or earlier^]
-|Describes the aggregate relocation procedures needed to perform manual non-disruptive controller upgrades running ONTAP 9.7 or earlier.
 |link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html[Use aggregate relocation to manually upgrade controller hardware running ONTAP 9.8 or later^]
 |Describes the aggregate relocation procedures needed to perform manual non-disruptive controller upgrades running ONTAP 9.8 or later.
+|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html[Use "system controller replace" commands to upgrade controller hardware running ONTAP 9.5 to ONTAP 9.7^]
+|Describes the aggregate relocation procedures needed to non-disruptively upgrade controllers running ONTAP 9.5 to ONTAP 9.7 by using "system controller replace" commands.
+|link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html[Use aggregate relocation to manually upgrade controller hardware running ONTAP 9.7 or earlier^]
+|Describes the aggregate relocation procedures needed to perform manual non-disruptive controller upgrades running ONTAP 9.7 or earlier.
 |===
 
 == Reference sites

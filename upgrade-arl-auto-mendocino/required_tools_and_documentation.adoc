@@ -1,0 +1,18 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-mendocino/required_tools_and_documentation.html
+keywords: required, tools, documentation, install, worksheet, ontap
+summary: You require specific tools to perform the upgrade, and you need to reference other documents during the upgrade process.
+---
+
+= Required tools and documentation
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+You must have a grounding strap to perform the upgrade, and you need to reference other documents during the upgrade process.
+
+Go to the link:other_references.html[References] section to access the list of reference documents and reference sites required for this upgrade.

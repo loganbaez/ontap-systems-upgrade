@@ -94,7 +94,7 @@ Aggregate ownership at the end of Stage 5:
 |Stage 6. Complete the upgrade
 a| . Verify the system is set up correctly.
 . Set up Storage Encryption on the new controller module.
-. Set up NetApp Volume Encryption on the new control module.
+. Set up NetApp Volume Encryption on the new controller module.
 . Decommission the old system.
 . Resume NetApp SnapMirror operations, if needed.
 |===
