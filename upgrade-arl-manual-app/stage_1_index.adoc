@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-manual-app/stage_1_index.html
+keywords: stage 1, prepare, upgrade, steps
+summary: Stage 1, Prepare for the upgrade.
+---
+
+= Stage 1. Prepare for the upgrade
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_man_stage1.adoc[]
