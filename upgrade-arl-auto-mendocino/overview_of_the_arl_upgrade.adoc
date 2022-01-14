@@ -1,0 +1,92 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-mendocino/overview_of_the_arl_upgrade.html
+keywords: overview, arl, upgrade, owner, controller, hardware
+summary: Before you upgrade the nodes using ARL, you should understand how the procedure works.
+---
+
+= Overview of the ARL upgrade
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_auto_overview_arl_workflow_top.adoc[]
+
+[cols="35,65"]
+|===
+| Stage | Steps
+
+| Stage 1: Prepare for upgrade
+a| . Run prechecks to verify that the operation can be performed
+. Correct aggregate ownership if a precheck fails
+. Input the cluster-base license keys
+. Get an IP address for storage encryption
+. Manage authentication using a KMIP server
+. Manage storage encryption using an onboard key manager (OKM)
+. Quiesce the SnapMirror relationships (optional)
+
+Aggregate ownership at the end of Stage 1:
+
+* Node1 is the home owner and current owner of the node1 aggregates
+* Node2 is the home owner and current owner of the node2 aggregates
+
+|Stage 2: Relocate resources from node1 and retire AFF A700 node1
+a| .	Relocate non-root aggregates and NAS data LIFs owned by node1 to node2
+. Relocate failed or vetoed aggregates
+. Retire node1
+.	Remove the AFF A700 controller module and NVS module
+.	Install the AFF A900 NVS and controller module on node1
+.	Netboot node 1
+
+Aggregate ownership at the end of Stage 2:
+
+* Node2 is the current owner of node1 aggregates
+* Node2 is the home owner and current owner of node2 aggregates
+
+|Stage 3: Boot node1 with the AFF A900 controller module NVS
+a| . Boot node1 with the AFF A900 controller module and NVS
+.	Verify that node1 is successfully installed
+.	Restore node1 network configuration
+.	Restore key-manager configuration on the upgraded node1
+.	Move non-root aggregates and NAS data LIFs owned by node1 from node2 to the upgraded node1
+
+Aggregate ownership at the end of Stage 3:
+
+* Upgraded AFF A900 node1 is the home owner and current owner of node1 aggregates
+* Node2 is the home owner and current owner of node2 aggregates
+
+|Stage 4: Relocate resources from node2 and retire node2
+a| .	Relocate non-root aggregates and NAS data LIFs from node2 to node1
+.	Retire node2
+
+Aggregate ownership at the end of Stage 4:
+
+*	Upgraded node1 is the home owner and current owner of aggregates that originally belonged to node1
+*	Node2 is the home owner of node2 aggregates
+*	Upgraded node1 is the current owner of node2 aggregates
+
+|Stage 5: Install the AFF A900 NVS and controller module on node2
+a| .	Install the AFF A900 NVS and controller module on node2
+.	Netboot node2
+
+Aggregate ownership at the end of Stage 5:
+
+*	Node1 is the home owner and current owner of the aggregates that originally belonged to node1.
+*	Upgraded node2 is the home owner and current owner of aggregates that originally belonged to node2.
+
+|Stage 6: Boot node2 with the AFF A900 controller module and NVS
+a| .	Boot node2 with the AFF A900 controller module and NVS
+.	Verify that node2 is correctly installed
+.	Restore node2 network configuration
+.	Move non-root aggregates and NAS data LIFs back to node2
+
+|Stage 7: Complete the upgrade
+a| . Verify that the new controllers are set up correctly
+. Set up Storage Encryption on the new controller module
+. Set up NetApp Volume Encryption on the new controller module.
+. Decommission the old system.
+. Resume NetApp SnapMirror operations
+|===

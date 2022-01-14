@@ -22,4 +22,4 @@
 
 . If you use the Federal Information Processing Standard (FIPS), rekey all self-encrypting disks with the new authentication key:
 +
-`storage encryption disk* modify -disk * [-fips-key-id nonMSID AK]`
+`storage encryption disk modify -disk * [-fips-key-id nonMSID AK]`

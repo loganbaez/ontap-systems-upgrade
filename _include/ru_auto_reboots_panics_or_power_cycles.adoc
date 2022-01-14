@@ -68,7 +68,7 @@ Node1 does not take over.
 +
 A client outage occurs for all aggregates while node2 is booting up.
 
-. Continue with rest of the node-pair upgrade procedure.
+. Continue with the rest of the node-pair upgrade procedure.
 
 == Reboots, panics, or power cycles during the first verification phase
 

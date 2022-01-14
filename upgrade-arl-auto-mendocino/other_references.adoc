@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-mendocino/other_references.html
+keywords: references, documentation, hardware universe, content, documentation center, information
+summary: Link to reference content and websites that are required to support the upgrade.
+---
+
+= References
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_all_other_references.adoc[]
+// 02 MAR 2021:  added new approach for external references

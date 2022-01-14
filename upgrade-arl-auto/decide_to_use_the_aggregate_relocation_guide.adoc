@@ -5,7 +5,7 @@ keywords: aggregate relocation, decide to use, upgrade, model, matrix, replaceme
 summary: This content describes how to upgrade the storage controllers in an HA pair with new controllers while keeping all the existing data and disks.
 ---
 
-= Decide whether to use the aggregate relocation content
+= Decide whether to use the aggregate relocation procedure
 :hardbreaks:
 :nofooter:
 :icons: font

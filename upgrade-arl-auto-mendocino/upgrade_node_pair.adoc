@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-mendocino/upgrade_node_pair.html
+keywords: upgrading, node pair, prepare, original, decommission
+summary: Upgrade the node pair by preparing the original nodes and performing a series of steps on the original and new nodes.
+---
+
+= Upgrade the node pair
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_auto_upgrade_node_pair.adoc[]

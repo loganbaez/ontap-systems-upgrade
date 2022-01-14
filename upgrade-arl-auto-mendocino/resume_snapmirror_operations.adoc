@@ -1,0 +1,16 @@
+---
+sidebar: sidebar
+permalink: upgrade-arl-auto-mendocino/resume_snapmirror_operations.html
+keywords: resuming, snapmirror, operations, transfer, relationship, updates, schedule, complete
+summary: Resume SnapMirror transfers that were quiesced before the upgrade and resume the SnapMirror relationships.
+---
+
+= Resume SnapMirror operations
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+include::../_include/ru_auto_resume_snapmirror_operations.adoc[]

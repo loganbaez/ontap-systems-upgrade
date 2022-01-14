@@ -19,30 +19,4 @@ summary: If any aggregates fail to relocate or are vetoed, you must manually rel
 //
 
 [.lead]
-If any aggregates fail to relocate or are vetoed, you must manually relocate the aggregates, or if necessary, override either the vetoes or destination checks.
-
-.About this task
-
-The relocation operation will have paused due to the error.
-
-.Steps
-
-. Check the event management system (EMS) logs to determine why the aggregate failed to relocate or was vetoed.
-. Relocate any failed or vetoed aggregates:
-+
-`storage aggregate relocation start -node <node1> -destination <node2> aggregate-list <aggr_name> -ndo-controller-upgrade true`
-
-. When prompted, enter `y`.
-. You can force relocation by using one of the following methods:
-
-[cols="35,65"]
-|===
-|Option |Description
-
-|Overriding veto checks
-|Use the following command:
-`storage aggregate relocation start -node node1 -destination node2 -aggregate-list <aggr_list> -ndo-controller-upgrade true -override-vetoes true`
-|Overriding destination checks
-|Use the following command:
-`storage aggregate relocation start -node node1 -destination node2 -aggregate-list <aggr_list> -ndo-controller-upgrade true -override-vetoes true -override-destination-checks true`
-|===
+include::../_include/ru_auto_relocate_failed_vetoed_aggregates.adoc[]

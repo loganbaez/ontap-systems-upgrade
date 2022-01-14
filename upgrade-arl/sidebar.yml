@@ -3,6 +3,7 @@ title: Use aggregate relocation to upgrade controller hardware
 entries:
 - title: Overview
   url: /upgrade-arl/index.html
+- section: upgrade-arl-auto-mendocino
 - section: upgrade-arl-auto-app
 - section: upgrade-arl-manual-app
 - section: upgrade-arl-auto
